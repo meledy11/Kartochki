@@ -72,7 +72,7 @@
       overflow: hidden;
     }
 
-    /* ——— СВЕРХКОМПАКТНАЯ ШАПКА В ОДНУ СТРОКУ ——— */
+    /* ——— ШАПКА ——— */
     h1 {
       text-align: center;
       font-weight: 900;
@@ -165,7 +165,7 @@
       display: flex;
       flex-direction: column;
       align-items: center;
-      justify-content: center;
+      justify-content: flex-start;
       text-align: center;
       transition: transform 0.12s ease, box-shadow 0.2s ease;
       cursor: pointer;
@@ -237,9 +237,9 @@
       left: 3px;
       font-size: 0.8rem;
       line-height: 1;
-      opacity: 0.95;
+      opacity: 0.9;
       pointer-events: none;
-      z-index: 2;
+      z-index: 1;
       filter: drop-shadow(0 1px 1px rgba(40,50,90,0.25));
     }
 
@@ -273,22 +273,22 @@
       50% { box-shadow: 0 0 0 8px rgba(255,80,80,0); }
     }
 
-    /* ——— КОНТЕНТ КАРТОЧКИ — РАСТЯНУТ ПО ВЕРТИКАЛИ ——— */
+    /* ——— КОНТЕНТ КАРТОЧКИ — НАЧИНАЕТСЯ СРАЗУ ОТ ВЕРХА ——— */
     .card-inner {
       display: flex;
       flex-direction: column;
       align-items: center;
-      justify-content: center;
+      justify-content: flex-start;
       width: 100%;
       height: 100%;
-      padding-top: 8px;
+      padding-top: 2px;
       gap: 2px;
     }
 
     .hanzi {
-      font-size: 1.7rem;
+      font-size: 1.55rem;
       font-weight: 900;
-      line-height: 1;
+      line-height: 1.05;
       margin: 0;
       letter-spacing: 0.5px;
       color: #0a1030;
@@ -297,7 +297,9 @@
         0 2px 3px rgba(30,40,80,0.22);
       position: relative;
       z-index: 2;
-      white-space: nowrap;
+      text-align: center;
+      word-break: break-all;
+      max-width: 100%;
     }
     .hanzi .key-char {
       border-radius: 4px;
@@ -306,7 +308,7 @@
     }
 
     .pinyin {
-      font-size: 0.62rem;
+      font-size: 0.6rem;
       font-weight: 800;
       color: #1a2050;
       background: rgba(255,255,255,0.78);
@@ -317,11 +319,13 @@
       z-index: 2;
       box-shadow: inset 0 1px 2px rgba(255,255,255,0.95), 0 1px 3px rgba(40,50,90,0.22);
       text-shadow: 0 1px 0 rgba(255,255,255,0.85);
-      white-space: nowrap;
+      text-align: center;
+      line-height: 1.1;
+      max-width: 100%;
     }
 
     .russian {
-      font-size: 0.65rem;
+      font-size: 0.62rem;
       font-weight: 900;
       color: #0a1030;
       background: rgba(255,255,255,0.82);
@@ -331,24 +335,24 @@
       z-index: 2;
       box-shadow: inset 0 1px 2px rgba(255,255,255,0.95), 0 1px 3px rgba(40,50,90,0.22);
       text-shadow: 0 1px 0 rgba(255,255,255,0.85);
-      line-height: 1.15;
+      line-height: 1.1;
       text-align: center;
     }
 
     .example {
-      font-size: 0.44rem;
+      font-size: 0.42rem;
       font-weight: 700;
       color: #1a2050;
       background: rgba(255,255,255,0.75);
       padding: 1px 4px;
       border-radius: 8px;
-      margin-top: 1px;
+      margin-top: auto;
       position: relative;
       z-index: 2;
       border: 1px solid rgba(170,185,220,0.50);
       box-shadow: inset 0 1px 1px rgba(255,255,255,0.80);
       text-shadow: 0 1px 0 rgba(255,255,255,0.75);
-      line-height: 1.15;
+      line-height: 1.1;
       width: 100%;
       overflow: hidden;
     }
@@ -364,10 +368,10 @@
       display: block;
       font-weight: 600;
       color: #4a5a9a;
-      font-size: 0.4rem;
+      font-size: 0.38rem;
       margin-top: 0;
       font-style: italic;
-      line-height: 1.15;
+      line-height: 1.1;
     }
 
     /* ——— 15 оттенков ——— */
@@ -402,7 +406,7 @@
     .card[data-color="n15"] { --card-color: #5a7ad0; background: linear-gradient(145deg, #d4e0f8, #a8c0f0); }
     .card[data-color="n15"] .hanzi .key-char { color: #3a5ab0; background: linear-gradient(145deg, #b8d0f4, #90b0e8); }
 
-    /* ——— МИНИ-ПАНЕЛЬ КНОПОК-ЦИФР ——— */
+    /* ——— ПАНЕЛЬ КНОПОК-ЦИФР ——— */
     .rec-panel {
       margin-top: 3px;
       padding: 3px 4px;
@@ -466,7 +470,6 @@
       50% { box-shadow: 0 0 0 5px rgba(255,80,80,0); }
     }
 
-    /* ——— ПОДСКАЗКА (компактнее) ——— */
     .footer-note {
       margin-top: 2px;
       text-align: center;
@@ -490,9 +493,9 @@
     @media (max-width: 420px) {
       .container { padding: 4px 4px 3px; border-radius: 22px; }
       .grid { gap: 3px; }
-      .hanzi { font-size: 1.55rem; }
-      .pinyin { font-size: 0.58rem; padding: 1px 5px; }
-      .russian { font-size: 0.6rem; padding: 1px 5px; }
+      .hanzi { font-size: 1.35rem; }
+      .pinyin { font-size: 0.56rem; padding: 1px 5px; }
+      .russian { font-size: 0.58rem; padding: 1px 5px; }
       .example { font-size: 0.4rem; padding: 1px 3px; }
       .example .ru { font-size: 0.36rem; }
       h1 { gap: 3px; }
@@ -506,19 +509,19 @@
       .footer-note { font-size: 0.4rem; padding: 1px 7px; }
       .rec-indicator { width: 10px; height: 10px; font-size: 0.42rem; }
       .emoji-corner { font-size: 0.75rem; }
-      .card-inner { padding-top: 7px; gap: 1px; }
+      .card-inner { padding-top: 1px; gap: 1px; }
     }
 
     @media (max-width: 380px) {
-      .hanzi { font-size: 1.45rem; }
+      .hanzi { font-size: 1.25rem; }
       .rec-num { width: 15px; height: 15px; font-size: 0.44rem; }
-      .pinyin { font-size: 0.54rem; }
-      .russian { font-size: 0.56rem; }
+      .pinyin { font-size: 0.52rem; }
+      .russian { font-size: 0.54rem; }
     }
 
     @media (max-height: 640px) {
-      .hanzi { font-size: 1.5rem; }
-      .card-inner { padding-top: 7px; }
+      .hanzi { font-size: 1.3rem; }
+      .card-inner { padding-top: 1px; }
     }
   </style>
 </head>
@@ -544,7 +547,7 @@
       <div class="card-inner">
         <div class="hanzi"><span class="key-char">等一下</span></div>
         <div class="pinyin">děng yíxià</div>
-        <div class="russian">подожди<br>немного</div>
+        <div class="russian">подожди немного</div>
         <div class="example">
           📌 <span class="highlight">等一下</span>，我马上来
           <span class="ru">Подожди, я сейчас приду.</span>
@@ -724,7 +727,7 @@
       <div class="emoji-corner">😌</div>
       <div class="rec-indicator" data-indicator>✓</div>
       <div class="card-inner">
-        <div class="hanzi"><span class="key-char">休息</span></div>
+        <div class="hanzi"><span class="key-char">休息休息</span></div>
         <div class="pinyin">xiūxi xiūxi</div>
         <div class="russian">отдохни</div>
         <div class="example">
@@ -738,7 +741,7 @@
       <div class="emoji-corner">💼</div>
       <div class="rec-indicator" data-indicator>✓</div>
       <div class="card-inner">
-        <div class="hanzi"><span class="key-char">商量</span></div>
+        <div class="hanzi"><span class="key-char">商量商量</span></div>
         <div class="pinyin">shāngliang shāngliang</div>
         <div class="russian">обсуди</div>
         <div class="example">
@@ -843,8 +846,8 @@
     function updateNumberButton(card, btn) {
       const key = card.dataset.key;
       const hasRec = !!recordedAudios[key];
-      if (!btn) btn = recPanel.querySelector(`.rec-num[data-key="${key}"]`);
-      if (!btn) return;
+.remove      if (!btn) btn =(' recPanel.querySelector(`.rec-numrec[data-key="${key}"]ording`);
+      if (!btn');) return;
       if (hasRec) {
         btn.classList.add('has-rec');
         btn.title = `Запись №${btn.dataset.num} есть. Клик — удалить.`;
@@ -869,12 +872,7 @@
     }
 
     function getBestMimeType() {
-      const candidates = [
-        'audio/mp4',
-        'audio/mp4;codecs=mp4a.40.2',
-        'audio/webm;codecs=opus',
-        'audio/webm'
-      ];
+      const candidates = ['audio/mp4', 'audio/mp4;codecs=mp4a.40.2', 'audio/webm;codecs=opus', 'audio/webm'];
       if (typeof MediaRecorder === 'undefined') return '';
       for (const t of candidates) {
         try { if (MediaRecorder.isTypeSupported(t)) return t; } catch (e) {}
@@ -890,17 +888,14 @@
     async function handleNumberClick(card, btn) {
       unlockAudio();
       const key = card.dataset.key;
-
       if (recordingKey === key) {
         if (mediaRecorder && mediaRecorder.state !== 'inactive') mediaRecorder.stop();
         return;
       }
-
       if (mediaRecorder && mediaRecorder.state !== 'inactive') {
         mediaRecorder.stop();
         await new Promise(r => setTimeout(r, 250));
       }
-
       if (recordedAudios[key]) {
         if (confirm(`Удалить запись №${btn.dataset.num}?`)) {
           delete recordedAudios[key];
@@ -910,31 +905,25 @@
         }
         return;
       }
-
       try {
         currentStream = await navigator.mediaDevices.getUserMedia({
           audio: { echoCancellation: true, noiseSuppression: true, autoGainControl: true }
         });
-
         const mimeType = getBestMimeType();
         const options = mimeType ? { mimeType } : {};
         mediaRecorder = new MediaRecorder(currentStream, options);
         recordedChunks = [];
         recordingKey = key;
-
         btn.classList.add('recording');
         btn.textContent = '⏹';
-
         const indicator = card.querySelector('[data-indicator]');
         if (indicator) {
           indicator.classList.add('show', 'recording');
           indicator.textContent = '●';
         }
-
         mediaRecorder.ondataavailable = (e) => {
           if (e.data && e.data.size > 0) recordedChunks.push(e.data);
         };
-
         mediaRecorder.onstop = async () => {
           if (currentStream) {
             currentStream.getTracks().forEach(t => t.stop());
@@ -942,33 +931,22 @@
           }
           btn.classList.remove('recording');
           btn.textContent = btn.dataset.num;
-
           const ind = card.querySelector('[data-indicator]');
-          if (ind) {
-            ind.classList.remove('recording');
-            ind.textContent = '✓';
-          }
-
+          if (ind) { ind.classList ind.textContent = '✓'; }
           if (recordedChunks.length === 0) { recordingKey = null; return; }
-
           const blobMime = mediaRecorder.mimeType || mimeType || 'audio/mp4';
           const blob = new Blob(recordedChunks, { type: blobMime });
-
           let finalBlob = blob;
           try { finalBlob = await normalizeAudio(blob); } catch (e) {}
-
           let url;
           try { url = await blobToDataURL(finalBlob); } catch (e) { recordingKey = null; return; }
-
           recordedAudios[key] = url;
           try { localStorage.setItem(STORAGE_PREFIX + key, url); }
           catch (e) { alert('Не хватает места. Удалите старые записи.'); }
-
           updateNumberButton(card, btn);
           updateCardIndicator(card);
           recordingKey = null;
         };
-
         mediaRecorder.onerror = () => {
           if (currentStream) {
             currentStream.getTracks().forEach(t => t.stop());
@@ -978,7 +956,6 @@
           btn.textContent = btn.dataset.num;
           recordingKey = null;
         };
-
         mediaRecorder.start();
       } catch (err) {
         alert('Не удалось получить доступ к микрофону.');
@@ -995,7 +972,6 @@
       if (audioCtx.state === 'suspended') { try { await audioCtx.resume(); } catch (e) {} }
       let audioBuffer;
       try { audioBuffer = await audioCtx.decodeAudioData(arrayBuffer.slice(0)); } catch (e) { return blob; }
-
       let peak = 0;
       for (let ch = 0; ch < audioBuffer.numberOfChannels; ch++) {
         const data = audioBuffer.getChannelData(ch);
@@ -1062,7 +1038,7 @@
     }
 
     function speakRussian(text) {
-      const cleanText = text.replace(/<br\s*\/?>/gi, ' ').trim();
+      const cleanText = text.trim();
       if (!cleanText) return;
       const utterance = new SpeechSynthesisUtterance(cleanText);
       utterance.lang = 'ru-RU';
@@ -1094,7 +1070,6 @@
       const key = card.dataset.key;
       const russianEl = card.querySelector('.russian');
       const russianText = russianEl ? russianEl.textContent : card.dataset.russianAudio;
-
       const utter1 = new SpeechSynthesisUtterance(hanziText);
       utter1.lang = 'zh-CN';
       utter1.rate = 0.7;
@@ -1102,7 +1077,6 @@
       utter1.volume = 1.0;
       const chVoice = getChineseVoice();
       if (chVoice) utter1.voice = chVoice;
-
       let spoken = false;
       function speakTranslationOnce() {
         if (spoken) return;
@@ -1113,7 +1087,6 @@
           speakRussian(russianText);
         }
       }
-
       utter1.onend = () => setTimeout(speakTranslationOnce, 1000);
       utter1.onerror = () => setTimeout(speakTranslationOnce, 1000);
       window.speechSynthesis.speak(utter1);

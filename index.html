@@ -4,7 +4,6 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" />
 
-  <!-- iOS: полноэкранный режим при добавлении на экран «Домой» -->
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
@@ -12,7 +11,6 @@
   <meta name="format-detection" content="telephone=no" />
   <meta name="theme-color" content="#dce4f0" />
 
-  <!-- Иконка для домашнего экрана -->
   <link rel="apple-touch-icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 180 180'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='0' y2='1'%3E%3Cstop offset='0' stop-color='%23d8e0ff'/%3E%3Cstop offset='1' stop-color='%23b0c0f8'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='180' height='180' rx='40' fill='url(%23g)'/%3E%3Ctext x='90' y='118' font-size='90' font-weight='900' text-anchor='middle' fill='%233a4ac8' font-family='system-ui'%3EV%3C/text%3E%3C/svg%3E" />
 
   <title>Китайский · ТОП-15 разговорных конструкций</title>
@@ -46,22 +44,22 @@
       justify-content: center;
       align-items: center;
       padding:
-        calc(8px + env(safe-area-inset-top))
-        calc(8px + env(safe-area-inset-right))
-        calc(8px + env(safe-area-inset-bottom))
-        calc(8px + env(safe-area-inset-left));
+        calc(6px + env(safe-area-inset-top))
+        calc(6px + env(safe-area-inset-right))
+        calc(6px + env(safe-area-inset-bottom))
+        calc(6px + env(safe-area-inset-left));
     }
 
     .container {
       max-width: 860px;
       width: 100%;
       height: 100%;
-      max-height: 860px;
+      max-height: 900px;
       background: rgba(246, 248, 255, 0.72);
       -webkit-backdrop-filter: blur(6px) saturate(1.15);
       backdrop-filter: blur(6px) saturate(1.15);
-      border-radius: 36px;
-      padding: 12px 10px 10px;
+      border-radius: 30px;
+      padding: 8px 8px 6px;
       box-shadow:
         0 20px 50px rgba(40, 50, 90, 0.22),
         0 8px 24px rgba(40, 50, 90, 0.14),
@@ -74,99 +72,92 @@
       overflow: hidden;
     }
 
+    /* ——— ШАПКА БЕЗ «ТОП-15» ——— */
     h1 {
       text-align: center;
       font-weight: 900;
-      font-size: 1.2rem;
+      font-size: 1rem;
       color: #1a2050;
-      margin-bottom: 2px;
+      margin-bottom: 1px;
       display: flex;
       align-items: center;
       justify-content: center;
-      gap: 8px;
+      gap: 6px;
       flex-shrink: 0;
       flex-wrap: wrap;
-      text-shadow: 0 1px 0 rgba(255,255,255,0.95), 0 2px 4px rgba(30,40,80,0.15);
+      text-shadow: 0 1px 0 rgba(255,255,255,0.95);
     }
     h1 .title-hanzi {
-      font-size: 1.5rem;
+      font-size: 1.15rem;
       font-weight: 900;
       color: #3a4ac8;
       background: linear-gradient(145deg, #d8e0ff, #b0c0f8);
-      padding: 4px 12px;
-      border-radius: 14px;
+      padding: 2px 10px;
+      border-radius: 10px;
       box-shadow:
-        inset 0 2px 3px rgba(255,255,255,0.95),
-        inset 0 -2px 4px rgba(80,100,180,0.20),
-        0 4px 0 rgba(60,80,160,0.22),
-        0 6px 14px rgba(50,70,140,0.22);
-      text-shadow: 0 1px 0 rgba(255,255,255,0.9), 0 2px 3px rgba(40,60,120,0.25);
-      letter-spacing: 1px;
+        inset 0 1px 2px rgba(255,255,255,0.95),
+        inset 0 -1px 2px rgba(80,100,180,0.20),
+        0 2px 0 rgba(60,80,160,0.20),
+        0 3px 8px rgba(50,70,140,0.18);
+      text-shadow: 0 1px 0 rgba(255,255,255,0.9);
+      letter-spacing: 0.5px;
       line-height: 1;
     }
     h1 .title-pinyin {
-      font-size: 0.78rem;
+      font-size: 0.68rem;
       font-weight: 800;
       color: #3a4a7a;
       background: linear-gradient(145deg, #dce4f8, #b8c8f0);
-      padding: 4px 10px;
+      padding: 2px 8px;
       border-radius: 30px;
-      box-shadow: inset 0 1px 2px rgba(255,255,255,0.9), 0 2px 6px rgba(80,100,180,0.15);
+      box-shadow: inset 0 1px 2px rgba(255,255,255,0.9);
     }
     h1 .title-rus {
-      font-size: 0.78rem;
+      font-size: 0.68rem;
       font-weight: 900;
       color: #1a2050;
       background: linear-gradient(145deg, #e4eaff, #c8d4f8);
-      padding: 4px 10px;
+      padding: 2px 8px;
       border-radius: 30px;
-      box-shadow: inset 0 1px 2px rgba(255,255,255,0.95), 0 2px 6px rgba(80,100,180,0.15);
-    }
-    h1 .sub {
-      font-size: 0.68rem;
-      background: linear-gradient(145deg, #dce4f8, #b8c8f0);
-      padding: 3px 12px;
-      border-radius: 30px;
-      color: #3a4a7a;
-      font-weight: 800;
-      box-shadow: inset 0 1px 2px rgba(255,255,255,0.9), 0 2px 6px rgba(80,100,180,0.15);
+      box-shadow: inset 0 1px 2px rgba(255,255,255,0.95);
     }
 
     .subhead {
       text-align: center;
-      font-size: 0.66rem;
+      font-size: 0.55rem;
       color: #3a4a7a;
       background: linear-gradient(145deg, #dce4f8, #c4d0f0);
       display: inline-block;
-      padding: 4px 14px;
-      border-radius: 40px;
-      margin: 0 auto 5px;
+      padding: 2px 10px;
+      border-radius: 30px;
+      margin: 0 auto 4px;
       flex-shrink: 0;
       font-weight: 700;
-      line-height: 1.3;
-      max-width: 94%;
-      box-shadow: inset 0 1px 2px rgba(255,255,255,0.9), 0 2px 6px rgba(80,100,180,0.15);
+      line-height: 1.2;
+      max-width: 96%;
+      box-shadow: inset 0 1px 2px rgba(255,255,255,0.9);
     }
     .subhead b { color: #2a3ab8; font-weight: 900; }
 
+    /* ——— СЕТКА КАРТОЧЕК ——— */
     .grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      gap: 6px;
+      gap: 5px;
       flex: 1;
       align-content: stretch;
       min-height: 0;
       overflow-y: auto;
       overflow-x: hidden;
       -webkit-overflow-scrolling: touch;
-      padding: 2px 2px 4px;
+      padding: 2px 1px 3px;
       scrollbar-width: none;
     }
     .grid::-webkit-scrollbar { display: none; }
 
     .card {
-      border-radius: 16px;
-      padding: 5px 4px 6px;
+      border-radius: 14px;
+      padding: 4px 4px 5px;
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -183,7 +174,7 @@
         inset 0 -2px 4px rgba(80,100,160,0.12),
         inset 0 0 20px rgba(235,240,255,0.35),
         0 3px 0 rgba(80,100,160,0.18),
-        0 5px 10px rgba(40,50,90,0.18);
+        0 5px 10px rgba(40,50,90,0.16);
       border: 1px solid rgba(255,255,255,0.75);
       border-top-color: rgba(255,255,255,0.95);
       border-bottom-color: rgba(150,165,210,0.40);
@@ -208,7 +199,7 @@
       right: 8%;
       height: 40%;
       background: linear-gradient(180deg, rgba(255,255,255,0.50), transparent 100%);
-      border-radius: 16px 16px 50% 50%;
+      border-radius: 14px 14px 50% 50%;
       pointer-events: none;
     }
     .card:active {
@@ -219,13 +210,13 @@
         0 1px 0 rgba(80,100,160,0.20);
     }
     .card.active {
-      border-bottom: 5px solid var(--card-color, #5a6ad8);
+      border-bottom: 4px solid var(--card-color, #5a6ad8);
       box-shadow:
         inset 0 1px 1px rgba(255,255,255,0.95),
         inset 0 -2px 4px rgba(80,100,160,0.15),
         inset 0 0 24px rgba(235,240,255,0.45),
-        0 5px 0 rgba(80,100,160,0.22),
-        0 8px 16px rgba(40,50,90,0.20);
+        0 4px 0 rgba(80,100,160,0.22),
+        0 6px 12px rgba(40,50,90,0.18);
     }
     .card.has-rec {
       box-shadow:
@@ -233,32 +224,32 @@
         inset 0 -2px 4px rgba(60,140,90,0.15),
         inset 0 0 20px rgba(220,255,230,0.45),
         0 3px 0 rgba(60,140,90,0.20),
-        0 5px 10px rgba(30,90,50,0.18);
+        0 5px 10px rgba(30,90,50,0.16);
     }
 
     .emoji-corner {
       position: absolute;
-      top: 4px;
-      left: 6px;
-      font-size: 1.1rem;
+      top: 3px;
+      left: 5px;
+      font-size: 1rem;
       line-height: 1;
       opacity: 0.95;
       pointer-events: none;
       z-index: 2;
-      filter: drop-shadow(0 1px 1px rgba(40,50,90,0.28));
+      filter: drop-shadow(0 1px 1px rgba(40,50,90,0.25));
     }
 
     .rec-indicator {
       position: absolute;
-      top: 4px;
-      right: 5px;
-      width: 16px;
-      height: 16px;
+      top: 3px;
+      right: 4px;
+      width: 14px;
+      height: 14px;
       border-radius: 50%;
       display: none;
       align-items: center;
       justify-content: center;
-      font-size: 0.62rem;
+      font-size: 0.56rem;
       font-weight: 900;
       background: linear-gradient(145deg, #7ae8a8, #3ac878);
       color: #fff;
@@ -278,11 +269,20 @@
       50% { box-shadow: 0 0 0 8px rgba(255,80,80,0); }
     }
 
+    .card-inner {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+      width: 100%;
+      padding-top: 14px;
+    }
+
     .hanzi {
-      font-size: 1.75rem;
+      font-size: 1.85rem;
       font-weight: 900;
       line-height: 1.1;
-      margin: 1px 0 0;
+      margin: 0;
       letter-spacing: 1px;
       color: #0a1030;
       text-shadow:
@@ -297,20 +297,20 @@
       box-shadow: inset 0 1px 2px rgba(255,255,255,0.95), inset 0 -1px 2px rgba(80,100,160,0.22);
     }
     .pinyin {
-      font-size: 0.66rem;
+      font-size: 0.7rem;
       font-weight: 800;
       color: #1a2050;
       background: rgba(255,255,255,0.75);
       padding: 1px 7px;
       border-radius: 30px;
-      margin: 2px 0 1px;
+      margin: 3px 0 1px;
       position: relative;
       z-index: 2;
       box-shadow: inset 0 1px 2px rgba(255,255,255,0.95), 0 1px 3px rgba(40,50,90,0.22);
       text-shadow: 0 1px 0 rgba(255,255,255,0.85);
     }
     .russian {
-      font-size: 0.66rem;
+      font-size: 0.7rem;
       font-weight: 900;
       color: #0a1030;
       background: rgba(255,255,255,0.80);
@@ -323,13 +323,13 @@
       text-shadow: 0 1px 0 rgba(255,255,255,0.85);
     }
     .example {
-      font-size: 0.46rem;
+      font-size: 0.48rem;
       font-weight: 700;
       color: #1a2050;
       background: rgba(255,255,255,0.72);
       padding: 2px 5px;
-      border-radius: 10px;
-      margin-top: 2px;
+      border-radius: 9px;
+      margin-top: 3px;
       position: relative;
       z-index: 2;
       border: 1px solid rgba(170,185,220,0.50);
@@ -350,7 +350,7 @@
       display: block;
       font-weight: 600;
       color: #4a5a9a;
-      font-size: 0.42rem;
+      font-size: 0.44rem;
       margin-top: 1px;
       font-style: italic;
     }
@@ -389,41 +389,41 @@
 
     /* ——— ПАНЕЛЬ КНОПОК-ЦИФР ——— */
     .rec-panel {
-      margin-top: 5px;
-      padding: 5px 6px;
+      margin-top: 4px;
+      padding: 4px 5px;
       background: linear-gradient(145deg, #dce4f8, #c0ccf0);
-      border-radius: 18px;
+      border-radius: 14px;
       display: flex;
       flex-wrap: wrap;
       justify-content: center;
       align-items: center;
-      gap: 4px;
+      gap: 3px;
       flex-shrink: 0;
       box-shadow:
         inset 0 1px 2px rgba(255,255,255,0.95),
         inset 0 -1px 2px rgba(80,100,180,0.20),
-        0 3px 8px rgba(80,100,180,0.18);
+        0 2px 6px rgba(80,100,180,0.15);
     }
     .rec-panel-title {
-      font-size: 0.6rem;
+      font-size: 0.52rem;
       font-weight: 800;
       color: #1a2050;
       margin-right: 2px;
       text-shadow: 0 1px 0 rgba(255,255,255,0.85);
     }
     .rec-num {
-      width: 30px;
-      height: 30px;
-      border-radius: 10px;
+      width: 22px;
+      height: 22px;
+      border-radius: 7px;
       border: 1px solid rgba(255,255,255,0.85);
       background: linear-gradient(145deg, #ffffff, #dce4f8);
       box-shadow:
         inset 0 1px 1px rgba(255,255,255,0.95),
-        0 2px 4px rgba(40,50,90,0.22);
+        0 1px 3px rgba(40,50,90,0.20);
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 0.75rem;
+      font-size: 0.62rem;
       font-weight: 900;
       color: #1a2050;
       cursor: pointer;
@@ -436,7 +436,7 @@
       -webkit-appearance: none;
       appearance: none;
     }
-    .rec-num:active { transform: scale(0.92); }
+    .rec-num:active { transform: scale(0.9); }
     .rec-num.recording {
       background: linear-gradient(145deg, #ff7070, #d83030);
       color: #fff;
@@ -448,17 +448,17 @@
     }
     @keyframes pulse2 {
       0%, 100% { box-shadow: 0 0 0 0 rgba(255,80,80,0.7); }
-      50% { box-shadow: 0 0 0 8px rgba(255,80,80,0); }
+      50% { box-shadow: 0 0 0 6px rgba(255,80,80,0); }
     }
 
     .footer-note {
-      margin-top: 4px;
+      margin-top: 3px;
       text-align: center;
-      font-size: 0.58rem;
+      font-size: 0.5rem;
       font-weight: 800;
       color: #1a2050;
       background: linear-gradient(145deg, #dce4f8, #b8c8f0);
-      padding: 4px 12px;
+      padding: 3px 10px;
       border-radius: 60px;
       display: inline-block;
       width: auto;
@@ -466,59 +466,52 @@
       align-self: center;
       box-shadow: inset 0 1px 2px rgba(255,255,255,0.9);
       text-shadow: 0 1px 0 rgba(255,255,255,0.75);
-      line-height: 1.35;
+      line-height: 1.3;
     }
     .footer-note b { font-weight: 900; color: #2a3ab8; }
 
-    /* ——— АДАПТАЦИЯ ——— */
     @media (max-width: 420px) {
-      .container { padding: 8px 6px 6px; border-radius: 28px; }
+      .container { padding: 6px 6px 5px; border-radius: 24px; }
       .grid { gap: 4px; }
-      .hanzi { font-size: 1.35rem; }
-      .emoji-corner { font-size: 0.9rem; top: 3px; left: 4px; }
-      .card { padding: 4px 3px 4px; border-radius: 13px; }
-      .pinyin { font-size: 0.56rem; padding: 1px 5px; }
-      .russian { font-size: 0.56rem; padding: 1px 5px; }
-      .example { font-size: 0.4rem; padding: 1px 4px; border-radius: 8px; }
-      .example .ru { font-size: 0.36rem; }
-      h1 { font-size: 0.95rem; gap: 5px; }
-      h1 .title-hanzi { font-size: 1.2rem; padding: 3px 9px; }
-      h1 .title-pinyin { font-size: 0.65rem; padding: 3px 8px; }
-      h1 .title-rus { font-size: 0.65rem; padding: 3px 8px; }
-      h1 .sub { font-size: 0.58rem; padding: 2px 8px; }
-      .subhead { font-size: 0.56rem; padding: 3px 9px; }
-      .rec-num { width: 26px; height: 26px; font-size: 0.68rem; border-radius: 8px; }
-      .rec-panel { padding: 4px 5px; gap: 3px; border-radius: 14px; }
-      .rec-panel-title { font-size: 0.55rem; }
-      .footer-note { font-size: 0.5rem; padding: 3px 9px; }
-      .rec-indicator { width: 14px; height: 14px; font-size: 0.55rem; }
+      .hanzi { font-size: 1.55rem; }
+      .card-inner { padding-top: 12px; }
+      .pinyin { font-size: 0.62rem; }
+      .russian { font-size: 0.62rem; }
+      .example { font-size: 0.44rem; }
+      .example .ru { font-size: 0.4rem; }
+      h1 { font-size: 0.9rem; gap: 4px; }
+      h1 .title-hanzi { font-size: 1.05rem; padding: 2px 8px; }
+      h1 .title-pinyin { font-size: 0.6rem; padding: 2px 6px; }
+      h1 .title-rus { font-size: 0.6rem; padding: 2px 6px; }
+      .subhead { font-size: 0.5rem; padding: 2px 8px; }
+      .rec-num { width: 20px; height: 20px; font-size: 0.58rem; border-radius: 6px; }
+      .rec-panel { padding: 3px 4px; gap: 2px; border-radius: 12px; }
+      .rec-panel-title { font-size: 0.48rem; }
+      .footer-note { font-size: 0.46rem; padding: 2px 8px; }
+      .rec-indicator { width: 12px; height: 12px; font-size: 0.5rem; }
+      .emoji-corner { font-size: 0.9rem; }
     }
 
     @media (max-width: 380px) {
-      .hanzi { font-size: 1.2rem; }
-      .rec-num { width: 24px; height: 24px; font-size: 0.62rem; }
-      .card { padding: 3px 2px 3px; }
-      .pinyin { font-size: 0.5rem; padding: 1px 4px; }
-      .russian { font-size: 0.5rem; padding: 1px 4px; }
+      .hanzi { font-size: 1.4rem; }
+      .rec-num { width: 18px; height: 18px; font-size: 0.54rem; }
+      .pinyin { font-size: 0.58rem; }
+      .russian { font-size: 0.58rem; }
     }
 
     @media (max-height: 640px) {
-      .hanzi { font-size: 1.3rem; }
-      .example { font-size: 0.4rem; }
-      .rec-num { width: 26px; height: 26px; }
+      .hanzi { font-size: 1.5rem; }
+      .card-inner { padding-top: 12px; }
     }
 
     @media (orientation: landscape) and (max-height: 500px) {
-      .container {
-        max-height: 100%;
-        border-radius: 20px;
-      }
+      .container { max-height: 100%; border-radius: 16px; }
       .grid { grid-template-columns: repeat(5, 1fr); }
-      h1 { font-size: 0.9rem; }
-      h1 .title-hanzi { font-size: 1.2rem; padding: 2px 8px; }
+      h1 { font-size: 0.85rem; }
+      h1 .title-hanzi { font-size: 1rem; padding: 2px 6px; }
       .subhead { display: none; }
       .example { display: none; }
-      .rec-num { width: 24px; height: 24px; font-size: 0.62rem; }
+      .rec-num { width: 20px; height: 20px; font-size: 0.58rem; }
     }
   </style>
 </head>
@@ -529,11 +522,10 @@
     <span class="title-hanzi">V一下 / VV</span>
     <span class="title-pinyin">yíxià / chóngdié</span>
     <span class="title-rus">разговорные</span>
-    <span class="sub">ТОП-15</span>
   </h1>
   <div style="text-align: center; flex-shrink: 0;">
     <span class="subhead">
-      <b>V一下</b> — «сделать разок, быстро» · <b>VV</b> — мягкая просьба
+      <b>V一下</b> — быстро · <b>VV</b> — мягко
     </span>
   </div>
 
@@ -542,180 +534,210 @@
     <div class="card" data-color="n1" data-key="c1" data-hanzi-audio="等一下" data-russian-audio="подожди немного">
       <div class="emoji-corner">⏸️</div>
       <div class="rec-indicator" data-indicator>✓</div>
-      <div class="hanzi"><span class="key-char">等一下</span></div>
-      <div class="pinyin">děng yíxià</div>
-      <div class="russian">подожди немного</div>
-      <div class="example">
-        📌 <span class="highlight">等一下</span>，我马上来
-        <span class="ru">Подожди, я сейчас приду.</span>
+      <div class="card-inner">
+        <div class="hanzi"><span class="key-char">等一下</span></div>
+        <div class="pinyin">děng yíxià</div>
+        <div class="russian">подожди немного</div>
+        <div class="example">
+          📌 <span class="highlight">等一下</span>，我马上来
+          <span class="ru">Подожди, я сейчас приду.</span>
+        </div>
       </div>
     </div>
 
     <div class="card" data-color="n2" data-key="c2" data-hanzi-audio="看一下" data-russian-audio="взгляни">
       <div class="emoji-corner">👀</div>
       <div class="rec-indicator" data-indicator>✓</div>
-      <div class="hanzi"><span class="key-char">看一下</span></div>
-      <div class="pinyin">kàn yíxià</div>
-      <div class="russian">взгляни</div>
-      <div class="example">
-        📌 你<span class="highlight">看一下</span>这个
-        <span class="ru">Глянь на это.</span>
+      <div class="card-inner">
+        <div class="hanzi"><span class="key-char">看一下</span></div>
+        <div class="pinyin">kàn yíxià</div>
+        <div class="russian">взгляни</div>
+        <div class="example">
+          📌 你<span class="highlight">看一下</span>这个
+          <span class="ru">Глянь на это.</span>
+        </div>
       </div>
     </div>
 
     <div class="card" data-color="n3" data-key="c3" data-hanzi-audio="说一下" data-russian-audio="скажи">
       <div class="emoji-corner">💬</div>
       <div class="rec-indicator" data-indicator>✓</div>
-      <div class="hanzi"><span class="key-char">说一下</span></div>
-      <div class="pinyin">shuō yíxià</div>
-      <div class="russian">скажи</div>
-      <div class="example">
-        📌 请<span class="highlight">说一下</span>你的想法
-        <span class="ru">Скажи, что ты думаешь.</span>
+      <div class="card-inner">
+        <div class="hanzi"><span class="key-char">说一下</span></div>
+        <div class="pinyin">shuō yíxià</div>
+        <div class="russian">скажи</div>
+        <div class="example">
+          📌 请<span class="highlight">说一下</span>你的想法
+          <span class="ru">Скажи, что ты думаешь.</span>
+        </div>
       </div>
     </div>
 
     <div class="card" data-color="n4" data-key="c4" data-hanzi-audio="听一下" data-russian-audio="послушай">
       <div class="emoji-corner">👂</div>
       <div class="rec-indicator" data-indicator>✓</div>
-      <div class="hanzi"><span class="key-char">听一下</span></div>
-      <div class="pinyin">tīng yíxià</div>
-      <div class="russian">послушай</div>
-      <div class="example">
-        📌 <span class="highlight">听一下</span>这首歌
-        <span class="ru">Послушай эту песню.</span>
+      <div class="card-inner">
+        <div class="hanzi"><span class="key-char">听一下</span></div>
+        <div class="pinyin">tīng yíxià</div>
+        <div class="russian">послушай</div>
+        <div class="example">
+          📌 <span class="highlight">听一下</span>这首歌
+          <span class="ru">Послушай эту песню.</span>
+        </div>
       </div>
     </div>
 
     <div class="card" data-color="n5" data-key="c5" data-hanzi-audio="尝一下" data-russian-audio="попробуй">
       <div class="emoji-corner">🍽️</div>
       <div class="rec-indicator" data-indicator>✓</div>
-      <div class="hanzi"><span class="key-char">尝一下</span></div>
-      <div class="pinyin">cháng yíxià</div>
-      <div class="russian">попробуй</div>
-      <div class="example">
-        📌 <span class="highlight">尝一下</span>这个菜
-        <span class="ru">Попробуй это блюдо.</span>
+      <div class="card-inner">
+        <div class="hanzi"><span class="key-char">尝一下</span></div>
+        <div class="pinyin">cháng yíxià</div>
+        <div class="russian">попробуй</div>
+        <div class="example">
+          📌 <span class="highlight">尝一下</span>这个菜
+          <span class="ru">Попробуй это блюдо.</span>
+        </div>
       </div>
     </div>
 
     <div class="card" data-color="n6" data-key="c6" data-hanzi-audio="想一下" data-russian-audio="подумай">
       <div class="emoji-corner">🤔</div>
       <div class="rec-indicator" data-indicator>✓</div>
-      <div class="hanzi"><span class="key-char">想一下</span></div>
-      <div class="pinyin">xiǎng yíxià</div>
-      <div class="russian">подумай</div>
-      <div class="example">
-        📌 让我<span class="highlight">想一下</span>
-        <span class="ru">Дай мне подумать.</span>
+      <div class="card-inner">
+        <div class="hanzi"><span class="key-char">想一下</span></div>
+        <div class="pinyin">xiǎng yíxià</div>
+        <div class="russian">подумай</div>
+        <div class="example">
+          📌 让我<span class="highlight">想一下</span>
+          <span class="ru">Дай мне подумать.</span>
+        </div>
       </div>
     </div>
 
     <div class="card" data-color="n7" data-key="c7" data-hanzi-audio="找一下" data-russian-audio="поищи">
       <div class="emoji-corner">🔍</div>
       <div class="rec-indicator" data-indicator>✓</div>
-      <div class="hanzi"><span class="key-char">找一下</span></div>
-      <div class="pinyin">zhǎo yíxià</div>
-      <div class="russian">поищи</div>
-      <div class="example">
-        📌 <span class="highlight">找一下</span>我的手机
-        <span class="ru">Поищи мой телефон.</span>
+      <div class="card-inner">
+        <div class="hanzi"><span class="key-char">找一下</span></div>
+        <div class="pinyin">zhǎo yíxià</div>
+        <div class="russian">поищи</div>
+        <div class="example">
+          📌 <span class="highlight">找一下</span>我的手机
+          <span class="ru">Поищи мой телефон.</span>
+        </div>
       </div>
     </div>
 
     <div class="card" data-color="n8" data-key="c8" data-hanzi-audio="试试" data-russian-audio="попробуй">
       <div class="emoji-corner">🎯</div>
       <div class="rec-indicator" data-indicator>✓</div>
-      <div class="hanzi"><span class="key-char">试试</span></div>
-      <div class="pinyin">shìshi</div>
-      <div class="russian">попробуй</div>
-      <div class="example">
-        📌 你<span class="highlight">试试</span>看
-        <span class="ru">Попробуй-ка.</span>
+      <div class="card-inner">
+        <div class="hanzi"><span class="key-char">试试</span></div>
+        <div class="pinyin">shìshi</div>
+        <div class="russian">попробуй</div>
+        <div class="example">
+          📌 你<span class="highlight">试试</span>看
+          <span class="ru">Попробуй-ка.</span>
+        </div>
       </div>
     </div>
 
     <div class="card" data-color="n9" data-key="c9" data-hanzi-audio="看看" data-russian-audio="посмотри">
       <div class="emoji-corner">👁️</div>
       <div class="rec-indicator" data-indicator>✓</div>
-      <div class="hanzi"><span class="key-char">看看</span></div>
-      <div class="pinyin">kànkan</div>
-      <div class="russian">посмотри</div>
-      <div class="example">
-        📌 让我<span class="highlight">看看</span>
-        <span class="ru">Дай посмотреть.</span>
+      <div class="card-inner">
+        <div class="hanzi"><span class="key-char">看看</span></div>
+        <div class="pinyin">kànkan</div>
+        <div class="russian">посмотри</div>
+        <div class="example">
+          📌 让我<span class="highlight">看看</span>
+          <span class="ru">Дай посмотреть.</span>
+        </div>
       </div>
     </div>
 
     <div class="card" data-color="n10" data-key="c10" data-hanzi-audio="听听" data-russian-audio="послушай">
       <div class="emoji-corner">🎧</div>
       <div class="rec-indicator" data-indicator>✓</div>
-      <div class="hanzi"><span class="key-char">听听</span></div>
-      <div class="pinyin">tīngting</div>
-      <div class="russian">послушай</div>
-      <div class="example">
-        📌 <span class="highlight">听听</span>音乐
-        <span class="ru">Послушай музыку.</span>
+      <div class="card-inner">
+        <div class="hanzi"><span class="key-char">听听</span></div>
+        <div class="pinyin">tīngting</div>
+        <div class="russian">послушай</div>
+        <div class="example">
+          📌 <span class="highlight">听听</span>音乐
+          <span class="ru">Послушай музыку.</span>
+        </div>
       </div>
     </div>
 
     <div class="card" data-color="n11" data-key="c11" data-hanzi-audio="说说" data-russian-audio="расскажи">
       <div class="emoji-corner">🗣️</div>
       <div class="rec-indicator" data-indicator>✓</div>
-      <div class="hanzi"><span class="key-char">说说</span></div>
-      <div class="pinyin">shuōshuo</div>
-      <div class="russian">расскажи</div>
-      <div class="example">
-        📌 <span class="highlight">说说</span>你的故事
-        <span class="ru">Расскажи свою историю.</span>
+      <div class="card-inner">
+        <div class="hanzi"><span class="key-char">说说</span></div>
+        <div class="pinyin">shuōshuo</div>
+        <div class="russian">расскажи</div>
+        <div class="example">
+          📌 <span class="highlight">说说</span>你的故事
+          <span class="ru">Расскажи свою историю.</span>
+        </div>
       </div>
     </div>
 
     <div class="card" data-color="n12" data-key="c12" data-hanzi-audio="走走" data-russian-audio="прогуляйся">
       <div class="emoji-corner">🚶</div>
       <div class="rec-indicator" data-indicator>✓</div>
-      <div class="hanzi"><span class="key-char">走走</span></div>
-      <div class="pinyin">zǒuzou</div>
-      <div class="russian">прогуляйся</div>
-      <div class="example">
-        📌 出去<span class="highlight">走走</span>
-        <span class="ru">Пойдём прогуляемся.</span>
+      <div class="card-inner">
+        <div class="hanzi"><span class="key-char">走走</span></div>
+        <div class="pinyin">zǒuzou</div>
+        <div class="russian">прогуляйся</div>
+        <div class="example">
+          📌 出去<span class="highlight">走走</span>
+          <span class="ru">Пойдём прогуляемся.</span>
+        </div>
       </div>
     </div>
 
     <div class="card" data-color="n13" data-key="c13" data-hanzi-audio="坐坐" data-russian-audio="посиди">
       <div class="emoji-corner">🪑</div>
       <div class="rec-indicator" data-indicator>✓</div>
-      <div class="hanzi"><span class="key-char">坐坐</span></div>
-      <div class="pinyin">zuòzuo</div>
-      <div class="russian">посиди</div>
-      <div class="example">
-        📌 进来<span class="highlight">坐坐</span>
-        <span class="ru">Заходи, посиди.</span>
+      <div class="card-inner">
+        <div class="hanzi"><span class="key-char">坐坐</span></div>
+        <div class="pinyin">zuòzuo</div>
+        <div class="russian">посиди</div>
+        <div class="example">
+          📌 进来<span class="highlight">坐坐</span>
+          <span class="ru">Заходи, посиди.</span>
+        </div>
       </div>
     </div>
 
     <div class="card" data-color="n14" data-key="c14" data-hanzi-audio="休息休息" data-russian-audio="отдохни">
       <div class="emoji-corner">😌</div>
       <div class="rec-indicator" data-indicator>✓</div>
-      <div class="hanzi"><span class="key-char">休息休息</span></div>
-      <div class="pinyin">xiūxi xiūxi</div>
-      <div class="russian">отдохни</div>
-      <div class="example">
-        📌 你先<span class="highlight">休息休息</span>
-        <span class="ru">Отдохни пока.</span>
+      <div class="card-inner">
+        <div class="hanzi"><span class="key-char">休息休息</span></div>
+        <div class="pinyin">xiūxi xiūxi</div>
+        <div class="russian">отдохни</div>
+        <div class="example">
+          📌 你先<span class="highlight">休息休息</span>
+          <span class="ru">Отдохни пока.</span>
+        </div>
       </div>
     </div>
 
     <div class="card" data-color="n15" data-key="c15" data-hanzi-audio="商量商量" data-russian-audio="обсуди">
       <div class="emoji-corner">💼</div>
       <div class="rec-indicator" data-indicator>✓</div>
-      <div class="hanzi"><span class="key-char">商量商量</span></div>
-      <div class="pinyin">shāngliang shāngliang</div>
-      <div class="russian">обсуди</div>
-      <div class="example">
-        📌 我们<span class="highlight">商量商量</span>
-        <span class="ru">Давай обсудим.</span>
+      <div class="card-inner">
+        <div class="hanzi"><span class="key-char">商量商量</span></div>
+        <div class="pinyin">shāngliang shāngliang</div>
+        <div class="russian">обсуди</div>
+        <div class="example">
+          📌 我们<span class="highlight">商量商量</span>
+          <span class="ru">Давай обсудим.</span>
+        </div>
       </div>
     </div>
 
@@ -799,7 +821,6 @@
       });
     }
 
-    // ——— СОЗДАНИЕ КНОПОК-ЦИФР ———
     function createNumberButtons() {
       cards.forEach((card, idx) => {
         const key = card.dataset.key;
@@ -852,7 +873,6 @@
       }
     }
 
-    // ——— ОПРЕДЕЛЕНИЕ ФОРМАТА ЗАПИСИ ———
     function getBestMimeType() {
       const candidates = [
         'audio/mp4',
@@ -869,7 +889,6 @@
       return '';
     }
 
-    // ——— ОБРАБОТКА КЛИКА ПО ЦИФРЕ ———
     let mediaRecorder = null;
     let recordedChunks = [];
     let recordingKey = null;
@@ -956,14 +975,13 @@
           try {
             finalBlob = await normalizeAudio(blob);
           } catch (e) {
-            console.warn('Нормализация не удалась, используем оригинал:', e);
+            console.warn('Нормализация не удалась:', e);
           }
 
           let url;
           try {
             url = await blobToDataURL(finalBlob);
           } catch (e) {
-            console.warn('Не удалось преобразовать в dataURL:', e);
             recordingKey = null;
             return;
           }
@@ -972,8 +990,7 @@
           try {
             localStorage.setItem(STORAGE_PREFIX + key, url);
           } catch (e) {
-            console.warn('Не удалось сохранить запись:', e);
-            alert('Не хватает места в хранилище. Попробуйте удалить старые записи.');
+            alert('Не хватает места. Удалите старые записи.');
           }
 
           updateNumberButton(card, btn);
@@ -982,30 +999,22 @@
         };
 
         mediaRecorder.onerror = (e) => {
-          console.error('Ошибка записи:', e);
           if (currentStream) {
             currentStream.getTracks().forEach(t => t.stop());
             currentStream = null;
           }
           btn.classList.remove('recording');
           btn.textContent = btn.dataset.num;
-          const ind = card.querySelector('[data-indicator]');
-          if (ind) {
-            ind.classList.remove('recording');
-            ind.textContent = '✓';
-          }
           recordingKey = null;
         };
 
         mediaRecorder.start();
       } catch (err) {
-        console.error('Ошибка доступа к микрофону:', err);
-        alert('Не удалось получить доступ к микрофону. Разрешите доступ в Настройках → Safari → Микрофон.');
+        alert('Не удалось получить доступ к микрофону. Разрешите в Настройках → Safari → Микрофон.');
         recordingKey = null;
       }
     }
 
-    // ——— НОРМАЛИЗАЦИЯ ГРОМКОСТИ ———
     async function normalizeAudio(blob) {
       const arrayBuffer = await blob.arrayBuffer();
       const Ctx = window.AudioContext || window.webkitAudioContext;
@@ -1103,7 +1112,6 @@
       });
     }
 
-    // ——— ОЗВУЧКА ———
     function speakRussian(text) {
       const cleanText = text.trim();
       if (!cleanText) return;
@@ -1134,7 +1142,6 @@
       const p = audio.play();
       if (p && p.catch) {
         p.catch(err => {
-          console.warn('Не удалось воспроизвести запись:', err);
           if (onEnd) onEnd();
         });
       }
@@ -1168,7 +1175,6 @@
       }
 
       utter1.onend = function() {
-        // Ровно 1 секунда паузы после китайского
         setTimeout(speakTranslationOnce, 1000);
       };
       utter1.onerror = function() {
@@ -1180,7 +1186,6 @@
 
     function clearActive() { cards.forEach(c => c.classList.remove('active')); }
 
-    // ——— ИНИЦИАЛИЗАЦИЯ ———
     loadSavedRecordings();
     createNumberButtons();
     cards.forEach(card => updateCardIndicator(card));
@@ -1203,7 +1208,6 @@
       }
     });
 
-    // iOS: не даём Safari зумить при двойном тапе
     let lastTouch = 0;
     document.addEventListener('touchend', (e) => {
       const now = Date.now();

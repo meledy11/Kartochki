@@ -13,7 +13,7 @@
 
   <link rel="apple-touch-icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 180 180'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='0' y2='1'%3E%3Cstop offset='0' stop-color='%23d8e0ff'/%3E%3Cstop offset='1' stop-color='%23b0c0f8'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='180' height='180' rx='40' fill='url(%23g)'/%3E%3Ctext x='90' y='118' font-size='90' font-weight='900' text-anchor='middle' fill='%233a4ac8' font-family='system-ui'%3EV%3C/text%3E%3C/svg%3E" />
 
-  <title>Китайский · ТОП-15 разговорных конструкций</title>
+  <title>Китайский · разговорные конструкции</title>
 
   <style>
     * {
@@ -44,10 +44,10 @@
       justify-content: center;
       align-items: center;
       padding:
-        calc(6px + env(safe-area-inset-top))
-        calc(6px + env(safe-area-inset-right))
-        calc(6px + env(safe-area-inset-bottom))
-        calc(6px + env(safe-area-inset-left));
+        calc(4px + env(safe-area-inset-top))
+        calc(4px + env(safe-area-inset-right))
+        calc(4px + env(safe-area-inset-bottom))
+        calc(4px + env(safe-area-inset-left));
     }
 
     .container {
@@ -58,8 +58,8 @@
       background: rgba(246, 248, 255, 0.72);
       -webkit-backdrop-filter: blur(6px) saturate(1.15);
       backdrop-filter: blur(6px) saturate(1.15);
-      border-radius: 30px;
-      padding: 8px 8px 6px;
+      border-radius: 26px;
+      padding: 5px 5px 4px;
       box-shadow:
         0 20px 50px rgba(40, 50, 90, 0.22),
         0 8px 24px rgba(40, 50, 90, 0.14),
@@ -72,92 +72,96 @@
       overflow: hidden;
     }
 
-    /* ——— ШАПКА БЕЗ «ТОП-15» ——— */
+    /* ——— СВЕРХКОМПАКТНАЯ ШАПКА В ОДНУ СТРОКУ ——— */
     h1 {
       text-align: center;
       font-weight: 900;
       font-size: 1rem;
       color: #1a2050;
-      margin-bottom: 1px;
+      margin-bottom: 2px;
       display: flex;
       align-items: center;
       justify-content: center;
-      gap: 6px;
+      gap: 4px;
       flex-shrink: 0;
-      flex-wrap: wrap;
+      flex-wrap: nowrap;
       text-shadow: 0 1px 0 rgba(255,255,255,0.95);
+      overflow: hidden;
     }
     h1 .title-hanzi {
-      font-size: 1.15rem;
+      font-size: 0.92rem;
       font-weight: 900;
       color: #3a4ac8;
       background: linear-gradient(145deg, #d8e0ff, #b0c0f8);
-      padding: 2px 10px;
-      border-radius: 10px;
+      padding: 2px 7px;
+      border-radius: 8px;
       box-shadow:
         inset 0 1px 2px rgba(255,255,255,0.95),
         inset 0 -1px 2px rgba(80,100,180,0.20),
-        0 2px 0 rgba(60,80,160,0.20),
-        0 3px 8px rgba(50,70,140,0.18);
+        0 1px 0 rgba(60,80,160,0.20),
+        0 2px 5px rgba(50,70,140,0.18);
       text-shadow: 0 1px 0 rgba(255,255,255,0.9);
-      letter-spacing: 0.5px;
       line-height: 1;
+      white-space: nowrap;
     }
     h1 .title-pinyin {
-      font-size: 0.68rem;
+      font-size: 0.55rem;
       font-weight: 800;
       color: #3a4a7a;
       background: linear-gradient(145deg, #dce4f8, #b8c8f0);
-      padding: 2px 8px;
+      padding: 2px 5px;
       border-radius: 30px;
       box-shadow: inset 0 1px 2px rgba(255,255,255,0.9);
+      white-space: nowrap;
     }
     h1 .title-rus {
-      font-size: 0.68rem;
+      font-size: 0.55rem;
       font-weight: 900;
       color: #1a2050;
       background: linear-gradient(145deg, #e4eaff, #c8d4f8);
-      padding: 2px 8px;
+      padding: 2px 5px;
       border-radius: 30px;
       box-shadow: inset 0 1px 2px rgba(255,255,255,0.95);
+      white-space: nowrap;
     }
 
     .subhead {
       text-align: center;
-      font-size: 0.55rem;
+      font-size: 0.5rem;
       color: #3a4a7a;
       background: linear-gradient(145deg, #dce4f8, #c4d0f0);
-      display: inline-block;
-      padding: 2px 10px;
+      display: block;
+      padding: 1px 8px;
       border-radius: 30px;
-      margin: 0 auto 4px;
+      margin: 0 auto 3px;
       flex-shrink: 0;
       font-weight: 700;
       line-height: 1.2;
+      width: fit-content;
       max-width: 96%;
       box-shadow: inset 0 1px 2px rgba(255,255,255,0.9);
     }
     .subhead b { color: #2a3ab8; font-weight: 900; }
 
-    /* ——— СЕТКА КАРТОЧЕК ——— */
+    /* ——— СЕТКА ——— */
     .grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      gap: 5px;
+      grid-auto-rows: 1fr;
+      gap: 4px;
       flex: 1;
-      align-content: stretch;
       min-height: 0;
       overflow-y: auto;
       overflow-x: hidden;
       -webkit-overflow-scrolling: touch;
-      padding: 2px 1px 3px;
+      padding: 1px;
       scrollbar-width: none;
     }
     .grid::-webkit-scrollbar { display: none; }
 
     .card {
-      border-radius: 14px;
-      padding: 4px 4px 5px;
+      border-radius: 12px;
+      padding: 2px 3px 3px;
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -173,8 +177,8 @@
         inset 0 1px 1px rgba(255,255,255,0.95),
         inset 0 -2px 4px rgba(80,100,160,0.12),
         inset 0 0 20px rgba(235,240,255,0.35),
-        0 3px 0 rgba(80,100,160,0.18),
-        0 5px 10px rgba(40,50,90,0.16);
+        0 2px 0 rgba(80,100,160,0.18),
+        0 4px 8px rgba(40,50,90,0.16);
       border: 1px solid rgba(255,255,255,0.75);
       border-top-color: rgba(255,255,255,0.95);
       border-bottom-color: rgba(150,165,210,0.40);
@@ -199,7 +203,7 @@
       right: 8%;
       height: 40%;
       background: linear-gradient(180deg, rgba(255,255,255,0.50), transparent 100%);
-      border-radius: 14px 14px 50% 50%;
+      border-radius: 12px 12px 50% 50%;
       pointer-events: none;
     }
     .card:active {
@@ -223,15 +227,15 @@
         inset 0 1px 1px rgba(255,255,255,0.95),
         inset 0 -2px 4px rgba(60,140,90,0.15),
         inset 0 0 20px rgba(220,255,230,0.45),
-        0 3px 0 rgba(60,140,90,0.20),
-        0 5px 10px rgba(30,90,50,0.16);
+        0 2px 0 rgba(60,140,90,0.20),
+        0 4px 8px rgba(30,90,50,0.16);
     }
 
     .emoji-corner {
       position: absolute;
-      top: 3px;
-      left: 5px;
-      font-size: 1rem;
+      top: 2px;
+      left: 3px;
+      font-size: 0.8rem;
       line-height: 1;
       opacity: 0.95;
       pointer-events: none;
@@ -241,21 +245,21 @@
 
     .rec-indicator {
       position: absolute;
-      top: 3px;
-      right: 4px;
-      width: 14px;
-      height: 14px;
+      top: 2px;
+      right: 3px;
+      width: 11px;
+      height: 11px;
       border-radius: 50%;
       display: none;
       align-items: center;
       justify-content: center;
-      font-size: 0.56rem;
+      font-size: 0.46rem;
       font-weight: 900;
       background: linear-gradient(145deg, #7ae8a8, #3ac878);
       color: #fff;
       box-shadow:
         inset 0 1px 1px rgba(255,255,255,0.9),
-        0 2px 4px rgba(30,90,50,0.3);
+        0 1px 3px rgba(30,90,50,0.3);
       z-index: 5;
       line-height: 1;
     }
@@ -269,79 +273,89 @@
       50% { box-shadow: 0 0 0 8px rgba(255,80,80,0); }
     }
 
+    /* ——— КОНТЕНТ КАРТОЧКИ — РАСТЯНУТ ПО ВЕРТИКАЛИ ——— */
     .card-inner {
       display: flex;
       flex-direction: column;
       align-items: center;
-      justify-content: flex-start;
+      justify-content: center;
       width: 100%;
-      padding-top: 14px;
+      height: 100%;
+      padding-top: 8px;
+      gap: 2px;
     }
 
     .hanzi {
-      font-size: 1.85rem;
+      font-size: 1.7rem;
       font-weight: 900;
-      line-height: 1.1;
+      line-height: 1;
       margin: 0;
-      letter-spacing: 1px;
+      letter-spacing: 0.5px;
       color: #0a1030;
       text-shadow:
         0 1px 0 rgba(255,255,255,0.95),
         0 2px 3px rgba(30,40,80,0.22);
       position: relative;
       z-index: 2;
+      white-space: nowrap;
     }
     .hanzi .key-char {
-      border-radius: 5px;
-      padding: 1px 4px;
+      border-radius: 4px;
+      padding: 0 3px;
       box-shadow: inset 0 1px 2px rgba(255,255,255,0.95), inset 0 -1px 2px rgba(80,100,160,0.22);
     }
+
     .pinyin {
-      font-size: 0.7rem;
+      font-size: 0.62rem;
       font-weight: 800;
       color: #1a2050;
-      background: rgba(255,255,255,0.75);
-      padding: 1px 7px;
+      background: rgba(255,255,255,0.78);
+      padding: 1px 6px;
       border-radius: 30px;
-      margin: 3px 0 1px;
+      margin: 0;
       position: relative;
       z-index: 2;
       box-shadow: inset 0 1px 2px rgba(255,255,255,0.95), 0 1px 3px rgba(40,50,90,0.22);
       text-shadow: 0 1px 0 rgba(255,255,255,0.85);
+      white-space: nowrap;
     }
+
     .russian {
-      font-size: 0.7rem;
+      font-size: 0.65rem;
       font-weight: 900;
       color: #0a1030;
-      background: rgba(255,255,255,0.80);
-      padding: 1px 7px;
+      background: rgba(255,255,255,0.82);
+      padding: 1px 6px;
       border-radius: 30px;
-      margin-top: 1px;
       position: relative;
       z-index: 2;
       box-shadow: inset 0 1px 2px rgba(255,255,255,0.95), 0 1px 3px rgba(40,50,90,0.22);
       text-shadow: 0 1px 0 rgba(255,255,255,0.85);
+      line-height: 1.15;
+      text-align: center;
     }
+
     .example {
-      font-size: 0.48rem;
+      font-size: 0.44rem;
       font-weight: 700;
       color: #1a2050;
-      background: rgba(255,255,255,0.72);
-      padding: 2px 5px;
-      border-radius: 9px;
-      margin-top: 3px;
+      background: rgba(255,255,255,0.75);
+      padding: 1px 4px;
+      border-radius: 8px;
+      margin-top: 1px;
       position: relative;
       z-index: 2;
       border: 1px solid rgba(170,185,220,0.50);
       box-shadow: inset 0 1px 1px rgba(255,255,255,0.80);
       text-shadow: 0 1px 0 rgba(255,255,255,0.75);
-      line-height: 1.25;
+      line-height: 1.15;
       width: 100%;
+      overflow: hidden;
     }
     .example .highlight {
       background: rgba(255,255,255,0.90);
-      padding: 0 3px;
-      border-radius: 5px;
+      padding: 0 2px;
+      border-radius: 4px;
       font-weight: 900;
       color: #3a4ac8;
       box-shadow: inset 0 1px 1px rgba(255,255,255,0.95);
@@ -350,12 +364,13 @@
       display: block;
       font-weight: 600;
       color: #4a5a9a;
-      font-size: 0.44rem;
-      margin-top: 1px;
+      font-size: 0.4rem;
+      margin-top: 0;
       font-style: italic;
+      line-height: 1.15;
     }
 
-    /* ——— 15 оттенков сине-голубого ——— */
+    /* ——— 15 оттенков ——— */
     .card[data-color="n1"] { --card-color: #5a6ad8; background: linear-gradient(145deg, #d8e0ff, #b0c0f8); }
     .card[data-color="n1"] .hanzi .key-char { color: #3a4ac8; background: linear-gradient(145deg, #c0d0ff, #98b0f0); }
     .card[data-color="n2"] { --card-color: #4a8ad8; background: linear-gradient(145deg, #cce4ff, #a0c8f8); }
@@ -387,12 +402,12 @@
     .card[data-color="n15"] { --card-color: #5a7ad0; background: linear-gradient(145deg, #d4e0f8, #a8c0f0); }
     .card[data-color="n15"] .hanzi .key-char { color: #3a5ab0; background: linear-gradient(145deg, #b8d0f4, #90b0e8); }
 
-    /* ——— ПАНЕЛЬ КНОПОК-ЦИФР ——— */
+    /* ——— МИНИ-ПАНЕЛЬ КНОПОК-ЦИФР ——— */
     .rec-panel {
-      margin-top: 4px;
-      padding: 4px 5px;
+      margin-top: 3px;
+      padding: 3px 4px;
       background: linear-gradient(145deg, #dce4f8, #c0ccf0);
-      border-radius: 14px;
+      border-radius: 12px;
       display: flex;
       flex-wrap: wrap;
       justify-content: center;
@@ -402,28 +417,28 @@
       box-shadow:
         inset 0 1px 2px rgba(255,255,255,0.95),
         inset 0 -1px 2px rgba(80,100,180,0.20),
-        0 2px 6px rgba(80,100,180,0.15);
+        0 2px 5px rgba(80,100,180,0.15);
     }
     .rec-panel-title {
-      font-size: 0.52rem;
+      font-size: 0.48rem;
       font-weight: 800;
       color: #1a2050;
-      margin-right: 2px;
+      margin-right: 1px;
       text-shadow: 0 1px 0 rgba(255,255,255,0.85);
     }
     .rec-num {
-      width: 22px;
-      height: 22px;
-      border-radius: 7px;
+      width: 18px;
+      height: 18px;
+      border-radius: 6px;
       border: 1px solid rgba(255,255,255,0.85);
       background: linear-gradient(145deg, #ffffff, #dce4f8);
       box-shadow:
         inset 0 1px 1px rgba(255,255,255,0.95),
-        0 1px 3px rgba(40,50,90,0.20);
+        0 1px 2px rgba(40,50,90,0.20);
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 0.62rem;
+      font-size: 0.52rem;
       font-weight: 900;
       color: #1a2050;
       cursor: pointer;
@@ -448,17 +463,18 @@
     }
     @keyframes pulse2 {
       0%, 100% { box-shadow: 0 0 0 0 rgba(255,80,80,0.7); }
-      50% { box-shadow: 0 0 0 6px rgba(255,80,80,0); }
+      50% { box-shadow: 0 0 0 5px rgba(255,80,80,0); }
     }
 
+    /* ——— ПОДСКАЗКА (компактнее) ——— */
     .footer-note {
-      margin-top: 3px;
+      margin-top: 2px;
       text-align: center;
-      font-size: 0.5rem;
-      font-weight: 800;
+      font-size: 0.42rem;
+      font-weight: 700;
       color: #1a2050;
       background: linear-gradient(145deg, #dce4f8, #b8c8f0);
-      padding: 3px 10px;
+      padding: 2px 8px;
       border-radius: 60px;
       display: inline-block;
       width: auto;
@@ -466,52 +482,43 @@
       align-self: center;
       box-shadow: inset 0 1px 2px rgba(255,255,255,0.9);
       text-shadow: 0 1px 0 rgba(255,255,255,0.75);
-      line-height: 1.3;
+      line-height: 1.2;
     }
     .footer-note b { font-weight: 900; color: #2a3ab8; }
 
+    /* ——— АДАПТАЦИЯ ——— */
     @media (max-width: 420px) {
-      .container { padding: 6px 6px 5px; border-radius: 24px; }
-      .grid { gap: 4px; }
+      .container { padding: 4px 4px 3px; border-radius: 22px; }
+      .grid { gap: 3px; }
       .hanzi { font-size: 1.55rem; }
-      .card-inner { padding-top: 12px; }
-      .pinyin { font-size: 0.62rem; }
-      .russian { font-size: 0.62rem; }
-      .example { font-size: 0.44rem; }
-      .example .ru { font-size: 0.4rem; }
-      h1 { font-size: 0.9rem; gap: 4px; }
-      h1 .title-hanzi { font-size: 1.05rem; padding: 2px 8px; }
-      h1 .title-pinyin { font-size: 0.6rem; padding: 2px 6px; }
-      h1 .title-rus { font-size: 0.6rem; padding: 2px 6px; }
-      .subhead { font-size: 0.5rem; padding: 2px 8px; }
-      .rec-num { width: 20px; height: 20px; font-size: 0.58rem; border-radius: 6px; }
-      .rec-panel { padding: 3px 4px; gap: 2px; border-radius: 12px; }
-      .rec-panel-title { font-size: 0.48rem; }
-      .footer-note { font-size: 0.46rem; padding: 2px 8px; }
-      .rec-indicator { width: 12px; height: 12px; font-size: 0.5rem; }
-      .emoji-corner { font-size: 0.9rem; }
+      .pinyin { font-size: 0.58rem; padding: 1px 5px; }
+      .russian { font-size: 0.6rem; padding: 1px 5px; }
+      .example { font-size: 0.4rem; padding: 1px 3px; }
+      .example .ru { font-size: 0.36rem; }
+      h1 { gap: 3px; }
+      h1 .title-hanzi { font-size: 0.85rem; padding: 2px 6px; }
+      h1 .title-pinyin { font-size: 0.5rem; padding: 2px 5px; }
+      h1 .title-rus { font-size: 0.5rem; padding: 2px 5px; }
+      .subhead { font-size: 0.46rem; padding: 1px 7px; }
+      .rec-num { width: 16px; height: 16px; font-size: 0.48rem; border-radius: 5px; }
+      .rec-panel { padding: 2px 3px; gap: 2px; border-radius: 10px; }
+      .rec-panel-title { font-size: 0.44rem; }
+      .footer-note { font-size: 0.4rem; padding: 1px 7px; }
+      .rec-indicator { width: 10px; height: 10px; font-size: 0.42rem; }
+      .emoji-corner { font-size: 0.75rem; }
+      .card-inner { padding-top: 7px; gap: 1px; }
     }
 
     @media (max-width: 380px) {
-      .hanzi { font-size: 1.4rem; }
-      .rec-num { width: 18px; height: 18px; font-size: 0.54rem; }
-      .pinyin { font-size: 0.58rem; }
-      .russian { font-size: 0.58rem; }
+      .hanzi { font-size: 1.45rem; }
+      .rec-num { width: 15px; height: 15px; font-size: 0.44rem; }
+      .pinyin { font-size: 0.54rem; }
+      .russian { font-size: 0.56rem; }
     }
 
     @media (max-height: 640px) {
       .hanzi { font-size: 1.5rem; }
-      .card-inner { padding-top: 12px; }
-    }
-
-    @media (orientation: landscape) and (max-height: 500px) {
-      .container { max-height: 100%; border-radius: 16px; }
-      .grid { grid-template-columns: repeat(5, 1fr); }
-      h1 { font-size: 0.85rem; }
-      h1 .title-hanzi { font-size: 1rem; padding: 2px 6px; }
-      .subhead { display: none; }
-      .example { display: none; }
-      .rec-num { width: 20px; height: 20px; font-size: 0.58rem; }
+      .card-inner { padding-top: 7px; }
     }
   </style>
 </head>
@@ -537,7 +544,7 @@
       <div class="card-inner">
         <div class="hanzi"><span class="key-char">等一下</span></div>
         <div class="pinyin">děng yíxià</div>
-        <div class="russian">подожди немного</div>
+        <div class="russian">подожди<br>немного</div>
         <div class="example">
           📌 <span class="highlight">等一下</span>，我马上来
           <span class="ru">Подожди, я сейчас приду.</span>
@@ -717,7 +724,7 @@
       <div class="emoji-corner">😌</div>
       <div class="rec-indicator" data-indicator>✓</div>
       <div class="card-inner">
-        <div class="hanzi"><span class="key-char">休息休息</span></div>
+        <div class="hanzi"><span class="key-char">休息</span></div>
         <div class="pinyin">xiūxi xiūxi</div>
         <div class="russian">отдохни</div>
         <div class="example">
@@ -731,7 +738,7 @@
       <div class="emoji-corner">💼</div>
       <div class="rec-indicator" data-indicator>✓</div>
       <div class="card-inner">
-        <div class="hanzi"><span class="key-char">商量商量</span></div>
+        <div class="hanzi"><span class="key-char">商量</span></div>
         <div class="pinyin">shāngliang shāngliang</div>
         <div class="russian">обсуди</div>
         <div class="example">
@@ -749,7 +756,7 @@
 
   <div style="display: flex; justify-content: center; flex-shrink: 0;">
     <div class="footer-note">
-      клик по карточке — <b>озвучка</b> · клик по цифре — <b>запись</b> · повтор — <b>удалить</b>
+      <b>клик</b> по карточке — озвучка · <b>клик</b> по цифре — запись · повтор — удалить
     </div>
   </div>
 </div>
@@ -759,31 +766,25 @@
     const cards = document.querySelectorAll('.card');
     const recPanel = document.getElementById('recPanel');
 
-    // ——— РАЗБЛОКИРОВКА АУДИО НА iOS ———
     let audioUnlocked = false;
     let sharedAudioCtx = null;
 
     function unlockAudio() {
       if (audioUnlocked) return;
       audioUnlocked = true;
-
       try {
         const Ctx = window.AudioContext || window.webkitAudioContext;
         if (Ctx) {
           if (!sharedAudioCtx) sharedAudioCtx = new Ctx();
-          if (sharedAudioCtx.state === 'suspended') {
-            sharedAudioCtx.resume();
-          }
+          if (sharedAudioCtx.state === 'suspended') sharedAudioCtx.resume();
         }
       } catch (e) {}
-
       try {
         const warmup = new SpeechSynthesisUtterance(' ');
         warmup.volume = 0;
         warmup.lang = 'zh-CN';
         window.speechSynthesis.speak(warmup);
       } catch (e) {}
-
       try {
         const silent = new Audio('data:audio/wav;base64,UklGRiQAAABXQVZFZm10IBAAAAABAAEARKwAAIhYAQACABAAZGF0YQAAAAA=');
         silent.volume = 0;
@@ -794,7 +795,6 @@
     document.addEventListener('touchstart', unlockAudio, { once: true, passive: true });
     document.addEventListener('click', unlockAudio, { once: true });
 
-    // ——— ГОЛОСА ———
     function getChineseVoice() {
       const voices = window.speechSynthesis.getVoices();
       let voice = voices.find(v => v.lang === 'zh-CN');
@@ -808,7 +808,6 @@
       return voice || null;
     }
 
-    // ——— ЗАПИСИ ———
     const STORAGE_PREFIX = 'custom_rec_';
     const recordedAudios = {};
 
@@ -825,7 +824,6 @@
       cards.forEach((card, idx) => {
         const key = card.dataset.key;
         const num = idx + 1;
-
         const btn = document.createElement('button');
         btn.type = 'button';
         btn.className = 'rec-num';
@@ -834,12 +832,10 @@
         btn.textContent = num;
         btn.title = `Запись для карточки №${num}`;
         recPanel.appendChild(btn);
-
         btn.addEventListener('click', (e) => {
           e.stopPropagation();
           handleNumberClick(card, btn);
         });
-
         updateNumberButton(card, btn);
       });
     }
@@ -849,7 +845,6 @@
       const hasRec = !!recordedAudios[key];
       if (!btn) btn = recPanel.querySelector(`.rec-num[data-key="${key}"]`);
       if (!btn) return;
-
       if (hasRec) {
         btn.classList.add('has-rec');
         btn.title = `Запись №${btn.dataset.num} есть. Клик — удалить.`;
@@ -882,9 +877,7 @@
       ];
       if (typeof MediaRecorder === 'undefined') return '';
       for (const t of candidates) {
-        try {
-          if (MediaRecorder.isTypeSupported(t)) return t;
-        } catch (e) {}
+        try { if (MediaRecorder.isTypeSupported(t)) return t; } catch (e) {}
       }
       return '';
     }
@@ -896,13 +889,10 @@
 
     async function handleNumberClick(card, btn) {
       unlockAudio();
-
       const key = card.dataset.key;
 
       if (recordingKey === key) {
-        if (mediaRecorder && mediaRecorder.state !== 'inactive') {
-          mediaRecorder.stop();
-        }
+        if (mediaRecorder && mediaRecorder.state !== 'inactive') mediaRecorder.stop();
         return;
       }
 
@@ -923,11 +913,7 @@
 
       try {
         currentStream = await navigator.mediaDevices.getUserMedia({
-          audio: {
-            echoCancellation: true,
-            noiseSuppression: true,
-            autoGainControl: true
-          }
+          audio: { echoCancellation: true, noiseSuppression: true, autoGainControl: true }
         });
 
         const mimeType = getBestMimeType();
@@ -963,42 +949,27 @@
             ind.textContent = '✓';
           }
 
-          if (recordedChunks.length === 0) {
-            recordingKey = null;
-            return;
-          }
+          if (recordedChunks.length === 0) { recordingKey = null; return; }
 
           const blobMime = mediaRecorder.mimeType || mimeType || 'audio/mp4';
           const blob = new Blob(recordedChunks, { type: blobMime });
 
           let finalBlob = blob;
-          try {
-            finalBlob = await normalizeAudio(blob);
-          } catch (e) {
-            console.warn('Нормализация не удалась:', e);
-          }
+          try { finalBlob = await normalizeAudio(blob); } catch (e) {}
 
           let url;
-          try {
-            url = await blobToDataURL(finalBlob);
-          } catch (e) {
-            recordingKey = null;
-            return;
-          }
+          try { url = await blobToDataURL(finalBlob); } catch (e) { recordingKey = null; return; }
 
           recordedAudios[key] = url;
-          try {
-            localStorage.setItem(STORAGE_PREFIX + key, url);
-          } catch (e) {
-            alert('Не хватает места. Удалите старые записи.');
-          }
+          try { localStorage.setItem(STORAGE_PREFIX + key, url); }
+          catch (e) { alert('Не хватает места. Удалите старые записи.'); }
 
           updateNumberButton(card, btn);
           updateCardIndicator(card);
           recordingKey = null;
         };
 
-        mediaRecorder.onerror = (e) => {
+        mediaRecorder.onerror = () => {
           if (currentStream) {
             currentStream.getTracks().forEach(t => t.stop());
             currentStream = null;
@@ -1010,7 +981,7 @@
 
         mediaRecorder.start();
       } catch (err) {
-        alert('Не удалось получить доступ к микрофону. Разрешите в Настройках → Safari → Микрофон.');
+        alert('Не удалось получить доступ к микрофону.');
         recordingKey = null;
       }
     }
@@ -1019,24 +990,11 @@
       const arrayBuffer = await blob.arrayBuffer();
       const Ctx = window.AudioContext || window.webkitAudioContext;
       if (!Ctx) return blob;
-
       let audioCtx;
-      try {
-        audioCtx = sharedAudioCtx || new Ctx();
-      } catch (e) {
-        return blob;
-      }
-
-      if (audioCtx.state === 'suspended') {
-        try { await audioCtx.resume(); } catch (e) {}
-      }
-
+      try { audioCtx = sharedAudioCtx || new Ctx(); } catch (e) { return blob; }
+      if (audioCtx.state === 'suspended') { try { await audioCtx.resume(); } catch (e) {} }
       let audioBuffer;
-      try {
-        audioBuffer = await audioCtx.decodeAudioData(arrayBuffer.slice(0));
-      } catch (e) {
-        return blob;
-      }
+      try { audioBuffer = await audioCtx.decodeAudioData(arrayBuffer.slice(0)); } catch (e) { return blob; }
 
       let peak = 0;
       for (let ch = 0; ch < audioBuffer.numberOfChannels; ch++) {
@@ -1046,18 +1004,15 @@
           if (abs > peak) peak = abs;
         }
       }
-
       const targetPeak = 0.95;
       const gain = peak > 0 ? targetPeak / peak : 1;
       const cappedGain = Math.min(gain, 8);
-
       for (let ch = 0; ch < audioBuffer.numberOfChannels; ch++) {
         const data = audioBuffer.getChannelData(ch);
         for (let i = 0; i < data.length; i++) {
           data[i] = Math.max(-1, Math.min(1, data[i] * cappedGain));
         }
       }
-
       return audioBufferToWav(audioBuffer);
     }
 
@@ -1067,13 +1022,9 @@
       const length = buffer.length * numCh * 2 + 44;
       const arrayBuffer = new ArrayBuffer(length);
       const view = new DataView(arrayBuffer);
-
       const writeString = (offset, str) => {
-        for (let i = 0; i < str.length; i++) {
-          view.setUint8(offset + i, str.charCodeAt(i));
-        }
+        for (let i = 0; i < str.length; i++) view.setUint8(offset + i, str.charCodeAt(i));
       };
-
       writeString(0, 'RIFF');
       view.setUint32(4, length - 8, true);
       writeString(8, 'WAVE');
@@ -1087,11 +1038,9 @@
       view.setUint16(34, 16, true);
       writeString(36, 'data');
       view.setUint32(40, length - 44, true);
-
       let offset = 44;
       const channels = [];
       for (let i = 0; i < numCh; i++) channels.push(buffer.getChannelData(i));
-
       for (let i = 0; i < buffer.length; i++) {
         for (let ch = 0; ch < numCh; ch++) {
           let sample = Math.max(-1, Math.min(1, channels[ch][i]));
@@ -1113,7 +1062,7 @@
     }
 
     function speakRussian(text) {
-      const cleanText = text.trim();
+      const cleanText = text.replace(/<br\s*\/?>/gi, ' ').trim();
       if (!cleanText) return;
       const utterance = new SpeechSynthesisUtterance(cleanText);
       utterance.lang = 'ru-RU';
@@ -1128,11 +1077,7 @@
     function playRecorded(key, onEnd) {
       const url = recordedAudios[key];
       if (!url) { if (onEnd) onEnd(); return; }
-
-      if (sharedAudioCtx && sharedAudioCtx.state === 'suspended') {
-        sharedAudioCtx.resume().catch(() => {});
-      }
-
+      if (sharedAudioCtx && sharedAudioCtx.state === 'suspended') sharedAudioCtx.resume().catch(() => {});
       const audio = new Audio(url);
       audio.volume = 1.0;
       audio.setAttribute('playsinline', 'true');
@@ -1140,16 +1085,11 @@
       audio.onended = () => { if (onEnd) onEnd(); };
       audio.onerror = () => { if (onEnd) onEnd(); };
       const p = audio.play();
-      if (p && p.catch) {
-        p.catch(err => {
-          if (onEnd) onEnd();
-        });
-      }
+      if (p && p.catch) p.catch(() => { if (onEnd) onEnd(); });
     }
 
     function speakChineseAndRussian(card) {
       window.speechSynthesis.cancel();
-
       const hanziText = card.dataset.hanziAudio;
       const key = card.dataset.key;
       const russianEl = card.querySelector('.russian');
@@ -1174,13 +1114,8 @@
         }
       }
 
-      utter1.onend = function() {
-        setTimeout(speakTranslationOnce, 1000);
-      };
-      utter1.onerror = function() {
-        setTimeout(speakTranslationOnce, 1000);
-      };
-
+      utter1.onend = () => setTimeout(speakTranslationOnce, 1000);
+      utter1.onerror = () => setTimeout(speakTranslationOnce, 1000);
       window.speechSynthesis.speak(utter1);
     }
 
@@ -1211,9 +1146,7 @@
     let lastTouch = 0;
     document.addEventListener('touchend', (e) => {
       const now = Date.now();
-      if (now - lastTouch <= 300) {
-        e.preventDefault();
-      }
+      if (now - lastTouch <= 300) e.preventDefault();
       lastTouch = now;
     }, { passive: false });
 

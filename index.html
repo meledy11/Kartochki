@@ -7,224 +7,142 @@
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
-  <meta name="apple-mobile-web-app-title" content="Китайский · 你有…吗？" />
+  <meta name="apple-mobile-web-app-title" content="Китайский · такси 2" />
   <meta name="format-detection" content="telephone=no" />
-  <meta name="theme-color" content="#6750A4" />
+  <meta name="theme-color" content="#3a7aa8" />
 
-  <title>Китайский · 你有…吗？</title>
+  <link rel="apple-touch-icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 180 180'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='0' y2='1'%3E%3Cstop offset='0' stop-color='%23b8d8ec'/%3E%3Cstop offset='1' stop-color='%233a7aa8'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='180' height='180' rx='40' fill='url(%23g)'/%3E%3Ctext x='90' y='118' font-size='70' font-weight='900' text-anchor='middle' fill='%23ffffff' font-family='system-ui'%3E快%3C/text%3E%3C/svg%3E" />
+
+  <title>Китайский · такси 2</title>
 
   <style>
     * { box-sizing: border-box; margin: 0; padding: 0; -webkit-tap-highlight-color: transparent; -webkit-touch-callout: none; }
     html, body { height: 100%; overflow: hidden; overscroll-behavior: none; -webkit-user-select: none; user-select: none; position: fixed; width: 100%; -webkit-text-size-adjust: 100%; }
 
     :root {
-      --md-primary: #6750A4;
-      --md-on-primary: #FFFFFF;
-      --md-primary-container: #EADDFF;
-      --md-on-primary-container: #21005D;
-      --md-secondary: #625B71;
-      --md-on-secondary: #FFFFFF;
-      --md-secondary-container: #E8DEF8;
-      --md-on-secondary-container: #1D192B;
-      --md-tertiary: #7D5260;
-      --md-on-tertiary: #FFFFFF;
-      --md-tertiary-container: #FFD8E4;
-      --md-on-tertiary-container: #31111D;
-      --md-surface: #FEF7FF;
-      --md-surface-container: #F3EDF7;
-      --md-on-surface: #1D1B20;
-      --md-on-surface-variant: #49454F;
-      --md-outline: #79747E;
+      --petal-pink: #FFB6A9;
+      --petal-pink-dark: #E89A8C;
+      --on-petal-pink: #5A2A22;
+      --seed-green: #CAD23C;
+      --seed-green-dark: #A8AF28;
+      --on-seed-green: #2A3008;
+      --blue-linen: #A1AED1;
+      --blue-linen-dark: #7E8CB8;
+      --on-blue-linen: #1A2240;
     }
 
     body {
-      font-family: -apple-system, BlinkMacSystemFont, system-ui, 'Segoe UI', Roboto, sans-serif;
-      background: linear-gradient(135deg, var(--md-surface-container) 0%, #DED8E1 100%);
+      font-family: -apple-system, BlinkMacSystemFont, system-ui, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+      background: radial-gradient(circle at 25% 15%, #e8f0f8 0%, #c8d8e8 40%, #88a8c8 75%, #4a6a88 100%);
       height: 100vh; height: 100dvh;
       display: flex; justify-content: center; align-items: center;
-      padding: calc(3px + env(safe-area-inset-top)) calc(3px + env(safe-area-inset-right)) calc(3px + env(safe-area-inset-bottom)) calc(3px + env(safe-area-inset-left));
+      padding: calc(4px + env(safe-area-inset-top)) calc(4px + env(safe-area-inset-right)) calc(4px + env(safe-area-inset-bottom)) calc(4px + env(safe-area-inset-left));
     }
-
     .container {
       max-width: 860px; width: 100%; height: 100%; max-height: 900px;
-      background: var(--md-surface);
-      border-radius: 22px; padding: 4px;
-      display: flex; flex-direction: column; overflow: hidden;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+      background: rgba(246, 250, 254, 0.78);
+      -webkit-backdrop-filter: blur(6px) saturate(1.15); backdrop-filter: blur(6px) saturate(1.15);
+      border-radius: 26px; padding: 5px 5px 4px;
+      box-shadow: 0 20px 50px rgba(20, 60, 90, 0.28), 0 8px 24px rgba(20, 60, 90, 0.16), inset 0 1px 2px rgba(255,255,255,0.95), inset 0 -1px 2px rgba(140, 180, 210, 0.22);
+      border: 1px solid rgba(180, 210, 230, 0.60);
+      display: flex; flex-direction: column; position: relative; overflow: hidden;
     }
+    h1 { text-align: center; font-weight: 900; font-size: 1rem; color: #0a2848; margin-bottom: 3px; display: flex; align-items: center; justify-content: center; gap: 4px; flex-shrink: 0; flex-wrap: nowrap; text-shadow: 0 1px 0 rgba(255,255,255,0.95); overflow: hidden; }
+    h1 .title-hanzi { font-size: 0.92rem; font-weight: 900; color: #ffffff; background: linear-gradient(145deg, #3a7aa8, #1a5a88); padding: 2px 7px; border-radius: 8px; box-shadow: inset 0 1px 2px rgba(255,255,255,0.40), inset 0 -1px 2px rgba(0,40,70,0.30), 0 1px 0 rgba(0,40,70,0.25), 0 2px 5px rgba(0,40,70,0.22); text-shadow: 0 1px 0 rgba(0,0,0,0.20); line-height: 1; white-space: nowrap; }
+    h1 .title-pinyin { font-size: 0.55rem; font-weight: 800; color: #1a4868; background: linear-gradient(145deg, #c8e0f0, #a0c8e4); padding: 2px 5px; border-radius: 30px; box-shadow: inset 0 1px 2px rgba(255,255,255,0.9); white-space: nowrap; }
+    h1 .title-rus { font-size: 0.55rem; font-weight: 900; color: #0a2848; background: linear-gradient(145deg, #d0e8f8, #b0d0ea); padding: 2px 5px; border-radius: 30px; box-shadow: inset 0 1px 2px rgba(255,255,255,0.95); white-space: nowrap; }
 
-    h1 { text-align: center; font-weight: 900; font-size: 1rem; margin-bottom: 3px; display: flex; align-items: center; justify-content: center; gap: 3px; flex-shrink: 0; overflow: hidden; }
-    h1 .title-hanzi { font-size: 0.95rem; font-weight: 900; color: var(--md-on-primary); background: var(--md-primary); padding: 2px 8px; border-radius: 8px; line-height: 1; white-space: nowrap; }
-    h1 .title-pinyin { font-size: 0.6rem; font-weight: 800; color: var(--md-on-secondary-container); background: var(--md-secondary-container); padding: 2px 6px; border-radius: 20px; white-space: nowrap; }
-    h1 .title-rus { font-size: 0.6rem; font-weight: 900; color: var(--md-on-tertiary-container); background: var(--md-tertiary-container); padding: 2px 6px; border-radius: 20px; white-space: nowrap; }
+    .grid { display: grid; grid-template-columns: repeat(3, 1fr); grid-auto-rows: 1fr; gap: 4px; flex: 1; min-height: 0; overflow-y: auto; overflow-x: hidden; -webkit-overflow-scrolling: touch; padding: 1px; scrollbar-width: none; }
+    .grid::-webkit-scrollbar { display: none; }
+    .card { border-radius: 12px; padding: 3px 4px 4px; display: flex; flex-direction: column; align-items: center; justify-content: flex-start; text-align: center; transition: transform 0.12s ease, box-shadow 0.2s ease; cursor: pointer; position: relative; min-height: 0; -webkit-user-select: none; user-select: none; box-shadow: inset 0 1px 1px rgba(255,255,255,0.95), inset 0 -2px 4px rgba(60,100,130,0.14), inset 0 0 20px rgba(240,248,255,0.40), 0 2px 0 rgba(60,100,130,0.18), 0 4px 8px rgba(30,60,90,0.16); border: 1px solid rgba(255,255,255,0.75); border-top-color: rgba(255,255,255,0.95); border-bottom-color: rgba(160,190,220,0.40); overflow: hidden; gap: 2px; }
+    .card::before { content: ""; position: absolute; inset: 0; pointer-events: none; background-image: radial-gradient(circle at 20% 20%, rgba(255,255,255,0.55) 0%, transparent 45%), radial-gradient(circle at 80% 80%, rgba(160,190,220,0.15) 0%, transparent 50%); opacity: 0.7; mix-blend-mode: soft-light; }
+    .card::after { content: ""; position: absolute; top: 0; left: 8%; right: 8%; height: 40%; background: linear-gradient(180deg, rgba(255,255,255,0.55), transparent 100%); border-radius: 12px 12px 50% 50%; pointer-events: none; }
+    .card:active { transform: translateY(2px) scale(0.97); box-shadow: inset 0 2px 4px rgba(60,100,130,0.22), inset 0 0 20px rgba(240,248,255,0.45), 0 1px 0 rgba(60,100,130,0.20); }
+    .card.active { border-bottom: 4px solid var(--card-color, #3a7aa8); box-shadow: inset 0 1px 1px rgba(255,255,255,0.95), inset 0 -2px 4px rgba(60,100,130,0.15), inset 0 0 24px rgba(240,248,255,0.50), 0 4px 0 rgba(60,100,130,0.22), 0 6px 12px rgba(30,60,90,0.18); }
 
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      grid-template-rows: repeat(5, 1fr);
-      gap: 3px;
-      flex: 1;
-      min-height: 0;
-      overflow: hidden;
-    }
-
-    .card {
-      border-radius: 12px;
-      padding: 2px 4px;
-      display: flex; flex-direction: column; align-items: center; justify-content: center;
-      text-align: center;
-      transition: transform 0.12s ease;
-      cursor: pointer; position: relative; min-height: 0;
-      overflow: hidden;
-      gap: 1px;
-      -webkit-user-select: none; user-select: none;
-    }
-    .card:active { transform: scale(0.95); }
-
-    .card[data-color="p1"] { background: var(--md-primary); }
-    .card[data-color="p1"] .phrase-cn,
-    .card[data-color="p1"] .phrase-py,
-    .card[data-color="p1"] .phrase-ru,
-    .card[data-color="p1"] .phrase-en { color: var(--md-on-primary); }
-    .card[data-color="p1"] .phrase-py { background: rgba(255,255,255,0.22); }
-    .card[data-color="p1"] .phrase-ru { background: rgba(255,255,255,0.16); }
-    .card[data-color="p1"] .phrase-en { background: rgba(255,255,255,0.10); }
-
-    .card[data-color="p2"] { background: var(--md-primary-container); }
-    .card[data-color="p2"] .phrase-cn { color: var(--md-on-primary-container); }
-    .card[data-color="p2"] .phrase-py { color: var(--md-on-primary-container); background: rgba(103,80,164,0.14); }
-    .card[data-color="p2"] .phrase-ru { color: var(--md-on-primary-container); background: rgba(103,80,164,0.10); }
-    .card[data-color="p2"] .phrase-en { color: var(--md-on-primary-container); background: rgba(103,80,164,0.07); }
-
-    .card[data-color="s1"] { background: var(--md-secondary); }
-    .card[data-color="s1"] .phrase-cn,
-    .card[data-color="s1"] .phrase-py,
-    .card[data-color="s1"] .phrase-ru,
-    .card[data-color="s1"] .phrase-en { color: var(--md-on-secondary); }
-    .card[data-color="s1"] .phrase-py { background: rgba(255,255,255,0.22); }
-    .card[data-color="s1"] .phrase-ru { background: rgba(255,255,255,0.16); }
-    .card[data-color="s1"] .phrase-en { background: rgba(255,255,255,0.10); }
-
-    .card[data-color="s2"] { background: var(--md-secondary-container); }
-    .card[data-color="s2"] .phrase-cn { color: var(--md-on-secondary-container); }
-    .card[data-color="s2"] .phrase-py { color: var(--md-on-secondary-container); background: rgba(98,91,113,0.14); }
-    .card[data-color="s2"] .phrase-ru { color: var(--md-on-secondary-container); background: rgba(98,91,113,0.10); }
-    .card[data-color="s2"] .phrase-en { color: var(--md-on-secondary-container); background: rgba(98,91,113,0.07); }
-
-    .card[data-color="t1"] { background: var(--md-tertiary); }
-    .card[data-color="t1"] .phrase-cn,
-    .card[data-color="t1"] .phrase-py,
-    .card[data-color="t1"] .phrase-ru,
-    .card[data-color="t1"] .phrase-en { color: var(--md-on-tertiary); }
-    .card[data-color="t1"] .phrase-py { background: rgba(255,255,255,0.22); }
-    .card[data-color="t1"] .phrase-ru { background: rgba(255,255,255,0.16); }
-    .card[data-color="t1"] .phrase-en { background: rgba(255,255,255,0.10); }
-
-    .card[data-color="t2"] { background: var(--md-tertiary-container); }
-    .card[data-color="t2"] .phrase-cn { color: var(--md-on-tertiary-container); }
-    .card[data-color="t2"] .phrase-py { color: var(--md-on-tertiary-container); background: rgba(125,82,96,0.14); }
-    .card[data-color="t2"] .phrase-ru { color: var(--md-on-tertiary-container); background: rgba(125,82,96,0.10); }
-    .card[data-color="t2"] .phrase-en { color: var(--md-on-tertiary-container); background: rgba(125,82,96,0.07); }
-
-    .card[data-color="surf"] { background: var(--md-surface-container); border: 1px solid var(--md-outline); }
-    .card[data-color="surf"] .phrase-cn { color: var(--md-on-surface); }
-    .card[data-color="surf"] .phrase-py { color: var(--md-on-surface-variant); background: rgba(121,116,126,0.14); }
-    .card[data-color="surf"] .phrase-ru { color: var(--md-on-surface-variant); background: rgba(121,116,126,0.10); }
-    .card[data-color="surf"] .phrase-en { color: var(--md-on-surface-variant); background: rgba(121,116,126,0.07); }
-
-    .card.active { outline: 3px solid #000; outline-offset: -3px; }
-
-    /* Индикатор записи в углу */
     .rec-dot {
       position: absolute;
-      top: 2px; right: 3px;
-      width: 10px; height: 10px;
+      top: 3px; right: 4px;
+      width: 11px; height: 11px;
       border-radius: 50%;
       display: none;
       align-items: center; justify-content: center;
-      font-size: 0.42rem;
+      font-size: 0.46rem;
       font-weight: 900;
-      background: linear-gradient(145deg, #7ae8a8, #3ac878);
-      color: #fff;
-      box-shadow: 0 1px 3px rgba(0,0,0,0.3);
+      background: var(--seed-green);
+      color: var(--on-seed-green);
+      box-shadow: 0 1px 3px rgba(0,0,0,0.28), inset 0 1px 1px rgba(255,255,255,0.65);
       z-index: 5;
       line-height: 1;
     }
     .rec-dot.show { display: flex; }
 
-    .phrase-cn {
-      font-size: 1.35rem;
-      font-weight: 900;
-      line-height: 1;
-      letter-spacing: 0.3px;
-      text-align: center;
-      word-break: break-word;
-      max-width: 100%;
-    }
-    .phrase-py {
-      font-size: 0.52rem;
-      font-weight: 700;
-      padding: 1px 6px;
-      border-radius: 20px;
-      line-height: 1.1;
-      text-align: center;
-      font-style: italic;
-      max-width: 100%;
-      word-break: break-word;
-    }
-    .phrase-ru {
-      font-size: 0.68rem;
-      font-weight: 900;
-      padding: 1px 7px;
-      border-radius: 20px;
-      line-height: 1.1;
-      text-align: center;
-      max-width: 100%;
-      word-break: break-word;
-    }
-    .phrase-en {
-      font-size: 0.5rem;
-      font-weight: 700;
-      padding: 1px 6px;
-      border-radius: 20px;
-      line-height: 1.1;
-      text-align: center;
-      max-width: 100%;
-      word-break: break-word;
-    }
+    .phrase-cn { font-size: 1.15rem; font-weight: 900; line-height: 1.05; color: #000000; text-shadow: 0 1px 0 rgba(255,255,255,0.95), 0 2px 4px rgba(30,60,90,0.30); position: relative; z-index: 2; text-align: center; word-break: break-word; overflow-wrap: break-word; max-width: 100%; margin-top: 1px; }
+    .phrase-py { font-size: 0.44rem; font-weight: 800; color: #0a2848; background: rgba(255,255,255,0.85); padding: 1px 6px; border-radius: 30px; position: relative; z-index: 2; box-shadow: inset 0 1px 2px rgba(255,255,255,0.95), 0 1px 2px rgba(30,60,90,0.22); line-height: 1.2; text-align: center; max-width: 100%; word-break: break-word; }
+    .phrase-ru { font-size: 0.56rem; font-weight: 900; color: #0a1828; background: rgba(255,255,255,0.95); padding: 2px 7px; border-radius: 30px; position: relative; z-index: 2; box-shadow: inset 0 1px 2px rgba(255,255,255,0.95), 0 1px 3px rgba(30,60,90,0.25); text-shadow: 0 1px 0 rgba(255,255,255,0.9); line-height: 1.2; text-align: center; max-width: 100%; word-break: break-word; overflow-wrap: break-word; hyphens: auto; }
+    .phrase-note { font-size: 0.42rem; font-weight: 700; color: #5a2a00; background: linear-gradient(145deg, #fff4d8, #ffe4b0); padding: 2px 6px; border-radius: 20px; position: relative; z-index: 2; box-shadow: inset 0 1px 1px rgba(255,255,255,0.95), 0 1px 2px rgba(120,90,20,0.20); line-height: 1.25; text-align: center; max-width: 100%; word-break: break-word; margin-top: 1px; }
+    .phrase-note b { color: #8a4a00; font-weight: 900; }
 
-    /* ——— ПАНЕЛЬ ЗАПИСИ ——— */
+    .card[data-color="n1"] { --card-color: #4a9ad0; background: linear-gradient(135deg, #d8ecf8 0%, #a8d0ec 50%, #78b0d8 100%); }
+    .card[data-color="n2"] { --card-color: #3a8ac0; background: linear-gradient(135deg, #d0e8f8 0%, #a0c8e8 50%, #70a8d0 100%); }
+    .card[data-color="n3"] { --card-color: #5aa8d8; background: linear-gradient(135deg, #e0f0fc 0%, #b0d8f0 50%, #88c0e0 100%); }
+    .card[data-color="n4"] { --card-color: #3a78b0; background: linear-gradient(135deg, #c8e0f4 0%, #98c0e4 50%, #68a0cc 100%); }
+    .card[data-color="n5"] { --card-color: #6ab0dc; background: linear-gradient(135deg, #e4f4fc 0%, #b8dcf4 50%, #90c4e4 100%); }
+    .card[data-color="n6"] { --card-color: #4a78a8; background: linear-gradient(135deg, #c8d8e8 0%, #98b4d0 50%, #6888b0 100%); }
+    .card[data-color="n7"] { --card-color: #3a6898; background: linear-gradient(135deg, #c0d4e4 0%, #90accc 50%, #6080a8 100%); }
+    .card[data-color="n8"] { --card-color: #5a88b8; background: linear-gradient(135deg, #d0e0ec 0%, #a0bcd4 50%, #7090b8 100%); }
+    .card[data-color="n9"] { --card-color: #d04878; background: linear-gradient(135deg, #f8d0e0 0%, #f0a0c0 50%, #e870a0 100%); }
+    .card[data-color="n10"] { --card-color: #3a6088; background: linear-gradient(135deg, #b8ccdc 0%, #88a4c0 50%, #587898 100%); }
+    .card[data-color="n11"] { --card-color: #6a68a8; background: linear-gradient(135deg, #d8d8e8 0%, #a8a8d0 50%, #8078b0 100%); }
+    .card[data-color="n12"] { --card-color: #5a58a0; background: linear-gradient(135deg, #d0d0e4 0%, #a0a0c8 50%, #7870a8 100%); }
+    .card[data-color="n13"] { --card-color: #7a78b8; background: linear-gradient(135deg, #e0e0ec 0%, #b0b0d4 50%, #8880b8 100%); }
+    .card[data-color="n14"] { --card-color: #6a5898; background: linear-gradient(135deg, #d8d0e8 0%, #a8a0d0 50%, #8078b0 100%); }
+    .card[data-color="n15"] { --card-color: #8a78c0; background: linear-gradient(135deg, #e4dcf0 0%, #b8b0d8 50%, #9088c0 100%); }
+    .card[data-color="n16"] { --card-color: #4a8a68; background: linear-gradient(135deg, #d8f0e0 0%, #a8d8c0 50%, #78b898 100%); }
+    .card[data-color="n17"] { --card-color: #8a8a4a; background: linear-gradient(135deg, #f0f0d8 0%, #d8d8a8 50%, #b8b878 100%); }
+    .card[data-color="n18"] { --card-color: #a85858; background: linear-gradient(135deg, #f8e0e0 0%, #f0b0b0 50%, #e08080 100%); }
+
+    /* ——— ПАНЕЛЬ ЗАПИСИ (Pantone 2024) ——— */
     .rec-panel {
       margin-top: 3px;
-      padding: 3px 4px;
-      background: var(--md-surface-container);
-      border-radius: 12px;
+      padding: 4px 5px;
+      background: linear-gradient(145deg, var(--blue-linen), var(--blue-linen-dark));
+      border-radius: 14px;
       display: flex;
       flex-wrap: wrap;
       justify-content: center;
       align-items: center;
-      gap: 3px;
+      gap: 4px;
       flex-shrink: 0;
-      border: 1px solid var(--md-outline);
+      box-shadow:
+        inset 0 1px 2px rgba(255,255,255,0.55),
+        inset 0 -1px 2px rgba(26,34,64,0.20),
+        0 2px 6px rgba(26,34,64,0.18);
     }
     .rec-panel-title {
-      font-size: 0.5rem;
-      font-weight: 800;
-      color: var(--md-on-surface);
+      font-size: 0.48rem;
+      font-weight: 900;
+      color: #ffffff;
       margin-right: 2px;
+      text-shadow: 0 1px 2px rgba(0,0,0,0.28);
+      letter-spacing: 0.3px;
     }
     .rec-num {
       width: 20px;
       height: 20px;
-      border-radius: 6px;
-      border: 1px solid var(--md-outline);
-      background: var(--md-surface);
+      border-radius: 7px;
+      border: 1px solid rgba(255,255,255,0.85);
+      background: var(--petal-pink);
+      box-shadow:
+        inset 0 1px 2px rgba(255,255,255,0.75),
+        inset 0 -1px 2px rgba(90,42,34,0.15),
+        0 2px 4px rgba(26,34,64,0.22);
       display: flex;
       align-items: center;
       justify-content: center;
       font-size: 0.55rem;
       font-weight: 900;
-      color: var(--md-on-surface);
+      color: var(--on-petal-pink);
       cursor: pointer;
       padding: 0;
       transition: transform 0.12s ease, background 0.2s ease;
@@ -234,62 +152,58 @@
       -webkit-user-select: none;
       user-select: none;
     }
-    .rec-num:active { transform: scale(0.9); }
+    .rec-num:active { transform: scale(0.88); }
     .rec-num.recording {
-      background: var(--md-tertiary);
+      background: var(--petal-pink-dark);
       color: #fff;
       animation: pulse 1s infinite;
     }
     .rec-num.has-rec {
-      background: #3ac878;
-      color: #fff;
-      border-color: #2a9a58;
+      background: var(--seed-green);
+      color: var(--on-seed-green);
+      border-color: var(--seed-green-dark);
     }
     @keyframes pulse {
-      0%, 100% { box-shadow: 0 0 0 0 rgba(125,82,96,0.7); }
-      50% { box-shadow: 0 0 0 6px rgba(125,82,96,0); }
+      0%, 100% { box-shadow: 0 0 0 0 rgba(232,154,140,0.75); }
+      50% { box-shadow: 0 0 0 6px rgba(232,154,140,0); }
     }
 
-    .footer-note {
-      margin-top: 3px; text-align: center; font-size: 0.55rem; font-weight: 800;
-      color: var(--md-on-primary-container); background: var(--md-primary-container);
-      padding: 3px 10px; border-radius: 60px; display: inline-block;
-      flex-shrink: 0; align-self: center; line-height: 1.2;
-    }
-    .footer-note b { font-weight: 900; color: var(--md-primary); }
+    .footer-note { margin-top: 3px; text-align: center; font-size: 0.42rem; font-weight: 700; color: #0a2848; background: linear-gradient(145deg, #d0e8f8, #b0d0ea); padding: 2px 8px; border-radius: 60px; display: inline-block; width: auto; flex-shrink: 0; align-self: center; box-shadow: inset 0 1px 2px rgba(255,255,255,0.9); text-shadow: 0 1px 0 rgba(255,255,255,0.75); line-height: 1.2; }
+    .footer-note b { font-weight: 900; color: #1a5a88; }
 
     @media (max-width: 420px) {
-      .container { padding: 3px; border-radius: 18px; }
-      .grid { gap: 2px; }
-      .card { padding: 2px 3px; border-radius: 10px; gap: 1px; }
-      .phrase-cn { font-size: 1.2rem; }
-      .phrase-py { font-size: 0.46rem; padding: 1px 5px; }
-      .phrase-ru { font-size: 0.6rem; padding: 1px 6px; }
-      .phrase-en { font-size: 0.44rem; padding: 1px 5px; }
-      h1 { font-size: 0.9rem; gap: 3px; margin-bottom: 2px; }
+      .container { padding: 4px 4px 3px; border-radius: 22px; }
+      .grid { gap: 3px; }
+      .phrase-cn { font-size: 1.05rem; }
+      .phrase-py { font-size: 0.4rem; padding: 1px 5px; }
+      .phrase-ru { font-size: 0.51rem; padding: 2px 5px; }
+      .phrase-note { font-size: 0.4rem; padding: 1px 5px; }
+      h1 { gap: 3px; }
       h1 .title-hanzi { font-size: 0.85rem; padding: 2px 6px; }
-      h1 .title-pinyin { font-size: 0.52rem; padding: 2px 5px; }
-      h1 .title-rus { font-size: 0.52rem; padding: 2px 5px; }
-      .footer-note { font-size: 0.5rem; padding: 2px 8px; }
-      .rec-num { width: 18px; height: 18px; font-size: 0.5rem; border-radius: 5px; }
-      .rec-panel { padding: 2px 3px; gap: 2px; }
-      .rec-panel-title { font-size: 0.46rem; }
+      h1 .title-pinyin { font-size: 0.5rem; padding: 2px 5px; }
+      h1 .title-rus { font-size: 0.5rem; padding: 2px 5px; }
+      .footer-note { font-size: 0.4rem; padding: 1px 7px; }
+      .rec-num { width: 18px; height: 18px; font-size: 0.5rem; border-radius: 6px; }
+      .rec-panel { padding: 3px 4px; gap: 3px; border-radius: 12px; }
+      .rec-panel-title { font-size: 0.44rem; }
+      .rec-dot { width: 10px; height: 10px; font-size: 0.42rem; }
     }
 
     @media (max-width: 380px) {
-      .phrase-cn { font-size: 1.05rem; }
-      .phrase-py { font-size: 0.42rem; }
-      .phrase-ru { font-size: 0.55rem; }
-      .phrase-en { font-size: 0.4rem; }
+      .phrase-cn { font-size: 0.92rem; }
+      .phrase-py { font-size: 0.38rem; }
+      .phrase-ru { font-size: 0.46rem; }
+      .phrase-note { font-size: 0.38rem; }
       .rec-num { width: 17px; height: 17px; font-size: 0.46rem; }
     }
 
     @media (orientation: landscape) and (max-height: 500px) {
-      .grid { grid-template-columns: repeat(5, 1fr); grid-template-rows: repeat(3, 1fr); }
-      .phrase-cn { font-size: 1rem; }
-      .phrase-ru { font-size: 0.55rem; }
-      .phrase-py { font-size: 0.42rem; }
-      .phrase-en { font-size: 0.4rem; }
+      .container { max-height: 100%; border-radius: 16px; }
+      .grid { grid-template-columns: repeat(5, 1fr); }
+      h1 { font-size: 0.85rem; }
+      h1 .title-hanzi { font-size: 1rem; padding: 2px 6px; }
+      .phrase-note { display: none; }
+      .rec-num { width: 22px; height: 22px; font-size: 0.6rem; }
     }
   </style>
 </head>
@@ -297,131 +211,155 @@
 
 <div class="container">
   <h1>
-    <span class="title-hanzi">你 有 … 吗？</span>
-    <span class="title-pinyin">nǐ yǒu … ma?</span>
-    <span class="title-rus">У тебя есть …?</span>
+    <span class="title-hanzi">快 慢 马上</span>
+    <span class="title-pinyin">kuài / màn / mǎshàng</span>
+    <span class="title-rus">такси 2</span>
   </h1>
 
   <div class="grid" id="cardGrid">
 
-    <div class="card" data-color="p1" data-key="c1" data-hanzi-audio="你有水吗" data-russian-audio="У тебя есть вода">
+    <div class="card" data-color="n1" data-key="c1" data-hanzi-audio="麻烦快一点" data-russian-audio="Будьте добры побыстрее">
       <div class="rec-dot" data-indicator>✓</div>
-      <div class="phrase-cn">你有水吗？</div>
-      <div class="phrase-py">nǐ yǒu shuǐ ma?</div>
-      <div class="phrase-ru">У тебя есть вода?</div>
-      <div class="phrase-en">Do you have water?</div>
+      <div class="phrase-cn">麻烦快一点</div>
+      <div class="phrase-py">máfan kuài yīdiǎn</div>
+      <div class="phrase-ru">Будьте добры, побыстрее</div>
+      <div class="phrase-note"><b>麻烦</b> = будьте добры (вежливо)</div>
     </div>
 
-    <div class="card" data-color="p2" data-key="c2" data-hanzi-audio="你有纸巾吗" data-russian-audio="У тебя есть салфетки">
+    <div class="card" data-color="n2" data-key="c2" data-hanzi-audio="能不能快点" data-russian-audio="Можно побыстрее">
       <div class="rec-dot" data-indicator>✓</div>
-      <div class="phrase-cn">你有纸巾吗？</div>
-      <div class="phrase-py">nǐ yǒu zhǐjīn ma?</div>
-      <div class="phrase-ru">У тебя есть салфетки?</div>
-      <div class="phrase-en">Do you have tissues?</div>
+      <div class="phrase-cn">能不能快点？</div>
+      <div class="phrase-py">néng bù néng kuài diǎn</div>
+      <div class="phrase-ru">Можно побыстрее?</div>
+      <div class="phrase-note"><b>能不能</b> = можно ли (вежливый вопрос)</div>
     </div>
 
-    <div class="card" data-color="s1" data-key="c3" data-hanzi-audio="你有充电器吗" data-russian-audio="У тебя есть зарядка">
+    <div class="card" data-color="n3" data-key="c3" data-hanzi-audio="我快迟到了" data-russian-audio="Я почти опаздываю">
       <div class="rec-dot" data-indicator>✓</div>
-      <div class="phrase-cn">你有充电器吗？</div>
-      <div class="phrase-py">nǐ yǒu chōngdiànqì ma?</div>
-      <div class="phrase-ru">У тебя есть зарядка?</div>
-      <div class="phrase-en">Do you have a charger?</div>
+      <div class="phrase-cn">我快迟到了</div>
+      <div class="phrase-py">wǒ kuài chídào le</div>
+      <div class="phrase-ru">Я почти опаздываю</div>
+      <div class="phrase-note"><b>快</b> = скоро · <b>迟到</b> = опаздывать</div>
     </div>
 
-    <div class="card" data-color="s2" data-key="c4" data-hanzi-audio="你有现金吗" data-russian-audio="У тебя есть наличные">
+    <div class="card" data-color="n4" data-key="c4" data-hanzi-audio="请开慢一点" data-russian-audio="Поезжайте помедленнее">
       <div class="rec-dot" data-indicator>✓</div>
-      <div class="phrase-cn">你有现金吗？</div>
-      <div class="phrase-py">nǐ yǒu xiànjīn ma?</div>
-      <div class="phrase-ru">У тебя есть наличные?</div>
-      <div class="phrase-en">Do you have cash?</div>
+      <div class="phrase-cn">请开慢一点</div>
+      <div class="phrase-py">qǐng kāi màn yīdiǎn</div>
+      <div class="phrase-ru">Поезжайте помедленнее</div>
+      <div class="phrase-note"><b>开慢</b> = вести медленно</div>
     </div>
 
-    <div class="card" data-color="t1" data-key="c5" data-hanzi-audio="你有零钱吗" data-russian-audio="У тебя есть мелочь">
+    <div class="card" data-color="n5" data-key="c5" data-hanzi-audio="我马上下来" data-russian-audio="Я сейчас выйду">
       <div class="rec-dot" data-indicator>✓</div>
-      <div class="phrase-cn">你有零钱吗？</div>
-      <div class="phrase-py">nǐ yǒu língqián ma?</div>
-      <div class="phrase-ru">У тебя есть мелочь?</div>
-      <div class="phrase-en">Do you have change?</div>
+      <div class="phrase-cn">我马上下来</div>
+      <div class="phrase-py">wǒ mǎshàng xiàlái</div>
+      <div class="phrase-ru">Я сейчас выйду (спущусь)</div>
+      <div class="phrase-note"><b>马上</b> = сейчас же · <b>下来</b> = спуститься</div>
     </div>
 
-    <div class="card" data-color="t2" data-key="c6" data-hanzi-audio="你有雨伞吗" data-russian-audio="У тебя есть зонт">
+    <div class="card" data-color="n6" data-key="c6" data-hanzi-audio="我马上就到" data-russian-audio="Я сейчас приду">
       <div class="rec-dot" data-indicator>✓</div>
-      <div class="phrase-cn">你有雨伞吗？</div>
-      <div class="phrase-py">nǐ yǒu yǔsǎn ma?</div>
-      <div class="phrase-ru">У тебя есть зонт?</div>
-      <div class="phrase-en">Do you have an umbrella?</div>
+      <div class="phrase-cn">我马上就到</div>
+      <div class="phrase-py">wǒ mǎshàng jiù dào</div>
+      <div class="phrase-ru">Я сейчас приду</div>
+      <div class="phrase-note"><b>马上</b> = сейчас · <b>就</b> = уже · <b>到</b> = прибыть</div>
     </div>
 
-    <div class="card" data-color="surf" data-key="c7" data-hanzi-audio="你有药吗" data-russian-audio="У тебя есть лекарство">
+    <div class="card" data-color="n7" data-key="c7" data-hanzi-audio="马上到" data-russian-audio="Сейчас буду">
       <div class="rec-dot" data-indicator>✓</div>
-      <div class="phrase-cn">你有药吗？</div>
-      <div class="phrase-py">nǐ yǒu yào ma?</div>
-      <div class="phrase-ru">У тебя есть лекарство?</div>
-      <div class="phrase-en">Do you have medicine?</div>
+      <div class="phrase-cn">马上到</div>
+      <div class="phrase-py">mǎshàng dào</div>
+      <div class="phrase-ru">Сейчас буду / Уже подъезжаю</div>
+      <div class="phrase-note"><b>马上</b> = вот-вот, сейчас (о себе)</div>
     </div>
 
-    <div class="card" data-color="p1" data-key="c8" data-hanzi-audio="你有笔吗" data-russian-audio="У тебя есть ручка">
+    <div class="card" data-color="n8" data-key="c8" data-hanzi-audio="等我一下" data-russian-audio="Подождите меня">
       <div class="rec-dot" data-indicator>✓</div>
-      <div class="phrase-cn">你有笔吗？</div>
-      <div class="phrase-py">nǐ yǒu bǐ ma?</div>
-      <div class="phrase-ru">У тебя есть ручка?</div>
-      <div class="phrase-en">Do you have a pen?</div>
+      <div class="phrase-cn">等我一下</div>
+      <div class="phrase-py">děng wǒ yīxià</div>
+      <div class="phrase-ru">Подождите меня</div>
+      <div class="phrase-note"><b>等我</b> = подожди меня · <b>一下</b> = немного</div>
     </div>
 
-    <div class="card" data-color="p2" data-key="c9" data-hanzi-audio="你有手机吗" data-russian-audio="У тебя есть телефон">
+    <div class="card" data-color="n9" data-key="c9" data-hanzi-audio="再等我两分钟" data-russian-audio="Подождите ещё две минуты">
       <div class="rec-dot" data-indicator>✓</div>
-      <div class="phrase-cn">你有手机吗？</div>
-      <div class="phrase-py">nǐ yǒu shǒujī ma?</div>
-      <div class="phrase-ru">У тебя есть телефон?</div>
-      <div class="phrase-en">Do you have a phone?</div>
+      <div class="phrase-cn">再等我两分钟</div>
+      <div class="phrase-py">zài děng wǒ liǎng fēnzhōng</div>
+      <div class="phrase-ru">Подождите ещё две минуты</div>
+      <div class="phrase-note"><b>再</b> = ещё · <b>两分钟</b> = две минуты</div>
     </div>
 
-    <div class="card" data-color="s1" data-key="c10" data-hanzi-audio="你有地图吗" data-russian-audio="У тебя есть карта">
+    <div class="card" data-color="n10" data-key="c10" data-hanzi-audio="你到了吗" data-russian-audio="Вы приехали">
       <div class="rec-dot" data-indicator>✓</div>
-      <div class="phrase-cn">你有地图吗？</div>
-      <div class="phrase-py">nǐ yǒu dìtú ma?</div>
-      <div class="phrase-ru">У тебя есть карта?</div>
-      <div class="phrase-en">Do you have a map?</div>
+      <div class="phrase-cn">你到了吗？</div>
+      <div class="phrase-py">nǐ dào le ma</div>
+      <div class="phrase-ru">Вы приехали?</div>
+      <div class="phrase-note"><b>到了</b> = прибыл · <b>吗</b> = вопрос</div>
     </div>
 
-    <div class="card" data-color="s2" data-key="c11" data-hanzi-audio="你有时间吗" data-russian-audio="У тебя есть время">
+    <div class="card" data-color="n11" data-key="c11" data-hanzi-audio="我在门口等你" data-russian-audio="Я жду вас у входа">
       <div class="rec-dot" data-indicator>✓</div>
-      <div class="phrase-cn">你有时间吗？</div>
-      <div class="phrase-py">nǐ yǒu shíjiān ma?</div>
-      <div class="phrase-ru">У тебя есть время?</div>
-      <div class="phrase-en">Do you have time?</div>
+      <div class="phrase-cn">我在门口等你</div>
+      <div class="phrase-py">wǒ zài ménkǒu děng nǐ</div>
+      <div class="phrase-ru">Я жду вас у входа</div>
+      <div class="phrase-note"><b>在门口</b> = у входа · <b>等你</b> = жду тебя</div>
     </div>
 
-    <div class="card" data-color="t1" data-key="c12" data-hanzi-audio="你有微信吗" data-russian-audio="У тебя есть WeChat">
+    <div class="card" data-color="n12" data-key="c12" data-hanzi-audio="车在哪里" data-russian-audio="Где машина">
       <div class="rec-dot" data-indicator>✓</div>
-      <div class="phrase-cn">你有微信吗？</div>
-      <div class="phrase-py">nǐ yǒu Wēixìn ma?</div>
-      <div class="phrase-ru">У тебя есть WeChat?</div>
-      <div class="phrase-en">Do you have WeChat?</div>
+      <div class="phrase-cn">车在哪里？</div>
+      <div class="phrase-py">chē zài nǎlǐ</div>
+      <div class="phrase-ru">Где машина?</div>
+      <div class="phrase-note"><b>车</b> = машина · <b>在哪里</b> = где</div>
     </div>
 
-    <div class="card" data-color="t2" data-key="c13" data-hanzi-audio="你有充电宝吗" data-russian-audio="У тебя есть повербанк">
+    <div class="card" data-color="n13" data-key="c13" data-hanzi-audio="在前面等" data-russian-audio="Ждите впереди">
       <div class="rec-dot" data-indicator>✓</div>
-      <div class="phrase-cn">你有充电宝吗？</div>
-      <div class="phrase-py">nǐ yǒu chōngdiànbǎo ma?</div>
-      <div class="phrase-ru">У тебя есть повербанк?</div>
-      <div class="phrase-en">Do you have a power bank?</div>
+      <div class="phrase-cn">在前面等</div>
+      <div class="phrase-py">zài qiánmiàn děng</div>
+      <div class="phrase-ru">Ждите впереди</div>
+      <div class="phrase-note"><b>在前面</b> = впереди · <b>等</b> = ждать</div>
     </div>
 
-    <div class="card" data-color="surf" data-key="c14" data-hanzi-audio="你有口罩吗" data-russian-audio="У тебя есть маска">
+    <div class="card" data-color="n14" data-key="c14" data-hanzi-audio="我穿黑色外套" data-russian-audio="Я в чёрной куртке">
       <div class="rec-dot" data-indicator>✓</div>
-      <div class="phrase-cn">你有口罩吗？</div>
-      <div class="phrase-py">nǐ yǒu kǒuzhào ma?</div>
-      <div class="phrase-ru">У тебя есть маска?</div>
-      <div class="phrase-en">Do you have a mask?</div>
+      <div class="phrase-cn">我穿黑色外套</div>
+      <div class="phrase-py">wǒ chuān hēisè wàitào</div>
+      <div class="phrase-ru">Я в чёрной куртке</div>
+      <div class="phrase-note"><b>穿</b> = носить · <b>黑色外套</b> = чёрная куртка</div>
     </div>
 
-    <div class="card" data-color="p1" data-key="c15" data-hanzi-audio="你有名片吗" data-russian-audio="У тебя есть визитка">
+    <div class="card" data-color="n15" data-key="c15" data-hanzi-audio="你的车牌号是多少" data-russian-audio="Какой у вас номер машины">
       <div class="rec-dot" data-indicator>✓</div>
-      <div class="phrase-cn">你有名片吗？</div>
-      <div class="phrase-py">nǐ yǒu míngpiàn ma?</div>
-      <div class="phrase-ru">У тебя есть визитка?</div>
-      <div class="phrase-en">Do you have a business card?</div>
+      <div class="phrase-cn">你的车牌号是多少？</div>
+      <div class="phrase-py">nǐ de chēpái hào shì duōshǎo</div>
+      <div class="phrase-ru">Какой у вас номер машины?</div>
+      <div class="phrase-note"><b>车牌号</b> = номер машины</div>
+    </div>
+
+    <div class="card" data-color="n16" data-key="c16" data-hanzi-audio="麻烦你了" data-russian-audio="Спасибо вам большое">
+      <div class="rec-dot" data-indicator>✓</div>
+      <div class="phrase-cn">麻烦你了</div>
+      <div class="phrase-py">máfan nǐ le</div>
+      <div class="phrase-ru">Спасибо, извините за беспокойство</div>
+      <div class="phrase-note"><b>麻烦你了</b> = спасибо (с оттенком «извините»)</div>
+    </div>
+
+    <div class="card" data-color="n17" data-key="c17" data-hanzi-audio="到了我告诉你" data-russian-audio="Когда приедем скажу вам">
+      <div class="rec-dot" data-indicator>✓</div>
+      <div class="phrase-cn">到了我告诉你</div>
+      <div class="phrase-py">dào le wǒ gàosù nǐ</div>
+      <div class="phrase-ru">Когда приедем — скажу</div>
+      <div class="phrase-note"><b>到了</b> = когда приедем · <b>告诉你</b> = скажу тебе</div>
+    </div>
+
+    <div class="card" data-color="n18" data-key="c18" data-hanzi-audio="我在这里" data-russian-audio="Я здесь">
+      <div class="rec-dot" data-indicator>✓</div>
+      <div class="phrase-cn">我在这里</div>
+      <div class="phrase-py">wǒ zài zhèlǐ</div>
+      <div class="phrase-ru">Я здесь</div>
+      <div class="phrase-note"><b>在这里</b> = здесь, на этом месте</div>
     </div>
 
   </div>
@@ -432,7 +370,7 @@
 
   <div style="display: flex; justify-content: center; flex-shrink: 0;">
     <div class="footer-note">
-      <b>клик</b> по карточке — озвучка · <b>цифра</b> — запись · повтор — удалить
+      <b>клик</b> по фразе — озвучка · <b>цифра</b> — запись · повтор — удалить
     </div>
   </div>
 </div>
@@ -442,7 +380,6 @@
     const cards = document.querySelectorAll('.card');
     const recPanel = document.getElementById('recPanel');
 
-    // ——— РАЗБЛОКИРОВКА АУДИО iOS ———
     let audioUnlocked = false;
     let sharedAudioCtx = null;
 
@@ -480,8 +417,7 @@
       return voice || null;
     }
 
-    // ——— ЗАПИСИ ———
-    const STORAGE_PREFIX = 'custom_rec_you_';
+    const STORAGE_PREFIX = 'custom_rec_taxi2_';
     const recordedAudios = {};
 
     function loadSavedRecordings() {
@@ -518,11 +454,8 @@
       const key = card.dataset.key;
       if (!btn) btn = recPanel.querySelector(`.rec-num[data-key="${key}"]`);
       if (!btn) return;
-      if (recordedAudios[key]) {
-        btn.classList.add('has-rec');
-      } else {
-        btn.classList.remove('has-rec');
-      }
+      if (recordedAudios[key]) btn.classList.add('has-rec');
+      else btn.classList.remove('has-rec');
     }
 
     function updateCardIndicator(card) {

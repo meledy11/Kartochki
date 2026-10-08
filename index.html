@@ -7,194 +7,534 @@
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
-  <meta name="apple-mobile-web-app-title" content="Китайский · такси 2" />
+  <meta name="apple-mobile-web-app-title" content="V起来 · направление" />
   <meta name="format-detection" content="telephone=no" />
-  <meta name="theme-color" content="#3a7aa8" />
+  <meta name="theme-color" content="#FFEFD5" />
 
-  <link rel="apple-touch-icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 180 180'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='0' y2='1'%3E%3Cstop offset='0' stop-color='%23b8d8ec'/%3E%3Cstop offset='1' stop-color='%233a7aa8'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='180' height='180' rx='40' fill='url(%23g)'/%3E%3Ctext x='90' y='118' font-size='70' font-weight='900' text-anchor='middle' fill='%23ffffff' font-family='system-ui'%3E快%3C/text%3E%3C/svg%3E" />
+  <link rel="apple-touch-icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 180 180'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='0' y2='1'%3E%3Cstop offset='0' stop-color='%23FFEFD5'/%3E%3Cstop offset='1' stop-color='%23FFE4B5'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='180' height='180' rx='40' fill='url(%23g)'/%3E%3Ctext x='90' y='118' font-size='70' font-weight='900' text-anchor='middle' fill='%23408080' font-family='system-ui'%3E起%3C/text%3E%3C/svg%3E" />
 
-  <title>Китайский · такси 2</title>
+  <title>Китайский · V起来 (направление)</title>
 
   <style>
-    * { box-sizing: border-box; margin: 0; padding: 0; -webkit-tap-highlight-color: transparent; -webkit-touch-callout: none; }
-    html, body { height: 100%; overflow: hidden; overscroll-behavior: none; -webkit-user-select: none; user-select: none; position: fixed; width: 100%; -webkit-text-size-adjust: 100%; }
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      -webkit-tap-highlight-color: transparent;
+      -webkit-touch-callout: none;
+    }
 
-    :root {
-      --petal-pink: #FFB6A9;
-      --petal-pink-dark: #E89A8C;
-      --on-petal-pink: #5A2A22;
-      --seed-green: #CAD23C;
-      --seed-green-dark: #A8AF28;
-      --on-seed-green: #2A3008;
-      --blue-linen: #A1AED1;
-      --blue-linen-dark: #7E8CB8;
-      --on-blue-linen: #1A2240;
+    html, body {
+      height: 100%;
+      overflow: hidden;
+      overscroll-behavior: none;
+      -webkit-user-select: none;
+      user-select: none;
+      position: fixed;
+      width: 100%;
+      -webkit-text-size-adjust: 100%;
     }
 
     body {
       font-family: -apple-system, BlinkMacSystemFont, system-ui, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
-      background: radial-gradient(circle at 25% 15%, #e8f0f8 0%, #c8d8e8 40%, #88a8c8 75%, #4a6a88 100%);
-      height: 100vh; height: 100dvh;
-      display: flex; justify-content: center; align-items: center;
-      padding: calc(4px + env(safe-area-inset-top)) calc(4px + env(safe-area-inset-right)) calc(4px + env(safe-area-inset-bottom)) calc(4px + env(safe-area-inset-left));
+      background: radial-gradient(circle at 25% 15%, #FFEFD5 0%, #FFE4B5 45%, #FFDAB9 75%, #EEE8AA 100%);
+      height: 100vh;
+      height: 100dvh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding:
+        calc(4px + env(safe-area-inset-top))
+        calc(4px + env(safe-area-inset-right))
+        calc(4px + env(safe-area-inset-bottom))
+        calc(4px + env(safe-area-inset-left));
     }
+
     .container {
-      max-width: 860px; width: 100%; height: 100%; max-height: 900px;
-      background: rgba(246, 250, 254, 0.78);
-      -webkit-backdrop-filter: blur(6px) saturate(1.15); backdrop-filter: blur(6px) saturate(1.15);
-      border-radius: 26px; padding: 5px 5px 4px;
-      box-shadow: 0 20px 50px rgba(20, 60, 90, 0.28), 0 8px 24px rgba(20, 60, 90, 0.16), inset 0 1px 2px rgba(255,255,255,0.95), inset 0 -1px 2px rgba(140, 180, 210, 0.22);
-      border: 1px solid rgba(180, 210, 230, 0.60);
-      display: flex; flex-direction: column; position: relative; overflow: hidden;
+      max-width: 860px;
+      width: 100%;
+      height: 100%;
+      max-height: 900px;
+      background: rgba(255, 252, 242, 0.72);
+      -webkit-backdrop-filter: blur(6px) saturate(1.15);
+      backdrop-filter: blur(6px) saturate(1.15);
+      border-radius: 26px;
+      padding: 5px 5px 4px;
+      box-shadow:
+        0 20px 50px rgba(120, 90, 50, 0.22),
+        0 8px 24px rgba(120, 90, 50, 0.14),
+        inset 0 1px 2px rgba(255,255,255,0.95),
+        inset 0 -1px 2px rgba(200, 170, 130, 0.20);
+      border: 1px solid rgba(240, 220, 190, 0.6);
+      display: flex;
+      flex-direction: column;
+      position: relative;
+      overflow: hidden;
     }
-    h1 { text-align: center; font-weight: 900; font-size: 1rem; color: #0a2848; margin-bottom: 3px; display: flex; align-items: center; justify-content: center; gap: 4px; flex-shrink: 0; flex-wrap: nowrap; text-shadow: 0 1px 0 rgba(255,255,255,0.95); overflow: hidden; }
-    h1 .title-hanzi { font-size: 0.92rem; font-weight: 900; color: #ffffff; background: linear-gradient(145deg, #3a7aa8, #1a5a88); padding: 2px 7px; border-radius: 8px; box-shadow: inset 0 1px 2px rgba(255,255,255,0.40), inset 0 -1px 2px rgba(0,40,70,0.30), 0 1px 0 rgba(0,40,70,0.25), 0 2px 5px rgba(0,40,70,0.22); text-shadow: 0 1px 0 rgba(0,0,0,0.20); line-height: 1; white-space: nowrap; }
-    h1 .title-pinyin { font-size: 0.55rem; font-weight: 800; color: #1a4868; background: linear-gradient(145deg, #c8e0f0, #a0c8e4); padding: 2px 5px; border-radius: 30px; box-shadow: inset 0 1px 2px rgba(255,255,255,0.9); white-space: nowrap; }
-    h1 .title-rus { font-size: 0.55rem; font-weight: 900; color: #0a2848; background: linear-gradient(145deg, #d0e8f8, #b0d0ea); padding: 2px 5px; border-radius: 30px; box-shadow: inset 0 1px 2px rgba(255,255,255,0.95); white-space: nowrap; }
 
-    .grid { display: grid; grid-template-columns: repeat(3, 1fr); grid-auto-rows: 1fr; gap: 4px; flex: 1; min-height: 0; overflow-y: auto; overflow-x: hidden; -webkit-overflow-scrolling: touch; padding: 1px; scrollbar-width: none; }
+    /* ——— ШАПКА ——— */
+    h1 {
+      text-align: center;
+      font-weight: 900;
+      font-size: 1rem;
+      color: #4a2a10;
+      margin-bottom: 2px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 4px;
+      flex-shrink: 0;
+      flex-wrap: nowrap;
+      text-shadow: 0 1px 0 rgba(255,255,255,0.95);
+      overflow: hidden;
+    }
+    h1 .title-hanzi {
+      font-size: 0.92rem;
+      font-weight: 900;
+      color: #2a7a80;
+      background: linear-gradient(145deg, #d8f0ee, #a8dcd8);
+      padding: 2px 7px;
+      border-radius: 8px;
+      box-shadow:
+        inset 0 1px 2px rgba(255,255,255,0.95),
+        inset 0 -1px 2px rgba(60,140,140,0.20),
+        0 1px 0 rgba(50,120,120,0.20),
+        0 2px 5px rgba(40,100,100,0.18);
+      text-shadow: 0 1px 0 rgba(255,255,255,0.9);
+      line-height: 1;
+      white-space: nowrap;
+    }
+    h1 .title-pinyin {
+      font-size: 0.55rem;
+      font-weight: 800;
+      color: #6a4a20;
+      background: linear-gradient(145deg, #FFE4B5, #f0c898);
+      padding: 2px 5px;
+      border-radius: 30px;
+      box-shadow: inset 0 1px 2px rgba(255,255,255,0.9);
+      white-space: nowrap;
+    }
+    h1 .title-rus {
+      font-size: 0.55rem;
+      font-weight: 900;
+      color: #4a2a10;
+      background: linear-gradient(145deg, #FFEFD5, #FFDAB9);
+      padding: 2px 5px;
+      border-radius: 30px;
+      box-shadow: inset 0 1px 2px rgba(255,255,255,0.95);
+      white-space: nowrap;
+    }
+
+    .subhead {
+      text-align: center;
+      font-size: 0.5rem;
+      color: #6a4a20;
+      background: linear-gradient(145deg, #FFE4B5, #FFDAB9);
+      display: block;
+      padding: 1px 8px;
+      border-radius: 30px;
+      margin: 0 auto 3px;
+      flex-shrink: 0;
+      font-weight: 700;
+      line-height: 1.2;
+      width: fit-content;
+      max-width: 96%;
+      box-shadow: inset 0 1px 2px rgba(255,255,255,0.9);
+    }
+    .subhead b { color: #2a7a80; font-weight: 900; }
+
+    /* ——— СЕТКА ——— */
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      grid-auto-rows: 1fr;
+      gap: 4px;
+      flex: 1;
+      min-height: 0;
+      overflow-y: auto;
+      overflow-x: hidden;
+      -webkit-overflow-scrolling: touch;
+      padding: 1px;
+      scrollbar-width: none;
+    }
     .grid::-webkit-scrollbar { display: none; }
-    .card { border-radius: 12px; padding: 3px 4px 4px; display: flex; flex-direction: column; align-items: center; justify-content: flex-start; text-align: center; transition: transform 0.12s ease, box-shadow 0.2s ease; cursor: pointer; position: relative; min-height: 0; -webkit-user-select: none; user-select: none; box-shadow: inset 0 1px 1px rgba(255,255,255,0.95), inset 0 -2px 4px rgba(60,100,130,0.14), inset 0 0 20px rgba(240,248,255,0.40), 0 2px 0 rgba(60,100,130,0.18), 0 4px 8px rgba(30,60,90,0.16); border: 1px solid rgba(255,255,255,0.75); border-top-color: rgba(255,255,255,0.95); border-bottom-color: rgba(160,190,220,0.40); overflow: hidden; gap: 2px; }
-    .card::before { content: ""; position: absolute; inset: 0; pointer-events: none; background-image: radial-gradient(circle at 20% 20%, rgba(255,255,255,0.55) 0%, transparent 45%), radial-gradient(circle at 80% 80%, rgba(160,190,220,0.15) 0%, transparent 50%); opacity: 0.7; mix-blend-mode: soft-light; }
-    .card::after { content: ""; position: absolute; top: 0; left: 8%; right: 8%; height: 40%; background: linear-gradient(180deg, rgba(255,255,255,0.55), transparent 100%); border-radius: 12px 12px 50% 50%; pointer-events: none; }
-    .card:active { transform: translateY(2px) scale(0.97); box-shadow: inset 0 2px 4px rgba(60,100,130,0.22), inset 0 0 20px rgba(240,248,255,0.45), 0 1px 0 rgba(60,100,130,0.20); }
-    .card.active { border-bottom: 4px solid var(--card-color, #3a7aa8); box-shadow: inset 0 1px 1px rgba(255,255,255,0.95), inset 0 -2px 4px rgba(60,100,130,0.15), inset 0 0 24px rgba(240,248,255,0.50), 0 4px 0 rgba(60,100,130,0.22), 0 6px 12px rgba(30,60,90,0.18); }
 
-    .rec-dot {
+    .card {
+      border-radius: 12px;
+      padding: 2px 3px 3px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+      text-align: center;
+      transition: transform 0.12s ease, box-shadow 0.2s ease;
+      cursor: pointer;
+      position: relative;
+      min-height: 0;
+      -webkit-user-select: none;
+      user-select: none;
+      box-shadow:
+        inset 0 1px 1px rgba(255,255,255,0.95),
+        inset 0 -2px 4px rgba(180, 140, 90, 0.12),
+        inset 0 0 20px rgba(255, 245, 220, 0.40),
+        0 2px 0 rgba(180, 140, 90, 0.18),
+        0 4px 8px rgba(120, 80, 40, 0.16);
+      border: 1px solid rgba(255,255,255,0.75);
+      border-top-color: rgba(255,255,255,0.95);
+      border-bottom-color: rgba(230, 200, 160, 0.40);
+      overflow: hidden;
+    }
+    .card::before {
+      content: "";
       position: absolute;
-      top: 3px; right: 4px;
-      width: 11px; height: 11px;
+      inset: 0;
+      pointer-events: none;
+      background-image:
+        radial-gradient(circle at 20% 20%, rgba(255,255,255,0.55) 0%, transparent 45%),
+        radial-gradient(circle at 80% 80%, rgba(200, 170, 130, 0.15) 0%, transparent 50%);
+      opacity: 0.7;
+      mix-blend-mode: soft-light;
+    }
+    .card::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 8%;
+      right: 8%;
+      height: 40%;
+      background: linear-gradient(180deg, rgba(255,255,255,0.55), transparent 100%);
+      border-radius: 12px 12px 50% 50%;
+      pointer-events: none;
+    }
+    .card:active {
+      transform: translateY(2px) scale(0.97);
+      box-shadow:
+        inset 0 2px 4px rgba(180, 140, 90, 0.22),
+        inset 0 0 20px rgba(255, 245, 220, 0.45),
+        0 1px 0 rgba(180, 140, 90, 0.20);
+    }
+    .card.active {
+      border-bottom: 4px solid var(--card-color, #40A0A0);
+      box-shadow:
+        inset 0 1px 1px rgba(255,255,255,0.95),
+        inset 0 -2px 4px rgba(180, 140, 90, 0.15),
+        inset 0 0 24px rgba(255, 245, 220, 0.50),
+        0 4px 0 rgba(180, 140, 90, 0.22),
+        0 6px 12px rgba(120, 80, 40, 0.18);
+    }
+    .card.has-rec {
+      box-shadow:
+        inset 0 1px 1px rgba(255,255,255,0.95),
+        inset 0 -2px 4px rgba(60,140,90,0.15),
+        inset 0 0 20px rgba(220,255,230,0.45),
+        0 2px 0 rgba(60,140,90,0.20),
+        0 4px 8px rgba(30,90,50,0.16);
+    }
+
+    .emoji-corner {
+      position: absolute;
+      top: 2px;
+      left: 3px;
+      font-size: 0.8rem;
+      line-height: 1;
+      opacity: 0.9;
+      pointer-events: none;
+      z-index: 1;
+      filter: drop-shadow(0 1px 1px rgba(120, 80, 40, 0.25));
+    }
+
+    .rec-indicator {
+      position: absolute;
+      top: 2px;
+      right: 3px;
+      width: 11px;
+      height: 11px;
       border-radius: 50%;
       display: none;
-      align-items: center; justify-content: center;
+      align-items: center;
+      justify-content: center;
       font-size: 0.46rem;
       font-weight: 900;
-      background: var(--seed-green);
-      color: var(--on-seed-green);
-      box-shadow: 0 1px 3px rgba(0,0,0,0.28), inset 0 1px 1px rgba(255,255,255,0.65);
+      background: linear-gradient(145deg, #7ae8a8, #3ac878);
+      color: #fff;
+      box-shadow:
+        inset 0 1px 1px rgba(255,255,255,0.9),
+        0 1px 3px rgba(30,90,50,0.3);
       z-index: 5;
       line-height: 1;
     }
-    .rec-dot.show { display: flex; }
+    .rec-indicator.show { display: flex; }
+    .rec-indicator.recording {
+      background: linear-gradient(145deg, #ff6060, #d83030);
+      animation: pulse 1s infinite;
+    }
+    @keyframes pulse {
+      0%, 100% { box-shadow: 0 0 0 0 rgba(255,80,80,0.7); }
+      50% { box-shadow: 0 0 0 8px rgba(255,80,80,0); }
+    }
 
-    .phrase-cn { font-size: 1.15rem; font-weight: 900; line-height: 1.05; color: #000000; text-shadow: 0 1px 0 rgba(255,255,255,0.95), 0 2px 4px rgba(30,60,90,0.30); position: relative; z-index: 2; text-align: center; word-break: break-word; overflow-wrap: break-word; max-width: 100%; margin-top: 1px; }
-    .phrase-py { font-size: 0.44rem; font-weight: 800; color: #0a2848; background: rgba(255,255,255,0.85); padding: 1px 6px; border-radius: 30px; position: relative; z-index: 2; box-shadow: inset 0 1px 2px rgba(255,255,255,0.95), 0 1px 2px rgba(30,60,90,0.22); line-height: 1.2; text-align: center; max-width: 100%; word-break: break-word; }
-    .phrase-ru { font-size: 0.56rem; font-weight: 900; color: #0a1828; background: rgba(255,255,255,0.95); padding: 2px 7px; border-radius: 30px; position: relative; z-index: 2; box-shadow: inset 0 1px 2px rgba(255,255,255,0.95), 0 1px 3px rgba(30,60,90,0.25); text-shadow: 0 1px 0 rgba(255,255,255,0.9); line-height: 1.2; text-align: center; max-width: 100%; word-break: break-word; overflow-wrap: break-word; hyphens: auto; }
-    .phrase-note { font-size: 0.42rem; font-weight: 700; color: #5a2a00; background: linear-gradient(145deg, #fff4d8, #ffe4b0); padding: 2px 6px; border-radius: 20px; position: relative; z-index: 2; box-shadow: inset 0 1px 1px rgba(255,255,255,0.95), 0 1px 2px rgba(120,90,20,0.20); line-height: 1.25; text-align: center; max-width: 100%; word-break: break-word; margin-top: 1px; }
-    .phrase-note b { color: #8a4a00; font-weight: 900; }
+    /* ——— КОНТЕНТ КАРТОЧКИ ——— */
+    .card-inner {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+      width: 100%;
+      height: 100%;
+      padding-top: 8px;
+      gap: 2px;
+    }
 
-    .card[data-color="n1"] { --card-color: #4a9ad0; background: linear-gradient(135deg, #d8ecf8 0%, #a8d0ec 50%, #78b0d8 100%); }
-    .card[data-color="n2"] { --card-color: #3a8ac0; background: linear-gradient(135deg, #d0e8f8 0%, #a0c8e8 50%, #70a8d0 100%); }
-    .card[data-color="n3"] { --card-color: #5aa8d8; background: linear-gradient(135deg, #e0f0fc 0%, #b0d8f0 50%, #88c0e0 100%); }
-    .card[data-color="n4"] { --card-color: #3a78b0; background: linear-gradient(135deg, #c8e0f4 0%, #98c0e4 50%, #68a0cc 100%); }
-    .card[data-color="n5"] { --card-color: #6ab0dc; background: linear-gradient(135deg, #e4f4fc 0%, #b8dcf4 50%, #90c4e4 100%); }
-    .card[data-color="n6"] { --card-color: #4a78a8; background: linear-gradient(135deg, #c8d8e8 0%, #98b4d0 50%, #6888b0 100%); }
-    .card[data-color="n7"] { --card-color: #3a6898; background: linear-gradient(135deg, #c0d4e4 0%, #90accc 50%, #6080a8 100%); }
-    .card[data-color="n8"] { --card-color: #5a88b8; background: linear-gradient(135deg, #d0e0ec 0%, #a0bcd4 50%, #7090b8 100%); }
-    .card[data-color="n9"] { --card-color: #d04878; background: linear-gradient(135deg, #f8d0e0 0%, #f0a0c0 50%, #e870a0 100%); }
-    .card[data-color="n10"] { --card-color: #3a6088; background: linear-gradient(135deg, #b8ccdc 0%, #88a4c0 50%, #587898 100%); }
-    .card[data-color="n11"] { --card-color: #6a68a8; background: linear-gradient(135deg, #d8d8e8 0%, #a8a8d0 50%, #8078b0 100%); }
-    .card[data-color="n12"] { --card-color: #5a58a0; background: linear-gradient(135deg, #d0d0e4 0%, #a0a0c8 50%, #7870a8 100%); }
-    .card[data-color="n13"] { --card-color: #7a78b8; background: linear-gradient(135deg, #e0e0ec 0%, #b0b0d4 50%, #8880b8 100%); }
-    .card[data-color="n14"] { --card-color: #6a5898; background: linear-gradient(135deg, #d8d0e8 0%, #a8a0d0 50%, #8078b0 100%); }
-    .card[data-color="n15"] { --card-color: #8a78c0; background: linear-gradient(135deg, #e4dcf0 0%, #b8b0d8 50%, #9088c0 100%); }
-    .card[data-color="n16"] { --card-color: #4a8a68; background: linear-gradient(135deg, #d8f0e0 0%, #a8d8c0 50%, #78b898 100%); }
-    .card[data-color="n17"] { --card-color: #8a8a4a; background: linear-gradient(135deg, #f0f0d8 0%, #d8d8a8 50%, #b8b878 100%); }
-    .card[data-color="n18"] { --card-color: #a85858; background: linear-gradient(135deg, #f8e0e0 0%, #f0b0b0 50%, #e08080 100%); }
+    .hanzi {
+      font-size: 1.55rem;
+      font-weight: 900;
+      line-height: 1.1;
+      margin: 0;
+      letter-spacing: 0.5px;
+      color: #3a1a08;
+      text-shadow:
+        0 1px 0 rgba(255,255,255,0.95),
+        0 2px 3px rgba(120, 70, 20, 0.22);
+      position: relative;
+      z-index: 2;
+      text-align: center;
+      word-break: break-all;
+      overflow-wrap: break-word;
+      white-space: normal;
+      max-width: 100%;
+    }
+    .hanzi .key-char {
+      border-radius: 4px;
+      padding: 0 3px;
+      box-shadow: inset 0 1px 2px rgba(255,255,255,0.95), inset 0 -1px 2px rgba(180, 140, 90, 0.22);
+    }
 
-    /* ——— ПАНЕЛЬ ЗАПИСИ (Pantone 2024) ——— */
+    .pinyin {
+      font-size: 0.62rem;
+      font-weight: 800;
+      color: #5a3a18;
+      background: rgba(255,255,255,0.78);
+      padding: 1px 6px;
+      border-radius: 30px;
+      margin: 0;
+      position: relative;
+      z-index: 2;
+      box-shadow: inset 0 1px 2px rgba(255,255,255,0.95), 0 1px 3px rgba(120, 80, 40, 0.22);
+      text-shadow: 0 1px 0 rgba(255,255,255,0.85);
+      text-align: center;
+      line-height: 1.2;
+      max-width: 100%;
+      white-space: normal;
+      word-break: break-word;
+    }
+
+    .russian {
+      font-size: 0.68rem;
+      font-weight: 900;
+      color: #3a1a08;
+      background: rgba(255,255,255,0.85);
+      padding: 2px 7px;
+      border-radius: 30px;
+      position: relative;
+      z-index: 2;
+      box-shadow: inset 0 1px 2px rgba(255,255,255,0.95), 0 1px 3px rgba(120, 80, 40, 0.22);
+      text-shadow: 0 1px 0 rgba(255,255,255,0.85);
+      line-height: 1.2;
+      text-align: center;
+      white-space: normal;
+      word-break: break-word;
+    }
+
+    .example {
+      font-size: 0.56rem;
+      font-weight: 700;
+      color: #5a3a18;
+      background: rgba(255,255,255,0.78);
+      padding: 2px 6px;
+      border-radius: 9px;
+      margin-top: auto;
+      position: relative;
+      z-index: 2;
+      border: 1px solid rgba(220, 190, 150, 0.55);
+      box-shadow: inset 0 1px 1px rgba(255,255,255,0.80);
+      text-shadow: 0 1px 0 rgba(255,255,255,0.75);
+      line-height: 1.25;
+      width: 100%;
+      white-space: normal;
+      word-break: break-word;
+      overflow-wrap: break-word;
+    }
+    .example .highlight {
+      background: rgba(255,255,255,0.92);
+      padding: 0 3px;
+      border-radius: 5px;
+      font-weight: 900;
+      color: #2a7a80;
+      box-shadow: inset 0 1px 1px rgba(255,255,255,0.95);
+      white-space: normal;
+    }
+    .example .ru {
+      display: block;
+      font-weight: 600;
+      color: #8a5a30;
+      font-size: 0.5rem;
+      margin-top: 1px;
+      font-style: italic;
+      line-height: 1.25;
+      white-space: normal;
+      word-break: break-word;
+    }
+
+    /* ——— 15 оттенков PapayaWhip / Peach / Turquoise ——— */
+    .card[data-color="n1"]  { --card-color: #40A0A0; background: linear-gradient(145deg, #FFEFD5, #FFE4B5); }
+    .card[data-color="n1"] .hanzi .key-char { color: #2a7a80; background: linear-gradient(145deg, #d8f0ee, #b0e0dc); }
+    .card[data-color="n2"]  { --card-color: #40B0A8; background: linear-gradient(145deg, #FFF2DC, #FFE4B5); }
+    .card[data-color="n2"] .hanzi .key-char { color: #2a8a88; background: linear-gradient(145deg, #d8f2ee, #b0e4e0); }
+    .card[data-color="n3"]  { --card-color: #F0B878; background: linear-gradient(145deg, #FFEAD0, #FFDAB9); }
+    .card[data-color="n3"] .hanzi .key-char { color: #a87030; background: linear-gradient(145deg, #ffe0b8, #f8c898); }
+    .card[data-color="n4"]  { --card-color: #E8B878; background: linear-gradient(145deg, #FFF0D8, #FFE4B5); }
+    .card[data-color="n4"] .hanzi .key-char { color: #a07838; background: linear-gradient(145deg, #ffe4c0, #f8c8a0); }
+    .card[data-color="n5"]  { --card-color: #48A8A8; background: linear-gradient(145deg, #E8F4F0, #C8E8E4); }
+    .card[data-color="n5"] .hanzi .key-char { color: #2a8080; background: linear-gradient(145deg, #d0ece8, #a8dcd8); }
+    .card[data-color="n6"]  { --card-color: #D8A868; background: linear-gradient(145deg, #FFF4DC, #FFE4B5); }
+    .card[data-color="n6"] .hanzi .key-char { color: #98682a; background: linear-gradient(145deg, #ffe8c8, #f8d0a0); }
+    .card[data-color="n7"]  { --card-color: #F0C898; background: linear-gradient(145deg, #FFF8E0, #FFE4B5); }
+    .card[data-color="n7"] .hanzi .key-char { color: #a88848; background: linear-gradient(145deg, #ffecd0, #f8d8b0); }
+    .card[data-color="n8"]  { --card-color: #E0C088; background: linear-gradient(145deg, #F8F0C8, #EEE8AA); }
+    .card[data-color="n8"] .hanzi .key-char { color: #9a8850; background: linear-gradient(145deg, #f4e8b8, #e4d898); }
+    .card[data-color="n9"]  { --card-color: #50B0B0; background: linear-gradient(145deg, #DDF0EC, #B8E4E0); }
+    .card[data-color="n9"] .hanzi .key-char { color: #2a8888; background: linear-gradient(145deg, #c8e8e4, #9ed8d4); }
+    .card[data-color="n10"] { --card-color: #F8D0A0; background: linear-gradient(145deg, #FFF4E0, #FFDAB9); }
+    .card[data-color="n10"] .hanzi .key-char { color: #b89858; background: linear-gradient(145deg, #ffe8cc, #f8d0a8); }
+    .card[data-color="n11"] { --card-color: #D0B070; background: linear-gradient(145deg, #F8EAC0, #EEE8AA); }
+    .card[data-color="n11"] .hanzi .key-char { color: #8a7838; background: linear-gradient(145deg, #f0e0a8, #e0d088); }
+    .card[data-color="n12"] { --card-color: #48A8B8; background: linear-gradient(145deg, #DCF0F4, #B8E0E8); }
+    .card[data-color="n12"] .hanzi .key-char { color: #2a8088; background: linear-gradient(145deg, #c8e4ec, #9ed0dc); }
+    .card[data-color="n13"] { --card-color: #E8C080; background: linear-gradient(145deg, #FFF0D0, #FFE4B5); }
+    .card[data-color="n13"] .hanzi .key-char { color: #a88040; background: linear-gradient(145deg, #ffe4b8, #f8cc98); }
+    .card[data-color="n14"] { --card-color: #D8C890; background: linear-gradient(145deg, #F4F0D8, #EEE8AA); }
+    .card[data-color="n14"] .hanzi .key-char { color: #948850; background: linear-gradient(145deg, #ecE0b0, #dcd090); }
+    .card[data-color="n15"] { --card-color: #F8C898; background: linear-gradient(145deg, #FFF4DC, #FFDAB9); }
+    .card[data-color="n15"] .hanzi .key-char { color: #b89058; background: linear-gradient(145deg, #ffe8c8, #f8d0a8); }
+
+    /* ——— ПАНЕЛЬ КНОПОК-ЦИФР ——— */
     .rec-panel {
       margin-top: 3px;
-      padding: 4px 5px;
-      background: linear-gradient(145deg, var(--blue-linen), var(--blue-linen-dark));
-      border-radius: 14px;
+      padding: 3px 4px;
+      background: linear-gradient(145deg, #FFE4B5, #F0C898);
+      border-radius: 12px;
       display: flex;
       flex-wrap: wrap;
       justify-content: center;
       align-items: center;
-      gap: 4px;
+      gap: 3px;
       flex-shrink: 0;
       box-shadow:
-        inset 0 1px 2px rgba(255,255,255,0.55),
-        inset 0 -1px 2px rgba(26,34,64,0.20),
-        0 2px 6px rgba(26,34,64,0.18);
+        inset 0 1px 2px rgba(255,255,255,0.95),
+        inset 0 -1px 2px rgba(180, 140, 90, 0.20),
+        0 2px 5px rgba(140, 100, 60, 0.15);
     }
     .rec-panel-title {
       font-size: 0.48rem;
-      font-weight: 900;
-      color: #ffffff;
-      margin-right: 2px;
-      text-shadow: 0 1px 2px rgba(0,0,0,0.28);
-      letter-spacing: 0.3px;
+      font-weight: 800;
+      color: #5a3a18;
+      margin-right: 1px;
+      text-shadow: 0 1px 0 rgba(255,255,255,0.85);
     }
     .rec-num {
-      width: 20px;
-      height: 20px;
-      border-radius: 7px;
+      width: 18px;
+      height: 18px;
+      border-radius: 6px;
       border: 1px solid rgba(255,255,255,0.85);
-      background: var(--petal-pink);
+      background: linear-gradient(145deg, #ffffff, #FFEFD5);
       box-shadow:
-        inset 0 1px 2px rgba(255,255,255,0.75),
-        inset 0 -1px 2px rgba(90,42,34,0.15),
-        0 2px 4px rgba(26,34,64,0.22);
+        inset 0 1px 1px rgba(255,255,255,0.95),
+        0 1px 2px rgba(120, 80, 40, 0.20);
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 0.55rem;
+      font-size: 0.52rem;
       font-weight: 900;
-      color: var(--on-petal-pink);
+      color: #5a3a18;
       cursor: pointer;
       padding: 0;
       transition: transform 0.12s ease, background 0.2s ease;
+      position: relative;
       line-height: 1;
-      -webkit-appearance: none;
-      appearance: none;
       -webkit-user-select: none;
       user-select: none;
+      -webkit-appearance: none;
+      appearance: none;
     }
-    .rec-num:active { transform: scale(0.88); }
+    .rec-num:active { transform: scale(0.9); }
     .rec-num.recording {
-      background: var(--petal-pink-dark);
+      background: linear-gradient(145deg, #ff7070, #d83030);
       color: #fff;
-      animation: pulse 1s infinite;
+      animation: pulse2 1s infinite;
     }
     .rec-num.has-rec {
-      background: var(--seed-green);
-      color: var(--on-seed-green);
-      border-color: var(--seed-green-dark);
+      background: linear-gradient(145deg, #7ae8a8, #3ac878);
+      color: #fff;
     }
-    @keyframes pulse {
-      0%, 100% { box-shadow: 0 0 0 0 rgba(232,154,140,0.75); }
-      50% { box-shadow: 0 0 0 6px rgba(232,154,140,0); }
+    @keyframes pulse2 {
+      0%, 100% { box-shadow: 0 0 0 0 rgba(255,80,80,0.7); }
+      50% { box-shadow: 0 0 0 5px rgba(255,80,80,0); }
     }
 
-    .footer-note { margin-top: 3px; text-align: center; font-size: 0.42rem; font-weight: 700; color: #0a2848; background: linear-gradient(145deg, #d0e8f8, #b0d0ea); padding: 2px 8px; border-radius: 60px; display: inline-block; width: auto; flex-shrink: 0; align-self: center; box-shadow: inset 0 1px 2px rgba(255,255,255,0.9); text-shadow: 0 1px 0 rgba(255,255,255,0.75); line-height: 1.2; }
-    .footer-note b { font-weight: 900; color: #1a5a88; }
+    .footer-note {
+      margin-top: 2px;
+      text-align: center;
+      font-size: 0.42rem;
+      font-weight: 700;
+      color: #5a3a18;
+      background: linear-gradient(145deg, #FFE4B5, #F0C898);
+      padding: 2px 8px;
+      border-radius: 60px;
+      display: inline-block;
+      width: auto;
+      flex-shrink: 0;
+      align-self: center;
+      box-shadow: inset 0 1px 2px rgba(255,255,255,0.9);
+      text-shadow: 0 1px 0 rgba(255,255,255,0.75);
+      line-height: 1.2;
+    }
+    .footer-note b { font-weight: 900; color: #2a7a80; }
 
+    /* ——— АДАПТАЦИЯ ——— */
     @media (max-width: 420px) {
       .container { padding: 4px 4px 3px; border-radius: 22px; }
       .grid { gap: 3px; }
-      .phrase-cn { font-size: 1.05rem; }
-      .phrase-py { font-size: 0.4rem; padding: 1px 5px; }
-      .phrase-ru { font-size: 0.51rem; padding: 2px 5px; }
-      .phrase-note { font-size: 0.4rem; padding: 1px 5px; }
+      .hanzi { font-size: 1.4rem; }
+      .pinyin { font-size: 0.58rem; padding: 1px 5px; }
+      .russian { font-size: 0.62rem; padding: 1px 6px; }
+      .example { font-size: 0.52rem; padding: 2px 5px; }
+      .example .ru { font-size: 0.46rem; }
       h1 { gap: 3px; }
       h1 .title-hanzi { font-size: 0.85rem; padding: 2px 6px; }
       h1 .title-pinyin { font-size: 0.5rem; padding: 2px 5px; }
       h1 .title-rus { font-size: 0.5rem; padding: 2px 5px; }
-      .footer-note { font-size: 0.4rem; padding: 1px 7px; }
-      .rec-num { width: 18px; height: 18px; font-size: 0.5rem; border-radius: 6px; }
-      .rec-panel { padding: 3px 4px; gap: 3px; border-radius: 12px; }
+      .subhead { font-size: 0.46rem; padding: 1px 7px; }
+      .rec-num { width: 16px; height: 16px; font-size: 0.48rem; border-radius: 5px; }
+      .rec-panel { padding: 2px 3px; gap: 2px; border-radius: 10px; }
       .rec-panel-title { font-size: 0.44rem; }
-      .rec-dot { width: 10px; height: 10px; font-size: 0.42rem; }
+      .footer-note { font-size: 0.4rem; padding: 1px 7px; }
+      .rec-indicator { width: 10px; height: 10px; font-size: 0.42rem; }
+      .emoji-corner { font-size: 0.75rem; }
+      .card-inner { padding-top: 6px; gap: 1px; }
     }
 
     @media (max-width: 380px) {
-      .phrase-cn { font-size: 0.92rem; }
-      .phrase-py { font-size: 0.38rem; }
-      .phrase-ru { font-size: 0.46rem; }
-      .phrase-note { font-size: 0.38rem; }
-      .rec-num { width: 17px; height: 17px; font-size: 0.46rem; }
+      .hanzi { font-size: 1.3rem; }
+      .rec-num { width: 15px; height: 15px; font-size: 0.44rem; }
+      .pinyin { font-size: 0.54rem; }
+      .russian { font-size: 0.56rem; }
+      .example { font-size: 0.48rem; }
+      .example .ru { font-size: 0.44rem; }
+    }
+
+    @media (max-height: 640px) {
+      .hanzi { font-size: 1.35rem; }
+      .card-inner { padding-top: 5px; }
     }
 
     @media (orientation: landscape) and (max-height: 500px) {
@@ -202,8 +542,9 @@
       .grid { grid-template-columns: repeat(5, 1fr); }
       h1 { font-size: 0.85rem; }
       h1 .title-hanzi { font-size: 1rem; padding: 2px 6px; }
-      .phrase-note { display: none; }
-      .rec-num { width: 22px; height: 22px; font-size: 0.6rem; }
+      .subhead { display: none; }
+      .example { display: none; }
+      .rec-num { width: 20px; height: 20px; font-size: 0.58rem; }
     }
   </style>
 </head>
@@ -211,155 +552,226 @@
 
 <div class="container">
   <h1>
-    <span class="title-hanzi">快 慢 马上</span>
-    <span class="title-pinyin">kuài / màn / mǎshàng</span>
-    <span class="title-rus">такси 2</span>
+    <span class="title-hanzi">V起来</span>
+    <span class="title-pinyin">qǐlái</span>
+    <span class="title-rus">направление</span>
   </h1>
+  <div style="text-align: center; flex-shrink: 0;">
+    <span class="subhead">
+      <b>V + 起来 / 出来 / 下来 / 下去</b> — направление и результат действия
+    </span>
+  </div>
 
   <div class="grid" id="cardGrid">
 
-    <div class="card" data-color="n1" data-key="c1" data-hanzi-audio="麻烦快一点" data-russian-audio="Будьте добры побыстрее">
-      <div class="rec-dot" data-indicator>✓</div>
-      <div class="phrase-cn">麻烦快一点</div>
-      <div class="phrase-py">máfan kuài yīdiǎn</div>
-      <div class="phrase-ru">Будьте добры, побыстрее</div>
-      <div class="phrase-note"><b>麻烦</b> = будьте добры (вежливо)</div>
+    <div class="card" data-color="n1" data-key="c1" data-hanzi-audio="看起来" data-russian-audio="с виду">
+      <div class="emoji-corner">👀</div>
+      <div class="rec-indicator" data-indicator>✓</div>
+      <div class="card-inner">
+        <div class="hanzi"><span class="key-char">看起来</span></div>
+        <div class="pinyin">kàn qǐlái</div>
+        <div class="russian">с виду</div>
+        <div class="example">
+          📌 <span class="highlight">看起来</span>不错
+          <span class="ru">С виду неплохо.</span>
+        </div>
+      </div>
     </div>
 
-    <div class="card" data-color="n2" data-key="c2" data-hanzi-audio="能不能快点" data-russian-audio="Можно побыстрее">
-      <div class="rec-dot" data-indicator>✓</div>
-      <div class="phrase-cn">能不能快点？</div>
-      <div class="phrase-py">néng bù néng kuài diǎn</div>
-      <div class="phrase-ru">Можно побыстрее?</div>
-      <div class="phrase-note"><b>能不能</b> = можно ли (вежливый вопрос)</div>
+    <div class="card" data-color="n2" data-key="c2" data-hanzi-audio="听起来" data-russian-audio="на слух">
+      <div class="emoji-corner">👂</div>
+      <div class="rec-indicator" data-indicator>✓</div>
+      <div class="card-inner">
+        <div class="hanzi"><span class="key-char">听起来</span></div>
+        <div class="pinyin">tīng qǐlái</div>
+        <div class="russian">на слух</div>
+        <div class="example">
+          📌 <span class="highlight">听起来</span>可以
+          <span class="ru">На слух нормально.</span>
+        </div>
+      </div>
     </div>
 
-    <div class="card" data-color="n3" data-key="c3" data-hanzi-audio="我快迟到了" data-russian-audio="Я почти опаздываю">
-      <div class="rec-dot" data-indicator>✓</div>
-      <div class="phrase-cn">我快迟到了</div>
-      <div class="phrase-py">wǒ kuài chídào le</div>
-      <div class="phrase-ru">Я почти опаздываю</div>
-      <div class="phrase-note"><b>快</b> = скоро · <b>迟到</b> = опаздывать</div>
+    <div class="card" data-color="n3" data-key="c3" data-hanzi-audio="想起来" data-russian-audio="вспомнить">
+      <div class="emoji-corner">💭</div>
+      <div class="rec-indicator" data-indicator>✓</div>
+      <div class="card-inner">
+        <div class="hanzi"><span class="key-char">想起来</span></div>
+        <div class="pinyin">xiǎng qǐlái</div>
+        <div class="russian">вспомнить</div>
+        <div class="example">
+          📌 我<span class="highlight">想起来</span>了
+          <span class="ru">Я вспомнил.</span>
+        </div>
+      </div>
     </div>
 
-    <div class="card" data-color="n4" data-key="c4" data-hanzi-audio="请开慢一点" data-russian-audio="Поезжайте помедленнее">
-      <div class="rec-dot" data-indicator>✓</div>
-      <div class="phrase-cn">请开慢一点</div>
-      <div class="phrase-py">qǐng kāi màn yīdiǎn</div>
-      <div class="phrase-ru">Поезжайте помедленнее</div>
-      <div class="phrase-note"><b>开慢</b> = вести медленно</div>
+    <div class="card" data-color="n4" data-key="c4" data-hanzi-audio="说起来" data-russian-audio="к слову">
+      <div class="emoji-corner">🗣️</div>
+      <div class="rec-indicator" data-indicator>✓</div>
+      <div class="card-inner">
+        <div class="hanzi"><span class="key-char">说起来</span></div>
+        <div class="pinyin">shuō qǐlái</div>
+        <div class="russian">к слову</div>
+        <div class="example">
+          📌 <span class="highlight">说起来</span>，他怎么样了？
+          <span class="ru">Кстати, как он там?</span>
+        </div>
+      </div>
     </div>
 
-    <div class="card" data-color="n5" data-key="c5" data-hanzi-audio="我马上下来" data-russian-audio="Я сейчас выйду">
-      <div class="rec-dot" data-indicator>✓</div>
-      <div class="phrase-cn">我马上下来</div>
-      <div class="phrase-py">wǒ mǎshàng xiàlái</div>
-      <div class="phrase-ru">Я сейчас выйду (спущусь)</div>
-      <div class="phrase-note"><b>马上</b> = сейчас же · <b>下来</b> = спуститься</div>
+    <div class="card" data-color="n5" data-key="c5" data-hanzi-audio="坐下来" data-russian-audio="сесть">
+      <div class="emoji-corner">🪑</div>
+      <div class="rec-indicator" data-indicator>✓</div>
+      <div class="card-inner">
+        <div class="hanzi"><span class="key-char">坐下来</span></div>
+        <div class="pinyin">zuò xiàlái</div>
+        <div class="russian">сесть</div>
+        <div class="example">
+          📌 请<span class="highlight">坐下来</span>
+          <span class="ru">Присядьте, пожалуйста.</span>
+        </div>
+      </div>
     </div>
 
-    <div class="card" data-color="n6" data-key="c6" data-hanzi-audio="我马上就到" data-russian-audio="Я сейчас приду">
-      <div class="rec-dot" data-indicator>✓</div>
-      <div class="phrase-cn">我马上就到</div>
-      <div class="phrase-py">wǒ mǎshàng jiù dào</div>
-      <div class="phrase-ru">Я сейчас приду</div>
-      <div class="phrase-note"><b>马上</b> = сейчас · <b>就</b> = уже · <b>到</b> = прибыть</div>
+    <div class="card" data-color="n6" data-key="c6" data-hanzi-audio="说下去" data-russian-audio="говори дальше">
+      <div class="emoji-corner">▶️</div>
+      <div class="rec-indicator" data-indicator>✓</div>
+      <div class="card-inner">
+        <div class="hanzi"><span class="key-char">说下去</span></div>
+        <div class="pinyin">shuō xiàqù</div>
+        <div class="russian">говори дальше</div>
+        <div class="example">
+          📌 请<span class="highlight">说下去</span>
+          <span class="ru">Продолжайте говорить.</span>
+        </div>
+      </div>
     </div>
 
-    <div class="card" data-color="n7" data-key="c7" data-hanzi-audio="马上到" data-russian-audio="Сейчас буду">
-      <div class="rec-dot" data-indicator>✓</div>
-      <div class="phrase-cn">马上到</div>
-      <div class="phrase-py">mǎshàng dào</div>
-      <div class="phrase-ru">Сейчас буду / Уже подъезжаю</div>
-      <div class="phrase-note"><b>马上</b> = вот-вот, сейчас (о себе)</div>
+    <div class="card" data-color="n7" data-key="c7" data-hanzi-audio="拿出来" data-russian-audio="вынуть">
+      <div class="emoji-corner">📤</div>
+      <div class="rec-indicator" data-indicator>✓</div>
+      <div class="card-inner">
+        <div class="hanzi"><span class="key-char">拿出来</span></div>
+        <div class="pinyin">ná chūlái</div>
+        <div class="russian">вынуть</div>
+        <div class="example">
+          📌 把手机<span class="highlight">拿出来</span>
+          <span class="ru">Достань телефон.</span>
+        </div>
+      </div>
     </div>
 
-    <div class="card" data-color="n8" data-key="c8" data-hanzi-audio="等我一下" data-russian-audio="Подождите меня">
-      <div class="rec-dot" data-indicator>✓</div>
-      <div class="phrase-cn">等我一下</div>
-      <div class="phrase-py">děng wǒ yīxià</div>
-      <div class="phrase-ru">Подождите меня</div>
-      <div class="phrase-note"><b>等我</b> = подожди меня · <b>一下</b> = немного</div>
+    <div class="card" data-color="n8" data-key="c8" data-hanzi-audio="看出来" data-russian-audio="разглядеть">
+      <div class="emoji-corner">🔍</div>
+      <div class="rec-indicator" data-indicator>✓</div>
+      <div class="card-inner">
+        <div class="hanzi"><span class="key-char">看出来</span></div>
+        <div class="pinyin">kàn chūlái</div>
+        <div class="russian">разглядеть</div>
+        <div class="example">
+          📌 我<span class="highlight">看出来</span>了
+          <span class="ru">Я разглядел (понял).</span>
+        </div>
+      </div>
     </div>
 
-    <div class="card" data-color="n9" data-key="c9" data-hanzi-audio="再等我两分钟" data-russian-audio="Подождите ещё две минуты">
-      <div class="rec-dot" data-indicator>✓</div>
-      <div class="phrase-cn">再等我两分钟</div>
-      <div class="phrase-py">zài děng wǒ liǎng fēnzhōng</div>
-      <div class="phrase-ru">Подождите ещё две минуты</div>
-      <div class="phrase-note"><b>再</b> = ещё · <b>两分钟</b> = две минуты</div>
+    <div class="card" data-color="n9" data-key="c9" data-hanzi-audio="停下来" data-russian-audio="остановиться">
+      <div class="emoji-corner">🛑</div>
+      <div class="rec-indicator" data-indicator>✓</div>
+      <div class="card-inner">
+        <div class="hanzi"><span class="key-char">停下来</span></div>
+        <div class="pinyin">tíng xiàlái</div>
+        <div class="russian">остановиться</div>
+        <div class="example">
+          📌 车<span class="highlight">停下来</span>了
+          <span class="ru">Машина остановилась.</span>
+        </div>
+      </div>
     </div>
 
-    <div class="card" data-color="n10" data-key="c10" data-hanzi-audio="你到了吗" data-russian-audio="Вы приехали">
-      <div class="rec-dot" data-indicator>✓</div>
-      <div class="phrase-cn">你到了吗？</div>
-      <div class="phrase-py">nǐ dào le ma</div>
-      <div class="phrase-ru">Вы приехали?</div>
-      <div class="phrase-note"><b>到了</b> = прибыл · <b>吗</b> = вопрос</div>
+    <div class="card" data-color="n10" data-key="c10" data-hanzi-audio="住下来" data-russian-audio="обосноваться">
+      <div class="emoji-corner">🏠</div>
+      <div class="rec-indicator" data-indicator>✓</div>
+      <div class="card-inner">
+        <div class="hanzi"><span class="key-char">住下来</span></div>
+        <div class="pinyin">zhù xiàlái</div>
+        <div class="russian">обосноваться</div>
+        <div class="example">
+          📌 我们在这儿<span class="highlight">住下来</span>吧
+          <span class="ru">Давай здесь обоснуемся.</span>
+        </div>
+      </div>
     </div>
 
-    <div class="card" data-color="n11" data-key="c11" data-hanzi-audio="我在门口等你" data-russian-audio="Я жду вас у входа">
-      <div class="rec-dot" data-indicator>✓</div>
-      <div class="phrase-cn">我在门口等你</div>
-      <div class="phrase-py">wǒ zài ménkǒu děng nǐ</div>
-      <div class="phrase-ru">Я жду вас у входа</div>
-      <div class="phrase-note"><b>在门口</b> = у входа · <b>等你</b> = жду тебя</div>
+    <div class="card" data-color="n11" data-key="c11" data-hanzi-audio="记下来" data-russian-audio="записать">
+      <div class="emoji-corner">📝</div>
+      <div class="rec-indicator" data-indicator>✓</div>
+      <div class="card-inner">
+        <div class="hanzi"><span class="key-char">记下来</span></div>
+        <div class="pinyin">jì xiàlái</div>
+        <div class="russian">записать</div>
+        <div class="example">
+          📌 请<span class="highlight">记下来</span>
+          <span class="ru">Запишите, пожалуйста.</span>
+        </div>
+      </div>
     </div>
 
-    <div class="card" data-color="n12" data-key="c12" data-hanzi-audio="车在哪里" data-russian-audio="Где машина">
-      <div class="rec-dot" data-indicator>✓</div>
-      <div class="phrase-cn">车在哪里？</div>
-      <div class="phrase-py">chē zài nǎlǐ</div>
-      <div class="phrase-ru">Где машина?</div>
-      <div class="phrase-note"><b>车</b> = машина · <b>在哪里</b> = где</div>
+    <div class="card" data-color="n12" data-key="c12" data-hanzi-audio="坚持下去" data-russian-audio="продолжать">
+      <div class="emoji-corner">💪</div>
+      <div class="rec-indicator" data-indicator>✓</div>
+      <div class="card-inner">
+        <div class="hanzi"><span class="key-char">坚持下去</span></div>
+        <div class="pinyin">jiānchí xiàqù</div>
+        <div class="russian">продолжать</div>
+        <div class="example">
+          📌 请<span class="highlight">坚持下去</span>
+          <span class="ru">Продолжай, не сдавайся.</span>
+        </div>
+      </div>
     </div>
 
-    <div class="card" data-color="n13" data-key="c13" data-hanzi-audio="在前面等" data-russian-audio="Ждите впереди">
-      <div class="rec-dot" data-indicator>✓</div>
-      <div class="phrase-cn">在前面等</div>
-      <div class="phrase-py">zài qiánmiàn děng</div>
-      <div class="phrase-ru">Ждите впереди</div>
-      <div class="phrase-note"><b>在前面</b> = впереди · <b>等</b> = ждать</div>
+    <div class="card" data-color="n13" data-key="c13" data-hanzi-audio="想起来" data-russian-audio="всплыть в памяти">
+      <div class="emoji-corner">💡</div>
+      <div class="rec-indicator" data-indicator>✓</div>
+      <div class="card-inner">
+        <div class="hanzi"><span class="key-char">想出来</span></div>
+        <div class="pinyin">xiǎng chūlái</div>
+        <div class="russian">придумать</div>
+        <div class="example">
+          📌 我想<span class="highlight">想出来</span>一个好办法
+          <span class="ru">Придумал хорошую идею.</span>
+        </div>
+      </div>
     </div>
 
-    <div class="card" data-color="n14" data-key="c14" data-hanzi-audio="我穿黑色外套" data-russian-audio="Я в чёрной куртке">
-      <div class="rec-dot" data-indicator>✓</div>
-      <div class="phrase-cn">我穿黑色外套</div>
-      <div class="phrase-py">wǒ chuān hēisè wàitào</div>
-      <div class="phrase-ru">Я в чёрной куртке</div>
-      <div class="phrase-note"><b>穿</b> = носить · <b>黑色外套</b> = чёрная куртка</div>
+    <div class="card" data-color="n14" data-key="c14" data-hanzi-audio="走过来" data-russian-audio="подойти">
+      <div class="emoji-corner">🚶</div>
+      <div class="rec-indicator" data-indicator>✓</div>
+      <div class="card-inner">
+        <div class="hanzi"><span class="key-char">走过来</span></div>
+        <div class="pinyin">zǒu guòlái</div>
+        <div class="russian">подойти</div>
+        <div class="example">
+          📌 他<span class="highlight">走过来</span>了
+          <span class="ru">Он подошёл.</span>
+        </div>
+      </div>
     </div>
 
-    <div class="card" data-color="n15" data-key="c15" data-hanzi-audio="你的车牌号是多少" data-russian-audio="Какой у вас номер машины">
-      <div class="rec-dot" data-indicator>✓</div>
-      <div class="phrase-cn">你的车牌号是多少？</div>
-      <div class="phrase-py">nǐ de chēpái hào shì duōshǎo</div>
-      <div class="phrase-ru">Какой у вас номер машины?</div>
-      <div class="phrase-note"><b>车牌号</b> = номер машины</div>
-    </div>
-
-    <div class="card" data-color="n16" data-key="c16" data-hanzi-audio="麻烦你了" data-russian-audio="Спасибо вам большое">
-      <div class="rec-dot" data-indicator>✓</div>
-      <div class="phrase-cn">麻烦你了</div>
-      <div class="phrase-py">máfan nǐ le</div>
-      <div class="phrase-ru">Спасибо, извините за беспокойство</div>
-      <div class="phrase-note"><b>麻烦你了</b> = спасибо (с оттенком «извините»)</div>
-    </div>
-
-    <div class="card" data-color="n17" data-key="c17" data-hanzi-audio="到了我告诉你" data-russian-audio="Когда приедем скажу вам">
-      <div class="rec-dot" data-indicator>✓</div>
-      <div class="phrase-cn">到了我告诉你</div>
-      <div class="phrase-py">dào le wǒ gàosù nǐ</div>
-      <div class="phrase-ru">Когда приедем — скажу</div>
-      <div class="phrase-note"><b>到了</b> = когда приедем · <b>告诉你</b> = скажу тебе</div>
-    </div>
-
-    <div class="card" data-color="n18" data-key="c18" data-hanzi-audio="我在这里" data-russian-audio="Я здесь">
-      <div class="rec-dot" data-indicator>✓</div>
-      <div class="phrase-cn">我在这里</div>
-      <div class="phrase-py">wǒ zài zhèlǐ</div>
-      <div class="phrase-ru">Я здесь</div>
-      <div class="phrase-note"><b>在这里</b> = здесь, на этом месте</div>
+    <div class="card" data-color="n15" data-key="c15" data-hanzi-audio="看起来" data-russian-audio="похоже">
+      <div class="emoji-corner">✨</div>
+      <div class="rec-indicator" data-indicator>✓</div>
+      <div class="card-inner">
+        <div class="hanzi"><span class="key-char">跑起来</span></div>
+        <div class="pinyin">pǎo qǐlái</div>
+        <div class="russian">побежать</div>
+        <div class="example">
+          📌 他<span class="highlight">跑起来</span>了
+          <span class="ru">Он побежал.</span>
+        </div>
+      </div>
     </div>
 
   </div>
@@ -370,7 +782,7 @@
 
   <div style="display: flex; justify-content: center; flex-shrink: 0;">
     <div class="footer-note">
-      <b>клик</b> по фразе — озвучка · <b>цифра</b> — запись · повтор — удалить
+      <b>клик</b> по карточке — озвучка · <b>клик</b> по цифре — запись · повтор — удалить
     </div>
   </div>
 </div>
@@ -386,18 +798,26 @@
     function unlockAudio() {
       if (audioUnlocked) return;
       audioUnlocked = true;
+
       try {
         const Ctx = window.AudioContext || window.webkitAudioContext;
-        if (Ctx) { if (!sharedAudioCtx) sharedAudioCtx = new Ctx(); if (sharedAudioCtx.state === 'suspended') sharedAudioCtx.resume(); }
+        if (Ctx) {
+          if (!sharedAudioCtx) sharedAudioCtx = new Ctx();
+          if (sharedAudioCtx.state === 'suspended') sharedAudioCtx.resume();
+        }
       } catch (e) {}
+
       try {
         const warmup = new SpeechSynthesisUtterance(' ');
-        warmup.volume = 0; warmup.lang = 'zh-CN';
+        warmup.volume = 0;
+        warmup.lang = 'zh-CN';
         window.speechSynthesis.speak(warmup);
       } catch (e) {}
+
       try {
         const silent = new Audio('data:audio/wav;base64,UklGRiQAAABXQVZFZm10IBAAAAABAAEARKwAAIhYAQACABAAZGF0YQAAAAA=');
-        silent.volume = 0; silent.play().catch(() => {});
+        silent.volume = 0;
+        silent.play().catch(() => {});
       } catch (e) {}
     }
 
@@ -417,7 +837,7 @@
       return voice || null;
     }
 
-    const STORAGE_PREFIX = 'custom_rec_taxi2_';
+    const STORAGE_PREFIX = 'custom_rec_';
     const recordedAudios = {};
 
     function loadSavedRecordings() {
@@ -433,12 +853,14 @@
       cards.forEach((card, idx) => {
         const key = card.dataset.key;
         const num = idx + 1;
+
         const btn = document.createElement('button');
         btn.type = 'button';
         btn.className = 'rec-num';
         btn.dataset.key = key;
         btn.dataset.num = num;
         btn.textContent = num;
+        btn.title = `Запись для карточки №${num}`;
         recPanel.appendChild(btn);
 
         btn.addEventListener('click', (e) => {
@@ -452,22 +874,35 @@
 
     function updateNumberButton(card, btn) {
       const key = card.dataset.key;
+      const hasRec = !!recordedAudios[key];
       if (!btn) btn = recPanel.querySelector(`.rec-num[data-key="${key}"]`);
       if (!btn) return;
-      if (recordedAudios[key]) btn.classList.add('has-rec');
-      else btn.classList.remove('has-rec');
+
+      if (hasRec) {
+        btn.classList.add('has-rec');
+        btn.title = `Запись №${btn.dataset.num} есть. Клик — удалить.`;
+      } else {
+        btn.classList.remove('has-rec');
+        btn.title = `Записать перевод для карточки №${btn.dataset.num}`;
+      }
     }
 
     function updateCardIndicator(card) {
       const key = card.dataset.key;
       const indicator = card.querySelector('[data-indicator]');
       if (!indicator) return;
-      if (recordedAudios[key]) indicator.classList.add('show');
-      else indicator.classList.remove('show');
+      const hasRec = !!recordedAudios[key];
+      if (hasRec) {
+        indicator.classList.add('show');
+        card.classList.add('has-rec');
+      } else {
+        indicator.classList.remove('show');
+        card.classList.remove('has-rec');
+      }
     }
 
     function getBestMimeType() {
-      const candidates = ['audio/mp4','audio/mp4;codecs=mp4a.40.2','audio/webm;codecs=opus','audio/webm'];
+      const candidates = ['audio/mp4', 'audio/mp4;codecs=mp4a.40.2', 'audio/webm;codecs=opus', 'audio/webm'];
       if (typeof MediaRecorder === 'undefined') return '';
       for (const t of candidates) {
         try { if (MediaRecorder.isTypeSupported(t)) return t; } catch (e) {}
@@ -510,12 +945,19 @@
         });
 
         const mimeType = getBestMimeType();
-        mediaRecorder = new MediaRecorder(currentStream, mimeType ? { mimeType } : {});
+        const options = mimeType ? { mimeType } : {};
+        mediaRecorder = new MediaRecorder(currentStream, options);
         recordedChunks = [];
         recordingKey = key;
 
         btn.classList.add('recording');
         btn.textContent = '⏹';
+
+        const indicator = card.querySelector('[data-indicator]');
+        if (indicator) {
+          indicator.classList.add('show', 'recording');
+          indicator.textContent = '●';
+        }
 
         mediaRecorder.ondataavailable = (e) => {
           if (e.data && e.data.size > 0) recordedChunks.push(e.data);
@@ -529,6 +971,12 @@
           btn.classList.remove('recording');
           btn.textContent = btn.dataset.num;
 
+          const ind = card.querySelector('[data-indicator]');
+          if (ind) {
+            ind.classList.remove('recording');
+            ind.textContent = '✓';
+          }
+
           if (recordedChunks.length === 0) { recordingKey = null; return; }
 
           const blobMime = mediaRecorder.mimeType || mimeType || 'audio/mp4';
@@ -541,7 +989,8 @@
           try { url = await blobToDataURL(finalBlob); } catch (e) { recordingKey = null; return; }
 
           recordedAudios[key] = url;
-          try { localStorage.setItem(STORAGE_PREFIX + key, url); } catch (e) { alert('Не хватает места.'); }
+          try { localStorage.setItem(STORAGE_PREFIX + key, url); }
+          catch (e) { alert('Не хватает места. Удалите старые записи.'); }
 
           updateNumberButton(card, btn);
           updateCardIndicator(card);
@@ -549,7 +998,10 @@
         };
 
         mediaRecorder.onerror = () => {
-          if (currentStream) { currentStream.getTracks().forEach(t => t.stop()); currentStream = null; }
+          if (currentStream) {
+            currentStream.getTracks().forEach(t => t.stop());
+            currentStream = null;
+          }
           btn.classList.remove('recording');
           btn.textContent = btn.dataset.num;
           recordingKey = null;
@@ -566,14 +1018,11 @@
       const arrayBuffer = await blob.arrayBuffer();
       const Ctx = window.AudioContext || window.webkitAudioContext;
       if (!Ctx) return blob;
-
       let audioCtx;
       try { audioCtx = sharedAudioCtx || new Ctx(); } catch (e) { return blob; }
       if (audioCtx.state === 'suspended') { try { await audioCtx.resume(); } catch (e) {} }
-
       let audioBuffer;
       try { audioBuffer = await audioCtx.decodeAudioData(arrayBuffer.slice(0)); } catch (e) { return blob; }
-
       let peak = 0;
       for (let ch = 0; ch < audioBuffer.numberOfChannels; ch++) {
         const data = audioBuffer.getChannelData(ch);
@@ -582,18 +1031,15 @@
           if (abs > peak) peak = abs;
         }
       }
-
       const targetPeak = 0.95;
       const gain = peak > 0 ? targetPeak / peak : 1;
       const cappedGain = Math.min(gain, 8);
-
       for (let ch = 0; ch < audioBuffer.numberOfChannels; ch++) {
         const data = audioBuffer.getChannelData(ch);
         for (let i = 0; i < data.length; i++) {
           data[i] = Math.max(-1, Math.min(1, data[i] * cappedGain));
         }
       }
-
       return audioBufferToWav(audioBuffer);
     }
 
@@ -603,11 +1049,9 @@
       const length = buffer.length * numCh * 2 + 44;
       const arrayBuffer = new ArrayBuffer(length);
       const view = new DataView(arrayBuffer);
-
       const writeString = (offset, str) => {
         for (let i = 0; i < str.length; i++) view.setUint8(offset + i, str.charCodeAt(i));
       };
-
       writeString(0, 'RIFF');
       view.setUint32(4, length - 8, true);
       writeString(8, 'WAVE');
@@ -621,11 +1065,9 @@
       view.setUint16(34, 16, true);
       writeString(36, 'data');
       view.setUint32(40, length - 44, true);
-
       let offset = 44;
       const channels = [];
       for (let i = 0; i < numCh; i++) channels.push(buffer.getChannelData(i));
-
       for (let i = 0; i < buffer.length; i++) {
         for (let ch = 0; ch < numCh; ch++) {
           let sample = Math.max(-1, Math.min(1, channels[ch][i]));
@@ -646,35 +1088,45 @@
       });
     }
 
-    function speakRussian(text, onEnd) {
+    function speakRussian(text) {
       const cleanText = text.trim();
-      if (!cleanText) { if (onEnd) onEnd(); return; }
+      if (!cleanText) return;
       const utterance = new SpeechSynthesisUtterance(cleanText);
-      utterance.lang = 'ru-RU'; utterance.rate = 0.85; utterance.pitch = 1.0; utterance.volume = 1.0;
+      utterance.lang = 'ru-RU';
+      utterance.rate = 0.85;
+      utterance.pitch = 1.0;
+      utterance.volume = 1.0;
       const voice = getRussianVoice();
       if (voice) utterance.voice = voice;
-      if (onEnd) utterance.onend = () => onEnd();
       window.speechSynthesis.speak(utterance);
     }
 
-    function playRecorded(key) {
+    function playRecorded(key, onEnd) {
       const url = recordedAudios[key];
-      if (!url) return;
+      if (!url) { if (onEnd) onEnd(); return; }
       if (sharedAudioCtx && sharedAudioCtx.state === 'suspended') sharedAudioCtx.resume().catch(() => {});
       const audio = new Audio(url);
       audio.volume = 1.0;
       audio.setAttribute('playsinline', 'true');
-      audio.play().catch(() => {});
+      audio.setAttribute('webkit-playsinline', 'true');
+      audio.onended = () => { if (onEnd) onEnd(); };
+      audio.onerror = () => { if (onEnd) onEnd(); };
+      const p = audio.play();
+      if (p && p.catch) p.catch(() => { if (onEnd) onEnd(); });
     }
 
     function speakChineseAndRussian(card) {
       window.speechSynthesis.cancel();
       const hanziText = card.dataset.hanziAudio;
-      const russianText = card.dataset.russianAudio;
       const key = card.dataset.key;
+      const russianEl = card.querySelector('.russian');
+      const russianText = russianEl ? russianEl.textContent : card.dataset.russianAudio;
 
       const utter1 = new SpeechSynthesisUtterance(hanziText);
-      utter1.lang = 'zh-CN'; utter1.rate = 0.7; utter1.pitch = 1.0; utter1.volume = 1.0;
+      utter1.lang = 'zh-CN';
+      utter1.rate = 0.7;
+      utter1.pitch = 1.0;
+      utter1.volume = 1.0;
       const chVoice = getChineseVoice();
       if (chVoice) utter1.voice = chVoice;
 
@@ -682,12 +1134,15 @@
       function speakTranslationOnce() {
         if (spoken) return;
         spoken = true;
-        if (recordedAudios[key]) playRecorded(key);
-        else speakRussian(russianText);
+        if (recordedAudios[key]) {
+          playRecorded(key, null);
+        } else {
+          speakRussian(russianText);
+        }
       }
 
-      utter1.onend = () => setTimeout(speakTranslationOnce, 900);
-      utter1.onerror = () => setTimeout(speakTranslationOnce, 900);
+      utter1.onend = () => setTimeout(speakTranslationOnce, 1000);
+      utter1.onerror = () => setTimeout(speakTranslationOnce, 1000);
       window.speechSynthesis.speak(utter1);
     }
 

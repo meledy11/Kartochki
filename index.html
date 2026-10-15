@@ -44,15 +44,35 @@
     .card.active { border-bottom: 4px solid var(--card-color, #E8B298); box-shadow: inset 0 2px 3px rgba(255,255,255,0.98), inset 0 -3px 8px rgba(180,130,100,0.15), inset 0 0 28px rgba(255,250,245,0.6), 0 4px 0 rgba(180,130,100,0.20), 0 8px 16px rgba(160,110,80,0.16); }
     .rec-dot { position: absolute; top: 3px; right: 4px; width: 11px; height: 11px; border-radius: 50%; display: none; align-items: center; justify-content: center; font-size: 0.46rem; font-weight: 900; background: linear-gradient(145deg, #CAD23C, #A8AF28); color: #2A3008; box-shadow: 0 1px 3px rgba(0,0,0,0.28), inset 0 1px 1px rgba(255,255,255,0.65); z-index: 5; line-height: 1; }
     .rec-dot.show { display: flex; }
+    /* Плавающие смайлы в углах — не перекрывают текст */
+    .emoji-float {
+      position: absolute;
+      font-size: 0.85rem;
+      line-height: 1;
+      pointer-events: none;
+      z-index: 1;
+      opacity: 0.85;
+      filter: drop-shadow(0 1px 2px rgba(120,80,50,0.25));
+      animation: floaty 3.5s ease-in-out infinite;
+    }
+    .emoji-float.tl { top: 3px; left: 4px; }
+    .emoji-float.br { bottom: 3px; right: 4px; font-size: 0.75rem; animation-delay: 0.8s; }
+    @keyframes floaty {
+      0%, 100% { transform: translateY(0) rotate(-5deg); }
+      50% { transform: translateY(-3px) rotate(8deg); }
+    }
     .phrase-cn { font-size: 1.15rem; font-weight: 900; line-height: 1.05; color: #7A4A38; text-shadow: 0 1px 0 rgba(255,255,255,0.95), 0 2px 4px rgba(180,130,100,0.22); position: relative; z-index: 2; text-align: center; word-break: break-word; overflow-wrap: break-word; max-width: 100%; margin-top: 1px; }
     .phrase-py { font-size: 0.44rem; font-weight: 800; color: #7A4A38; background: rgba(255,255,255,0.88); padding: 1px 6px; border-radius: 30px; position: relative; z-index: 2; box-shadow: inset 0 1px 2px rgba(255,255,255,0.95), 0 1px 2px rgba(180,130,100,0.20); line-height: 1.2; text-align: center; max-width: 100%; word-break: break-word; }
     .phrase-ru { font-size: 0.56rem; font-weight: 900; color: #7A4A38; background: rgba(255,255,255,0.96); padding: 2px 7px; border-radius: 30px; position: relative; z-index: 2; box-shadow: inset 0 1px 2px rgba(255,255,255,0.95), 0 1px 3px rgba(180,130,100,0.22); text-shadow: 0 1px 0 rgba(255,255,255,0.9); line-height: 1.2; text-align: center; max-width: 100%; word-break: break-word; overflow-wrap: break-word; hyphens: auto; }
     .phrase-note { font-size: 0.42rem; font-weight: 700; color: #8A4A30; background: linear-gradient(145deg, #FFF4E6, #FFE4D0); padding: 2px 6px; border-radius: 20px; position: relative; z-index: 2; box-shadow: inset 0 1px 1px rgba(255,255,255,0.95), 0 1px 2px rgba(180,130,100,0.20); line-height: 1.25; text-align: center; max-width: 100%; word-break: break-word; margin-top: 1px; border: 1px solid rgba(240,200,185,0.55); }
     .phrase-note b { color: #C87858; font-weight: 900; }
-    /* ——— 3 бархатных оттенка по кругу ——— */
+    /* ——— 6 бархатных оттенков по кругу ——— */
     .card[data-color="n1"] { --card-color: #F4C2C2; background: linear-gradient(145deg, #FFE8E8 0%, #F4C2C2 50%, #E8B0B0 100%); }
     .card[data-color="n2"] { --card-color: #FFF4E6; background: linear-gradient(145deg, #FFFCF6 0%, #FFF4E6 50%, #F4E4D0 100%); }
     .card[data-color="n3"] { --card-color: #E8B298; background: linear-gradient(145deg, #FFDCC8 0%, #E8B298 50%, #D89878 100%); }
+    .card[data-color="n4"] { --card-color: #D4C4E0; background: linear-gradient(145deg, #EADEF2 0%, #D4C4E0 50%, #B8A4C8 100%); }
+    .card[data-color="n5"] { --card-color: #C8DFD0; background: linear-gradient(145deg, #E0F0E4 0%, #C8DFD0 50%, #A8C8B4 100%); }
+    .card[data-color="n6"] { --card-color: #F0DCA8; background: linear-gradient(145deg, #FBF0D0 0%, #F0DCA8 50%, #DCC488 100%); }
     .rec-panel { margin-top: 3px; padding: 4px 5px; background: linear-gradient(145deg, #F4C2C2, #E8B298); border-radius: 14px; display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 4px; flex-shrink: 0; box-shadow: inset 0 1px 2px rgba(255,255,255,0.75), inset 0 -1px 2px rgba(140,80,50,0.18), 0 2px 6px rgba(160,110,80,0.15); }
     .rec-panel-title { font-size: 0.48rem; font-weight: 900; color: #7A4A38; margin-right: 2px; text-shadow: 0 1px 1px rgba(255,255,255,0.6); letter-spacing: 0.3px; }
     .rec-num { width: 20px; height: 20px; border-radius: 7px; border: 1px solid rgba(255,255,255,0.9); background: linear-gradient(145deg, #FFF4E6, #F4C2C2); box-shadow: inset 0 1px 2px rgba(255,255,255,0.85), inset 0 -1px 2px rgba(180,130,100,0.15), 0 2px 4px rgba(160,110,80,0.20); display: flex; align-items: center; justify-content: center; font-size: 0.55rem; font-weight: 900; color: #7A4A38; cursor: pointer; padding: 0; transition: transform 0.12s ease, background 0.2s ease; line-height: 1; -webkit-appearance: none; appearance: none; -webkit-user-select: none; user-select: none; }
@@ -81,6 +101,8 @@
       .rec-panel { padding: 3px 4px; gap: 3px; border-radius: 12px; }
       .rec-panel-title { font-size: 0.44rem; }
       .rec-dot { width: 10px; height: 10px; font-size: 0.42rem; }
+      .emoji-float { font-size: 0.75rem; }
+      .emoji-float.br { font-size: 0.65rem; }
     }
     @media (max-width: 380px) {
       .phrase-cn { font-size: 0.92rem; }
@@ -88,6 +110,7 @@
       .phrase-ru { font-size: 0.46rem; }
       .phrase-note { font-size: 0.38rem; }
       .rec-num { width: 17px; height: 17px; font-size: 0.46rem; }
+      .emoji-float { font-size: 0.7rem; }
     }
     @media (orientation: landscape) and (max-height: 500px) {
       .container { max-height: 100%; border-radius: 16px; }
@@ -97,6 +120,7 @@
       .subhead { display: none; }
       .phrase-note { display: none; }
       .rec-num { width: 22px; height: 22px; font-size: 0.6rem; }
+      .emoji-float { font-size: 0.7rem; }
     }
   </style>
 </head>
@@ -117,6 +141,8 @@
   <div class="grid" id="cardGrid">
 
     <div class="card" data-color="n1" data-key="c1" data-hanzi-audio="铺床" data-russian-audio="застелить постель">
+      <span class="emoji-float tl">🛏️</span>
+      <span class="emoji-float br">✨</span>
       <div class="rec-dot" data-indicator>✓</div>
       <div class="phrase-cn">铺床</div>
       <div class="phrase-py">pù chuáng</div>
@@ -125,6 +151,8 @@
     </div>
 
     <div class="card" data-color="n2" data-key="c2" data-hanzi-audio="洗衣服" data-russian-audio="стирать бельё">
+      <span class="emoji-float tl">👕</span>
+      <span class="emoji-float br">💧</span>
       <div class="rec-dot" data-indicator>✓</div>
       <div class="phrase-cn">洗衣服</div>
       <div class="phrase-py">xǐ yīfu</div>
@@ -133,6 +161,8 @@
     </div>
 
     <div class="card" data-color="n3" data-key="c3" data-hanzi-audio="洗碗" data-russian-audio="мыть посуду">
+      <span class="emoji-float tl">🍽️</span>
+      <span class="emoji-float br">🫧</span>
       <div class="rec-dot" data-indicator>✓</div>
       <div class="phrase-cn">洗碗</div>
       <div class="phrase-py">xǐ wǎn</div>
@@ -140,7 +170,9 @@
       <div class="phrase-note"><b>碗</b> = миска, посуда</div>
     </div>
 
-    <div class="card" data-color="n1" data-key="c4" data-hanzi-audio="叠衣服" data-russian-audio="складывать одежду">
+    <div class="card" data-color="n4" data-key="c4" data-hanzi-audio="叠衣服" data-russian-audio="складывать одежду">
+      <span class="emoji-float tl">👚</span>
+      <span class="emoji-float br">📦</span>
       <div class="rec-dot" data-indicator>✓</div>
       <div class="phrase-cn">叠衣服</div>
       <div class="phrase-py">dié yīfu</div>
@@ -148,7 +180,9 @@
       <div class="phrase-note"><b>叠</b> = складывать</div>
     </div>
 
-    <div class="card" data-color="n2" data-key="c5" data-hanzi-audio="扫地" data-russian-audio="подметать пол">
+    <div class="card" data-color="n5" data-key="c5" data-hanzi-audio="扫地" data-russian-audio="подметать пол">
+      <span class="emoji-float tl">🧹</span>
+      <span class="emoji-float br">🍂</span>
       <div class="rec-dot" data-indicator>✓</div>
       <div class="phrase-cn">扫地</div>
       <div class="phrase-py">sǎo dì</div>
@@ -156,7 +190,9 @@
       <div class="phrase-note"><b>扫</b> = мести · <b>地</b> = пол</div>
     </div>
 
-    <div class="card" data-color="n3" data-key="c6" data-hanzi-audio="拖地" data-russian-audio="мыть пол">
+    <div class="card" data-color="n6" data-key="c6" data-hanzi-audio="拖地" data-russian-audio="мыть пол">
+      <span class="emoji-float tl">🧽</span>
+      <span class="emoji-float br">💦</span>
       <div class="rec-dot" data-indicator>✓</div>
       <div class="phrase-cn">拖地</div>
       <div class="phrase-py">tuō dì</div>
@@ -165,6 +201,8 @@
     </div>
 
     <div class="card" data-color="n1" data-key="c7" data-hanzi-audio="倒垃圾" data-russian-audio="выносить мусор">
+      <span class="emoji-float tl">🗑️</span>
+      <span class="emoji-float br">♻️</span>
       <div class="rec-dot" data-indicator>✓</div>
       <div class="phrase-cn">倒垃圾</div>
       <div class="phrase-py">dào lājī</div>
@@ -173,6 +211,8 @@
     </div>
 
     <div class="card" data-color="n2" data-key="c8" data-hanzi-audio="喂狗" data-russian-audio="кормить собаку">
+      <span class="emoji-float tl">🐶</span>
+      <span class="emoji-float br">🦴</span>
       <div class="rec-dot" data-indicator>✓</div>
       <div class="phrase-cn">喂狗</div>
       <div class="phrase-py">wèi gǒu</div>
@@ -181,11 +221,103 @@
     </div>
 
     <div class="card" data-color="n3" data-key="c9" data-hanzi-audio="浇花" data-russian-audio="поливать цветы">
+      <span class="emoji-float tl">🌸</span>
+      <span class="emoji-float br">💧</span>
       <div class="rec-dot" data-indicator>✓</div>
       <div class="phrase-cn">浇花</div>
       <div class="phrase-py">jiāo huā</div>
       <div class="phrase-ru">поливать цветы</div>
       <div class="phrase-note"><b>浇</b> = поливать · <b>花</b> = цветы</div>
+    </div>
+
+    <div class="card" data-color="n4" data-key="c10" data-hanzi-audio="擦桌子" data-russian-audio="протирать стол">
+      <span class="emoji-float tl">🧼</span>
+      <span class="emoji-float br">✨</span>
+      <div class="rec-dot" data-indicator>✓</div>
+      <div class="phrase-cn">擦桌子</div>
+      <div class="phrase-py">cā zhuōzi</div>
+      <div class="phrase-ru">протирать стол</div>
+      <div class="phrase-note"><b>擦</b> = вытирать · <b>桌子</b> = стол</div>
+    </div>
+
+    <div class="card" data-color="n5" data-key="c11" data-hanzi-audio="擦窗户" data-russian-audio="мыть окна">
+      <span class="emoji-float tl">🪟</span>
+      <span class="emoji-float br">💦</span>
+      <div class="rec-dot" data-indicator>✓</div>
+      <div class="phrase-cn">擦窗户</div>
+      <div class="phrase-py">cā chuānghu</div>
+      <div class="phrase-ru">мыть окна</div>
+      <div class="phrase-note"><b>窗户</b> = окно</div>
+    </div>
+
+    <div class="card" data-color="n6" data-key="c12" data-hanzi-audio="整理房间" data-russian-audio="убирать комнату">
+      <span class="emoji-float tl">🏠</span>
+      <span class="emoji-float br">🧺</span>
+      <div class="rec-dot" data-indicator>✓</div>
+      <div class="phrase-cn">整理房间</div>
+      <div class="phrase-py">zhěnglǐ fángjiān</div>
+      <div class="phrase-ru">убирать комнату</div>
+      <div class="phrase-note"><b>整理</b> = приводить в порядок · <b>房间</b> = комната</div>
+    </div>
+
+    <div class="card" data-color="n1" data-key="c13" data-hanzi-audio="晾衣服" data-russian-audio="сушить бельё">
+      <span class="emoji-float tl">🌤️</span>
+      <span class="emoji-float br">👔</span>
+      <div class="rec-dot" data-indicator>✓</div>
+      <div class="phrase-cn">晾衣服</div>
+      <div class="phrase-py">liàng yīfu</div>
+      <div class="phrase-ru">сушить бельё</div>
+      <div class="phrase-note"><b>晾</b> = сушить на воздухе</div>
+    </div>
+
+    <div class="card" data-color="n2" data-key="c14" data-hanzi-audio="熨衣服" data-russian-audio="гладить одежду">
+      <span class="emoji-float tl">👔</span>
+      <span class="emoji-float br">🔥</span>
+      <div class="rec-dot" data-indicator>✓</div>
+      <div class="phrase-cn">熨衣服</div>
+      <div class="phrase-py">yùn yīfu</div>
+      <div class="phrase-ru">гладить одежду</div>
+      <div class="phrase-note"><b>熨</b> = гладить утюгом</div>
+    </div>
+
+    <div class="card" data-color="n3" data-key="c15" data-hanzi-audio="做饭" data-russian-audio="готовить еду">
+      <span class="emoji-float tl">🍳</span>
+      <span class="emoji-float br">🥘</span>
+      <div class="rec-dot" data-indicator>✓</div>
+      <div class="phrase-cn">做饭</div>
+      <div class="phrase-py">zuò fàn</div>
+      <div class="phrase-ru">готовить еду</div>
+      <div class="phrase-note"><b>做</b> = делать · <b>饭</b> = еда, рис</div>
+    </div>
+
+    <div class="card" data-color="n4" data-key="c16" data-hanzi-audio="买菜" data-russian-audio="покупать продукты">
+      <span class="emoji-float tl">🥬</span>
+      <span class="emoji-float br">🛒</span>
+      <div class="rec-dot" data-indicator>✓</div>
+      <div class="phrase-cn">买菜</div>
+      <div class="phrase-py">mǎi cài</div>
+      <div class="phrase-ru">покупать продукты</div>
+      <div class="phrase-note"><b>买</b> = покупать · <b>菜</b> = еда, овощи</div>
+    </div>
+
+    <div class="card" data-color="n5" data-key="c17" data-hanzi-audio="倒水" data-russian-audio="наливать воду">
+      <span class="emoji-float tl">🚰</span>
+      <span class="emoji-float br">💧</span>
+      <div class="rec-dot" data-indicator>✓</div>
+      <div class="phrase-cn">倒水</div>
+      <div class="phrase-py">dào shuǐ</div>
+      <div class="phrase-ru">наливать воду</div>
+      <div class="phrase-note"><b>倒</b> = наливать · <b>水</b> = вода</div>
+    </div>
+
+    <div class="card" data-color="n6" data-key="c18" data-hanzi-audio="带孩子" data-russian-audio="присматривать за ребёнком">
+      <span class="emoji-float tl">👶</span>
+      <span class="emoji-float br">🧸</span>
+      <div class="rec-dot" data-indicator>✓</div>
+      <div class="phrase-cn">带孩子</div>
+      <div class="phrase-py">dài háizi</div>
+      <div class="phrase-ru">присматривать за ребёнком</div>
+      <div class="phrase-note"><b>带</b> = водиться · <b>孩子</b> = ребёнок</div>
     </div>
 
   </div>
@@ -216,11 +348,11 @@
         const Ctx = window.AudioContext || window.webkitAudioContext;
         if (Ctx) { if (!sharedAudioCtx) sharedAudioCtx = new Ctx(); if (sharedAudioCtx.state === 'suspended') sharedAudioCtx.resume(); }
       } catch (e) {}
-      try {
-        const warmup = new SpeechSynthesisUtterance(' ');
-        warmup.volume = 0; warmup.lang = 'zh-CN';
+           try {
+        const } catch warmup = new Speech (SynthesisUtterance(' ');
+       e warmup.volume = 0; warmup.lang =) 'zh-CN';
         window.speechSynthesis.speak(warmup);
-      } catch (e) {}
+ {}
       try {
         const silent = new Audio('data:audio/wav;base64,UklGRiQAAABXQVZFZm10IBAAAAABAAEARKwAAIhYAQACABAAZGF0YQAAAAA=');
         silent.volume = 0; silent.play().catch(() => {});

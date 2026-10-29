@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.5, user-scalable=yes" />
-  <title>Китайский · бытовые фразы</title>
+  <title>Китайский · каждый день</title>
   <style>
     * { box-sizing: border-box; margin: 0; padding: 0; }
     html, body { height: 100%; overflow: hidden; }
@@ -45,7 +45,7 @@
     .grid {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
-      grid-template-rows: repeat(5, 1fr);
+      grid-template-rows: repeat(4, 1fr);
       gap: 5px;
       flex: 1;
       min-height: 0;
@@ -114,7 +114,7 @@
       50% { box-shadow: 0 0 0 6px rgba(255,80,80,0); }
     }
     .hanzi {
-      font-size: 1.6rem;
+      font-size: 1.75rem;
       font-weight: 700;
       line-height: 1.05;
       margin: 2px 0 0;
@@ -125,7 +125,7 @@
       max-width: 100%;
     }
     .pinyin {
-      font-size: 0.58rem;
+      font-size: 0.6rem;
       font-weight: 600;
       color: #2a5a2a;
       background: rgba(210, 235, 210, 0.7);
@@ -137,7 +137,7 @@
       word-break: break-word;
     }
     .russian {
-      font-size: 0.62rem;
+      font-size: 0.64rem;
       font-weight: 500;
       color: #2a4a2a;
       background: rgba(200, 225, 200, 0.5);
@@ -163,11 +163,6 @@
     .card[data-color="c13"] { --card-color: #5a7a5a; background: #dce8dc; }
     .card[data-color="c14"] { --card-color: #7a6a5a; background: #e8e0d4; }
     .card[data-color="c15"] { --card-color: #5a6a8a; background: #dce0ec; }
-    .card[data-color="c16"] { --card-color: #6a8a7a; background: #dcece6; }
-    .card[data-color="c17"] { --card-color: #8a6a7a; background: #ecdce4; }
-    .card[data-color="c18"] { --card-color: #5a8a8a; background: #dcecec; }
-    .card[data-color="c19"] { --card-color: #7a7a5a; background: #e8e8d8; }
-    .card[data-color="c20"] { --card-color: #6a5a8a; background: #e4dcec; }
 
     .rec-panel {
       margin-top: 5px;
@@ -239,42 +234,42 @@
     .footer-note span { font-weight: 600; }
 
     @media (max-width: 700px) {
-      .grid { grid-template-columns: repeat(3, 1fr); grid-template-rows: repeat(7, 1fr); }
-      .hanzi { font-size: 1.4rem; }
+      .grid { grid-template-columns: repeat(3, 1fr); grid-template-rows: repeat(5, 1fr); }
+      .hanzi { font-size: 1.55rem; }
     }
     @media (max-width: 600px) {
       .container { padding: 8px 6px 10px; max-height: 680px; border-radius: 30px; }
-      .grid { gap: 4px; grid-template-columns: repeat(3, 1fr); grid-template-rows: repeat(7, 1fr); }
-      .hanzi { font-size: 1.25rem; }
+      .grid { gap: 4px; grid-template-columns: repeat(3, 1fr); grid-template-rows: repeat(5, 1fr); }
+      .hanzi { font-size: 1.4rem; }
       .emoji-corner { font-size: 0.9rem; top: 3px; left: 5px; }
       .rec-indicator { width: 10px; height: 10px; font-size: 0.4rem; top: 3px; right: 5px; }
-      .pinyin { font-size: 0.52rem; padding: 0px 6px; }
-      .russian { font-size: 0.56rem; padding: 0px 6px; }
+      .pinyin { font-size: 0.55rem; padding: 0px 6px; }
+      .russian { font-size: 0.58rem; padding: 0px 6px; }
       h1 { font-size: 1rem; }
       .rec-num { width: 16px; height: 16px; font-size: 0.48rem; }
       .rec-panel-title { font-size: 0.5rem; }
     }
     @media (max-width: 420px) {
-      .grid { gap: 3px; grid-template-columns: repeat(2, 1fr); grid-template-rows: repeat(10, 1fr); }
-      .hanzi { font-size: 1.2rem; }
+      .grid { gap: 3px; grid-template-columns: repeat(2, 1fr); grid-template-rows: repeat(8, 1fr); }
+      .hanzi { font-size: 1.35rem; }
       .emoji-corner { font-size: 0.8rem; top: 2px; left: 4px; }
       .rec-indicator { width: 9px; height: 9px; font-size: 0.36rem; top: 2px; right: 4px; }
       .card { padding: 4px 3px 5px; border-radius: 12px; }
-      .pinyin { font-size: 0.48rem; padding: 0px 5px; }
-      .russian { font-size: 0.5rem; padding: 0px 5px; }
+      .pinyin { font-size: 0.5rem; padding: 0px 5px; }
+      .russian { font-size: 0.52rem; padding: 0px 5px; }
       .footer-note { font-size: 0.5rem; padding: 2px 8px; margin-top: 3px; }
       .rec-num { width: 15px; height: 15px; font-size: 0.44rem; }
       .rec-panel { padding: 2px 5px; gap: 2px; }
     }
     @media (max-height: 650px) {
       .container { max-height: 96vh; padding: 6px 6px 8px; }
-      .hanzi { font-size: 1.2rem; }
+      .hanzi { font-size: 1.3rem; }
       .emoji-corner { font-size: 0.8rem; top: 2px; left: 4px; }
       h1 { font-size: 0.9rem; }
       .grid { gap: 3px; }
       .card { padding: 3px 2px 4px; }
-      .pinyin { font-size: 0.48rem; }
-      .russian { font-size: 0.5rem; }
+      .pinyin { font-size: 0.5rem; }
+      .russian { font-size: 0.52rem; }
       .footer-note { padding: 2px 8px; margin-top: 2px; font-size: 0.5rem; }
       .rec-num { width: 15px; height: 15px; font-size: 0.44rem; }
     }
@@ -283,168 +278,128 @@
 <body>
 
 <div class="container">
-  <h1><span>🏠</span> 日常用语 · rìcháng yòngyǔ <span>🇨🇳</span></h1>
+  <h1><span>💬</span> 每天用的短语 · měitiān yòng de duǎnyǔ <span>🇨🇳</span></h1>
 
   <div class="grid" id="cardGrid">
 
-    <div class="card" data-color="c1" data-key="b1" data-hanzi-audio="你在干嘛" data-russian-audio="что ты делаешь">
-      <div class="emoji-corner">🤔</div>
-      <div class="rec-indicator" data-indicator>✓</div>
-      <div class="hanzi">你在干嘛？</div>
-      <div class="pinyin">nǐ zài gàn má?</div>
-      <div class="russian">что ты делаешь?</div>
-    </div>
-
-    <div class="card" data-color="c2" data-key="b2" data-hanzi-audio="等一下" data-russian-audio="подожди немного">
-      <div class="emoji-corner">⏳</div>
-      <div class="rec-indicator" data-indicator>✓</div>
-      <div class="hanzi">等一下</div>
-      <div class="pinyin">děng yí xià</div>
-      <div class="russian">подожди немного</div>
-    </div>
-
-    <div class="card" data-color="c3" data-key="b3" data-hanzi-audio="马上来" data-russian-audio="уже иду">
-      <div class="emoji-corner">🏃</div>
-      <div class="rec-indicator" data-indicator>✓</div>
-      <div class="hanzi">马上来</div>
-      <div class="pinyin">mǎ shàng lái</div>
-      <div class="russian">уже иду</div>
-    </div>
-
-    <div class="card" data-color="c4" data-key="b4" data-hanzi-audio="我到了" data-russian-audio="я пришёл">
-      <div class="emoji-corner">📍</div>
-      <div class="rec-indicator" data-indicator>✓</div>
-      <div class="hanzi">我到了</div>
-      <div class="pinyin">wǒ dào le</div>
-      <div class="russian">я пришёл / пришла</div>
-    </div>
-
-    <div class="card" data-color="c5" data-key="b5" data-hanzi-audio="走吧" data-russian-audio="пойдём">
-      <div class="emoji-corner">🚶</div>
-      <div class="rec-indicator" data-indicator>✓</div>
-      <div class="hanzi">走吧</div>
-      <div class="pinyin">zǒu ba</div>
-      <div class="russian">пойдём</div>
-    </div>
-
-    <div class="card" data-color="c6" data-key="b6" data-hanzi-audio="慢一点" data-russian-audio="помедленнее">
+    <div class="card" data-color="c1" data-key="d1" data-hanzi-audio="慢慢来" data-russian-audio="не спеши">
       <div class="emoji-corner">🐢</div>
       <div class="rec-indicator" data-indicator>✓</div>
-      <div class="hanzi">慢一点</div>
-      <div class="pinyin">màn yì diǎn</div>
-      <div class="russian">помедленнее</div>
-    </div>
-
-    <div class="card" data-color="c7" data-key="b7" data-hanzi-audio="没听懂" data-russian-audio="я не понял">
-      <div class="emoji-corner">😕</div>
-      <div class="rec-indicator" data-indicator>✓</div>
-      <div class="hanzi">没听懂</div>
-      <div class="pinyin">méi tīng dǒng</div>
-      <div class="russian">я не понял(а)</div>
-    </div>
-
-    <div class="card" data-color="c8" data-key="b8" data-hanzi-audio="再说一遍" data-russian-audio="повтори ещё раз">
-      <div class="emoji-corner">🔁</div>
-      <div class="rec-indicator" data-indicator>✓</div>
-      <div class="hanzi">再说一遍</div>
-      <div class="pinyin">zài shuō yí biàn</div>
-      <div class="russian">повтори ещё раз</div>
-    </div>
-
-    <div class="card" data-color="c9" data-key="b9" data-hanzi-audio="真的吗" data-russian-audio="правда">
-      <div class="emoji-corner">😮</div>
-      <div class="rec-indicator" data-indicator>✓</div>
-      <div class="hanzi">真的吗？</div>
-      <div class="pinyin">zhēn de ma?</div>
-      <div class="russian">правда?</div>
-    </div>
-
-    <div class="card" data-color="c10" data-key="b10" data-hanzi-audio="太好了" data-russian-audio="отлично">
-      <div class="emoji-corner">🎉</div>
-      <div class="rec-indicator" data-indicator>✓</div>
-      <div class="hanzi">太好了！</div>
-      <div class="pinyin">tài hǎo le!</div>
-      <div class="russian">отлично!</div>
-    </div>
-
-    <div class="card" data-color="c11" data-key="b11" data-hanzi-audio="没办法" data-russian-audio="ничего не поделаешь">
-      <div class="emoji-corner">🤷</div>
-      <div class="rec-indicator" data-indicator>✓</div>
-      <div class="hanzi">没办法</div>
-      <div class="pinyin">méi bàn fǎ</div>
-      <div class="russian">ничего не поделаешь</div>
-    </div>
-
-    <div class="card" data-color="c12" data-key="b12" data-hanzi-audio="看情况吧" data-russian-audio="посмотрим по ситуации">
-      <div class="emoji-corner">👀</div>
-      <div class="rec-indicator" data-indicator>✓</div>
-      <div class="hanzi">看情况吧</div>
-      <div class="pinyin">kàn qíng kuàng ba</div>
-      <div class="russian">посмотрим по ситуации</div>
-    </div>
-
-    <div class="card" data-color="c13" data-key="b13" data-hanzi-audio="我同意" data-russian-audio="я согласен">
-      <div class="emoji-corner">👍</div>
-      <div class="rec-indicator" data-indicator>✓</div>
-      <div class="hanzi">我同意</div>
-      <div class="pinyin">wǒ tóng yì</div>
-      <div class="russian">я согласен / согласна</div>
-    </div>
-
-    <div class="card" data-color="c14" data-key="b14" data-hanzi-audio="不着急" data-russian-audio="не спеши">
-      <div class="emoji-corner">😌</div>
-      <div class="rec-indicator" data-indicator>✓</div>
-      <div class="hanzi">不着急</div>
-      <div class="pinyin">bù zháo jí</div>
+      <div class="hanzi">慢慢来</div>
+      <div class="pinyin">màn man lái</div>
       <div class="russian">не спеши</div>
     </div>
 
-    <div class="card" data-color="c15" data-key="b15" data-hanzi-audio="你先来" data-russian-audio="ты первый">
-      <div class="emoji-corner">👉</div>
+    <div class="card" data-color="c2" data-key="d2" data-hanzi-audio="我马上到" data-russian-audio="я скоро буду">
+      <div class="emoji-corner">🏃</div>
       <div class="rec-indicator" data-indicator>✓</div>
-      <div class="hanzi">你先来</div>
-      <div class="pinyin">nǐ xiān lái</div>
-      <div class="russian">ты первый / первая</div>
+      <div class="hanzi">我马上到</div>
+      <div class="pinyin">wǒ mǎ shàng dào</div>
+      <div class="russian">я скоро буду</div>
     </div>
 
-    <div class="card" data-color="c16" data-key="b16" data-hanzi-audio="小心一点" data-russian-audio="будь осторожнее">
-      <div class="emoji-corner">⚠️</div>
+    <div class="card" data-color="c3" data-key="d3" data-hanzi-audio="稍等一下" data-russian-audio="подожди немного">
+      <div class="emoji-corner">⏳</div>
       <div class="rec-indicator" data-indicator>✓</div>
-      <div class="hanzi">小心一点</div>
-      <div class="pinyin">xiǎo xīn yì diǎn</div>
-      <div class="russian">будь осторожнее</div>
+      <div class="hanzi">稍等一下</div>
+      <div class="pinyin">shāo děng yí xià</div>
+      <div class="russian">подожди немного</div>
     </div>
 
-    <div class="card" data-color="c17" data-key="b17" data-hanzi-audio="我明白了" data-russian-audio="я понял">
-      <div class="emoji-corner">💡</div>
+    <div class="card" data-color="c4" data-key="d4" data-hanzi-audio="你先说" data-russian-audio="сначала говори ты">
+      <div class="emoji-corner">🗣️</div>
       <div class="rec-indicator" data-indicator>✓</div>
-      <div class="hanzi">我明白了</div>
-      <div class="pinyin">wǒ míng bai le</div>
-      <div class="russian">я понял(а)</div>
+      <div class="hanzi">你先说</div>
+      <div class="pinyin">nǐ xiān shuō</div>
+      <div class="russian">сначала говори ты</div>
     </div>
 
-    <div class="card" data-color="c18" data-key="b18" data-hanzi-audio="当然可以" data-russian-audio="конечно можно">
-      <div class="emoji-corner">✅</div>
+    <div class="card" data-color="c5" data-key="d5" data-hanzi-audio="让我想想" data-russian-audio="дай подумать">
+      <div class="emoji-corner">🤔</div>
       <div class="rec-indicator" data-indicator>✓</div>
-      <div class="hanzi">当然可以</div>
-      <div class="pinyin">dāng rán kě yǐ</div>
-      <div class="russian">конечно, можно</div>
+      <div class="hanzi">让我想想</div>
+      <div class="pinyin">ràng wǒ xiǎng xiang</div>
+      <div class="russian">дай подумать</div>
     </div>
 
-    <div class="card" data-color="c19" data-key="b19" data-hanzi-audio="下次见" data-russian-audio="до встречи">
+    <div class="card" data-color="c6" data-key="d6" data-hanzi-audio="下次再说" data-russian-audio="обсудим в другой раз">
+      <div class="emoji-corner">🔁</div>
+      <div class="rec-indicator" data-indicator>✓</div>
+      <div class="hanzi">下次再说</div>
+      <div class="pinyin">xià cì zài shuō</div>
+      <div class="russian">обсудим в другой раз</div>
+    </div>
+
+    <div class="card" data-color="c7" data-key="d7" data-hanzi-audio="早点休息" data-russian-audio="отдохни пораньше">
+      <div class="emoji-corner">😴</div>
+      <div class="rec-indicator" data-indicator>✓</div>
+      <div class="hanzi">早点休息</div>
+      <div class="pinyin">zǎo diǎn xiū xi</div>
+      <div class="russian">отдохни пораньше</div>
+    </div>
+
+    <div class="card" data-color="c8" data-key="d8" data-hanzi-audio="路上小心" data-russian-audio="осторожнее в дороге">
+      <div class="emoji-corner">🛣️</div>
+      <div class="rec-indicator" data-indicator>✓</div>
+      <div class="hanzi">路上小心</div>
+      <div class="pinyin">lù shang xiǎo xīn</div>
+      <div class="russian">осторожнее в дороге</div>
+    </div>
+
+    <div class="card" data-color="c9" data-key="d9" data-hanzi-audio="记得带伞" data-russian-audio="не забудь зонт">
+      <div class="emoji-corner">☂️</div>
+      <div class="rec-indicator" data-indicator>✓</div>
+      <div class="hanzi">记得带伞</div>
+      <div class="pinyin">jì de dài sǎn</div>
+      <div class="russian">не забудь зонт</div>
+    </div>
+
+    <div class="card" data-color="c10" data-key="d10" data-hanzi-audio="我来帮你" data-russian-audio="давай помогу">
+      <div class="emoji-corner">🤝</div>
+      <div class="rec-indicator" data-indicator>✓</div>
+      <div class="hanzi">我来帮你</div>
+      <div class="pinyin">wǒ lái bāng nǐ</div>
+      <div class="russian">давай помогу</div>
+    </div>
+
+    <div class="card" data-color="c11" data-key="d11" data-hanzi-audio="发给我吧" data-russian-audio="пришли мне">
+      <div class="emoji-corner">📤</div>
+      <div class="rec-indicator" data-indicator>✓</div>
+      <div class="hanzi">发给我吧</div>
+      <div class="pinyin">fā gěi wǒ ba</div>
+      <div class="russian">пришли мне</div>
+    </div>
+
+    <div class="card" data-color="c12" data-key="d12" data-hanzi-audio="再试一次" data-russian-audio="попробуй ещё раз">
+      <div class="emoji-corner">🔂</div>
+      <div class="rec-indicator" data-indicator>✓</div>
+      <div class="hanzi">再试一次</div>
+      <div class="pinyin">zài shì yí cì</div>
+      <div class="russian">попробуй ещё раз</div>
+    </div>
+
+    <div class="card" data-color="c13" data-key="d13" data-hanzi-audio="今天很忙" data-russian-audio="сегодня много дел">
+      <div class="emoji-corner">💼</div>
+      <div class="rec-indicator" data-indicator>✓</div>
+      <div class="hanzi">今天很忙</div>
+      <div class="pinyin">jīn tiān hěn máng</div>
+      <div class="russian">сегодня много дел</div>
+    </div>
+
+    <div class="card" data-color="c14" data-key="d14" data-hanzi-audio="一起走吧" data-russian-audio="пойдём вместе">
+      <div class="emoji-corner">🚶</div>
+      <div class="rec-indicator" data-indicator>✓</div>
+      <div class="hanzi">一起走吧</div>
+      <div class="pinyin">yì qǐ zǒu ba</div>
+      <div class="russian">пойдём вместе</div>
+    </div>
+
+    <div class="card" data-color="c15" data-key="d15" data-hanzi-audio="我先走了" data-russian-audio="я пойду первым">
       <div class="emoji-corner">👋</div>
       <div class="rec-indicator" data-indicator>✓</div>
-      <div class="hanzi">下次见</div>
-      <div class="pinyin">xià cì jiàn</div>
-      <div class="russian">до встречи</div>
-    </div>
-
-    <div class="card" data-color="c20" data-key="b20" data-hanzi-audio="一路平安" data-russian-audio="счастливого пути">
-      <div class="emoji-corner">🛫</div>
-      <div class="rec-indicator" data-indicator>✓</div>
-      <div class="hanzi">一路平安！</div>
-      <div class="pinyin">yí lù píng ān!</div>
-      <div class="russian">счастливого пути!</div>
+      <div class="hanzi">我先走了</div>
+      <div class="pinyin">wǒ xiān zǒu le</div>
+      <div class="russian">я пойду первым</div>
     </div>
 
   </div>

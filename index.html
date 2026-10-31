@@ -3,24 +3,24 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.5, user-scalable=yes" />
-  <title>Китайский · бытовые фразы</title>
+  <title>Китайский · слова и прилагательные</title>
   <style>
     * { box-sizing: border-box; margin: 0; padding: 0; }
-    html, body { height: 100%; overflow: hidden; }
+    html, body { min-height: 100%; }
     body {
       font-family: system-ui, 'Segoe UI', Roboto, sans-serif;
       background: linear-gradient(145deg, #f0f5f0 0%, #dce8dc 100%);
-      height: 100vh;
+      min-height: 100vh;
       display: flex;
       justify-content: center;
       align-items: center;
       padding: 10px;
     }
     .container {
-      max-width: 820px;
+      max-width: 860px;
       width: 100%;
-      height: 98vh;
-      max-height: 820px;
+      min-height: 96vh;
+      max-height: none;
       background: rgba(240, 248, 240, 0.6);
       backdrop-filter: blur(4px);
       border-radius: 40px;
@@ -44,8 +44,8 @@
     }
     .grid {
       display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      grid-template-rows: repeat(6, 1fr);
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      grid-auto-rows: minmax(170px, auto);
       gap: 5px;
       flex: 1;
       min-height: 0;
@@ -114,18 +114,18 @@
       50% { box-shadow: 0 0 0 6px rgba(255,80,80,0); }
     }
     .hanzi {
-      font-size: 1.5rem;
+      font-size: 2.15rem;
       font-weight: 700;
       line-height: 1.05;
       margin: 2px 0 0;
       letter-spacing: 1px;
       color: #1a3a1a;
       text-shadow: 0 1px 3px rgba(0,0,0,0.06);
-      word-break: break-all;
+      word-break: break-word;
       max-width: 100%;
     }
     .pinyin {
-      font-size: 0.56rem;
+      font-size: 0.78rem;
       font-weight: 600;
       color: #2a5a2a;
       background: rgba(210, 235, 210, 0.7);
@@ -136,8 +136,21 @@
       max-width: 100%;
       word-break: break-word;
     }
+    .english {
+      font-size: 0.68rem;
+      font-weight: 700;
+      color: #2a4a6a;
+      background: rgba(200, 220, 240, 0.6);
+      padding: 1px 7px;
+      border-radius: 30px;
+      margin-top: 2px;
+      line-height: 1.2;
+      max-width: 100%;
+      word-break: break-word;
+    }
     .russian {
-      font-size: 0.6rem;
+      font-size: 0.95rem;
+      font-weight: 700;
       font-weight: 500;
       color: #2a4a2a;
       background: rgba(200, 225, 200, 0.5);
@@ -147,6 +160,31 @@
       line-height: 1.2;
       max-width: 100%;
       word-break: break-word;
+    }
+    .example-zh {
+      margin-top: 5px;
+      font-size: 0.9rem;
+      line-height: 1.18;
+      font-weight: 650;
+      color: #263f2b;
+      max-width: 100%;
+      overflow-wrap: anywhere;
+    }
+    .example-pinyin {
+      margin-top: 2px;
+      font-size: 0.58rem;
+      line-height: 1.2;
+      color: #55705a;
+      max-width: 100%;
+      overflow-wrap: anywhere;
+    }
+    .example-ru {
+      margin-top: 2px;
+      font-size: 0.66rem;
+      line-height: 1.2;
+      color: #3b563e;
+      max-width: 100%;
+      overflow-wrap: anywhere;
     }
     .card[data-color="c1"] { --card-color: #5a8a5a; background: #dcecdc; }
     .card[data-color="c2"] { --card-color: #6a8a5a; background: #dcecd8; }
@@ -163,12 +201,6 @@
     .card[data-color="c13"] { --card-color: #5a7a5a; background: #dce8dc; }
     .card[data-color="c14"] { --card-color: #7a6a5a; background: #e8e0d4; }
     .card[data-color="c15"] { --card-color: #5a6a8a; background: #dce0ec; }
-    .card[data-color="c16"] { --card-color: #6a8a7a; background: #dcece6; }
-    .card[data-color="c17"] { --card-color: #8a6a7a; background: #ecdce4; }
-    .card[data-color="c18"] { --card-color: #5a8a8a; background: #dcecec; }
-    .card[data-color="c19"] { --card-color: #7a7a5a; background: #e8e8d8; }
-    .card[data-color="c20"] { --card-color: #6a5a8a; background: #e4dcec; }
-    .card[data-color="c21"] { --card-color: #5a8a6a; background: #dcecde; }
 
     .rec-panel {
       margin-top: 5px;
@@ -223,7 +255,6 @@
       0%, 100% { box-shadow: 0 0 0 0 rgba(255,80,80,0.7); }
       50% { box-shadow: 0 0 0 4px rgba(255,80,80,0); }
     }
-
     .footer-note {
       margin-top: 4px;
       text-align: center;
@@ -240,228 +271,141 @@
     .footer-note span { font-weight: 600; }
 
     @media (max-width: 700px) {
-      .grid { grid-template-columns: repeat(3, 1fr); grid-template-rows: repeat(7, 1fr); }
-      .hanzi { font-size: 1.35rem; }
+      .grid { grid-template-columns: repeat(3, minmax(0, 1fr)); grid-auto-rows: minmax(160px, auto); }
+      .hanzi { font-size: 1.9rem; }
     }
     @media (max-width: 600px) {
-      .container { padding: 8px 6px 10px; max-height: 680px; border-radius: 30px; }
-      .grid { gap: 4px; grid-template-columns: repeat(3, 1fr); grid-template-rows: repeat(7, 1fr); }
-      .hanzi { font-size: 1.2rem; }
+      .container { padding: 8px 6px 10px; max-height: none; min-height: 96vh; border-radius: 30px; }
+      .grid { gap: 4px; grid-template-columns: repeat(3, minmax(0, 1fr)); grid-auto-rows: minmax(160px, auto); }
+      .hanzi { font-size: 1.7rem; }
       .emoji-corner { font-size: 0.9rem; top: 3px; left: 5px; }
       .rec-indicator { width: 10px; height: 10px; font-size: 0.4rem; top: 3px; right: 5px; }
-      .pinyin { font-size: 0.5rem; padding: 0px 6px; }
-      .russian { font-size: 0.54rem; padding: 0px 6px; }
+       .pinyin { font-size: 0.68rem; padding: 1px 6px; }
+      .english { font-size: 0.58rem; padding: 1px 6px; }
+      .russian { font-size: 0.82rem; font-weight: 700; padding: 1px 6px; }
       h1 { font-size: 1rem; }
       .rec-num { width: 16px; height: 16px; font-size: 0.48rem; }
       .rec-panel-title { font-size: 0.5rem; }
     }
     @media (max-width: 420px) {
-      .grid { gap: 3px; grid-template-columns: repeat(2, 1fr); grid-template-rows: repeat(11, 1fr); }
-      .hanzi { font-size: 1.15rem; }
+      .grid { gap: 3px; grid-template-columns: repeat(2, minmax(0, 1fr)); grid-auto-rows: minmax(150px, auto); }
+      .hanzi { font-size: 1.55rem; }
       .emoji-corner { font-size: 0.8rem; top: 2px; left: 4px; }
       .rec-indicator { width: 9px; height: 9px; font-size: 0.36rem; top: 2px; right: 4px; }
       .card { padding: 4px 3px 5px; border-radius: 12px; }
-      .pinyin { font-size: 0.46rem; padding: 0px 5px; }
-      .russian { font-size: 0.48rem; padding: 0px 5px; }
+       .pinyin { font-size: 0.62rem; padding: 1px 5px; }
+      .english { font-size: 0.54rem; padding: 1px 5px; }
+      .russian { font-size: 0.76rem; font-weight: 700; padding: 1px 5px; }
       .footer-note { font-size: 0.5rem; padding: 2px 8px; margin-top: 3px; }
       .rec-num { width: 15px; height: 15px; font-size: 0.44rem; }
       .rec-panel { padding: 2px 5px; gap: 2px; }
     }
-    @media (max-height: 650px) {
-      .container { max-height: 96vh; padding: 6px 6px 8px; }
-      .hanzi { font-size: 1.15rem; }
-      .emoji-corner { font-size: 0.8rem; top: 2px; left: 4px; }
-      h1 { font-size: 0.9rem; }
-      .grid { gap: 3px; }
-      .card { padding: 3px 2px 4px; }
-      .pinyin { font-size: 0.46rem; }
-      .russian { font-size: 0.48rem; }
-      .footer-note { padding: 2px 8px; margin-top: 2px; font-size: 0.5rem; }
-      .rec-num { width: 15px; height: 15px; font-size: 0.44rem; }
-    }
   </style>
 </head>
 <body>
-
 <div class="container">
-  <h1><span>🏠</span> 日常用语 · rìcháng yòngyǔ <span>🇨🇳</span></h1>
+  <h1><span>🌞</span> 名词和形容词 · слова и прилагательные <span>🇨🇳</span></h1>
 
   <div class="grid" id="cardGrid">
-
-    <div class="card" data-color="c1" data-key="b1" data-hanzi-audio="你在干嘛" data-russian-audio="что ты делаешь">
-      <div class="emoji-corner">🤔</div>
-      <div class="rec-indicator" data-indicator>✓</div>
-      <div class="hanzi">你在干嘛？</div>
-      <div class="pinyin">nǐ zài gàn má?</div>
-      <div class="russian">что ты делаешь?</div>
+    <div class="card" data-color="c1" data-key="s1" data-hanzi-audio="太阳" data-russian-audio="солнце">
+      <div class="emoji-corner">☀️</div><div class="rec-indicator" data-indicator>✓</div>
+      <div class="hanzi">太阳</div><div class="pinyin">tài yáng</div>
+      <div class="english">sun</div><div class="russian">солнце</div>
+      <div class="example-zh">太阳很大。</div><div class="example-pinyin">Tài yáng hěn dà.</div><div class="example-ru">Солнце большое.</div>
+    </div>
+    <div class="card" data-color="c2" data-key="s2" data-hanzi-audio="太阳的" data-russian-audio="солнечный, относящийся к солнцу">
+      <div class="emoji-corner">🌞</div><div class="rec-indicator" data-indicator>✓</div>
+      <div class="hanzi">太阳的</div><div class="pinyin">tài yáng de</div>
+      <div class="english">solar, sun's</div><div class="russian">солнечный</div>
+      <div class="example-zh">这是太阳的光。</div><div class="example-pinyin">Zhè shì tài yáng de guāng.</div><div class="example-ru">Это солнечный свет.</div>
+    </div>
+    <div class="card" data-color="c3" data-key="s3" data-hanzi-audio="晴朗的" data-russian-audio="солнечные, ясные">
+      <div class="emoji-corner">🌤️</div><div class="rec-indicator" data-indicator>✓</div>
+      <div class="hanzi">晴朗的</div><div class="pinyin">qíng lǎng de</div>
+      <div class="english">sunny, clear</div><div class="russian">солнечные</div>
+      <div class="example-zh">今天是晴朗的天气。</div><div class="example-pinyin">Jīn tiān shì qíng lǎng de tiān qì.</div><div class="example-ru">Сегодня солнечная и ясная погода.</div>
     </div>
 
-    <div class="card" data-color="c2" data-key="b2" data-hanzi-audio="等一下" data-russian-audio="подожди немного">
-      <div class="emoji-corner">⏳</div>
-      <div class="rec-indicator" data-indicator>✓</div>
-      <div class="hanzi">等一下</div>
-      <div class="pinyin">děng yí xià</div>
-      <div class="russian">подожди немного</div>
+    <div class="card" data-color="c4" data-key="s4" data-hanzi-audio="月亮" data-russian-audio="луна">
+      <div class="emoji-corner">🌙</div><div class="rec-indicator" data-indicator>✓</div>
+      <div class="hanzi">月亮</div><div class="pinyin">yuè liang</div>
+      <div class="english">moon</div><div class="russian">луна</div>
+      <div class="example-zh">月亮出来了。</div><div class="example-pinyin">Yuè liang chū lái le.</div><div class="example-ru">Луна появилась.</div>
+    </div>
+    <div class="card" data-color="c5" data-key="s5" data-hanzi-audio="月亮的" data-russian-audio="лунный">
+      <div class="emoji-corner">🌔</div><div class="rec-indicator" data-indicator>✓</div>
+      <div class="hanzi">月亮的</div><div class="pinyin">yuè liang de</div>
+      <div class="english">lunar, moon's</div><div class="russian">лунный</div>
+      <div class="example-zh">这是月亮的光。</div><div class="example-pinyin">Zhè shì yuè liang de guāng.</div><div class="example-ru">Это лунный свет.</div>
+    </div>
+    <div class="card" data-color="c6" data-key="s6" data-hanzi-audio="月亮的" data-russian-audio="лунные">
+      <div class="emoji-corner">🌕</div><div class="rec-indicator" data-indicator>✓</div>
+      <div class="hanzi">月亮的</div><div class="pinyin">yuè liang de</div>
+      <div class="english">lunar, moon's</div><div class="russian">лунные</div>
+      <div class="example-zh">我喜欢月亮的颜色。</div><div class="example-pinyin">Wǒ xǐ huan yuè liang de yán sè.</div><div class="example-ru">Мне нравятся лунные оттенки.</div>
     </div>
 
-    <div class="card" data-color="c3" data-key="b3" data-hanzi-audio="马上来" data-russian-audio="уже иду">
-      <div class="emoji-corner">🏃</div>
-      <div class="rec-indicator" data-indicator>✓</div>
-      <div class="hanzi">马上来</div>
-      <div class="pinyin">mǎ shàng lái</div>
-      <div class="russian">уже иду</div>
+    <div class="card" data-color="c7" data-key="s7" data-hanzi-audio="薄荷" data-russian-audio="мята">
+      <div class="emoji-corner">🌿</div><div class="rec-indicator" data-indicator>✓</div>
+      <div class="hanzi">薄荷</div><div class="pinyin">bò he</div>
+      <div class="english">mint</div><div class="russian">мята</div>
+      <div class="example-zh">我喜欢薄荷。</div><div class="example-pinyin">Wǒ xǐ huan bò he.</div><div class="example-ru">Я люблю мяту.</div>
+    </div>
+    <div class="card" data-color="c8" data-key="s8" data-hanzi-audio="薄荷味的" data-russian-audio="мятный">
+      <div class="emoji-corner">🍃</div><div class="rec-indicator" data-indicator>✓</div>
+      <div class="hanzi">薄荷味的</div><div class="pinyin">bò he wèi de</div>
+      <div class="english">mint-flavored</div><div class="russian">мятный</div>
+      <div class="example-zh">我想要薄荷味的糖。</div><div class="example-pinyin">Wǒ xiǎng yào bò he wèi de táng.</div><div class="example-ru">Я хочу мятную конфету.</div>
+    </div>
+    <div class="card" data-color="c9" data-key="s9" data-hanzi-audio="薄荷味的" data-russian-audio="мятные">
+      <div class="emoji-corner">🌱</div><div class="rec-indicator" data-indicator>✓</div>
+      <div class="hanzi">薄荷味的</div><div class="pinyin">bò he wèi de</div>
+      <div class="english">mint-flavored</div><div class="russian">мятные</div>
+      <div class="example-zh">这些是薄荷味的糖。</div><div class="example-pinyin">Zhè xiē shì bò he wèi de táng.</div><div class="example-ru">Это мятные конфеты.</div>
     </div>
 
-    <div class="card" data-color="c4" data-key="b4" data-hanzi-audio="我到了" data-russian-audio="я пришёл">
-      <div class="emoji-corner">📍</div>
-      <div class="rec-indicator" data-indicator>✓</div>
-      <div class="hanzi">我到了</div>
-      <div class="pinyin">wǒ dào le</div>
-      <div class="russian">я пришёл / пришла</div>
+    <div class="card" data-color="c10" data-key="s10" data-hanzi-audio="茶" data-russian-audio="чай">
+      <div class="emoji-corner">🍵</div><div class="rec-indicator" data-indicator>✓</div>
+      <div class="hanzi">茶</div><div class="pinyin">chá</div>
+      <div class="english">tea</div><div class="russian">чай</div>
+      <div class="example-zh">我每天喝茶。</div><div class="example-pinyin">Wǒ měi tiān hē chá.</div><div class="example-ru">Я пью чай каждый день.</div>
+    </div>
+    <div class="card" data-color="c11" data-key="s11" data-hanzi-audio="茶的" data-russian-audio="чайный">
+      <div class="emoji-corner">🫖</div><div class="rec-indicator" data-indicator>✓</div>
+      <div class="hanzi">茶的</div><div class="pinyin">chá de</div>
+      <div class="english">tea, tea-related</div><div class="russian">чайный</div>
+      <div class="example-zh">这是茶的香味。</div><div class="example-pinyin">Zhè shì chá de xiāng wèi.</div><div class="example-ru">Это чайный аромат.</div>
+    </div>
+    <div class="card" data-color="c12" data-key="s12" data-hanzi-audio="茶的" data-russian-audio="чайные">
+      <div class="emoji-corner">🍃</div><div class="rec-indicator" data-indicator>✓</div>
+      <div class="hanzi">茶的</div><div class="pinyin">chá de</div>
+      <div class="english">tea, tea-related</div><div class="russian">чайные</div>
+      <div class="example-zh">我喜欢茶的味道。</div><div class="example-pinyin">Wǒ xǐ huan chá de wèi dao.</div><div class="example-ru">Мне нравится вкус чая.</div>
     </div>
 
-    <div class="card" data-color="c5" data-key="b5" data-hanzi-audio="走吧" data-russian-audio="пойдём">
-      <div class="emoji-corner">🚶</div>
-      <div class="rec-indicator" data-indicator>✓</div>
-      <div class="hanzi">走吧</div>
-      <div class="pinyin">zǒu ba</div>
-      <div class="russian">пойдём</div>
+    <div class="card" data-color="c13" data-key="s13" data-hanzi-audio="盐" data-russian-audio="соль">
+      <div class="emoji-corner">🧂</div><div class="rec-indicator" data-indicator>✓</div>
+      <div class="hanzi">盐</div><div class="pinyin">yán</div>
+      <div class="english">salt</div><div class="russian">соль</div>
+      <div class="example-zh">请给我一点盐。</div><div class="example-pinyin">Qǐng gěi wǒ yì diǎn yán.</div><div class="example-ru">Пожалуйста, дайте мне немного соли.</div>
     </div>
-
-    <div class="card" data-color="c6" data-key="b6" data-hanzi-audio="慢一点" data-russian-audio="помедленнее">
-      <div class="emoji-corner">🐢</div>
-      <div class="rec-indicator" data-indicator>✓</div>
-      <div class="hanzi">慢一点</div>
-      <div class="pinyin">màn yì diǎn</div>
-      <div class="russian">помедленнее</div>
+    <div class="card" data-color="c14" data-key="s14" data-hanzi-audio="咸的" data-russian-audio="солёный">
+      <div class="emoji-corner">🥨</div><div class="rec-indicator" data-indicator>✓</div>
+      <div class="hanzi">咸的</div><div class="pinyin">xián de</div>
+      <div class="english">salty</div><div class="russian">солёный</div>
+      <div class="example-zh">这个汤太咸了。</div><div class="example-pinyin">Zhè ge tāng tài xián le.</div><div class="example-ru">Этот суп слишком солёный.</div>
     </div>
-
-    <div class="card" data-color="c7" data-key="b7" data-hanzi-audio="没听懂" data-russian-audio="я не понял">
-      <div class="emoji-corner">😕</div>
-      <div class="rec-indicator" data-indicator>✓</div>
-      <div class="hanzi">没听懂</div>
-      <div class="pinyin">méi tīng dǒng</div>
-      <div class="russian">я не понял(а)</div>
+    <div class="card" data-color="c15" data-key="s15" data-hanzi-audio="咸的" data-russian-audio="солёные">
+      <div class="emoji-corner">🥜</div><div class="rec-indicator" data-indicator>✓</div>
+      <div class="hanzi">咸的</div><div class="pinyin">xián de</div>
+      <div class="english">salty</div><div class="russian">солёные</div>
+      <div class="example-zh">这些薯片很咸。</div><div class="example-pinyin">Zhè xiē shǔ piàn hěn xián.</div><div class="example-ru">Эти чипсы солёные.</div>
     </div>
-
-    <div class="card" data-color="c8" data-key="b8" data-hanzi-audio="再说一遍" data-russian-audio="повтори ещё раз">
-      <div class="emoji-corner">🔁</div>
-      <div class="rec-indicator" data-indicator>✓</div>
-      <div class="hanzi">再说一遍</div>
-      <div class="pinyin">zài shuō yí biàn</div>
-      <div class="russian">повтори ещё раз</div>
-    </div>
-
-    <div class="card" data-color="c9" data-key="b9" data-hanzi-audio="真的吗" data-russian-audio="правда">
-      <div class="emoji-corner">😮</div>
-      <div class="rec-indicator" data-indicator>✓</div>
-      <div class="hanzi">真的吗？</div>
-      <div class="pinyin">zhēn de ma?</div>
-      <div class="russian">правда?</div>
-    </div>
-
-    <div class="card" data-color="c10" data-key="b10" data-hanzi-audio="太好了" data-russian-audio="отлично">
-      <div class="emoji-corner">🎉</div>
-      <div class="rec-indicator" data-indicator>✓</div>
-      <div class="hanzi">太好了！</div>
-      <div class="pinyin">tài hǎo le!</div>
-      <div class="russian">отлично!</div>
-    </div>
-
-    <div class="card" data-color="c11" data-key="b11" data-hanzi-audio="没办法" data-russian-audio="ничего не поделаешь">
-      <div class="emoji-corner">🤷</div>
-      <div class="rec-indicator" data-indicator>✓</div>
-      <div class="hanzi">没办法</div>
-      <div class="pinyin">méi bàn fǎ</div>
-      <div class="russian">ничего не поделаешь</div>
-    </div>
-
-    <div class="card" data-color="c12" data-key="b12" data-hanzi-audio="看情况吧" data-russian-audio="посмотрим по ситуации">
-      <div class="emoji-corner">👀</div>
-      <div class="rec-indicator" data-indicator>✓</div>
-      <div class="hanzi">看情况吧</div>
-      <div class="pinyin">kàn qíng kuàng ba</div>
-      <div class="russian">посмотрим по ситуации</div>
-    </div>
-
-    <div class="card" data-color="c13" data-key="b13" data-hanzi-audio="我同意" data-russian-audio="я согласен">
-      <div class="emoji-corner">👍</div>
-      <div class="rec-indicator" data-indicator>✓</div>
-      <div class="hanzi">我同意</div>
-      <div class="pinyin">wǒ tóng yì</div>
-      <div class="russian">я согласен / согласна</div>
-    </div>
-
-    <div class="card" data-color="c14" data-key="b14" data-hanzi-audio="不着急" data-russian-audio="не спеши">
-      <div class="emoji-corner">😌</div>
-      <div class="rec-indicator" data-indicator>✓</div>
-      <div class="hanzi">不着急</div>
-      <div class="pinyin">bù zháo jí</div>
-      <div class="russian">не спеши</div>
-    </div>
-
-    <div class="card" data-color="c15" data-key="b15" data-hanzi-audio="你先来" data-russian-audio="ты первый">
-      <div class="emoji-corner">👉</div>
-      <div class="rec-indicator" data-indicator>✓</div>
-      <div class="hanzi">你先来</div>
-      <div class="pinyin">nǐ xiān lái</div>
-      <div class="russian">ты первый / первая</div>
-    </div>
-
-    <div class="card" data-color="c16" data-key="b16" data-hanzi-audio="小心一点" data-russian-audio="будь осторожнее">
-      <div class="emoji-corner">⚠️</div>
-      <div class="rec-indicator" data-indicator>✓</div>
-      <div class="hanzi">小心一点</div>
-      <div class="pinyin">xiǎo xīn yì diǎn</div>
-      <div class="russian">будь осторожнее</div>
-    </div>
-
-    <div class="card" data-color="c17" data-key="b17" data-hanzi-audio="我明白了" data-russian-audio="я понял">
-      <div class="emoji-corner">💡</div>
-      <div class="rec-indicator" data-indicator>✓</div>
-      <div class="hanzi">我明白了</div>
-      <div class="pinyin">wǒ míng bai le</div>
-      <div class="russian">я понял(а)</div>
-    </div>
-
-    <div class="card" data-color="c18" data-key="b18" data-hanzi-audio="当然可以" data-russian-audio="конечно можно">
-      <div class="emoji-corner">✅</div>
-      <div class="rec-indicator" data-indicator>✓</div>
-      <div class="hanzi">当然可以</div>
-      <div class="pinyin">dāng rán kě yǐ</div>
-      <div class="russian">конечно, можно</div>
-    </div>
-
-    <div class="card" data-color="c19" data-key="b19" data-hanzi-audio="下次见" data-russian-audio="до встречи">
-      <div class="emoji-corner">👋</div>
-      <div class="rec-indicator" data-indicator>✓</div>
-      <div class="hanzi">下次见</div>
-      <div class="pinyin">xià cì jiàn</div>
-      <div class="russian">до встречи</div>
-    </div>
-
-    <div class="card" data-color="c20" data-key="b20" data-hanzi-audio="一路平安" data-russian-audio="счастливого пути">
-      <div class="emoji-corner">🛫</div>
-      <div class="rec-indicator" data-indicator>✓</div>
-      <div class="hanzi">一路平安！</div>
-      <div class="pinyin">yí lù píng ān!</div>
-      <div class="russian">счастливого пути!</div>
-    </div>
-
-    <div class="card" data-color="c21" data-key="b21" data-hanzi-audio="别客气" data-russian-audio="не стесняйся">
-      <div class="emoji-corner">🙌</div>
-      <div class="rec-indicator" data-indicator>✓</div>
-      <div class="hanzi">别客气</div>
-      <div class="pinyin">bié kè qi</div>
-      <div class="russian">не стесняйся / не церемонься</div>
-    </div>
-
   </div>
 
   <div class="rec-panel" id="recPanel">
     <span class="rec-panel-title">🎙️ запись:</span>
   </div>
-
   <div style="display: flex; justify-content: center; flex-shrink: 0;">
     <div class="footer-note">
       <span>🎧</span> клик по карточке — озвучка · клик по цифре — запись · повтор — удалить
@@ -470,393 +414,339 @@
 </div>
 
 <script>
-  (function() {
-    const cards = document.querySelectorAll('.card');
-    const recPanel = document.getElementById('recPanel');
+(function() {
+  const cards = document.querySelectorAll('.card');
+  const recPanel = document.getElementById('recPanel');
 
-    let audioUnlocked = false;
-    let sharedAudioCtx = null;
+  let audioUnlocked = false;
+  let sharedAudioCtx = null;
 
-    function unlockAudio() {
-      if (audioUnlocked) return;
-      audioUnlocked = true;
+  function unlockAudio() {
+    if (audioUnlocked) return;
+    audioUnlocked = true;
+    try {
+      const Ctx = window.AudioContext || window.webkitAudioContext;
+      if (Ctx) {
+        if (!sharedAudioCtx) sharedAudioCtx = new Ctx();
+        if (sharedAudioCtx.state === 'suspended') sharedAudioCtx.resume();
+      }
+    } catch (e) {}
+    try {
+      const warmup = new SpeechSynthesisUtterance(' ');
+      warmup.volume = 0;
+      warmup.lang = 'zh-CN';
+      window.speechSynthesis.speak(warmup);
+    } catch (e) {}
+    try {
+      const silent = new Audio('data:audio/wav;base64,UklGRiQAAABXQVZFZm10IBAAAAABAAEARKwAAIhYAQACABAAZGF0YQAAAAA=');
+      silent.volume = 0;
+      silent.play().catch(() => {});
+    } catch (e) {}
+  }
+
+  document.addEventListener('touchstart', unlockAudio, { once: true, passive: true });
+  document.addEventListener('click', unlockAudio, { once: true });
+
+  function getChineseVoice() {
+    const voices = window.speechSynthesis.getVoices();
+    return voices.find(v => v.lang === 'zh-CN') ||
+           voices.find(v => v.lang && v.lang.startsWith('zh')) || null;
+  }
+
+  function getRussianVoice() {
+    const voices = window.speechSynthesis.getVoices();
+    return voices.find(v => v.lang === 'ru-RU') ||
+           voices.find(v => v.lang && v.lang.startsWith('ru')) || null;
+  }
+
+  const STORAGE_PREFIX = 'custom_rec_words_';
+  const recordedAudios = {};
+
+  function loadSavedRecordings() {
+    cards.forEach(card => {
+      const key = card.dataset.key;
+      if (!key) return;
       try {
-        const Ctx = window.AudioContext || window.webkitAudioContext;
-        if (Ctx) {
-          if (!sharedAudioCtx) sharedAudioCtx = new Ctx();
-          if (sharedAudioCtx.state === 'suspended') sharedAudioCtx.resume();
-        }
-      } catch (e) {}
-      try {
-        const warmup = new SpeechSynthesisUtterance(' ');
-        warmup.volume = 0;
-        warmup.lang = 'zh-CN';
-        window.speechSynthesis.speak(warmup);
-      } catch (e) {}
-      try {
-        const silent = new Audio('data:audio/wav;base64,UklGRiQAAABXQVZFZm10IBAAAAABAAEARKwAAIhYAQACABAAZGF0YQAAAAA=');
-        silent.volume = 0;
-        silent.play().catch(() => {});
-      } catch (e) {}
-    }
-
-    document.addEventListener('touchstart', unlockAudio, { once: true, passive: true });
-    document.addEventListener('click', unlockAudio, { once: true });
-
-    function getChineseVoice() {
-      const voices = window.speechSynthesis.getVoices();
-      let voice = voices.find(v => v.lang === 'zh-CN');
-      if (!voice) voice = voices.find(v => v.lang.startsWith('zh'));
-      return voice || null;
-    }
-    function getRussianVoice() {
-      const voices = window.speechSynthesis.getVoices();
-      let voice = voices.find(v => v.lang === 'ru-RU');
-      if (!voice) voice = voices.find(v => v.lang.startsWith('ru'));
-      return voice || null;
-    }
-
-    const STORAGE_PREFIX = 'custom_rec_';
-    const recordedAudios = {};
-
-    function loadSavedRecordings() {
-      cards.forEach(card => {
-        const key = card.dataset.key;
-        if (!key) return;
         const stored = localStorage.getItem(STORAGE_PREFIX + key);
         if (stored) recordedAudios[key] = stored;
-      });
-    }
+      } catch (e) {}
+    });
+  }
 
-    function createNumberButtons() {
-      cards.forEach((card, idx) => {
-        const key = card.dataset.key;
-        const num = idx + 1;
-        const btn = document.createElement('button');
-        btn.type = 'button';
-        btn.className = 'rec-num';
-        btn.dataset.key = key;
-        btn.dataset.num = num;
-        btn.textContent = num;
-        btn.title = `Запись для карточки №${num}`;
-        recPanel.appendChild(btn);
-
-        btn.addEventListener('click', (e) => {
-          e.stopPropagation();
-          handleNumberClick(card, btn);
-        });
-
-        updateNumberButton(card, btn);
-      });
-    }
-
-    function updateNumberButton(card, btn) {
+  function createNumberButtons() {
+    cards.forEach((card, idx) => {
       const key = card.dataset.key;
-      const hasRec = !!recordedAudios[key];
-      if (!btn) btn = recPanel.querySelector(`.rec-num[data-key="${key}"]`);
-      if (!btn) return;
-      if (hasRec) {
-        btn.classList.add('has-rec');
-        btn.title = `Запись №${btn.dataset.num} есть. Клик — удалить.`;
-      } else {
-        btn.classList.remove('has-rec');
-        btn.title = `Записать перевод для карточки №${btn.dataset.num}`;
-      }
-    }
-
-    function updateCardIndicator(card) {
-      const key = card.dataset.key;
-      const indicator = card.querySelector('[data-indicator]');
-      if (!indicator) return;
-      const hasRec = !!recordedAudios[key];
-      if (hasRec) {
-        indicator.classList.add('show');
-        card.classList.add('has-rec');
-      } else {
-        indicator.classList.remove('show');
-        card.classList.remove('has-rec');
-      }
-    }
-
-    function getBestMimeType() {
-      const candidates = ['audio/mp4','audio/mp4;codecs=mp4a.40.2','audio/webm;codecs=opus','audio/webm'];
-      if (typeof MediaRecorder === 'undefined') return '';
-      for (const t of candidates) {
-        try { if (MediaRecorder.isTypeSupported(t)) return t; } catch (e) {}
-      }
-      return '';
-    }
-
-    let mediaRecorder = null;
-    let recordedChunks = [];
-    let recordingKey = null;
-    let currentStream = null;
-
-    async function handleNumberClick(card, btn) {
-      unlockAudio();
-      const key = card.dataset.key;
-
-      if (recordingKey === key) {
-        if (mediaRecorder && mediaRecorder.state !== 'inactive') mediaRecorder.stop();
-        return;
-      }
-
-      if (mediaRecorder && mediaRecorder.state !== 'inactive') {
-        mediaRecorder.stop();
-        await new Promise(r => setTimeout(r, 250));
-      }
-
-      if (recordedAudios[key]) {
-        if (confirm(`Удалить запись №${btn.dataset.num}?`)) {
-          delete recordedAudios[key];
-          try { localStorage.removeItem(STORAGE_PREFIX + key); } catch (e) {}
-          updateNumberButton(card, btn);
-          updateCardIndicator(card);
-        }
-        return;
-      }
-
-      try {
-        currentStream = await navigator.mediaDevices.getUserMedia({
-          audio: { echoCancellation: true, noiseSuppression: true, autoGainControl: true }
-        });
-
-        const mimeType = getBestMimeType();
-        const options = mimeType ? { mimeType } : {};
-        mediaRecorder = new MediaRecorder(currentStream, options);
-        recordedChunks = [];
-        recordingKey = key;
-
-        btn.classList.add('recording');
-        btn.textContent = '⏹';
-
-        const indicator = card.querySelector('[data-indicator]');
-        if (indicator) {
-          indicator.classList.add('show', 'recording');
-          indicator.textContent = '●';
-        }
-
-        mediaRecorder.ondataavailable = (e) => {
-          if (e.data && e.data.size > 0) recordedChunks.push(e.data);
-        };
-
-        mediaRecorder.onstop = async () => {
-          if (currentStream) {
-            currentStream.getTracks().forEach(t => t.stop());
-            currentStream = null;
-          }
-          btn.classList.remove('recording');
-          btn.textContent = btn.dataset.num;
-
-          const ind = card.querySelector('[data-indicator]');
-          if (ind) { ind.classList.remove('recording'); ind.textContent = '✓'; }
-
-          if (recordedChunks.length === 0) { recordingKey = null; return; }
-
-          const blobMime = mediaRecorder.mimeType || mimeType || 'audio/mp4';
-          const blob = new Blob(recordedChunks, { type: blobMime });
-
-          let finalBlob = blob;
-          try { finalBlob = await normalizeAudio(blob); } catch (e) {}
-
-          let url;
-          try { url = await blobToDataURL(finalBlob); } catch (e) { recordingKey = null; return; }
-
-          recordedAudios[key] = url;
-          try { localStorage.setItem(STORAGE_PREFIX + key, url); }
-          catch (e) { alert('Не хватает места. Удалите старые записи.'); }
-
-          updateNumberButton(card, btn);
-          updateCardIndicator(card);
-          recordingKey = null;
-        };
-
-        mediaRecorder.onerror = () => {
-          if (currentStream) { currentStream.getTracks().forEach(t => t.stop()); currentStream = null; }
-          btn.classList.remove('recording');
-          btn.textContent = btn.dataset.num;
-          recordingKey = null;
-        };
-
-        mediaRecorder.start();
-      } catch (err) {
-        alert('Не удалось получить доступ к микрофону.');
-        recordingKey = null;
-      }
-    }
-
-    async function normalizeAudio(blob) {
-      const arrayBuffer = await blob.arrayBuffer();
-      const Ctx = window.AudioContext || window.webkitAudioContext;
-      if (!Ctx) return blob;
-
-      let audioCtx;
-      try { audioCtx = sharedAudioCtx || new Ctx(); } catch (e) { return blob; }
-      if (audioCtx.state === 'suspended') { try { await audioCtx.resume(); } catch (e) {} }
-
-      let audioBuffer;
-      try { audioBuffer = await audioCtx.decodeAudioData(arrayBuffer.slice(0)); }
-      catch (e) { return blob; }
-
-      let peak = 0;
-      for (let ch = 0; ch < audioBuffer.numberOfChannels; ch++) {
-        const data = audioBuffer.getChannelData(ch);
-        for (let i = 0; i < data.length; i++) {
-          const abs = Math.abs(data[i]);
-          if (abs > peak) peak = abs;
-        }
-      }
-      const gain = peak > 0 ? 0.95 / peak : 1;
-      const cappedGain = Math.min(gain, 8);
-      for (let ch = 0; ch < audioBuffer.numberOfChannels; ch++) {
-        const data = audioBuffer.getChannelData(ch);
-        for (let i = 0; i < data.length; i++) {
-          data[i] = Math.max(-1, Math.min(1, data[i] * cappedGain));
-        }
-      }
-      return audioBufferToWav(audioBuffer);
-    }
-
-    function audioBufferToWav(buffer) {
-      const numCh = buffer.numberOfChannels;
-      const sampleRate = buffer.sampleRate;
-      const length = buffer.length * numCh * 2 + 44;
-      const arrayBuffer = new ArrayBuffer(length);
-      const view = new DataView(arrayBuffer);
-      const writeString = (offset, str) => {
-        for (let i = 0; i < str.length; i++) view.setUint8(offset + i, str.charCodeAt(i));
-      };
-      writeString(0, 'RIFF');
-      view.setUint32(4, length - 8, true);
-      writeString(8, 'WAVE');
-      writeString(12, 'fmt ');
-      view.setUint32(16, 16, true);
-      view.setUint16(20, 1, true);
-      view.setUint16(22, numCh, true);
-      view.setUint32(24, sampleRate, true);
-      view.setUint32(28, sampleRate * numCh * 2, true);
-      view.setUint16(32, numCh * 2, true);
-      view.setUint16(34, 16, true);
-      writeString(36, 'data');
-      view.setUint32(40, length - 44, true);
-      let offset = 44;
-      const channels = [];
-      for (let i = 0; i < numCh; i++) channels.push(buffer.getChannelData(i));
-      for (let i = 0; i < buffer.length; i++) {
-        for (let ch = 0; ch < numCh; ch++) {
-          let sample = Math.max(-1, Math.min(1, channels[ch][i]));
-          sample = sample < 0 ? sample * 0x8000 : sample * 0x7FFF;
-          view.setInt16(offset, sample, true);
-          offset += 2;
-        }
-      }
-      return new Blob([arrayBuffer], { type: 'audio/wav' });
-    }
-
-    function blobToDataURL(blob) {
-      return new Promise((resolve, reject) => {
-        const reader = new FileReader();
-        reader.onload = () => resolve(reader.result);
-        reader.onerror = reject;
-        reader.readAsDataURL(blob);
-      });
-    }
-
-    function speakRussian(text) {
-      const cleanText = text.trim();
-      if (!cleanText) return;
-      const utterance = new SpeechSynthesisUtterance(cleanText);
-      utterance.lang = 'ru-RU';
-      utterance.rate = 0.85;
-      utterance.pitch = 1.0;
-      const voice = getRussianVoice();
-      if (voice) utterance.voice = voice;
-      window.speechSynthesis.speak(utterance);
-    }
-
-    function playRecorded(key, onEnd) {
-      const url = recordedAudios[key];
-      if (!url) { if (onEnd) onEnd(); return; }
-      if (sharedAudioCtx && sharedAudioCtx.state === 'suspended') {
-        sharedAudioCtx.resume().catch(() => {});
-      }
-      const audio = new Audio(url);
-      audio.volume = 1.0;
-      audio.setAttribute('playsinline', 'true');
-      audio.setAttribute('webkit-playsinline', 'true');
-      audio.onended = () => { if (onEnd) onEnd(); };
-      audio.onerror = () => { if (onEnd) onEnd(); };
-      const p = audio.play();
-      if (p && p.catch) p.catch(() => { if (onEnd) onEnd(); });
-    }
-
-    function speakChineseAndRussian(card) {
-      window.speechSynthesis.cancel();
-      const hanziText = card.dataset.hanziAudio;
-      const key = card.dataset.key;
-      const russianEl = card.querySelector('.russian');
-      const russianText = russianEl ? russianEl.textContent : card.dataset.russianAudio;
-
-      const utter1 = new SpeechSynthesisUtterance(hanziText);
-      utter1.lang = 'zh-CN';
-      utter1.rate = 0.7;
-      utter1.pitch = 1.0;
-      const chVoice = getChineseVoice();
-      if (chVoice) utter1.voice = chVoice;
-
-      let spoken = false;
-      function speakTranslationOnce() {
-        if (spoken) return;
-        spoken = true;
-        if (recordedAudios[key]) playRecorded(key, null);
-        else speakRussian(russianText);
-      }
-
-      utter1.onend = function() {
-        setTimeout(speakTranslationOnce, 2000);
-      };
-      utter1.onerror = function() {
-        setTimeout(speakTranslationOnce, 2000);
-      };
-
-      window.speechSynthesis.speak(utter1);
-    }
-
-    function clearActive() { cards.forEach(c => c.classList.remove('active')); }
-
-    loadSavedRecordings();
-    createNumberButtons();
-    cards.forEach(card => updateCardIndicator(card));
-
-    cards.forEach(card => {
-      card.addEventListener('click', function(e) {
-        if (e.target.closest('.rec-num')) return;
+      const btn = document.createElement('button');
+      btn.type = 'button';
+      btn.className = 'rec-num';
+      btn.dataset.key = key;
+      btn.dataset.num = idx + 1;
+      btn.textContent = idx + 1;
+      btn.title = `Запись для карточки №${idx + 1}`;
+      recPanel.appendChild(btn);
+      btn.addEventListener('click', (e) => {
         e.stopPropagation();
-        window.speechSynthesis.cancel();
-        clearActive();
-        this.classList.add('active');
-        setTimeout(() => speakChineseAndRussian(this), 60);
+        handleNumberClick(card, btn);
       });
+      updateNumberButton(card, btn);
     });
+  }
 
-    document.addEventListener('click', function(e) {
-      if (!e.target.closest('.card') && !e.target.closest('.rec-panel')) {
-        window.speechSynthesis.cancel();
-        clearActive();
+  function updateNumberButton(card, btn) {
+    const key = card.dataset.key;
+    const hasRec = !!recordedAudios[key];
+    if (!btn) btn = recPanel.querySelector(`.rec-num[data-key="${key}"]`);
+    if (!btn) return;
+    if (hasRec) {
+      btn.classList.add('has-rec');
+      btn.title = `Запись №${btn.dataset.num} есть. Клик — удалить.`;
+    } else {
+      btn.classList.remove('has-rec');
+      btn.title = `Записать перевод для карточки №${btn.dataset.num}`;
+    }
+  }
+
+  function updateCardIndicator(card) {
+    const key = card.dataset.key;
+    const indicator = card.querySelector('[data-indicator]');
+    if (!indicator) return;
+    if (recordedAudios[key]) {
+      indicator.classList.add('show');
+      card.classList.add('has-rec');
+    } else {
+      indicator.classList.remove('show');
+      card.classList.remove('has-rec');
+    }
+  }
+
+  function getBestMimeType() {
+    const candidates = ['audio/mp4', 'audio/mp4;codecs=mp4a.40.2', 'audio/webm;codecs=opus', 'audio/webm'];
+    if (typeof MediaRecorder === 'undefined') return '';
+    for (const type of candidates) {
+      try { if (MediaRecorder.isTypeSupported(type)) return type; } catch (e) {}
+    }
+    return '';
+  }
+
+  let mediaRecorder = null;
+  let recordedChunks = [];
+  let recordingKey = null;
+  let currentStream = null;
+
+  async function handleNumberClick(card, btn) {
+    unlockAudio();
+    const key = card.dataset.key;
+
+    if (recordingKey === key) {
+      if (mediaRecorder && mediaRecorder.state !== 'inactive') mediaRecorder.stop();
+      return;
+    }
+
+    if (mediaRecorder && mediaRecorder.state !== 'inactive') {
+      mediaRecorder.stop();
+      await new Promise(resolve => setTimeout(resolve, 250));
+    }
+
+    if (recordedAudios[key]) {
+      if (confirm(`Удалить запись №${btn.dataset.num}?`)) {
+        delete recordedAudios[key];
+        try { localStorage.removeItem(STORAGE_PREFIX + key); } catch (e) {}
+        updateNumberButton(card, btn);
+        updateCardIndicator(card);
       }
+      return;
+    }
+
+    try {
+      if (!navigator.mediaDevices || !navigator.mediaDevices.getUserMedia) {
+        throw new Error('Микрофон недоступен');
+      }
+      currentStream = await navigator.mediaDevices.getUserMedia({
+        audio: { echoCancellation: true, noiseSuppression: true, autoGainControl: true }
+      });
+
+      const mimeType = getBestMimeType();
+      mediaRecorder = new MediaRecorder(currentStream, mimeType ? { mimeType } : {});
+      recordedChunks = [];
+      recordingKey = key;
+
+      btn.classList.add('recording');
+      btn.textContent = '⏹';
+
+      const indicator = card.querySelector('[data-indicator]');
+      if (indicator) {
+        indicator.classList.add('show', 'recording');
+        indicator.textContent = '●';
+      }
+
+      mediaRecorder.ondataavailable = (e) => {
+        if (e.data && e.data.size > 0) recordedChunks.push(e.data);
+      };
+
+      mediaRecorder.onstop = async () => {
+        if (currentStream) {
+          currentStream.getTracks().forEach(track => track.stop());
+          currentStream = null;
+        }
+        btn.classList.remove('recording');
+        btn.textContent = btn.dataset.num;
+
+        const ind = card.querySelector('[data-indicator]');
+        if (ind) { ind.classList.remove('recording'); ind.textContent = '✓'; }
+
+        if (recordedChunks.length) {
+          const blob = new Blob(recordedChunks, { type: mediaRecorder.mimeType || mimeType || 'audio/webm' });
+          try {
+            const url = await blobToDataURL(blob);
+            recordedAudios[key] = url;
+            try {
+              localStorage.setItem(STORAGE_PREFIX + key, url);
+            } catch (e) {
+              alert('Не хватает места для сохранения записи. Удалите несколько старых записей.');
+            }
+            updateNumberButton(card, btn);
+            updateCardIndicator(card);
+          } catch (e) {
+            alert('Не удалось сохранить запись.');
+          }
+        }
+        recordingKey = null;
+      };
+
+      mediaRecorder.onerror = () => {
+        if (currentStream) {
+          currentStream.getTracks().forEach(track => track.stop());
+          currentStream = null;
+        }
+        btn.classList.remove('recording');
+        btn.textContent = btn.dataset.num;
+        recordingKey = null;
+        updateCardIndicator(card);
+      };
+
+      mediaRecorder.start();
+    } catch (err) {
+      alert('Не удалось получить доступ к микрофону. Проверь разрешение браузера и открой страницу через HTTPS.');
+      if (currentStream) {
+        currentStream.getTracks().forEach(track => track.stop());
+        currentStream = null;
+      }
+      recordingKey = null;
+    }
+  }
+
+  function blobToDataURL(blob) {
+    return new Promise((resolve, reject) => {
+      const reader = new FileReader();
+      reader.onload = () => resolve(reader.result);
+      reader.onerror = reject;
+      reader.readAsDataURL(blob);
     });
+  }
 
-    let lastTouch = 0;
-    document.addEventListener('touchend', (e) => {
-      const now = Date.now();
-      if (now - lastTouch <= 300) e.preventDefault();
-      lastTouch = now;
-    }, { passive: false });
+  function speakRussian(text) {
+    const cleanText = text.trim();
+    if (!cleanText) return;
+    const utterance = new SpeechSynthesisUtterance(cleanText);
+    utterance.lang = 'ru-RU';
+    utterance.rate = 0.85;
+    utterance.pitch = 1.0;
+    const voice = getRussianVoice();
+    if (voice) utterance.voice = voice;
+    window.speechSynthesis.speak(utterance);
+  }
 
-    window.speechSynthesis.getVoices();
-    window.speechSynthesis.onvoiceschanged = () => window.speechSynthesis.getVoices();
-  })();
+  function playRecorded(key, onEnd) {
+    const url = recordedAudios[key];
+    if (!url) { if (onEnd) onEnd(); return; }
+    const audio = new Audio(url);
+    audio.volume = 1;
+    audio.setAttribute('playsinline', 'true');
+    audio.setAttribute('webkit-playsinline', 'true');
+    audio.onended = () => { if (onEnd) onEnd(); };
+    audio.onerror = () => { if (onEnd) onEnd(); };
+    const promise = audio.play();
+    if (promise && promise.catch) promise.catch(() => { if (onEnd) onEnd(); });
+  }
+
+  function speakChineseAndRussian(card) {
+    window.speechSynthesis.cancel();
+    const hanziText = card.dataset.hanziAudio;
+    const key = card.dataset.key;
+    const russianEl = card.querySelector('.russian');
+    const russianText = russianEl ? russianEl.textContent : card.dataset.russianAudio;
+
+    const utterance = new SpeechSynthesisUtterance(hanziText);
+    utterance.lang = 'zh-CN';
+    utterance.rate = 0.7;
+    utterance.pitch = 1.0;
+    const voice = getChineseVoice();
+    if (voice) utterance.voice = voice;
+
+    let spoken = false;
+    function speakTranslationOnce() {
+      if (spoken) return;
+      spoken = true;
+      if (recordedAudios[key]) playRecorded(key, null);
+      else speakRussian(russianText);
+    }
+
+    utterance.onend = () => setTimeout(() => {
+      speakTranslationOnce();
+      // The example is spoken after the word and its translation.
+      setTimeout(() => {
+        const example = card.querySelector('.example-zh');
+        const exampleRu = card.querySelector('.example-ru');
+        if (!example) return;
+        const exampleUtterance = new SpeechSynthesisUtterance(example.textContent);
+        exampleUtterance.lang = 'zh-CN';
+        exampleUtterance.rate = 0.78;
+        const exampleVoice = getChineseVoice();
+        if (exampleVoice) exampleUtterance.voice = exampleVoice;
+        exampleUtterance.onend = () => {
+          const ruUtterance = new SpeechSynthesisUtterance(exampleRu ? exampleRu.textContent : '');
+          ruUtterance.lang = 'ru-RU';
+          ruUtterance.rate = 0.85;
+          const ruVoice = getRussianVoice();
+          if (ruVoice) ruUtterance.voice = ruVoice;
+          window.speechSynthesis.speak(ruUtterance);
+        };
+        window.speechSynthesis.speak(exampleUtterance);
+      }, recordedAudios[key] ? 2200 : 1600);
+    }, 700);
+    utterance.onerror = () => setTimeout(speakTranslationOnce, 700);
+    window.speechSynthesis.speak(utterance);
+  }
+
+  function clearActive() {
+    cards.forEach(card => card.classList.remove('active'));
+  }
+
+  loadSavedRecordings();
+  createNumberButtons();
+  cards.forEach(updateCardIndicator);
+
+  cards.forEach(card => {
+    card.addEventListener('click', function(e) {
+      if (e.target.closest('.rec-num')) return;
+      e.stopPropagation();
+      window.speechSynthesis.cancel();
+      clearActive();
+      this.classList.add('active');
+      setTimeout(() => speakChineseAndRussian(this), 60);
+    });
+  });
+
+  document.addEventListener('click', function(e) {
+    if (!e.target.closest('.card') && !e.target.closest('.rec-panel')) {
+      window.speechSynthesis.cancel();
+      clearActive();
+    }
+  });
+
+  window.speechSynthesis.getVoices();
+  window.speechSynthesis.onvoiceschanged = () => window.speechSynthesis.getVoices();
+})();
 </script>
-
 </body>
 </html>

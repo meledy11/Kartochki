@@ -354,7 +354,7 @@
     const recPanel = document.getElementById('recPanel');
     let currentSpeakId = 0;
 
-    /* --- Озвучка --- */
+    /* --- Озвучка браузера --- */
     function getChineseVoice() {
       const voices = window.speechSynthesis.getVoices();
       return voices.find(v => v.lang === 'zh-CN') || voices.find(v => v.lang.startsWith('zh')) || null;
@@ -364,7 +364,7 @@
       return voices.find(v => v.lang === 'ru-RU') || voices.find(v => v.lang.startsWith('ru')) || null;
     }
 
-    // Читаем текст ЦЕЛИКОМ, больше не разбиваем по слэшам (убирает дубли "рыба рыба")
+    // Браузерный русский (если нет вашей записи)
     function speakRussianParts(text, onComplete) {
       let cleanText = text.replace(/\s*\([^)]*\)\s*/g, ' ').trim();
       if (!cleanText) { if (onComplete) setTimeout(onComplete, 300); return; }
@@ -379,28 +379,6 @@
       utterance.onend = function() { if (onComplete) setTimeout(onComplete, 300); };
       utterance.onerror = function() { if (onComplete) setTimeout(onComplete, 300); };
       window.speechSynthesis.speak(utterance);
-    }
-
-    function speakChineseAndRussian(hanziText, russianText, cardEl) {
-      window.speechSynthesis.cancel();
-      const myId = ++currentSpeakId;
-      cardEl.classList.add('speaking');
-
-      const utter1 = new SpeechSynthesisUtterance(hanziText);
-      utter1.lang = 'zh-CN';
-      utter1.rate = 0.7;
-      utter1.pitch = 1.0;
-      const chVoice = getChineseVoice();
-      if (chVoice) utter1.voice = chVoice;
-
-      utter1.onend = utter1.onerror = function() {
-        if (myId !== currentSpeakId) return;
-        setTimeout(() => {
-          if (myId !== currentSpeakId) return;
-          speakRussianParts(russianText, () => cardEl.classList.remove('speaking'));
-        }, 1200);
-      };
-      window.speechSynthesis.speak(utter1);
     }
 
     /* --- Запись --- */
@@ -491,23 +469,60 @@
       } catch (err) { alert('Нет доступа к микрофону'); recordingKey = null; }
     }
 
-    /* --- Клик по карточке --- */
+    /* --- КЛИК ПО КАРТОЧКЕ (НОВАЯ ЛОГИКА) --- */
     let currentAudio = null;
-    function clearActive() { cards.forEach(c => c.classList.remove('active', 'speaking')); }
+    
+    function clearActive() { 
+      cards.forEach(c => c.classList.remove('active', 'speaking')); 
+    }
+
+    function playCardAudio(hanziText, russianText, cardEl) {
+      window.speechSynthesis.cancel();
+      const myId = ++currentSpeakId;
+      cardEl.classList.add('speaking');
+
+      // 1. Всегда включаем китайский (браузер)
+      const utter1 = new SpeechSynthesisUtterance(hanziText);
+      utter1.lang = 'zh-CN';
+      utter1.rate = 0.7;
+      const chVoice = getChineseVoice();
+      if (chVoice) utter1.voice = chVoice;
+
+      // 2. После китайского — русский (ваш голос или браузер)
+      utter1.onend = utter1.onerror = function() {
+        if (myId !== currentSpeakId) return;
+        
+        setTimeout(() => {
+          if (myId !== currentSpeakId) return;
+          
+          const key = cardEl.dataset.key;
+          
+          // Если есть ваша запись:
+          if (recordedAudios[key]) {
+            if (currentAudio) currentAudio.pause();
+            currentAudio = new Audio(recordedAudios[key]);
+            currentAudio.onended = () => cardEl.classList.remove('speaking');
+            currentAudio.play().catch(() => cardEl.classList.remove('speaking'));
+          } 
+          // Если записи нет (браузерный русский):
+          else {
+            speakRussianParts(russianText, () => cardEl.classList.remove('speaking'));
+          }
+        }, 1000); // Пауза 1 сек между китайским и русским
+      };
+      
+      window.speechSynthesis.speak(utter1);
+    }
 
     cards.forEach(card => {
       card.addEventListener('click', function(e) {
-        e.stopPropagation(); clearActive(); this.classList.add('active');
-        const key = this.dataset.key;
-        window.speechSynthesis.cancel();
+        e.stopPropagation(); 
+        clearActive(); 
+        this.classList.add('active');
+        
         if (currentAudio) { currentAudio.pause(); currentAudio = null; }
-
-        if (recordedAudios[key]) {
-          currentAudio = new Audio(recordedAudios[key]);
-          currentAudio.play().catch(() => {});
-        } else {
-          speakChineseAndRussian(this.dataset.hanziAudio, this.dataset.russianAudio, this);
-        }
+        
+        playCardAudio(this.dataset.hanziAudio, this.dataset.russianAudio, this);
       });
     });
 

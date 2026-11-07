@@ -280,8 +280,9 @@
       gap: 2px;
     }
 
+    /* ——— УВЕЛИЧЕННЫЙ ИЕРОГЛИФ ——— */
     .hanzi {
-      font-size: 1.55rem;
+      font-size: 2.1rem;
       font-weight: 900;
       line-height: 1.1;
       margin: 0;
@@ -496,7 +497,7 @@
     @media (max-width: 420px) {
       .container { padding: 4px 4px 3px; border-radius: 22px; }
       .grid { gap: 3px; }
-      .hanzi { font-size: 1.4rem; }
+      .hanzi { font-size: 1.9rem; }
       .pinyin { font-size: 0.58rem; padding: 1px 5px; }
       .russian { font-size: 0.62rem; padding: 1px 6px; }
       .example { font-size: 0.52rem; padding: 2px 5px; }
@@ -516,7 +517,7 @@
     }
 
     @media (max-width: 380px) {
-      .hanzi { font-size: 1.3rem; }
+      .hanzi { font-size: 1.7rem; }
       .rec-num { width: 15px; height: 15px; font-size: 0.44rem; }
       .pinyin { font-size: 0.54rem; }
       .russian { font-size: 0.56rem; }
@@ -525,7 +526,7 @@
     }
 
     @media (max-height: 640px) {
-      .hanzi { font-size: 1.35rem; }
+      .hanzi { font-size: 1.9rem; }
       .card-inner { padding-top: 5px; }
     }
 
@@ -537,6 +538,7 @@
       .subhead { display: none; }
       .example { display: none; }
       .rec-num { width: 20px; height: 20px; font-size: 0.58rem; }
+      .hanzi { font-size: 2rem; }
     }
   </style>
 </head>
@@ -738,7 +740,7 @@
   (function() {
     const cards = document.querySelectorAll('.card');
     const recPanel = document.getElementById('recPanel');
-    const PAUSE_COMMA = 1200; // 1.2 сек — пауза при запятой
+    const PAUSE_COMMA = 1200;
 
     let audioUnlocked = false;
     let sharedAudioCtx = null;
@@ -785,14 +787,12 @@
       return voice || null;
     }
 
-    // Разбивает текст по запятым, убирает пустые куски
     function splitByComma(text) {
       return text.split(',')
         .map(s => s.trim())
         .filter(s => s.length > 0);
     }
 
-    // Последовательно произносит массив частей с паузой PAUSE_COMMA между ними
     function speakSequence(texts, lang, rate, voice, onDone) {
       if (!texts.length) { if (onDone) onDone(); return; }
 
@@ -1106,11 +1106,8 @@
       const ruParts = splitByComma(russianText);
       const chVoice = getChineseVoice();
 
-      // 1) Китайский (с паузами 1.2с при запятой)
       speakSequence(chParts, 'zh-CN', 0.7, chVoice, () => {
-        // 2) Пауза 2 сек между кит. и рус. (как в вашем образце)
         setTimeout(() => {
-          // 3) Если есть запись — проигрываем её. Иначе — русский TTS с паузами на запятую
           if (recordedAudios[key]) {
             playRecorded(key, null);
           } else {

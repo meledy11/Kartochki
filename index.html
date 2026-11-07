@@ -2,79 +2,262 @@
 <html lang="ru">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.5, user-scalable=yes" />
-  <title>Китайский · Ключ 鱼</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" />
+
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <meta name="apple-mobile-web-app-title" content="足 · нога" />
+  <meta name="format-detection" content="telephone=no" />
+  <meta name="theme-color" content="#dbe6d8" />
+
+  <title>Китайский · Ключ 足</title>
+
   <style>
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-    html, body { height: 100%; overflow: hidden; }
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      -webkit-tap-highlight-color: transparent;
+      -webkit-touch-callout: none;
+    }
+
+    html, body {
+      height: 100%;
+      overflow: hidden;
+      overscroll-behavior: none;
+      -webkit-user-select: none;
+      user-select: none;
+      position: fixed;
+      width: 100%;
+      -webkit-text-size-adjust: 100%;
+    }
+
     body {
-      font-family: system-ui, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
-      background: linear-gradient(145deg, #f0f5f8 0%, #dce8f0 100%);
-      height: 100vh; display: flex; justify-content: center; align-items: center; padding: 12px;
+      font-family: -apple-system, BlinkMacSystemFont, system-ui, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+      background: linear-gradient(145deg, #eef3ec 0%, #dbe6d8 100%);
+      height: 100vh;
+      height: 100dvh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding:
+        calc(4px + env(safe-area-inset-top))
+        calc(4px + env(safe-area-inset-right))
+        calc(4px + env(safe-area-inset-bottom))
+        calc(4px + env(safe-area-inset-left));
     }
+
     .container {
-      max-width: 780px; width: 100%; height: 98vh; max-height: 750px;
-      background: rgba(240, 248, 252, 0.6); backdrop-filter: blur(4px);
-      border-radius: 48px; padding: 12px 10px 14px;
-      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.12), 0 8px 20px rgba(0, 0, 0, 0.1);
-      border: 1px solid rgba(160, 190, 210, 0.4);
-      display: flex; flex-direction: column;
-    }
-    h1 {
-      text-align: center; font-weight: 700; font-size: 1.25rem; color: #1a3a4a;
-      margin-bottom: 2px; display: flex; align-items: center; justify-content: center;
-      gap: 8px; flex-shrink: 0; flex-wrap: wrap;
-    }
-    h1 .sub {
-      font-size: 0.8rem; background: #d6e4e8; padding: 2px 14px;
-      border-radius: 30px; color: #2a4a5a; font-weight: 500;
-    }
-    .subhead {
-      text-align: center; font-size: 0.75rem; color: #2a4a5a; background: #d6e4e8;
-      display: inline-block; padding: 3px 16px; border-radius: 40px;
-      margin: 0 auto 4px; flex-shrink: 0;
-    }
-    .grid {
-      display: grid; grid-template-columns: repeat(3, 1fr); gap: 6px;
-      flex: 1; align-content: stretch; min-height: 0;
-    }
-    .card {
-      border-radius: 16px; padding: 4px 3px 6px;
-      box-shadow: 0 3px 0 rgba(0, 0, 0, 0.08), 0 6px 14px rgba(0, 0, 0, 0.10);
-      display: flex; flex-direction: column; align-items: center; justify-content: flex-start; /* Прижато к верху */
-      text-align: center; transition: transform 0.12s ease, box-shadow 0.2s;
-      cursor: pointer; border: 2px solid rgba(255, 255, 255, 0.5);
-      position: relative; min-height: 0; user-select: none; background: #e8f0f4;
-      container-type: inline-size;
+      max-width: 860px;
+      width: 100%;
+      height: 100%;
+      max-height: 900px;
+      background: rgba(242, 248, 240, 0.72);
+      -webkit-backdrop-filter: blur(6px) saturate(1.15);
+      backdrop-filter: blur(6px) saturate(1.15);
+      border-radius: 26px;
+      padding: 5px 5px 4px;
+      box-shadow:
+        0 20px 50px rgba(30, 60, 30, 0.18),
+        0 8px 24px rgba(30, 60, 30, 0.12),
+        inset 0 1px 2px rgba(255,255,255,0.95),
+        inset 0 -1px 2px rgba(150, 180, 150, 0.20);
+      border: 1px solid rgba(190, 210, 185, 0.6);
+      display: flex;
+      flex-direction: column;
+      position: relative;
       overflow: hidden;
     }
-    .card:active { transform: scale(0.95); }
-    .card.active {
-      border-bottom: 5px solid var(--card-color, #4a7a9a);
-      box-shadow: 0 6px 0 rgba(0, 0, 0, 0.06), 0 8px 18px rgba(0, 0, 0, 0.18);
+
+    h1 {
+      text-align: center;
+      font-weight: 900;
+      font-size: 1rem;
+      color: #1a3a1a;
+      margin-bottom: 2px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 4px;
+      flex-shrink: 0;
+      flex-wrap: nowrap;
+      text-shadow: 0 1px 0 rgba(255,255,255,0.95);
+      overflow: hidden;
     }
-    .card.speaking {
-      border: 3px solid #7ab0d0;
-      box-shadow: 0 0 0 4px rgba(122, 176, 208, 0.3), 0 6px 18px rgba(0, 0, 0, 0.15);
+    h1 .title-hanzi {
+      font-size: 0.92rem;
+      font-weight: 900;
+      color: #2a5a2a;
+      background: linear-gradient(145deg, #d8e8d0, #b8d4b0);
+      padding: 2px 7px;
+      border-radius: 8px;
+      box-shadow:
+        inset 0 1px 2px rgba(255,255,255,0.95),
+        inset 0 -1px 2px rgba(60,120,60,0.20),
+        0 1px 0 rgba(40,100,40,0.20),
+        0 2px 5px rgba(30,80,30,0.18);
+      text-shadow: 0 1px 0 rgba(255,255,255,0.9);
+      line-height: 1;
+      white-space: nowrap;
+    }
+    h1 .title-pinyin {
+      font-size: 0.55rem;
+      font-weight: 800;
+      color: #3a6a3a;
+      background: linear-gradient(145deg, #e0f0d8, #c0d8b8);
+      padding: 2px 5px;
+      border-radius: 30px;
+      box-shadow: inset 0 1px 2px rgba(255,255,255,0.9);
+      white-space: nowrap;
+    }
+    h1 .title-rus {
+      font-size: 0.55rem;
+      font-weight: 900;
+      color: #1a3a1a;
+      background: linear-gradient(145deg, #e8f4e0, #d0e8c8);
+      padding: 2px 5px;
+      border-radius: 30px;
+      box-shadow: inset 0 1px 2px rgba(255,255,255,0.95);
+      white-space: nowrap;
+    }
+
+    .subhead {
+      text-align: center;
+      font-size: 0.5rem;
+      color: #3a6a3a;
+      background: linear-gradient(145deg, #e0f0d8, #c8e0c0);
+      display: block;
+      padding: 1px 8px;
+      border-radius: 30px;
+      margin: 0 auto 3px;
+      flex-shrink: 0;
+      font-weight: 700;
+      line-height: 1.2;
+      width: fit-content;
+      max-width: 96%;
+      box-shadow: inset 0 1px 2px rgba(255,255,255,0.9);
+    }
+    .subhead b { color: #2a7a2a; font-weight: 900; }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      grid-auto-rows: 1fr;
+      gap: 4px;
+      flex: 1;
+      min-height: 0;
+      overflow-y: auto;
+      overflow-x: hidden;
+      -webkit-overflow-scrolling: touch;
+      padding: 1px;
+      scrollbar-width: none;
+    }
+    .grid::-webkit-scrollbar { display: none; }
+
+    .card {
+      border-radius: 12px;
+      padding: 2px 3px 3px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+      text-align: center;
+      transition: transform 0.12s ease, box-shadow 0.2s ease;
+      cursor: pointer;
+      position: relative;
+      min-height: 0;
+      -webkit-user-select: none;
+      user-select: none;
+      box-shadow:
+        inset 0 1px 1px rgba(255,255,255,0.95),
+        inset 0 -2px 4px rgba(60,120,60,0.12),
+        inset 0 0 20px rgba(235,255,235,0.35),
+        0 2px 0 rgba(60,120,60,0.18),
+        0 4px 8px rgba(30,70,30,0.16);
+      border: 1px solid rgba(255,255,255,0.75);
+      border-top-color: rgba(255,255,255,0.95);
+      border-bottom-color: rgba(160,195,155,0.40);
+      overflow: hidden;
+    }
+    .card::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      background-image:
+        radial-gradient(circle at 20% 20%, rgba(255,255,255,0.50) 0%, transparent 45%),
+        radial-gradient(circle at 80% 80%, rgba(170,210,165,0.18) 0%, transparent 50%);
+      opacity: 0.7;
+      mix-blend-mode: soft-light;
+    }
+    .card::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 8%;
+      right: 8%;
+      height: 40%;
+      background: linear-gradient(180deg, rgba(255,255,255,0.50), transparent 100%);
+      border-radius: 12px 12px 50% 50%;
+      pointer-events: none;
+    }
+    .card:active {
+      transform: translateY(2px) scale(0.97);
+      box-shadow:
+        inset 0 2px 4px rgba(60,120,60,0.22),
+        inset 0 0 20px rgba(235,255,235,0.40),
+        0 1px 0 rgba(60,120,60,0.20);
+    }
+    .card.active {
+      border-bottom: 4px solid var(--card-color, #4a8a4a);
+      box-shadow:
+        inset 0 1px 1px rgba(255,255,255,0.95),
+        inset 0 -2px 4px rgba(60,120,60,0.15),
+        inset 0 0 24px rgba(235,255,235,0.45),
+        0 4px 0 rgba(60,120,60,0.22),
+        0 6px 12px rgba(30,70,30,0.18);
     }
     .card.has-rec {
-      box-shadow: 0 2px 0 rgba(60,140,90,0.20), 0 4px 10px rgba(30,90,50,0.16),
-                  inset 0 0 20px rgba(255,255,255,0.45);
+      box-shadow:
+        inset 0 1px 1px rgba(255,255,255,0.95),
+        inset 0 -2px 4px rgba(60,140,90,0.15),
+        inset 0 0 20px rgba(220,255,230,0.45),
+        0 2px 0 rgba(60,140,90,0.20),
+        0 4px 8px rgba(30,90,50,0.16);
     }
+
     .emoji-corner {
-      position: absolute; top: 4px; left: 6px;
-      font-size: clamp(0.9rem, 4.5cqw, 1.3rem);
-      line-height: 1; opacity: 0.6; pointer-events: none;
+      position: absolute;
+      top: 2px;
+      left: 3px;
+      font-size: 0.8rem;
+      line-height: 1;
+      opacity: 0.9;
+      pointer-events: none;
+      z-index: 1;
+      filter: drop-shadow(0 1px 1px rgba(30,70,30,0.25));
     }
+
     .rec-indicator {
-      position: absolute; top: 5px; right: 6px;
-      width: 11px; height: 11px; border-radius: 50%;
-      display: none; align-items: center; justify-content: center;
-      font-size: 0.45rem; font-weight: 900;
+      position: absolute;
+      top: 2px;
+      right: 3px;
+      width: 11px;
+      height: 11px;
+      border-radius: 50%;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.46rem;
+      font-weight: 900;
       background: linear-gradient(145deg, #7ae8a8, #3ac878);
       color: #fff;
-      box-shadow: inset 0 1px 1px rgba(255,255,255,0.9), 0 1px 3px rgba(30,90,50,0.3);
-      z-index: 5; line-height: 1;
+      box-shadow:
+        inset 0 1px 1px rgba(255,255,255,0.9),
+        0 1px 3px rgba(30,90,50,0.3);
+      z-index: 5;
+      line-height: 1;
     }
     .rec-indicator.show { display: flex; }
     .rec-indicator.recording {
@@ -83,258 +266,459 @@
     }
     @keyframes pulse {
       0%, 100% { box-shadow: 0 0 0 0 rgba(255,80,80,0.7); }
-      50% { box-shadow: 0 0 0 6px rgba(255,80,80,0); }
+      50% { box-shadow: 0 0 0 8px rgba(255,80,80,0); }
     }
-    .key-tag {
-      font-size: clamp(0.45rem, 2cqw, 0.55rem); font-weight: 600; color: #2a3a4a;
-      background: #c8d8e0; padding: 1px 6px; border-radius: 20px;
-      margin: 14px 0 2px 0; letter-spacing: 0.3px; flex-shrink: 0; white-space: nowrap;
+
+    .card-inner {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+      width: 100%;
+      height: 100%;
+      padding-top: 8px;
+      gap: 2px;
     }
-    
-    /* --- Крупный, но влезающий текст --- */
+
     .hanzi {
-      font-size: clamp(1.8rem, 10cqw, 2.6rem);
-      font-weight: 700; line-height: 1.05;
-      margin: 0; letter-spacing: 0px; color: #1a2a3a;
-      text-shadow: 0 2px 4px rgba(0, 0, 0, 0.06);
-      max-width: 100%; word-break: break-all;
+      font-size: 1.55rem;
+      font-weight: 900;
+      line-height: 1.1;
+      margin: 0;
+      letter-spacing: 0.5px;
+      color: #1a2a1a;
+      text-shadow:
+        0 1px 0 rgba(255,255,255,0.95),
+        0 2px 3px rgba(20,60,20,0.22);
+      position: relative;
+      z-index: 2;
+      text-align: center;
+      word-break: break-all;
+      overflow-wrap: break-word;
+      white-space: normal;
+      max-width: 100%;
     }
-    .hanzi .yu-key {
-      color: #1a5a6a; background: #c8e4ec; border-radius: 4px; padding: 0 2px;
+    .hanzi .key-char {
+      border-radius: 4px;
+      padding: 0 3px;
+      box-shadow: inset 0 1px 2px rgba(255,255,255,0.95), inset 0 -1px 2px rgba(60,120,60,0.22);
     }
+
     .pinyin {
-      font-size: clamp(0.65rem, 3.2cqw, 0.9rem);
-      font-weight: 600; color: #2a4a5a;
-      background: rgba(200, 225, 235, 0.7); padding: 0px 6px;
-      border-radius: 30px; margin: 2px 0 1px;
-      max-width: 100%; word-break: break-word;
+      font-size: 0.62rem;
+      font-weight: 800;
+      color: #1a3a1a;
+      background: rgba(255,255,255,0.78);
+      padding: 1px 6px;
+      border-radius: 30px;
+      margin: 0;
+      position: relative;
+      z-index: 2;
+      box-shadow: inset 0 1px 2px rgba(255,255,255,0.95), 0 1px 3px rgba(30,70,30,0.22);
+      text-shadow: 0 1px 0 rgba(255,255,255,0.85);
+      text-align: center;
+      line-height: 1.2;
+      max-width: 100%;
+      white-space: normal;
+      word-break: break-word;
     }
+
     .russian {
-      font-size: clamp(0.68rem, 3.4cqw, 0.95rem);
-      font-weight: 500; color: #1a3a4a;
-      background: rgba(190, 215, 225, 0.5); padding: 0px 6px;
-      border-radius: 30px; margin: 0;
-      max-width: 100%; word-break: break-word; line-height: 1.15;
+      font-size: 0.68rem;
+      font-weight: 900;
+      color: #1a2a1a;
+      background: rgba(255,255,255,0.85);
+      padding: 2px 7px;
+      border-radius: 30px;
+      position: relative;
+      z-index: 2;
+      box-shadow: inset 0 1px 2px rgba(255,255,255,0.95), 0 1px 3px rgba(30,70,30,0.22);
+      text-shadow: 0 1px 0 rgba(255,255,255,0.85);
+      line-height: 1.2;
+      text-align: center;
+      white-space: normal;
+      word-break: break-word;
     }
-    /* Пример скрыт, чтобы не было визуального дубля (текст и так есть выше) */
-    .example { display: none; }
 
-    .card[data-color="y1"] { --card-color: #4a7a9a; background: #e0ecf2; }
-    .card[data-color="y2"] { --card-color: #4a8a7a; background: #e0f0ea; }
-    .card[data-color="y3"] { --card-color: #8a6a4a; background: #f0ece0; }
-    .card[data-color="y4"] { --card-color: #6a5a8a; background: #ece8f0; }
-    .card[data-color="y5"] { --card-color: #8a5a5a; background: #f0e4e4; }
-    .card[data-color="y6"] { --card-color: #5a6a8a; background: #e4e8f0; }
-    .card[data-color="y7"] { --card-color: #4a8a5a; background: #e4f0e8; }
-    .card[data-color="y8"] { --card-color: #8a7a4a; background: #f0ecd8; }
-    .card[data-color="y9"] { --card-color: #7a4a6a; background: #f0e4ec; }
-    .card[data-color="y10"] { --card-color: #4a6a8a; background: #e4ecf0; }
-    .card[data-color="y11"] { --card-color: #6a8a4a; background: #e8f0e0; }
-    .card[data-color="y12"] { --card-color: #8a5a4a; background: #f0e8e0; }
-    .card[data-color="y13"] { --card-color: #5a8a8a; background: #e4f0f0; }
-    .card[data-color="y14"] { --card-color: #8a6a5a; background: #f0e8e0; }
-    .card[data-color="y15"] { --card-color: #6a5a8a; background: #ece8f0; }
+    .example {
+      font-size: 0.56rem;
+      font-weight: 700;
+      color: #1a3a1a;
+      background: rgba(255,255,255,0.78);
+      padding: 2px 6px;
+      border-radius: 9px;
+      margin-top: auto;
+      position: relative;
+      z-index: 2;
+      border: 1px solid rgba(180,210,175,0.55);
+      box-shadow: inset 0 1px 1px rgba(255,255,255,0.80);
+      text-shadow: 0 1px 0 rgba(255,255,255,0.75);
+      line-height: 1.25;
+      width: 100%;
+      white-space: normal;
+      word-break: break-word;
+      overflow-wrap: break-word;
+    }
+    .example .highlight {
+      background: rgba(255,255,255,0.92);
+      padding: 0 3px;
+      border-radius: 5px;
+      font-weight: 900;
+      color: #2a7a2a;
+      box-shadow: inset 0 1px 1px rgba(255,255,255,0.95);
+      white-space: normal;
+    }
+    .example .ru {
+      display: block;
+      font-weight: 600;
+      color: #3a6a3a;
+      font-size: 0.5rem;
+      margin-top: 1px;
+      font-style: italic;
+      line-height: 1.25;
+      white-space: normal;
+      word-break: break-word;
+    }
 
-    /* --- Панель записи --- */
+    .card[data-color="n1"]  { --card-color: #4a8a5a; background: linear-gradient(145deg, #d8e8d0, #b8d4b0); }
+    .card[data-color="n1"] .hanzi .key-char { color: #2a5a2a; background: linear-gradient(145deg, #cfe4c8, #aed0a4); }
+    .card[data-color="n2"]  { --card-color: #5a7a8a; background: linear-gradient(145deg, #d8e0e8, #b8c8d4); }
+    .card[data-color="n2"] .hanzi .key-char { color: #2a4a5a; background: linear-gradient(145deg, #c4d4e0, #a4b8cc); }
+    .card[data-color="n3"]  { --card-color: #8a6a3a; background: linear-gradient(145deg, #e8dcc8, #d0c0a4); }
+    .card[data-color="n3"] .hanzi .key-char { color: #5a3a1a; background: linear-gradient(145deg, #e0cbb0, #c8b094); }
+    .card[data-color="n4"]  { --card-color: #6a5a8a; background: linear-gradient(145deg, #e0d8e8, #c4b8d4); }
+    .card[data-color="n4"] .hanzi .key-char { color: #3a2a5a; background: linear-gradient(145deg, #d4c4e0, #b8a4cc); }
+    .card[data-color="n5"]  { --card-color: #8a5a5a; background: linear-gradient(145deg, #e8d8d8, #d0b8b8); }
+    .card[data-color="n5"] .hanzi .key-char { color: #5a2a2a; background: linear-gradient(145deg, #e0c4c4, #c8a4a4); }
+    .card[data-color="n6"]  { --card-color: #5a8a7a; background: linear-gradient(145deg, #d8e8e0, #b8d4c8); }
+    .card[data-color="n6"] .hanzi .key-char { color: #2a5a4a; background: linear-gradient(145deg, #c4e0d4, #a4c8b8); }
+    .card[data-color="n7"]  { --card-color: #8a7a5a; background: linear-gradient(145deg, #e8e0d0, #d0c8b0); }
+    .card[data-color="n7"] .hanzi .key-char { color: #5a4a2a; background: linear-gradient(145deg, #e0d4bc, #c8bca0); }
+    .card[data-color="n8"]  { --card-color: #7a5a8a; background: linear-gradient(145deg, #e4d8e8, #c8b8d4); }
+    .card[data-color="n8"] .hanzi .key-char { color: #4a2a5a; background: linear-gradient(145deg, #d8c4e0, #bca4cc); }
+    .card[data-color="n9"]  { --card-color: #8a5a4a; background: linear-gradient(145deg, #e8dcd0, #d0c0b4); }
+    .card[data-color="n9"] .hanzi .key-char { color: #5a2a1a; background: linear-gradient(145deg, #e0ccb8, #c8b49c); }
+    .card[data-color="n10"] { --card-color: #4a6a8a; background: linear-gradient(145deg, #d4e0e8, #b4c8d8); }
+    .card[data-color="n10"] .hanzi .key-char { color: #2a3a5a; background: linear-gradient(145deg, #c0d4e0, #a0b8cc); }
+    .card[data-color="n11"] { --card-color: #6a8a4a; background: linear-gradient(145deg, #dce8d0, #c0d4b0); }
+    .card[data-color="n11"] .hanzi .key-char { color: #3a5a2a; background: linear-gradient(145deg, #cfe4c0, #b0d0a0); }
+    .card[data-color="n12"] { --card-color: #8a4a6a; background: linear-gradient(145deg, #e8d4dc, #d0b4c4); }
+    .card[data-color="n12"] .hanzi .key-char { color: #5a2a3a; background: linear-gradient(145deg, #e0c0cc, #c8a0b4); }
+    .card[data-color="n13"] { --card-color: #5a6a8a; background: linear-gradient(145deg, #d8dce8, #b8c0d4); }
+    .card[data-color="n13"] .hanzi .key-char { color: #2a3a5a; background: linear-gradient(145deg, #c4cce0, #a4b0cc); }
+    .card[data-color="n14"] { --card-color: #8a7a4a; background: linear-gradient(145deg, #e8e0c8, #d0c8a4); }
+    .card[data-color="n14"] .hanzi .key-char { color: #5a4a2a; background: linear-gradient(145deg, #e0d4b0, #c8bc94); }
+    .card[data-color="n15"] { --card-color: #6a5a8a; background: linear-gradient(145deg, #dcd8e8, #c0b8d4); }
+    .card[data-color="n15"] .hanzi .key-char { color: #3a2a5a; background: linear-gradient(145deg, #ccc4e0, #b0a4cc); }
+
     .rec-panel {
-      margin-top: 6px; padding: 4px 8px; background: #d6e4e8;
-      border-radius: 30px; display: flex; flex-wrap: wrap;
-      justify-content: center; align-items: center; gap: 4px;
-      flex-shrink: 0; box-shadow: inset 0 1px 2px rgba(255,255,255,0.9);
+      margin-top: 3px;
+      padding: 3px 4px;
+      background: linear-gradient(145deg, #e0f0d8, #c8e0c0);
+      border-radius: 12px;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: center;
+      gap: 3px;
+      flex-shrink: 0;
+      box-shadow:
+        inset 0 1px 2px rgba(255,255,255,0.95),
+        inset 0 -1px 2px rgba(60,120,60,0.20),
+        0 2px 5px rgba(60,120,60,0.15);
     }
     .rec-panel-title {
-      font-size: 0.6rem; font-weight: 700; color: #1a3a4a; margin-right: 2px;
+      font-size: 0.48rem;
+      font-weight: 800;
+      color: #1a3a1a;
+      margin-right: 1px;
+      text-shadow: 0 1px 0 rgba(255,255,255,0.85);
     }
     .rec-num {
-      width: 20px; height: 20px; border-radius: 7px;
-      border: 1px solid rgba(255,255,255,0.9); background: #e8f0f4;
-      display: flex; align-items: center; justify-content: center;
-      font-size: 0.56rem; font-weight: 700; color: #1a3a4a;
-      cursor: pointer; padding: 0; transition: transform 0.12s ease, background 0.2s ease;
-      box-shadow: inset 0 1px 1px rgba(255,255,255,0.9), 0 1px 2px rgba(40,70,90,0.15);
-      line-height: 1; -webkit-appearance: none; appearance: none;
+      width: 18px;
+      height: 18px;
+      border-radius: 6px;
+      border: 1px solid rgba(255,255,255,0.85);
+      background: linear-gradient(145deg, #ffffff, #e4f0e0);
+      box-shadow:
+        inset 0 1px 1px rgba(255,255,255,0.95),
+        0 1px 2px rgba(30,70,30,0.20);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.52rem;
+      font-weight: 900;
+      color: #1a3a1a;
+      cursor: pointer;
+      padding: 0;
+      transition: transform 0.12s ease, background 0.2s ease;
+      position: relative;
+      line-height: 1;
+      -webkit-user-select: none;
+      user-select: none;
+      -webkit-appearance: none;
+      appearance: none;
     }
     .rec-num:active { transform: scale(0.9); }
     .rec-num.recording {
       background: linear-gradient(145deg, #ff7070, #d83030);
-      color: #fff; animation: pulse2 1s infinite;
+      color: #fff;
+      animation: pulse2 1s infinite;
     }
     .rec-num.has-rec {
-      background: linear-gradient(145deg, #7ae8a8, #3ac878); color: #fff;
+      background: linear-gradient(145deg, #7ae8a8, #3ac878);
+      color: #fff;
     }
     @keyframes pulse2 {
       0%, 100% { box-shadow: 0 0 0 0 rgba(255,80,80,0.7); }
-      50% { box-shadow: 0 0 0 4px rgba(255,80,80,0); }
+      50% { box-shadow: 0 0 0 5px rgba(255,80,80,0); }
     }
 
     .footer-note {
-      margin-top: 5px; text-align: center; font-size: 0.65rem; color: #2a4a5a;
-      background: #d6e4e8; padding: 3px 12px; border-radius: 60px;
-      display: inline-block; width: auto; flex-shrink: 0; align-self: center;
+      margin-top: 2px;
+      text-align: center;
+      font-size: 0.42rem;
+      font-weight: 700;
+      color: #1a3a1a;
+      background: linear-gradient(145deg, #e0f0d8, #c0d8b8);
+      padding: 2px 8px;
+      border-radius: 60px;
+      display: inline-block;
+      width: auto;
+      flex-shrink: 0;
+      align-self: center;
+      box-shadow: inset 0 1px 2px rgba(255,255,255,0.9);
+      text-shadow: 0 1px 0 rgba(255,255,255,0.75);
+      line-height: 1.2;
+    }
+    .footer-note b { font-weight: 900; color: #2a7a2a; }
+
+    @media (max-width: 420px) {
+      .container { padding: 4px 4px 3px; border-radius: 22px; }
+      .grid { gap: 3px; }
+      .hanzi { font-size: 1.4rem; }
+      .pinyin { font-size: 0.58rem; padding: 1px 5px; }
+      .russian { font-size: 0.62rem; padding: 1px 6px; }
+      .example { font-size: 0.52rem; padding: 2px 5px; }
+      .example .ru { font-size: 0.46rem; }
+      h1 { gap: 3px; }
+      h1 .title-hanzi { font-size: 0.85rem; padding: 2px 6px; }
+      h1 .title-pinyin { font-size: 0.5rem; padding: 2px 5px; }
+      h1 .title-rus { font-size: 0.5rem; padding: 2px 5px; }
+      .subhead { font-size: 0.46rem; padding: 1px 7px; }
+      .rec-num { width: 16px; height: 16px; font-size: 0.48rem; border-radius: 5px; }
+      .rec-panel { padding: 2px 3px; gap: 2px; border-radius: 10px; }
+      .rec-panel-title { font-size: 0.44rem; }
+      .footer-note { font-size: 0.4rem; padding: 1px 7px; }
+      .rec-indicator { width: 10px; height: 10px; font-size: 0.42rem; }
+      .emoji-corner { font-size: 0.75rem; }
+      .card-inner { padding-top: 6px; gap: 1px; }
     }
 
-    @media (max-width: 600px) {
-      .container { padding: 8px 6px 10px; max-height: 680px; }
-      .grid { gap: 4px; }
-      h1 { font-size: 1.1rem; }
-      .subhead { font-size: 0.65rem; padding: 2px 12px; margin-bottom: 4px; }
-      .rec-num { width: 17px; height: 17px; font-size: 0.48rem; }
-      .rec-panel { gap: 2px; padding: 3px 4px; }
-      .rec-panel-title { font-size: 0.5rem; margin-right: 2px; }
+    @media (max-width: 380px) {
+      .hanzi { font-size: 1.3rem; }
+      .rec-num { width: 15px; height: 15px; font-size: 0.44rem; }
+      .pinyin { font-size: 0.54rem; }
+      .russian { font-size: 0.56rem; }
+      .example { font-size: 0.48rem; }
+      .example .ru { font-size: 0.44rem; }
     }
-    @media (max-height: 650px) {
-      .container { max-height: 96vh; padding: 6px 6px 8px; }
-      .grid { gap: 3px; }
-      .card { padding: 2px 2px 4px; }
-      .key-tag { margin-top: 10px; }
+
+    @media (max-height: 640px) {
+      .hanzi { font-size: 1.35rem; }
+      .card-inner { padding-top: 5px; }
+    }
+
+    @media (orientation: landscape) and (max-height: 500px) {
+      .container { max-height: 100%; border-radius: 16px; }
+      .grid { grid-template-columns: repeat(5, 1fr); }
+      h1 { font-size: 0.85rem; }
+      h1 .title-hanzi { font-size: 1rem; padding: 2px 6px; }
+      .subhead { display: none; }
+      .example { display: none; }
+      .rec-num { width: 20px; height: 20px; font-size: 0.58rem; }
     }
   </style>
-</head><body>
+</head>
+<body>
 
 <div class="container">
   <h1>
-    <span>🐟</span> 鱼 (鱼 yú)
-    <span class="sub">ключ «рыба»</span>
+    <span class="title-hanzi">足</span>
+    <span class="title-pinyin">zú</span>
+    <span class="title-rus">нога</span>
   </h1>
   <div style="text-align: center; flex-shrink: 0;">
-    <span class="subhead">15 частотных слов с ключом 鱼</span>
+    <span class="subhead">
+      <b>足 (𧾷)</b> — ключ «нога» · 15 частотных слов
+    </span>
   </div>
 
   <div class="grid" id="cardGrid">
 
-    <div class="card" data-color="y1" data-key="f1" data-hanzi-audio="鱼" data-russian-audio="рыба">
-      <div class="emoji-corner">🐟</div>
+    <div class="card" data-color="n1" data-key="c1" data-hanzi-audio="足" data-russian-audio="нога">
+      <div class="emoji-corner">🦶</div>
       <div class="rec-indicator" data-indicator>✓</div>
-      <span class="key-tag">鱼 (сам ключ)</span>
-      <div class="hanzi"><span class="yu-key">鱼</span></div>
-      <div class="pinyin">yú</div>
-      <div class="russian">рыба</div>
+      <div class="card-inner">
+        <div class="hanzi"><span class="key-char">足</span></div>
+        <div class="pinyin">zú</div>
+        <div class="russian">нога</div>
+        <div class="example">📌 <span class="highlight">足</span>球 — футбол</div>
+      </div>
     </div>
 
-    <div class="card" data-color="y2" data-key="f2" data-hanzi-audio="鱼肉" data-russian-audio="рыбное филе">
-      <div class="emoji-corner">🍣</div>
+    <div class="card" data-color="n2" data-key="c2" data-hanzi-audio="跑" data-russian-audio="бежать">
+      <div class="emoji-corner">🏃</div>
       <div class="rec-indicator" data-indicator>✓</div>
-      <span class="key-tag">鱼 + 肉</span>
-      <div class="hanzi"><span class="yu-key">鱼</span>肉</div>
-      <div class="pinyin">yúròu</div>
-      <div class="russian">рыбное филе</div>
+      <div class="card-inner">
+        <div class="hanzi"><span class="key-char">跑</span></div>
+        <div class="pinyin">pǎo</div>
+        <div class="russian">бежать</div>
+        <div class="example">📌 <span class="highlight">跑</span>步 — бегать</div>
+      </div>
     </div>
 
-    <div class="card" data-color="y3" data-key="f3" data-hanzi-audio="金鱼" data-russian-audio="золотая рыбка">
-      <div class="emoji-corner">🐠</div>
+    <div class="card" data-color="n3" data-key="c3" data-hanzi-audio="路" data-russian-audio="дорога">
+      <div class="emoji-corner">🛣️</div>
       <div class="rec-indicator" data-indicator>✓</div>
-      <span class="key-tag">金 + 鱼</span>
-      <div class="hanzi">金<span class="yu-key">鱼</span></div>
-      <div class="pinyin">jīnyú</div>
-      <div class="russian">золотая рыбка</div>
+      <div class="card-inner">
+        <div class="hanzi"><span class="key-char">路</span></div>
+        <div class="pinyin">lù</div>
+        <div class="russian">дорога</div>
+        <div class="example">📌 <span class="highlight">路</span>上 — по дороге</div>
+      </div>
     </div>
 
-    <div class="card" data-color="y4" data-key="f4" data-hanzi-audio="鲨鱼" data-russian-audio="акула">
-      <div class="emoji-corner">🦈</div>
+    <div class="card" data-color="n4" data-key="c4" data-hanzi-audio="跳" data-russian-audio="прыгать">
+      <div class="emoji-corner">🤸</div>
       <div class="rec-indicator" data-indicator>✓</div>
-      <span class="key-tag">鲨 + 鱼</span>
-      <div class="hanzi">鲨<span class="yu-key">鱼</span></div>
-      <div class="pinyin">shāyú</div>
-      <div class="russian">акула</div>
+      <div class="card-inner">
+        <div class="hanzi"><span class="key-char">跳</span></div>
+        <div class="pinyin">tiào</div>
+        <div class="russian">прыгать</div>
+        <div class="example">📌 <span class="highlight">跳</span>舞 — танцевать</div>
+      </div>
     </div>
 
-    <div class="card" data-color="y5" data-key="f5" data-hanzi-audio="鲸鱼" data-russian-audio="кит">
-      <div class="emoji-corner">🐋</div>
+    <div class="card" data-color="n5" data-key="c5" data-hanzi-audio="跟" data-russian-audio="следовать / с">
+      <div class="emoji-corner">👣</div>
       <div class="rec-indicator" data-indicator>✓</div>
-      <span class="key-tag">鲸 + 鱼</span>
-      <div class="hanzi">鲸<span class="yu-key">鱼</span></div>
-      <div class="pinyin">jīngyú</div>
-      <div class="russian">кит</div>
+      <div class="card-inner">
+        <div class="hanzi"><span class="key-char">跟</span></div>
+        <div class="pinyin">gēn</div>
+        <div class="russian">следовать / с</div>
+        <div class="example">📌 <span class="highlight">跟</span>我 — следуй за мной</div>
+      </div>
     </div>
 
-    <div class="card" data-color="y6" data-key="f6" data-hanzi-audio="鲤鱼" data-russian-audio="карп">
-      <div class="emoji-corner">🎏</div>
+    <div class="card" data-color="n6" data-key="c6" data-hanzi-audio="踢" data-russian-audio="пинать / бить ногой">
+      <div class="emoji-corner">⚽</div>
       <div class="rec-indicator" data-indicator>✓</div>
-      <span class="key-tag">鲤 + 鱼</span>
-      <div class="hanzi">鲤<span class="yu-key">鱼</span></div>
-      <div class="pinyin">lǐyú</div>
-      <div class="russian">карп</div>
+      <div class="card-inner">
+        <div class="hanzi"><span class="key-char">踢</span></div>
+        <div class="pinyin">tī</div>
+        <div class="russian">пинать / бить ногой</div>
+        <div class="example">📌 <span class="highlight">踢</span>球 — пинать мяч</div>
+      </div>
     </div>
 
-    <div class="card" data-color="y7" data-key="f7" data-hanzi-audio="带鱼" data-russian-audio="рыба-сабля">
-      <div class="emoji-corner">🐟</div>
+    <div class="card" data-color="n7" data-key="c7" data-hanzi-audio="跃" data-russian-audio="скакать / прыгать">
+      <div class="emoji-corner">🐆</div>
       <div class="rec-indicator" data-indicator>✓</div>
-      <span class="key-tag">带 + 鱼</span>
-      <div class="hanzi">带<span class="yu-key">鱼</span></div>
-      <div class="pinyin">dàiyú</div>
-      <div class="russian">рыба-сабля</div>
+      <div class="card-inner">
+        <div class="hanzi"><span class="key-char">跃</span></div>
+        <div class="pinyin">yuè</div>
+        <div class="russian">скакать / прыгать</div>
+        <div class="example">📌 跳<span class="highlight">跃</span> — прыжок</div>
+      </div>
     </div>
 
-    <div class="card" data-color="y8" data-key="f8" data-hanzi-audio="鱼汤" data-russian-audio="рыбный суп">
-      <div class="emoji-corner">🍲</div>
+    <div class="card" data-color="n8" data-key="c8" data-hanzi-audio="距" data-russian-audio="расстояние">
+      <div class="emoji-corner">📏</div>
       <div class="rec-indicator" data-indicator>✓</div>
-      <span class="key-tag">鱼 + 汤</span>
-      <div class="hanzi"><span class="yu-key">鱼</span>汤</div>
-      <div class="pinyin">yútāng</div>
-      <div class="russian">рыбный суп</div>
+      <div class="card-inner">
+        <div class="hanzi"><span class="key-char">距</span></div>
+        <div class="pinyin">jù</div>
+        <div class="russian">расстояние</div>
+        <div class="example">📌 <span class="highlight">距</span>离 — дистанция</div>
+      </div>
     </div>
 
-    <div class="card" data-color="y9" data-key="f9" data-hanzi-audio="鱼竿" data-russian-audio="удочка">
-      <div class="emoji-corner">🎣</div>
+    <div class="card" data-color="n9" data-key="c9" data-hanzi-audio="跪" data-russian-audio="стоять на коленях">
+      <div class="emoji-corner">🙇</div>
       <div class="rec-indicator" data-indicator>✓</div>
-      <span class="key-tag">鱼 + 竿</span>
-      <div class="hanzi"><span class="yu-key">鱼</span>竿</div>
-      <div class="pinyin">yúgān</div>
-      <div class="russian">удочка</div>
+      <div class="card-inner">
+        <div class="hanzi"><span class="key-char">跪</span></div>
+        <div class="pinyin">guì</div>
+        <div class="russian">стоять на коленях</div>
+        <div class="example">📌 <span class="highlight">跪</span>下 — опуститься на колени</div>
+      </div>
     </div>
 
-    <div class="card" data-color="y10" data-key="f10" data-hanzi-audio="钓鱼" data-russian-audio="ловить рыбу">
-      <div class="emoji-corner">🎣</div>
+    <div class="card" data-color="n10" data-key="c10" data-hanzi-audio="踏" data-russian-audio="ступать / наступать">
+      <div class="emoji-corner">👟</div>
       <div class="rec-indicator" data-indicator>✓</div>
-      <span class="key-tag">钓 + 鱼</span>
-      <div class="hanzi">钓<span class="yu-key">鱼</span></div>
-      <div class="pinyin">diàoyú</div>
-      <div class="russian">ловить рыбу</div>
+      <div class="card-inner">
+        <div class="hanzi"><span class="key-char">踏</span></div>
+        <div class="pinyin">tà</div>
+        <div class="russian">ступать / наступать</div>
+        <div class="example">📌 <span class="highlight">踏</span>步 — шагать</div>
+      </div>
     </div>
 
-    <div class="card" data-color="y11" data-key="f11" data-hanzi-audio="鱼市" data-russian-audio="рыбный рынок">
-      <div class="emoji-corner">🏪</div>
+    <div class="card" data-color="n11" data-key="c11" data-hanzi-audio="踪" data-russian-audio="след">
+      <div class="emoji-corner">🐾</div>
       <div class="rec-indicator" data-indicator>✓</div>
-      <span class="key-tag">鱼 + 市</span>
-      <div class="hanzi"><span class="yu-key">鱼</span>市</div>
-      <div class="pinyin">yúshì</div>
-      <div class="russian">рыбный рынок</div>
+      <div class="card-inner">
+        <div class="hanzi"><span class="key-char">踪</span></div>
+        <div class="pinyin">zōng</div>
+        <div class="russian">след</div>
+        <div class="example">📌 跟<span class="highlight">踪</span> — отслеживать</div>
+      </div>
     </div>
 
-    <div class="card" data-color="y12" data-key="f12" data-hanzi-audio="鱼片" data-russian-audio="ломтики рыбы">
-      <div class="emoji-corner">🍣</div>
+    <div class="card" data-color="n12" data-key="c12" data-hanzi-audio="踩" data-russian-audio="наступать / топтать">
+      <div class="emoji-corner">👞</div>
       <div class="rec-indicator" data-indicator>✓</div>
-      <span class="key-tag">鱼 + 片</span>
-      <div class="hanzi"><span class="yu-key">鱼</span>片</div>
-      <div class="pinyin">yúpiàn</div>
-      <div class="russian">ломтики рыбы</div>
+      <div class="card-inner">
+        <div class="hanzi"><span class="key-char">踩</span></div>
+        <div class="pinyin">cǎi</div>
+        <div class="russian">наступать / топтать</div>
+        <div class="example">📌 <span class="highlight">踩</span>脚 — наступить на ногу</div>
+      </div>
     </div>
 
-    <div class="card" data-color="y13" data-key="f13" data-hanzi-audio="鱼丸" data-russian-audio="рыбные шарики">
-      <div class="emoji-corner">🍡</div>
+    <div class="card" data-color="n13" data-key="c13" data-hanzi-audio="跨" data-russian-audio="перешагивать">
+      <div class="emoji-corner">🚶</div>
       <div class="rec-indicator" data-indicator>✓</div>
-      <span class="key-tag">鱼 + 丸</span>
-      <div class="hanzi"><span class="yu-key">鱼</span>丸</div>
-      <div class="pinyin">yúwán</div>
-      <div class="russian">рыбные шарики</div>
+      <div class="card-inner">
+        <div class="hanzi"><span class="key-char">跨</span></div>
+        <div class="pinyin">kuà</div>
+        <div class="russian">перешагивать</div>
+        <div class="example">📌 <span class="highlight">跨</span>过 — перешагнуть</div>
+      </div>
     </div>
 
-    <div class="card" data-color="y14" data-key="f14" data-hanzi-audio="鱿鱼" data-russian-audio="кальмар">
-      <div class="emoji-corner">🦑</div>
+    <div class="card" data-color="n14" data-key="c14" data-hanzi-audio="踊" data-russian-audio="прыгать / воодушевлённо">
+      <div class="emoji-corner">🕺</div>
       <div class="rec-indicator" data-indicator>✓</div>
-      <span class="key-tag">鱿 + 鱼</span>
-      <div class="hanzi">鱿<span class="yu-key">鱼</span></div>
-      <div class="pinyin">yóuyú</div>
-      <div class="russian">кальмар</div>
+      <div class="card-inner">
+        <div class="hanzi"><span class="key-char">踊</span></div>
+        <div class="pinyin">yǒng</div>
+        <div class="russian">прыгать / воодушевлённо</div>
+        <div class="example">📌 <span class="highlight">踊</span>跃 — рваться вперёд</div>
+      </div>
     </div>
 
-    <div class="card" data-color="y15" data-key="f15" data-hanzi-audio="鱼鳞" data-russian-audio="рыбья чешуя">
-      <div class="emoji-corner">✨</div>
+    <div class="card" data-color="n15" data-key="c15" data-hanzi-audio="趾" data-russian-audio="палец ноги">
+      <div class="emoji-corner">🦶</div>
       <div class="rec-indicator" data-indicator>✓</div>
-      <span class="key-tag">鱼 + 鳞</span>
-      <div class="hanzi"><span class="yu-key">鱼</span>鳞</div>
-      <div class="pinyin">yúlín</div>
-      <div class="russian">рыбья чешуя</div>
+      <div class="card-inner">
+        <div class="hanzi"><span class="key-char">趾</span></div>
+        <div class="pinyin">zhǐ</div>
+        <div class="russian">палец ноги</div>
+        <div class="example">📌 脚<span class="highlight">趾</span> — палец ноги</div>
+      </div>
     </div>
 
   </div>
@@ -345,200 +729,432 @@
 
   <div style="display: flex; justify-content: center; flex-shrink: 0;">
     <div class="footer-note">
-      <span>🎧</span> клик — озвучка · цифра — запись · повтор — удалить
+      <b>клик</b> по карточке — озвучка · <b>клик</b> по цифре — запись · повтор — удалить
     </div>
   </div>
-</div><script>
+</div>
+
+<script>
   (function() {
     const cards = document.querySelectorAll('.card');
     const recPanel = document.getElementById('recPanel');
-    let currentSpeakId = 0;
+    const PAUSE_COMMA = 1200; // 1.2 сек — пауза при запятой
 
-    /* --- Озвучка браузера --- */
+    let audioUnlocked = false;
+    let sharedAudioCtx = null;
+
+    function unlockAudio() {
+      if (audioUnlocked) return;
+      audioUnlocked = true;
+
+      try {
+        const Ctx = window.AudioContext || window.webkitAudioContext;
+        if (Ctx) {
+          if (!sharedAudioCtx) sharedAudioCtx = new Ctx();
+          if (sharedAudioCtx.state === 'suspended') sharedAudioCtx.resume();
+        }
+      } catch (e) {}
+
+      try {
+        const warmup = new SpeechSynthesisUtterance(' ');
+        warmup.volume = 0;
+        warmup.lang = 'zh-CN';
+        window.speechSynthesis.speak(warmup);
+      } catch (e) {}
+
+      try {
+        const silent = new Audio('data:audio/wav;base64,UklGRiQAAABXQVZFZm10IBAAAAABAAEARKwAAIhYAQACABAAZGF0YQAAAAA=');
+        silent.volume = 0;
+        silent.play().catch(() => {});
+      } catch (e) {}
+    }
+
+    document.addEventListener('touchstart', unlockAudio, { once: true, passive: true });
+    document.addEventListener('click', unlockAudio, { once: true });
+
     function getChineseVoice() {
       const voices = window.speechSynthesis.getVoices();
-      return voices.find(v => v.lang === 'zh-CN') || voices.find(v => v.lang.startsWith('zh')) || null;
+      let voice = voices.find(v => v.lang === 'zh-CN');
+      if (!voice) voice = voices.find(v => v.lang.startsWith('zh'));
+      return voice || null;
     }
     function getRussianVoice() {
       const voices = window.speechSynthesis.getVoices();
-      return voices.find(v => v.lang === 'ru-RU') || voices.find(v => v.lang.startsWith('ru')) || null;
+      let voice = voices.find(v => v.lang === 'ru-RU');
+      if (!voice) voice = voices.find(v => v.lang.startsWith('ru'));
+      return voice || null;
     }
 
-    // Браузерный русский (если нет вашей записи)
-    function speakRussianParts(text, onComplete) {
-      let cleanText = text.replace(/\s*\([^)]*\)\s*/g, ' ').trim();
-      if (!cleanText) { if (onComplete) setTimeout(onComplete, 300); return; }
-      
-      const utterance = new SpeechSynthesisUtterance(cleanText);
-      utterance.lang = 'ru-RU';
-      utterance.rate = 0.85;
-      utterance.pitch = 1.0;
-      const voice = getRussianVoice();
-      if (voice) utterance.voice = voice;
-      
-      utterance.onend = function() { if (onComplete) setTimeout(onComplete, 300); };
-      utterance.onerror = function() { if (onComplete) setTimeout(onComplete, 300); };
-      window.speechSynthesis.speak(utterance);
+    // Разбивает текст по запятым, убирает пустые куски
+    function splitByComma(text) {
+      return text.split(',')
+        .map(s => s.trim())
+        .filter(s => s.length > 0);
     }
 
-    /* --- Запись --- */
-    const STORAGE_PREFIX = 'custom_rec_fish_';
+    // Последовательно произносит массив частей с паузой PAUSE_COMMA между ними
+    function speakSequence(texts, lang, rate, voice, onDone) {
+      if (!texts.length) { if (onDone) onDone(); return; }
+
+      const utter = new SpeechSynthesisUtterance(texts[0]);
+      utter.lang = lang;
+      utter.rate = rate;
+      utter.pitch = 1.0;
+      utter.volume = 1.0;
+      if (voice) utter.voice = voice;
+
+      utter.onend = function() {
+        if (texts.length > 1) {
+          setTimeout(() => {
+            speakSequence(texts.slice(1), lang, rate, voice, onDone);
+          }, PAUSE_COMMA);
+        } else {
+          if (onDone) onDone();
+        }
+      };
+      utter.onerror = function() {
+        if (texts.length > 1) {
+          setTimeout(() => {
+            speakSequence(texts.slice(1), lang, rate, voice, onDone);
+          }, PAUSE_COMMA);
+        } else {
+          if (onDone) onDone();
+        }
+      };
+
+      window.speechSynthesis.speak(utter);
+    }
+
+    const STORAGE_PREFIX = 'custom_rec_';
     const recordedAudios = {};
 
     function loadSavedRecordings() {
       cards.forEach(card => {
-        const stored = localStorage.getItem(STORAGE_PREFIX + card.dataset.key);
-        if (stored) recordedAudios[card.dataset.key] = stored;
+        const key = card.dataset.key;
+        if (!key) return;
+        const stored = localStorage.getItem(STORAGE_PREFIX + key);
+        if (stored) recordedAudios[key] = stored;
       });
     }
 
     function createNumberButtons() {
       cards.forEach((card, idx) => {
         const key = card.dataset.key;
+        const num = idx + 1;
+
         const btn = document.createElement('button');
-        btn.type = 'button'; btn.className = 'rec-num';
-        btn.dataset.key = key; btn.dataset.num = idx + 1;
-        btn.textContent = idx + 1;
+        btn.type = 'button';
+        btn.className = 'rec-num';
+        btn.dataset.key = key;
+        btn.dataset.num = num;
+        btn.textContent = num;
+        btn.title = `Запись для карточки №${num}`;
         recPanel.appendChild(btn);
-        btn.addEventListener('click', (e) => { e.stopPropagation(); handleNumberClick(card, btn); });
+
+        btn.addEventListener('click', (e) => {
+          e.stopPropagation();
+          handleNumberClick(card, btn);
+        });
+
         updateNumberButton(card, btn);
       });
     }
 
     function updateNumberButton(card, btn) {
-      if (recordedAudios[card.dataset.key]) {
-        btn.classList.add('has-rec'); btn.title = `Запись есть. Клик — удалить.`;
+      const key = card.dataset.key;
+      const hasRec = !!recordedAudios[key];
+      if (!btn) btn = recPanel.querySelector(`.rec-num[data-key="${key}"]`);
+      if (!btn) return;
+
+      if (hasRec) {
+        btn.classList.add('has-rec');
+        btn.title = `Запись №${btn.dataset.num} есть. Клик — удалить.`;
       } else {
-        btn.classList.remove('has-rec'); btn.title = `Записать перевод`;
+        btn.classList.remove('has-rec');
+        btn.title = `Записать перевод для карточки №${btn.dataset.num}`;
       }
     }
 
     function updateCardIndicator(card) {
+      const key = card.dataset.key;
       const indicator = card.querySelector('[data-indicator]');
-      if (recordedAudios[card.dataset.key]) {
-        indicator.classList.add('show'); card.classList.add('has-rec');
+      if (!indicator) return;
+      const hasRec = !!recordedAudios[key];
+      if (hasRec) {
+        indicator.classList.add('show');
+        card.classList.add('has-rec');
       } else {
-        indicator.classList.remove('show'); card.classList.remove('has-rec');
+        indicator.classList.remove('show');
+        card.classList.remove('has-rec');
       }
     }
 
     function getBestMimeType() {
-      const candidates = ['audio/mp4','audio/webm;codecs=opus','audio/webm'];
-      for (const t of candidates) { if (MediaRecorder.isTypeSupported(t)) return t; }
+      const candidates = ['audio/mp4', 'audio/mp4;codecs=mp4a.40.2', 'audio/webm;codecs=opus', 'audio/webm'];
+      if (typeof MediaRecorder === 'undefined') return '';
+      for (const t of candidates) {
+        try { if (MediaRecorder.isTypeSupported(t)) return t; } catch (e) {}
+      }
       return '';
     }
 
-    let mediaRecorder = null, recordedChunks = [], recordingKey = null, currentStream = null;
+    let mediaRecorder = null;
+    let recordedChunks = [];
+    let recordingKey = null;
+    let currentStream = null;
 
     async function handleNumberClick(card, btn) {
+      unlockAudio();
       const key = card.dataset.key;
-      if (recordingKey === key) { if (mediaRecorder.state !== 'inactive') mediaRecorder.stop(); return; }
-      if (mediaRecorder && mediaRecorder.state !== 'inactive') { mediaRecorder.stop(); await new Promise(r => setTimeout(r, 250)); }
+
+      if (recordingKey === key) {
+        if (mediaRecorder && mediaRecorder.state !== 'inactive') mediaRecorder.stop();
+        return;
+      }
+
+      if (mediaRecorder && mediaRecorder.state !== 'inactive') {
+        mediaRecorder.stop();
+        await new Promise(r => setTimeout(r, 250));
+      }
+
       if (recordedAudios[key]) {
         if (confirm(`Удалить запись №${btn.dataset.num}?`)) {
-          delete recordedAudios[key]; localStorage.removeItem(STORAGE_PREFIX + key);
-          updateNumberButton(card, btn); updateCardIndicator(card);
+          delete recordedAudios[key];
+          try { localStorage.removeItem(STORAGE_PREFIX + key); } catch (e) {}
+          updateNumberButton(card, btn);
+          updateCardIndicator(card);
         }
         return;
       }
-      try {
-        currentStream = await navigator.mediaDevices.getUserMedia({ audio: true });
-        mediaRecorder = new MediaRecorder(currentStream, { mimeType: getBestMimeType() });
-        recordedChunks = []; recordingKey = key;
-        btn.classList.add('recording'); btn.textContent = '⏹';
-        card.querySelector('[data-indicator]').classList.add('show', 'recording');
 
-        mediaRecorder.ondataavailable = (e) => { if (e.data.size > 0) recordedChunks.push(e.data); };
+      try {
+        currentStream = await navigator.mediaDevices.getUserMedia({
+          audio: { echoCancellation: true, noiseSuppression: true, autoGainControl: true }
+        });
+
+        const mimeType = getBestMimeType();
+        const options = mimeType ? { mimeType } : {};
+        mediaRecorder = new MediaRecorder(currentStream, options);
+        recordedChunks = [];
+        recordingKey = key;
+
+        btn.classList.add('recording');
+        btn.textContent = '⏹';
+
+        const indicator = card.querySelector('[data-indicator]');
+        if (indicator) {
+          indicator.classList.add('show', 'recording');
+          indicator.textContent = '●';
+        }
+
+        mediaRecorder.ondataavailable = (e) => {
+          if (e.data && e.data.size > 0) recordedChunks.push(e.data);
+        };
+
         mediaRecorder.onstop = async () => {
-          currentStream.getTracks().forEach(t => t.stop()); currentStream = null;
-          btn.classList.remove('recording'); btn.textContent = btn.dataset.num;
-          card.querySelector('[data-indicator]').classList.remove('recording');
+          if (currentStream) {
+            currentStream.getTracks().forEach(t => t.stop());
+            currentStream = null;
+          }
+          btn.classList.remove('recording');
+          btn.textContent = btn.dataset.num;
+
+          const ind = card.querySelector('[data-indicator]');
+          if (ind) {
+            ind.classList.remove('recording');
+            ind.textContent = '✓';
+          }
 
           if (recordedChunks.length === 0) { recordingKey = null; return; }
-          const blob = new Blob(recordedChunks, { type: mediaRecorder.mimeType });
-          
-          const reader = new FileReader();
-          reader.onloadend = () => {
-            recordedAudios[key] = reader.result;
-            try { localStorage.setItem(STORAGE_PREFIX + key, reader.result); } catch (e) { alert('Мало места'); }
-            updateNumberButton(card, btn); updateCardIndicator(card); recordingKey = null;
-          };
-          reader.readAsDataURL(blob);
+
+          const blobMime = mediaRecorder.mimeType || mimeType || 'audio/mp4';
+          const blob = new Blob(recordedChunks, { type: blobMime });
+
+          let finalBlob = blob;
+          try { finalBlob = await normalizeAudio(blob); } catch (e) {}
+
+          let url;
+          try { url = await blobToDataURL(finalBlob); } catch (e) { recordingKey = null; return; }
+
+          recordedAudios[key] = url;
+          try { localStorage.setItem(STORAGE_PREFIX + key, url); }
+          catch (e) { alert('Не хватает места. Удалите старые записи.'); }
+
+          updateNumberButton(card, btn);
+          updateCardIndicator(card);
+          recordingKey = null;
         };
-        mediaRecorder.start();
-      } catch (err) { alert('Нет доступа к микрофону'); recordingKey = null; }
-    }
 
-    /* --- КЛИК ПО КАРТОЧКЕ (НОВАЯ ЛОГИКА) --- */
-    let currentAudio = null;
-    
-    function clearActive() { 
-      cards.forEach(c => c.classList.remove('active', 'speaking')); 
-    }
-
-    function playCardAudio(hanziText, russianText, cardEl) {
-      window.speechSynthesis.cancel();
-      const myId = ++currentSpeakId;
-      cardEl.classList.add('speaking');
-
-      // 1. Всегда включаем китайский (браузер)
-      const utter1 = new SpeechSynthesisUtterance(hanziText);
-      utter1.lang = 'zh-CN';
-      utter1.rate = 0.7;
-      const chVoice = getChineseVoice();
-      if (chVoice) utter1.voice = chVoice;
-
-      // 2. После китайского — русский (ваш голос или браузер)
-      utter1.onend = utter1.onerror = function() {
-        if (myId !== currentSpeakId) return;
-        
-        setTimeout(() => {
-          if (myId !== currentSpeakId) return;
-          
-          const key = cardEl.dataset.key;
-          
-          // Если есть ваша запись:
-          if (recordedAudios[key]) {
-            if (currentAudio) currentAudio.pause();
-            currentAudio = new Audio(recordedAudios[key]);
-            currentAudio.onended = () => cardEl.classList.remove('speaking');
-            currentAudio.play().catch(() => cardEl.classList.remove('speaking'));
-          } 
-          // Если записи нет (браузерный русский):
-          else {
-            speakRussianParts(russianText, () => cardEl.classList.remove('speaking'));
+        mediaRecorder.onerror = () => {
+          if (currentStream) {
+            currentStream.getTracks().forEach(t => t.stop());
+            currentStream = null;
           }
-        }, 1000); // Пауза 1 сек между китайским и русским
-      };
-      
-      window.speechSynthesis.speak(utter1);
+          btn.classList.remove('recording');
+          btn.textContent = btn.dataset.num;
+          recordingKey = null;
+        };
+
+        mediaRecorder.start();
+      } catch (err) {
+        alert('Не удалось получить доступ к микрофону.');
+        recordingKey = null;
+      }
     }
 
-    cards.forEach(card => {
-      card.addEventListener('click', function(e) {
-        e.stopPropagation(); 
-        clearActive(); 
-        this.classList.add('active');
-        
-        if (currentAudio) { currentAudio.pause(); currentAudio = null; }
-        
-        playCardAudio(this.dataset.hanziAudio, this.dataset.russianAudio, this);
-      });
-    });
-
-    document.addEventListener('click', function(e) {
-      if (!e.target.closest('.card') && !e.target.closest('.rec-num')) {
-        window.speechSynthesis.cancel();
-        if (currentAudio) { currentAudio.pause(); currentAudio = null; }
-        clearActive();
+    async function normalizeAudio(blob) {
+      const arrayBuffer = await blob.arrayBuffer();
+      const Ctx = window.AudioContext || window.webkitAudioContext;
+      if (!Ctx) return blob;
+      let audioCtx;
+      try { audioCtx = sharedAudioCtx || new Ctx(); } catch (e) { return blob; }
+      if (audioCtx.state === 'suspended') { try { await audioCtx.resume(); } catch (e) {} }
+      let audioBuffer;
+      try { audioBuffer = await audioCtx.decodeAudioData(arrayBuffer.slice(0)); } catch (e) { return blob; }
+      let peak = 0;
+      for (let ch = 0; ch < audioBuffer.numberOfChannels; ch++) {
+        const data = audioBuffer.getChannelData(ch);
+        for (let i = 0; i < data.length; i++) {
+          const abs = Math.abs(data[i]);
+          if (abs > peak) peak = abs;
+        }
       }
-    });
+      const targetPeak = 0.95;
+      const gain = peak > 0 ? targetPeak / peak : 1;
+      const cappedGain = Math.min(gain, 8);
+      for (let ch = 0; ch < audioBuffer.numberOfChannels; ch++) {
+        const data = audioBuffer.getChannelData(ch);
+        for (let i = 0; i < data.length; i++) {
+          data[i] = Math.max(-1, Math.min(1, data[i] * cappedGain));
+        }
+      }
+      return audioBufferToWav(audioBuffer);
+    }
+
+    function audioBufferToWav(buffer) {
+      const numCh = buffer.numberOfChannels;
+      const sampleRate = buffer.sampleRate;
+      const length = buffer.length * numCh * 2 + 44;
+      const arrayBuffer = new ArrayBuffer(length);
+      const view = new DataView(arrayBuffer);
+      const writeString = (offset, str) => {
+        for (let i = 0; i < str.length; i++) view.setUint8(offset + i, str.charCodeAt(i));
+      };
+      writeString(0, 'RIFF');
+      view.setUint32(4, length - 8, true);
+      writeString(8, 'WAVE');
+      writeString(12, 'fmt ');
+      view.setUint32(16, 16, true);
+      view.setUint16(20, 1, true);
+      view.setUint16(22, numCh, true);
+      view.setUint32(24, sampleRate, true);
+      view.setUint32(28, sampleRate * numCh * 2, true);
+      view.setUint16(32, numCh * 2, true);
+      view.setUint16(34, 16, true);
+      writeString(36, 'data');
+      view.setUint32(40, length - 44, true);
+      let offset = 44;
+      const channels = [];
+      for (let i = 0; i < numCh; i++) channels.push(buffer.getChannelData(i));
+      for (let i = 0; i < buffer.length; i++) {
+        for (let ch = 0; ch < numCh; ch++) {
+          let sample = Math.max(-1, Math.min(1, channels[ch][i]));
+          sample = sample < 0 ? sample * 0x8000 : sample * 0x7FFF;
+          view.setInt16(offset, sample, true);
+          offset += 2;
+        }
+      }
+      return new Blob([arrayBuffer], { type: 'audio/wav' });
+    }
+
+    function blobToDataURL(blob) {
+      return new Promise((resolve, reject) => {
+        const reader = new FileReader();
+        reader.onload = () => resolve(reader.result);
+        reader.onerror = reject;
+        reader.readAsDataURL(blob);
+      });
+    }
+
+    function speakRussianSequence(texts, onEnd) {
+      const voice = getRussianVoice();
+      speakSequence(texts, 'ru-RU', 0.85, voice, onEnd);
+    }
+
+    function playRecorded(key, onEnd) {
+      const url = recordedAudios[key];
+      if (!url) { if (onEnd) onEnd(); return; }
+      if (sharedAudioCtx && sharedAudioCtx.state === 'suspended') sharedAudioCtx.resume().catch(() => {});
+      const audio = new Audio(url);
+      audio.volume = 1.0;
+      audio.setAttribute('playsinline', 'true');
+      audio.setAttribute('webkit-playsinline', 'true');
+      audio.onended = () => { if (onEnd) onEnd(); };
+      audio.onerror = () => { if (onEnd) onEnd(); };
+      const p = audio.play();
+      if (p && p.catch) p.catch(() => { if (onEnd) onEnd(); });
+    }
+
+    function speakChineseAndRussian(card) {
+      window.speechSynthesis.cancel();
+      const hanziText = card.dataset.hanziAudio;
+      const key = card.dataset.key;
+      const russianEl = card.querySelector('.russian');
+      const russianText = russianEl ? russianEl.textContent : card.dataset.russianAudio;
+
+      const chParts = splitByComma(hanziText);
+      const ruParts = splitByComma(russianText);
+      const chVoice = getChineseVoice();
+
+      // 1) Китайский (с паузами 1.2с при запятой)
+      speakSequence(chParts, 'zh-CN', 0.7, chVoice, () => {
+        // 2) Пауза 2 сек между кит. и рус. (как в вашем образце)
+        setTimeout(() => {
+          // 3) Если есть запись — проигрываем её. Иначе — русский TTS с паузами на запятую
+          if (recordedAudios[key]) {
+            playRecorded(key, null);
+          } else {
+            speakRussianSequence(ruParts, null);
+          }
+        }, 2000);
+      });
+    }
+
+    function clearActive() { cards.forEach(c => c.classList.remove('active')); }
 
     loadSavedRecordings();
     createNumberButtons();
     cards.forEach(card => updateCardIndicator(card));
+
+    cards.forEach(card => {
+      card.addEventListener('click', function(e) {
+        if (e.target.closest('.rec-num')) return;
+        e.stopPropagation();
+        window.speechSynthesis.cancel();
+        clearActive();
+        this.classList.add('active');
+        setTimeout(() => speakChineseAndRussian(this), 60);
+      });
+    });
+
+    document.addEventListener('click', function(e) {
+      if (!e.target.closest('.card') && !e.target.closest('.rec-panel')) {
+        window.speechSynthesis.cancel();
+        clearActive();
+      }
+    });
+
+    let lastTouch = 0;
+    document.addEventListener('touchend', (e) => {
+      const now = Date.now();
+      if (now - lastTouch <= 300) e.preventDefault();
+      lastTouch = now;
+    }, { passive: false });
+
     window.speechSynthesis.getVoices();
+    window.speechSynthesis.onvoiceschanged = () => window.speechSynthesis.getVoices();
   })();
 </script>
+
 </body>
 </html>

@@ -301,30 +301,18 @@
       <div class="example">📌 водяные <b>па́ры</b> / встать в <b>пары́</b></div>
     </div>
 
-    <!-- 6. ду́хи / духи́ -->
+   <!-- 6. ду́хи / духи́ -->
     <div class="card" data-color="n6" data-key="o6" data-russian-audio="духи / духи" data-hanzi-audio="香水 / 幽灵">
       <div class="emoji-corner">👻</div>
       <div class="rec-indicator" data-indicator>✓</div>
       <div class="word-group">
-        <div class="russian-word">д<span class="stress">у</span>хи / дух<span class="stress">и</span></div>
+        <div class="russian-word">дух<span class="stress">и</span> / д<span class="stress">у</span>хи</div>
         <div class="hanzi">香水 / 幽灵</div>
         <div class="pinyin">xiāngshuǐ / yōulíng</div>
       </div>
-      <div class="example">📌 французские <b>ду́хи</b> / лесные <b>духи́</b></div>
+      <div class="example">📌 французские <b>духи́</b> / лесные <b>ду́хи</b></div>
     </div>
-
-    <!-- 7. а́тлас / атла́с -->
-    <div class="card" data-color="n7" data-key="o7" data-russian-audio="атлас / атлас" data-hanzi-audio="地图册 / 缎子">
-      <div class="emoji-corner">🗺️</div>
-      <div class="rec-indicator" data-indicator>✓</div>
-      <div class="word-group">
-        <div class="russian-word"><span class="stress">а</span>тлас / атл<span class="stress">а</span>с</div>
-        <div class="hanzi">地图册 / 缎子</div>
-        <div class="pinyin">dìtúcè / duànzi</div>
-      </div>
-      <div class="example">📌 географический <b>а́тлас</b> / платье из <b>атла́са</b></div>
-    </div>
-
+    
     <!-- 8. стре́лки / стрелки́ -->
     <div class="card" data-color="n8" data-key="o8" data-russian-audio="стрелки / стрелки" data-hanzi-audio="箭头 / 射手">
       <div class="emoji-corner">🏹</div>
@@ -414,7 +402,7 @@
       <div class="emoji-corner">😭</div>
       <div class="rec-indicator" data-indicator>✓</div>
       <div class="word-group">
-        <div class="russian-word">пл<span class="stress">а</span>чу / плач<span class="stress">у</span></div>
+        <div class="russian-word">пл<span class="stress">а</span>чу (от плакать) / плач<span class="stress">у</span> (от платить)</div>
         <div class="hanzi">我哭 / 我付款</div>
         <div class="pinyin">wǒ kū / wǒ fùkuǎn</div>
       </div>
@@ -435,7 +423,7 @@
 
     let audioUnlocked = false;
     let sharedAudioCtx = null;
-    let currentAudio = null;
+    let currentAudio = null; // Для остановки предыдущей записи
 
     function unlockAudio() {
       if (audioUnlocked) return;
@@ -450,7 +438,7 @@
       try {
         const warmup = new SpeechSynthesisUtterance(' ');
         warmup.volume = 0;
-        warmup.lang = 'ru-RU';
+        warmup.lang = 'ru-RU'; // Прогрев под русский
         window.speechSynthesis.speak(warmup);
       } catch (e) {}
     }
@@ -783,6 +771,7 @@
       if (!url) { if (onEnd) onEnd(); return; }
       if (sharedAudioCtx && sharedAudioCtx.state === 'suspended') sharedAudioCtx.resume().catch(() => {});
       
+      // Останавливаем предыдущее аудио, если оно было
       if (currentAudio) {
         currentAudio.pause();
         currentAudio.currentTime = 0;
@@ -807,6 +796,7 @@
       });
     }
 
+    // СТРОГАЯ ЛОГИКА: Сначала русский -> пауза 1 сек -> потом китайский
     function speakRussianThenChinese(card) {
       window.speechSynthesis.cancel();
       if (currentAudio) {
@@ -820,6 +810,7 @@
       const russianText = card.dataset.russianAudio;
 
       const afterRussian = function() {
+        // Как только русский закончил, ждем ровно 1 секунду и включаем китайский
         setTimeout(() => {
           speakChinese(hanziText, null);
         }, 1000); 

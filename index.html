@@ -2,18 +2,54 @@
 <html lang="ru">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.5, user-scalable=yes" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" />
+
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <meta name="apple-mobile-web-app-title" content="Омографы · 同形异音" />
+  <meta name="format-detection" content="telephone=no" />
+  <meta name="theme-color" content="#eef2f8" />
+
+  <link rel="apple-touch-icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 180 180'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='0' y2='1'%3E%3Cstop offset='0' stop-color='%23eef2f8'/%3E%3Cstop offset='1' stop-color='%23d8e0ec'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='180' height='180' rx='40' fill='url(%23g)'/%3E%3Ctext x='90' y='118' font-size='70' font-weight='900' text-anchor='middle' fill='%234a6a9a' font-family='system-ui'%3E🎭%3C/text%3E%3C/svg%3E" />
+
   <title>Омографы · 同形异音词</title>
+
   <style>
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-    html, body { height: 100%; overflow: hidden; }
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      -webkit-tap-highlight-color: transparent;
+      -webkit-touch-callout: none;
+    }
+
+    html, body {
+      height: 100%;
+      overflow: hidden;
+      overscroll-behavior: none;
+      -webkit-user-select: none;
+      user-select: none;
+      position: fixed;
+      width: 100%;
+      -webkit-text-size-adjust: 100%;
+    }
+
     body {
-      font-family: system-ui, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+      font-family: -apple-system, BlinkMacSystemFont, system-ui, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
       background: linear-gradient(145deg, #eef2f8 0%, #d8e0ec 100%);
       height: 100vh;
-      display: flex; justify-content: center; align-items: center;
-      padding: 12px;
+      height: 100dvh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding:
+        calc(4px + env(safe-area-inset-top))
+        calc(4px + env(safe-area-inset-right))
+        calc(4px + env(safe-area-inset-bottom))
+        calc(4px + env(safe-area-inset-left));
     }
+
     .container {
       max-width: 820px; width: 100%; height: 98vh; max-height: 800px;
       background: rgba(238, 242, 248, 0.6);
@@ -25,6 +61,7 @@
       display: flex; flex-direction: column;
       position: relative;
     }
+
     h1 {
       text-align: center; font-weight: 700; font-size: 1.3rem;
       color: #1a2a4a; margin-bottom: 6px;
@@ -36,6 +73,7 @@
       padding: 2px 14px; border-radius: 30px;
       color: #3a4a6a; font-weight: 500;
     }
+
     .grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
@@ -69,7 +107,7 @@
     .card.has-rec {
       border-bottom: 5px solid #4caf50;
     }
-    
+
     .emoji-corner {
       position: absolute; top: 5px; left: 7px;
       font-size: 1.2rem; line-height: 1;
@@ -137,6 +175,15 @@
       margin-top: 4px;
       border: 1px solid rgba(140,155,180,0.15);
       width: 100%;
+    }
+    .example .ru {
+      display: block;
+      font-weight: 600;
+      color: #5a7050;
+      font-size: 0.4rem;
+      margin-top: 1px;
+      font-style: italic;
+      line-height: 1.25;
     }
 
     .card[data-color="n1"]  { --card-color: #2a4a7a; background: #dce6f2; }
@@ -378,515 +425,3 @@
     <div class="card" data-color="n12" data-key="o12" data-russian-audio="белки / белки" data-hanzi-audio="松鼠 / 蛋白质">
       <div class="emoji-corner">🐿️</div>
       <div class="rec-indicator" data-indicator>✓</div>
-      <div class="word-group">
-        <div class="russian-word">б<span class="stress">е</span>лки / белк<span class="stress">и</span></div>
-        <div class="hanzi">松鼠 / 蛋白质</div>
-        <div class="pinyin">sōngshǔ / dànbáizhì</div>
-      </div>
-      <div class="example">📌 рыжие <b>бе́лки</b> / яичные <b>белки́</b></div>
-    </div>
-
-    <!-- 13. ве́ртел / верте́л -->
-    <div class="card" data-color="n13" data-key="o13" data-russian-audio="вертел / вертел" data-hanzi-audio="烤肉叉 / 转动了">
-      <div class="emoji-corner">🍖</div>
-      <div class="rec-indicator" data-indicator>✓</div>
-      <div class="word-group">
-        <div class="russian-word">в<span class="stress">е</span>ртел / верт<span class="stress">е</span>л</div>
-        <div class="hanzi">烤肉叉 / 转动了</div>
-        <div class="pinyin">kǎoròuchā / zhuǎndòng le</div>
-      </div>
-      <div class="example">📌 курица на <b>ве́ртеле</b> / он <b>верте́л</b> головой</div>
-    </div>
-
-    <!-- 14. хло́пок / хлопо́к -->
-    <div class="card" data-color="n14" data-key="o14" data-russian-audio="хлопок / хлопок" data-hanzi-audio="拍手声 / 棉花">
-      <div class="emoji-corner">👏</div>
-      <div class="rec-indicator" data-indicator>✓</div>
-      <div class="word-group">
-        <div class="russian-word">хл<span class="stress">о</span>пок / хлоп<span class="stress">о</span>к</div>
-        <div class="hanzi">拍手声 / 棉花</div>
-        <div class="pinyin">pāishǒushēng / miánhuā</div>
-      </div>
-      <div class="example">📌 громкий <b>хло́пок</b> / белый <b>хлопо́к</b></div>
-    </div>
-
-    <!-- 15. пла́чу / плачу́ -->
-    <div class="card" data-color="n15" data-key="o15" data-russian-audio="плачу / плачу" data-hanzi-audio="我哭 / 我付款">
-      <div class="emoji-corner">😭</div>
-      <div class="rec-indicator" data-indicator>✓</div>
-      <div class="word-group">
-        <div class="russian-word">пл<span class="stress">а</span>чу (от плакать) / плач<span class="stress">у</span> (от платить)</div>
-        <div class="hanzi">我哭 / 我付款</div>
-        <div class="pinyin">wǒ kū / wǒ fùkuǎn</div>
-      </div>
-      <div class="example">📌 я <b>пла́чу</b> от боли / я <b>плачу́</b> за покупку</div>
-    </div>
-
-  </div>
-
-  <div class="rec-panel" id="recPanel">
-    <span class="rec-panel-title">🎙️ запись:</span>
-  </div>
-</div>
-
-<script>
-  (function() {
-    const cards = document.querySelectorAll('.card');
-    const recPanel = document.getElementById('recPanel');
-
-    let audioUnlocked = false;
-    let sharedAudioCtx = null;
-    let currentAudio = null; // Для остановки предыдущей записи
-
-    function unlockAudio() {
-      if (audioUnlocked) return;
-      audioUnlocked = true;
-      try {
-        const Ctx = window.AudioContext || window.webkitAudioContext;
-        if (Ctx) {
-          if (!sharedAudioCtx) sharedAudioCtx = new Ctx();
-          if (sharedAudioCtx.state === 'suspended') sharedAudioCtx.resume();
-        }
-      } catch (e) {}
-      try {
-        const warmup = new SpeechSynthesisUtterance(' ');
-        warmup.volume = 0;
-        warmup.lang = 'ru-RU';
-        window.speechSynthesis.speak(warmup);
-      } catch (e) {}
-    }
-
-    document.addEventListener('touchstart', unlockAudio, { once: true, passive: true });
-    document.addEventListener('click', unlockAudio, { once: true });
-
-    function getChineseVoice() {
-      const voices = window.speechSynthesis.getVoices();
-      let voice = voices.find(v => v.lang === 'zh-CN');
-      if (!voice) voice = voices.find(v => v.lang.startsWith('zh'));
-      return voice || null;
-    }
-    function getRussianVoice() {
-      const voices = window.speechSynthesis.getVoices();
-      let voice = voices.find(v => v.lang === 'ru-RU');
-      if (!voice) voice = voices.find(v => v.lang.startsWith('ru'));
-      return voice || null;
-    }
-
-    const STORAGE_PREFIX = 'custom_rec_hom_';
-    const recordedAudios = {};
-
-    function loadSavedRecordings() {
-      cards.forEach(card => {
-        const key = card.dataset.key;
-        if (!key) return;
-        const stored = localStorage.getItem(STORAGE_PREFIX + key);
-        if (stored) recordedAudios[key] = stored;
-      });
-    }
-
-    function createNumberButtons() {
-      cards.forEach((card, idx) => {
-        const key = card.dataset.key;
-        const num = idx + 1;
-
-        const btn = document.createElement('button');
-        btn.type = 'button';
-        btn.className = 'rec-num';
-        btn.dataset.key = key;
-        btn.dataset.num = num;
-        btn.textContent = num;
-        btn.title = `Запись для карточки №${num}`;
-        recPanel.appendChild(btn);
-
-        btn.addEventListener('click', (e) => {
-          e.stopPropagation();
-          handleNumberClick(card, btn);
-        });
-
-        updateNumberButton(card, btn);
-      });
-    }
-
-    function updateNumberButton(card, btn) {
-      const key = card.dataset.key;
-      const hasRec = !!recordedAudios[key];
-      if (!btn) btn = recPanel.querySelector(`.rec-num[data-key="${key}"]`);
-      if (!btn) return;
-
-      if (hasRec) {
-        btn.classList.add('has-rec');
-        btn.title = `Запись №${btn.dataset.num} есть. Клик — удалить.`;
-      } else {
-        btn.classList.remove('has-rec');
-        btn.title = `Записать перевод для карточки №${btn.dataset.num}`;
-      }
-    }
-
-    function updateCardIndicator(card) {
-      const key = card.dataset.key;
-      const indicator = card.querySelector('[data-indicator]');
-      if (!indicator) return;
-      const hasRec = !!recordedAudios[key];
-      if (hasRec) {
-        indicator.classList.add('show');
-        card.classList.add('has-rec');
-      } else {
-        indicator.classList.remove('show');
-        card.classList.remove('has-rec');
-      }
-    }
-
-    function getBestMimeType() {
-      const candidates = ['audio/mp4', 'audio/mp4;codecs=mp4a.40.2', 'audio/webm;codecs=opus', 'audio/webm'];
-      if (typeof MediaRecorder === 'undefined') return '';
-      for (const t of candidates) {
-        try { if (MediaRecorder.isTypeSupported(t)) return t; } catch (e) {}
-      }
-      return '';
-    }
-
-    let mediaRecorder = null;
-    let recordedChunks = [];
-    let recordingKey = null;
-    let currentStream = null;
-
-    async function handleNumberClick(card, btn) {
-      unlockAudio();
-      const key = card.dataset.key;
-
-      if (recordingKey === key) {
-        if (mediaRecorder && mediaRecorder.state !== 'inactive') mediaRecorder.stop();
-        return;
-      }
-
-      if (mediaRecorder && mediaRecorder.state !== 'inactive') {
-        mediaRecorder.stop();
-        await new Promise(r => setTimeout(r, 250));
-      }
-
-      if (recordedAudios[key]) {
-        if (confirm(`Удалить запись №${btn.dataset.num}?`)) {
-          delete recordedAudios[key];
-          try { localStorage.removeItem(STORAGE_PREFIX + key); } catch (e) {}
-          updateNumberButton(card, btn);
-          updateCardIndicator(card);
-        }
-        return;
-      }
-
-      try {
-        currentStream = await navigator.mediaDevices.getUserMedia({
-          audio: { echoCancellation: true, noiseSuppression: true, autoGainControl: true }
-        });
-
-        const mimeType = getBestMimeType();
-        const options = mimeType ? { mimeType } : {};
-        mediaRecorder = new MediaRecorder(currentStream, options);
-        recordedChunks = [];
-        recordingKey = key;
-
-        btn.classList.add('recording');
-        btn.textContent = '⏹';
-
-        const indicator = card.querySelector('[data-indicator]');
-        if (indicator) {
-          indicator.classList.add('show', 'recording');
-          indicator.textContent = '●';
-        }
-
-        mediaRecorder.ondataavailable = (e) => {
-          if (e.data && e.data.size > 0) recordedChunks.push(e.data);
-        };
-
-        mediaRecorder.onstop = async () => {
-          if (currentStream) {
-            currentStream.getTracks().forEach(t => t.stop());
-            currentStream = null;
-          }
-          btn.classList.remove('recording');
-          btn.textContent = btn.dataset.num;
-
-          const ind = card.querySelector('[data-indicator]');
-          if (ind) {
-            ind.classList.remove('recording');
-            ind.textContent = '✓';
-          }
-
-          if (recordedChunks.length === 0) { recordingKey = null; return; }
-
-          const blobMime = mediaRecorder.mimeType || mimeType || 'audio/mp4';
-          const blob = new Blob(recordedChunks, { type: blobMime });
-
-          let finalBlob = blob;
-          try { finalBlob = await normalizeAudio(blob); } catch (e) {}
-
-          let url;
-          try { url = await blobToDataURL(finalBlob); } catch (e) { recordingKey = null; return; }
-
-          recordedAudios[key] = url;
-          try { localStorage.setItem(STORAGE_PREFIX + key, url); }
-          catch (e) { alert('Не хватает места. Удалите старые записи.'); }
-
-          updateNumberButton(card, btn);
-          updateCardIndicator(card);
-          recordingKey = null;
-        };
-
-        mediaRecorder.onerror = () => {
-          if (currentStream) {
-            currentStream.getTracks().forEach(t => t.stop());
-            currentStream = null;
-          }
-          btn.classList.remove('recording');
-          btn.textContent = btn.dataset.num;
-          recordingKey = null;
-        };
-
-        mediaRecorder.start();
-      } catch (err) {
-        alert('Не удалось получить доступ к микрофону.');
-        recordingKey = null;
-      }
-    }
-
-    async function normalizeAudio(blob) {
-      const arrayBuffer = await blob.arrayBuffer();
-      const Ctx = window.AudioContext || window.webkitAudioContext;
-      if (!Ctx) return blob;
-      let audioCtx;
-      try { audioCtx = sharedAudioCtx || new Ctx(); } catch (e) { return blob; }
-      if (audioCtx.state === 'suspended') { try { await audioCtx.resume(); } catch (e) {} }
-      let audioBuffer;
-      try { audioBuffer = await audioCtx.decodeAudioData(arrayBuffer.slice(0)); } catch (e) { return blob; }
-      let peak = 0;
-      for (let ch = 0; ch < audioBuffer.numberOfChannels; ch++) {
-        const data = audioBuffer.getChannelData(ch);
-        for (let i = 0; i < data.length; i++) {
-          const abs = Math.abs(data[i]);
-          if (abs > peak) peak = abs;
-        }
-      }
-      const targetPeak = 0.95;
-      const gain = peak > 0 ? targetPeak / peak : 1;
-      const cappedGain = Math.min(gain, 8);
-      for (let ch = 0; ch < audioBuffer.numberOfChannels; ch++) {
-        const data = audioBuffer.getChannelData(ch);
-        for (let i = 0; i < data.length; i++) {
-          data[i] = Math.max(-1, Math.min(1, data[i] * cappedGain));
-        }
-      }
-      return audioBufferToWav(audioBuffer);
-    }
-
-    function audioBufferToWav(buffer) {
-      const numCh = buffer.numberOfChannels;
-      const sampleRate = buffer.sampleRate;
-      const length = buffer.length * numCh * 2 + 44;
-      const arrayBuffer = new ArrayBuffer(length);
-      const view = new DataView(arrayBuffer);
-      const writeString = (offset, str) => {
-        for (let i = 0; i < str.length; i++) view.setUint8(offset + i, str.charCodeAt(i));
-      };
-      writeString(0, 'RIFF');
-      view.setUint32(4, length - 8, true);
-      writeString(8, 'WAVE');
-      writeString(12, 'fmt ');
-      view.setUint32(16, 16, true);
-      view.setUint16(20, 1, true);
-      view.setUint16(22, numCh, true);
-      view.setUint32(24, sampleRate, true);
-      view.setUint32(28, sampleRate * numCh * 2, true);
-      view.setUint16(32, numCh * 2, true);
-      view.setUint16(34, 16, true);
-      writeString(36, 'data');
-      view.setUint32(40, length - 44, true);
-      let offset = 44;
-      const channels = [];
-      for (let i = 0; i < numCh; i++) channels.push(buffer.getChannelData(i));
-      for (let i = 0; i < buffer.length; i++) {
-        for (let ch = 0; ch < numCh; ch++) {
-          let sample = Math.max(-1, Math.min(1, channels[ch][i]));
-          sample = sample < 0 ? sample * 0x8000 : sample * 0x7FFF;
-          view.setInt16(offset, sample, true);
-          offset += 2;
-        }
-      }
-      return new Blob([arrayBuffer], { type: 'audio/wav' });
-    }
-
-    function blobToDataURL(blob) {
-      return new Promise((resolve, reject) => {
-        const reader = new FileReader();
-        reader.onload = () => resolve(reader.result);
-        reader.onerror = reject;
-        reader.readAsDataURL(blob);
-      });
-    }
-
-    function cleanText(text) {
-      return text
-        .replace(/\s*\([^)]*\)\s*/g, ' ')
-        .replace(/\s*（[^）]*）\s*/g, ' ')
-        .replace(/[\u{1F000}-\u{1FAFF}\u{2600}-\u{27BF}\u{FE0F}\u{200D}]/gu, ' ')
-        .replace(/\s+/g, ' ')
-        .trim();
-    }
-
-    function speakParts(text, lang, rate, voiceGetter, onComplete) {
-      const clean = cleanText(text);
-      const parts = clean.split(/\s*\/\s*/).filter(p => p.length > 0);
-      if (parts.length === 0) { if (onComplete) setTimeout(onComplete, 200); return; }
-
-      let index = 0;
-      function next() {
-        if (index >= parts.length) { if (onComplete) setTimeout(onComplete, 200); return; }
-        const part = parts[index];
-        index++;
-        const utter = new SpeechSynthesisUtterance(part);
-        utter.lang = lang;
-        utter.rate = rate;
-        utter.pitch = 1.0;
-        utter.volume = 1.0;
-        const voice = voiceGetter();
-        if (voice) utter.voice = voice;
-
-        let finished = false;
-        const finish = () => {
-          if (finished) return;
-          finished = true;
-          if (index < parts.length) setTimeout(next, lang.startsWith('zh') ? 600 : 500);
-          else if (onComplete) setTimeout(onComplete, 200);
-        };
-
-        utter.onend = finish;
-        utter.onerror = finish;
-        const safety = setTimeout(finish, 8000);
-
-        try {
-          window.speechSynthesis.speak(utter);
-        } catch (e) {
-          clearTimeout(safety);
-          finish();
-        }
-      }
-      next();
-    }
-
-    function speakRussian(text, onComplete) {
-      speakParts(text, 'ru-RU', 0.85, getRussianVoice, onComplete);
-    }
-    function speakChinese(text, onComplete) {
-      speakParts(text, 'zh-CN', 0.7, getChineseVoice, onComplete);
-    }
-
-    function playRecorded(key, onEnd) {
-      const url = recordedAudios[key];
-      if (!url) { if (onEnd) onEnd(); return; }
-      if (sharedAudioCtx && sharedAudioCtx.state === 'suspended') sharedAudioCtx.resume().catch(() => {});
-      
-      // Останавливаем предыдущее аудио, если оно было
-      if (currentAudio) {
-        currentAudio.pause();
-        currentAudio.currentTime = 0;
-      }
-
-      currentAudio = new Audio(url);
-      currentAudio.volume = 1.0;
-      currentAudio.setAttribute('playsinline', 'true');
-      currentAudio.setAttribute('webkit-playsinline', 'true');
-      currentAudio.onended = () => { 
-        currentAudio = null;
-        if (onEnd) onEnd(); 
-      };
-      currentAudio.onerror = () => { 
-        currentAudio = null;
-        if (onEnd) onEnd(); 
-      };
-      const p = currentAudio.play();
-      if (p && p.catch) p.catch(() => { 
-        currentAudio = null;
-        if (onEnd) onEnd(); 
-      });
-    }
-
-    // Строгая последовательность: сначала русский, потом китайский, без обрывов
-    function speakRussianThenChinese(card) {
-      window.speechSynthesis.cancel();
-      if (currentAudio) {
-        currentAudio.pause();
-        currentAudio.currentTime = 0;
-        currentAudio = null;
-      }
-
-      const hanziText = card.dataset.hanziAudio;
-      const key = card.dataset.key;
-      const russianText = card.dataset.russianAudio;
-
-      const afterRussian = function() {
-        setTimeout(() => {
-          speakChinese(hanziText, null);
-        }, 300); // Пауза 0.3 сек для мягкого перехода
-      };
-
-      if (recordedAudios[key]) {
-        playRecorded(key, afterRussian);
-      } else {
-        speakRussian(russianText, afterRussian);
-      }
-    }
-
-    function clearActive() { cards.forEach(c => c.classList.remove('active')); }
-
-    loadSavedRecordings();
-    createNumberButtons();
-    cards.forEach(card => updateCardIndicator(card));
-
-    cards.forEach(card => {
-      card.addEventListener('click', function(e) {
-        if (e.target.closest('.rec-num')) return;
-        e.stopPropagation();
-        
-        // Если кликаем на ту же карточку, которая уже играет - ничего не делаем (или перезапускаем)
-        const wasActive = this.classList.contains('active');
-        
-        window.speechSynthesis.cancel();
-        if (currentAudio) {
-          currentAudio.pause();
-          currentAudio.currentTime = 0;
-          currentAudio = null;
-        }
-        
-        clearActive();
-        this.classList.add('active');
-        
-        // Небольшая задержка перед запуском, чтобы браузер успел прогрузить аудио
-        setTimeout(() => speakRussianThenChinese(this), 50);
-      });
-    });
-
-    document.addEventListener('click', function(e) {
-      if (!e.target.closest('.card') && !e.target.closest('.rec-panel')) {
-        window.speechSynthesis.cancel();
-        if (currentAudio) {
-          currentAudio.pause();
-          currentAudio.currentTime = 0;
-          currentAudio = null;
-        }
-        clearActive();
-      }
-    });
-
-    let lastTouch = 0;
-    document.addEventListener('touchend', (e) => {
-      const now = Date.now();
-      if (now - lastTouch <= 300) e.preventDefault();
-      lastTouch = now;
-    }, { passive: false });
-
-    window.speechSynthesis.getVoices();
-    window.speechSynthesis.onvoiceschanged = () => window.speechSynthesis.getVoices();
-  })();
-</script>
-
-</body>
-</html>

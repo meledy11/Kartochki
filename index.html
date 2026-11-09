@@ -436,6 +436,7 @@
 
     let audioUnlocked = false;
     let sharedAudioCtx = null;
+    let currentAudio = null; // Для остановки предыдущей записи
 
     function unlockAudio() {
       if (audioUnlocked) return;
@@ -452,11 +453,6 @@
         warmup.volume = 0;
         warmup.lang = 'ru-RU';
         window.speechSynthesis.speak(warmup);
-      } catch (e) {}
-      try {
-        const silent = new Audio('data:audio/wav;base64,UklGRiQAAABXQVZFZm10IBAAAAABAAEARKwAAIhYAQACABAAZGF0YQAAAAA=');
-        silent.volume = 0;
-        silent.play().catch(() => {});
       } catch (e) {}
     }
 
@@ -787,31 +783,55 @@
       const url = recordedAudios[key];
       if (!url) { if (onEnd) onEnd(); return; }
       if (sharedAudioCtx && sharedAudioCtx.state === 'suspended') sharedAudioCtx.resume().catch(() => {});
-      const audio = new Audio(url);
-      audio.volume = 1.0;
-      audio.setAttribute('playsinline', 'true');
-      audio.setAttribute('webkit-playsinline', 'true');
-      audio.onended = () => { if (onEnd) onEnd(); };
-      audio.onerror = () => { if (onEnd) onEnd(); };
-      const p = audio.play();
-      if (p && p.catch) p.catch(() => { if (onEnd) onEnd(); });
+      
+      // Останавливаем предыдущее аудио, если оно было
+      if (currentAudio) {
+        currentAudio.pause();
+        currentAudio.currentTime = 0;
+      }
+
+      currentAudio = new Audio(url);
+      currentAudio.volume = 1.0;
+      currentAudio.setAttribute('playsinline', 'true');
+      currentAudio.setAttribute('webkit-playsinline', 'true');
+      currentAudio.onended = () => { 
+        currentAudio = null;
+        if (onEnd) onEnd(); 
+      };
+      currentAudio.onerror = () => { 
+        currentAudio = null;
+        if (onEnd) onEnd(); 
+      };
+      const p = currentAudio.play();
+      if (p && p.catch) p.catch(() => { 
+        currentAudio = null;
+        if (onEnd) onEnd(); 
+      });
     }
 
-    // Новая логика: китайский стартует сразу, русская запись играет параллельно
+    // Строгая последовательность: сначала русский, потом китайский, без обрывов
     function speakRussianThenChinese(card) {
       window.speechSynthesis.cancel();
+      if (currentAudio) {
+        currentAudio.pause();
+        currentAudio.currentTime = 0;
+        currentAudio = null;
+      }
+
       const hanziText = card.dataset.hanziAudio;
       const key = card.dataset.key;
       const russianText = card.dataset.russianAudio;
 
-      // 1. Сразу запускаем китайский синтез
-      speakChinese(hanziText, null);
+      const afterRussian = function() {
+        setTimeout(() => {
+          speakChinese(hanziText, null);
+        }, 300); // Пауза 0.3 сек для мягкого перехода
+      };
 
-      // 2. Параллельно запускаем русскую часть (запись или синтез)
       if (recordedAudios[key]) {
-        playRecorded(key, null);
+        playRecorded(key, afterRussian);
       } else {
-        speakRussian(russianText, null);
+        speakRussian(russianText, afterRussian);
       }
     }
 
@@ -825,16 +845,33 @@
       card.addEventListener('click', function(e) {
         if (e.target.closest('.rec-num')) return;
         e.stopPropagation();
+        
+        // Если кликаем на ту же карточку, которая уже играет - ничего не делаем (или перезапускаем)
+        const wasActive = this.classList.contains('active');
+        
         window.speechSynthesis.cancel();
+        if (currentAudio) {
+          currentAudio.pause();
+          currentAudio.currentTime = 0;
+          currentAudio = null;
+        }
+        
         clearActive();
         this.classList.add('active');
-        setTimeout(() => speakRussianThenChinese(this), 60);
+        
+        // Небольшая задержка перед запуском, чтобы браузер успел прогрузить аудио
+        setTimeout(() => speakRussianThenChinese(this), 50);
       });
     });
 
     document.addEventListener('click', function(e) {
       if (!e.target.closest('.card') && !e.target.closest('.rec-panel')) {
         window.speechSynthesis.cancel();
+        if (currentAudio) {
+          currentAudio.pause();
+          currentAudio.currentTime = 0;
+          currentAudio = null;
+        }
         clearActive();
       }
     });

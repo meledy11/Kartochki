@@ -350,16 +350,16 @@
       <div class="example">📌 баня <b>па́рит</b> / орёл <b>пари́т</b></div>
     </div>
 
-    <!-- 10. за́пах / запа́х -->
-    <div class="card" data-color="n10" data-key="o10" data-russian-audio="запах / запах" data-hanzi-audio="气味 / 衣服的叠边">
-      <div class="emoji-corner">👃</div>
+    <!-- 10. и́рис / ири́с -->
+    <div class="card" data-color="n10" data-key="o10" data-russian-audio="ирис / ирис" data-hanzi-audio="鸢尾花 / 糖果">
+      <div class="emoji-corner">🌸</div>
       <div class="rec-indicator" data-indicator>✓</div>
       <div class="word-group">
-        <div class="russian-word">з<span class="stress">а</span>пах / зап<span class="stress">а</span>х</div>
-        <div class="hanzi">气味 / 衣服的叠边</div>
-        <div class="pinyin">qìwèi / yīfu de diébiān</div>
+        <div class="russian-word"><span class="stress">и</span>рис / ир<span class="stress">и</span>с</div>
+        <div class="hanzi">鸢尾花 / 糖果</div>
+        <div class="pinyin">yuānwěihuā / tángguǒ</div>
       </div>
-      <div class="example">📌 приятный <b>за́пах</b> / <b>запа́х</b> юбки</div>
+      <div class="example">📌 синий <b>и́рис</b> / сладкий <b>ири́с</b></div>
     </div>
 
     <!-- 11. ви́на / вина́ -->
@@ -398,28 +398,28 @@
       <div class="example">📌 курица на <b>ве́ртеле</b> / он <b>верте́л</b> головой</div>
     </div>
 
-    <!-- 14. ха́ос / хао́с -->
-    <div class="card" data-color="n14" data-key="o14" data-russian-audio="хаос / хаос" data-hanzi-audio="混乱 / 宇宙">
-      <div class="emoji-corner">🌌</div>
+    <!-- 14. хло́пок / хлопо́к -->
+    <div class="card" data-color="n14" data-key="o14" data-russian-audio="хлопок / хлопок" data-hanzi-audio="拍手声 / 棉花">
+      <div class="emoji-corner">👏</div>
       <div class="rec-indicator" data-indicator>✓</div>
       <div class="word-group">
-        <div class="russian-word">х<span class="stress">а</span>ос / ха<span class="stress">о</span>с</div>
-        <div class="hanzi">混乱 / 宇宙</div>
-        <div class="pinyin">hùnluàn / yǔzhòu</div>
+        <div class="russian-word">хл<span class="stress">о</span>пок / хлоп<span class="stress">о</span>к</div>
+        <div class="hanzi">拍手声 / 棉花</div>
+        <div class="pinyin">pāishǒushēng / miánhuā</div>
       </div>
-      <div class="example">📌 полный <b>ха́ос</b> / первобытный <b>хао́с</b></div>
+      <div class="example">📌 громкий <b>хло́пок</b> / белый <b>хлопо́к</b></div>
     </div>
 
-    <!-- 15. ле́дник / ледни́к -->
-    <div class="card" data-color="n15" data-key="o15" data-russian-audio="ледник / ледник" data-hanzi-audio="冰窖 / 冰川">
-      <div class="emoji-corner">🧊</div>
+    <!-- 15. пла́чу / плачу́ -->
+    <div class="card" data-color="n15" data-key="o15" data-russian-audio="плачу / плачу" data-hanzi-audio="我哭 / 我付款">
+      <div class="emoji-corner">😭</div>
       <div class="rec-indicator" data-indicator>✓</div>
       <div class="word-group">
-        <div class="russian-word">л<span class="stress">е</span>дник / ледн<span class="stress">и</span>к</div>
-        <div class="hanzi">冰窖 / 冰川</div>
-        <div class="pinyin">bīngjiào / bīngchuān</div>
+        <div class="russian-word">пл<span class="stress">а</span>чу (от плакать) / плач<span class="stress">у</span> (от платить)</div>
+        <div class="hanzi">我哭 / 我付款</div>
+        <div class="pinyin">wǒ kū / wǒ fùkuǎn</div>
       </div>
-      <div class="example">📌 мясо в <b>ле́днике</b> / горный <b>ледни́к</b></div>
+      <div class="example">📌 я <b>пла́чу</b> от боли / я <b>плачу́</b> за покупку</div>
     </div>
 
   </div>
@@ -797,22 +797,21 @@
       if (p && p.catch) p.catch(() => { if (onEnd) onEnd(); });
     }
 
+    // Новая логика: китайский стартует сразу, русская запись играет параллельно
     function speakRussianThenChinese(card) {
       window.speechSynthesis.cancel();
       const hanziText = card.dataset.hanziAudio;
       const key = card.dataset.key;
       const russianText = card.dataset.russianAudio;
 
-      const afterRussian = function() {
-        setTimeout(() => {
-          speakChinese(hanziText, null);
-        }, 500);
-      };
+      // 1. Сразу запускаем китайский синтез
+      speakChinese(hanziText, null);
 
+      // 2. Параллельно запускаем русскую часть (запись или синтез)
       if (recordedAudios[key]) {
-        playRecorded(key, afterRussian);
+        playRecorded(key, null);
       } else {
-        speakRussian(russianText, afterRussian);
+        speakRussian(russianText, null);
       }
     }
 

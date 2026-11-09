@@ -435,7 +435,7 @@
 
     let audioUnlocked = false;
     let sharedAudioCtx = null;
-    let currentAudio = null;
+    let currentAudio = null; // Для остановки предыдущей записи
 
     function unlockAudio() {
       if (audioUnlocked) return;
@@ -450,7 +450,7 @@
       try {
         const warmup = new SpeechSynthesisUtterance(' ');
         warmup.volume = 0;
-        warmup.lang = 'ru-RU';
+        warmup.lang = 'ru-RU'; // Прогрев под русский
         window.speechSynthesis.speak(warmup);
       } catch (e) {}
     }
@@ -783,6 +783,7 @@
       if (!url) { if (onEnd) onEnd(); return; }
       if (sharedAudioCtx && sharedAudioCtx.state === 'suspended') sharedAudioCtx.resume().catch(() => {});
       
+      // Останавливаем предыдущее аудио, если оно было
       if (currentAudio) {
         currentAudio.pause();
         currentAudio.currentTime = 0;
@@ -821,6 +822,7 @@
       const russianText = card.dataset.russianAudio;
 
       const afterRussian = function() {
+        // Как только русский закончил, ждем ровно 1 секунду и включаем китайский
         setTimeout(() => {
           speakChinese(hanziText, null);
         }, 1000); 

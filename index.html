@@ -47,18 +47,17 @@
       padding: 2px 10px; border-radius: 20px; border: 1px solid #b2dfdb;
     }
 
-    /* СЕТКА (3 колонки) */
+    /* СЕТКА (3 колонки, БЕЗ прокрутки) */
     .grid {
-      display: grid; grid-template-columns: repeat(3, 1fr); grid-auto-rows: 1fr; gap: 5px;
-      flex: 1; min-height: 0; overflow-y: auto; align-content: stretch;
-      padding: 2px; scrollbar-width: none; margin-bottom: 6px;
+      display: grid; grid-template-columns: repeat(3, 1fr); grid-auto-rows: 1fr; gap: 4px;
+      flex: 1; min-height: 0; align-content: stretch;
+      padding: 2px; margin-bottom: 4px;
     }
-    .grid::-webkit-scrollbar { display: none; }
 
     /* КАРТОЧКИ */
     .card {
-      border-radius: 14px; padding: 4px 3px;
-      display: flex; flex-direction: column; align-items: center; justify-content: flex-start;
+      border-radius: 14px; padding: 4px 2px;
+      display: flex; flex-direction: column; align-items: center; justify-content: space-between;
       cursor: pointer; position: relative;
       border: 1.5px solid transparent; transition: all 0.15s ease;
       text-align: center; min-height: 0;
@@ -81,7 +80,7 @@
     /* Эмодзи */
     .emoji-corner {
       position: absolute; top: 4px; left: 6px;
-      font-size: 1.1rem; line-height: 1; opacity: 0.8;
+      font-size: 1rem; line-height: 1; opacity: 0.8;
     }
 
     /* Цвета карточек */
@@ -103,31 +102,27 @@
 
     .word-group {
       display: flex; flex-direction: column; align-items: center; gap: 1px; width: 100%;
-      margin-top: 10px; /* Чуть уменьшили отступ под эмодзи */
+      margin-top: 12px; /* Отступ под эмодзи */
     }
 
-    /* ИЕРОГЛИФЫ (ЕЩЕ КРУПНЕЕ) */
+    /* ИЕРОГЛИФЫ */
     .hanzi {
       font-family: 'Noto Serif SC', serif;
-      font-size: 1.55rem; /* Было 1.25rem, теперь 1.55rem */
-      font-weight: 900; color: #111; margin-bottom: 2px;
-      line-height: 1.1; letter-spacing: 1px;
+      font-size: 1.35rem; font-weight: 900; color: #111; margin-bottom: 1px;
+      line-height: 1.1; white-space: nowrap;
     }
 
-    /* РУССКИЙ ПЕРЕВОД (КРУПНЫЙ) */
+    /* РУССКИЙ ПЕРЕВОД */
     .russian-word {
-      font-size: 0.9rem;
-      font-weight: 800;
-      line-height: 1.15; color: #3e2723; margin: 1px 0;
-      word-break: break-word;
+      font-size: 0.8rem; font-weight: 800; line-height: 1.1; color: #3e2723; margin: 1px 0;
+      white-space: nowrap;
     }
     .russian-word .stress { color: #e53935; font-weight: 900; }
 
-    /* Пиньинь (печатный) */
+    /* Пиньинь */
     .pinyin {
-      font-family: inherit;
-      font-size: 0.65rem; font-weight: 800; color: #f06292; margin-bottom: 2px;
-      letter-spacing: 0.5px;
+      font-size: 0.6rem; font-weight: 800; color: #f06292; margin-bottom: 1px;
+      white-space: nowrap;
     }
     .card[data-color="n1"] .pinyin { color: #1976d2; }
     .card[data-color="n2"] .pinyin { color: #d81b60; }
@@ -145,24 +140,25 @@
     .card[data-color="n14"] .pinyin { color: #ffa000; }
     .card[data-color="n15"] .pinyin { color: #0097a7; }
 
-    /* Примеры (чуть мельче, чтобы не мешали) */
+    /* Примеры (максимально компактные, чтобы влезло) */
     .example {
       font-size: 0.45rem; color: #555; line-height: 1.1;
-      border-top: 1px dashed rgba(0,0,0,0.1); padding-top: 2px; margin-top: auto; width: 95%;
+      border-top: 1px dashed rgba(0,0,0,0.1); padding-top: 1px; margin-top: auto; width: 95%;
+      white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
     }
     .example b { color: #d32f2f; }
 
     /* ПАНЕЛЬ ЗАПИСИ */
     .rec-panel {
-      padding: 6px 8px;
+      padding: 4px 6px;
       background: #fdfaf5; border: 1px solid #e8dac8; border-radius: 10px;
-      display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 4px;
+      display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 3px;
       flex-shrink: 0;
     }
     .rec-panel-title { font-size: 0.6rem; font-weight: 800; color: #8a7a6a; margin-right: 2px; }
     .rec-num {
-      width: 22px; height: 22px; border-radius: 50%; border: 1px solid #dcd0c0;
-      background: #fff; color: #8a7a6a; font-size: 0.65rem; font-weight: 900;
+      width: 20px; height: 20px; border-radius: 50%; border: 1px solid #dcd0c0;
+      background: #fff; color: #8a7a6a; font-size: 0.6rem; font-weight: 900;
       display: flex; align-items: center; justify-content: center;
       cursor: pointer; position: relative; transition: 0.2s; padding: 0;
     }
@@ -170,17 +166,17 @@
     .rec-num.has-rec { background: #69f0ae; color: #fff; border-color: #69f0ae; }
     @keyframes pulse { 0%, 100% { box-shadow: 0 0 0 0 rgba(255,82,82,0.7); } 50% { box-shadow: 0 0 0 6px rgba(255,82,82,0); } }
 
-    /* АДАПТИВ */
+    /* АДАПТИВ (для маленьких экранов) */
     @media (max-width: 500px) {
-      .grid { gap: 4px; }
-      .card { padding: 4px 2px; border-radius: 10px; }
-      .hanzi { font-size: 1.35rem; } /* На мобильных тоже крупнее */
-      .russian-word { font-size: 0.8rem; }
-      .pinyin { font-size: 0.6rem; }
+      .grid { gap: 3px; }
+      .card { padding: 3px 1px; border-radius: 10px; }
+      .hanzi { font-size: 1.15rem; }
+      .russian-word { font-size: 0.7rem; }
+      .pinyin { font-size: 0.55rem; }
       .example { font-size: 0.4rem; }
-      .emoji-corner { font-size: 0.9rem; top: 3px; left: 4px; }
+      .emoji-corner { font-size: 0.9rem; top: 2px; left: 4px; }
       .header h1 { font-size: 1rem; }
-      .rec-num { width: 20px; height: 20px; font-size: 0.55rem; }
+      .rec-num { width: 18px; height: 18px; font-size: 0.5rem; }
     }
   </style>
 </head>
@@ -293,4 +289,548 @@
 
     <!-- 9 -->
     <div class="card" data-color="n9" data-key="p9" data-russian-audio="пропасть / пропасть" data-hanzi-audio="深渊 / 消失">
-      <div class="emoji-corner">🕳
+      <div class="emoji-corner">🕳️</div>
+      <div class="rec-indicator" data-indicator>✓</div>
+      <div class="word-group">
+        <div class="hanzi">深渊 / 消失</div>
+        <div class="russian-word">пр<span class="stress">о</span>пасть / проп<span class="stress">а</span>сть</div>
+        <div class="pinyin">shēnyuān / xiāoshī</div>
+      </div>
+      <div class="example">📌 тёмная <b>про́пасть</b> / может <b>пропа́сть</b></div>
+    </div>
+
+    <!-- 10 -->
+    <div class="card" data-color="n10" data-key="p10" data-russian-audio="дорога / дорога" data-hanzi-audio="道路 / 贵的">
+      <div class="emoji-corner">🛣️</div>
+      <div class="rec-indicator" data-indicator>✓</div>
+      <div class="word-group">
+        <div class="hanzi">道路 / 贵的</div>
+        <div class="russian-word">дор<span class="stress">о</span>га / дорог<span class="stress">а</span></div>
+        <div class="pinyin">dàolù / guì de</div>
+      </div>
+      <div class="example">📌 длинная <b>доро́га</b> / очень <b>дорога́</b></div>
+    </div>
+
+    <!-- 11 -->
+    <div class="card" data-color="n11" data-key="p11" data-russian-audio="стоит / стоит" data-hanzi-audio="值 / 站立">
+      <div class="emoji-corner">💰</div>
+      <div class="rec-indicator" data-indicator>✓</div>
+      <div class="word-group">
+        <div class="hanzi">值 / 站立</div>
+        <div class="russian-word">ст<span class="stress">о</span>ит / сто<span class="stress">и</span>т</div>
+        <div class="pinyin">zhí / zhànlì</div>
+      </div>
+      <div class="example">📌 сколько <b>сто́ит</b> / дом <b>стои́т</b></div>
+    </div>
+
+    <!-- 12 -->
+    <div class="card" data-color="n12" data-key="p12" data-russian-audio="роды / роды" data-hanzi-audio="分娩 / 种类">
+      <div class="emoji-corner">👶</div>
+      <div class="rec-indicator" data-indicator>✓</div>
+      <div class="word-group">
+        <div class="hanzi">分娩 / 种类</div>
+        <div class="russian-word">р<span class="stress">о</span>ды / род<span class="stress">ы</span></div>
+        <div class="pinyin">fēnmiǎn / zhǒnglèi</div>
+      </div>
+      <div class="example">📌 тяжёлые <b>ро́ды</b> / разные <b>роды́</b> войск</div>
+    </div>
+
+    <!-- 13 -->
+    <div class="card" data-color="n13" data-key="p13" data-russian-audio="пекло / пекло" data-hanzi-audio="地狱 / 烤">
+      <div class="emoji-corner">🔥</div>
+      <div class="rec-indicator" data-indicator>✓</div>
+      <div class="word-group">
+        <div class="hanzi">地狱 / 烤</div>
+        <div class="russian-word">п<span class="stress">е</span>кло / пекл<span class="stress">о</span></div>
+        <div class="pinyin">dìyù / kǎo</div>
+      </div>
+      <div class="example">📌 адское <b>пе́кло</b> / солнце <b>пекло́</b></div>
+    </div>
+
+    <!-- 14 -->
+    <div class="card" data-color="n14" data-key="p14" data-russian-audio="паром / паром" data-hanzi-audio="蒸汽 / 渡轮">
+      <div class="emoji-corner">⛴️</div>
+      <div class="rec-indicator" data-indicator>✓</div>
+      <div class="word-group">
+        <div class="hanzi">蒸汽 / 渡轮</div>
+        <div class="russian-word">п<span class="stress">а</span>ром / пар<span class="stress">о</span>м</div>
+        <div class="pinyin">zhēngqì / dùlún</div>
+      </div>
+      <div class="example">📌 дышать <b>па́ром</b> / плыть <b>паро́м</b></div>
+    </div>
+
+    <!-- 15 -->
+    <div class="card" data-color="n15" data-key="p15" data-russian-audio="клещи / клещи" data-hanzi-audio="钳子 / 蜱虫">
+      <div class="emoji-corner">🪲</div>
+      <div class="rec-indicator" data-indicator>✓</div>
+      <div class="word-group">
+        <div class="hanzi">钳子 / 蜱虫</div>
+        <div class="russian-word">кл<span class="stress">е</span>щи / клещ<span class="stress">и</span></div>
+        <div class="pinyin">qiánzi / píchóng</div>
+      </div>
+      <div class="example">📌 столярные <b>кле́щи</b> / лесные <b>клещи́</b></div>
+    </div>
+
+  </div>
+
+  <div class="rec-panel" id="recPanel">
+    <span class="rec-panel-title">🎙️ Запись:</span>
+  </div>
+
+</div>
+
+<script>
+  (function() {
+    const cards = document.querySelectorAll('.card');
+    const recPanel = document.getElementById('recPanel');
+
+    let audioUnlocked = false;
+    let sharedAudioCtx = null;
+    let currentAudio = null;
+
+    function unlockAudio() {
+      if (audioUnlocked) return;
+      audioUnlocked = true;
+      try {
+        const Ctx = window.AudioContext || window.webkitAudioContext;
+        if (Ctx) {
+          if (!sharedAudioCtx) sharedAudioCtx = new Ctx();
+          if (sharedAudioCtx.state === 'suspended') sharedAudioCtx.resume();
+        }
+      } catch (e) {}
+      try {
+        const warmup = new SpeechSynthesisUtterance(' ');
+        warmup.volume = 0;
+        warmup.lang = 'ru-RU';
+        window.speechSynthesis.speak(warmup);
+      } catch (e) {}
+    }
+
+    document.addEventListener('touchstart', unlockAudio, { once: true, passive: true });
+    document.addEventListener('click', unlockAudio, { once: true });
+
+    function getChineseVoice() {
+      const voices = window.speechSynthesis.getVoices();
+      let voice = voices.find(v => v.lang === 'zh-CN');
+      if (!voice) voice = voices.find(v => v.lang.startsWith('zh'));
+      return voice || null;
+    }
+    function getRussianVoice() {
+      const voices = window.speechSynthesis.getVoices();
+      let voice = voices.find(v => v.lang === 'ru-RU');
+      if (!voice) voice = voices.find(v => v.lang.startsWith('ru'));
+      return voice || null;
+    }
+
+    const STORAGE_PREFIX = 'custom_rec_hom_';
+    const recordedAudios = {};
+
+    function loadSavedRecordings() {
+      cards.forEach(card => {
+        const key = card.dataset.key;
+        if (!key) return;
+        const stored = localStorage.getItem(STORAGE_PREFIX + key);
+        if (stored) recordedAudios[key] = stored;
+      });
+    }
+
+    function createNumberButtons() {
+      cards.forEach((card, idx) => {
+        const key = card.dataset.key;
+        const num = idx + 1;
+
+        const btn = document.createElement('button');
+        btn.type = 'button';
+        btn.className = 'rec-num';
+        btn.dataset.key = key;
+        btn.dataset.num = num;
+        btn.textContent = num;
+        btn.title = `Запись для карточки №${num}`;
+        recPanel.appendChild(btn);
+
+        btn.addEventListener('click', (e) => {
+          e.stopPropagation();
+          handleNumberClick(card, btn);
+        });
+
+        updateNumberButton(card, btn);
+      });
+    }
+
+    function updateNumberButton(card, btn) {
+      const key = card.dataset.key;
+      const hasRec = !!recordedAudios[key];
+      if (!btn) btn = recPanel.querySelector(`.rec-num[data-key="${key}"]`);
+      if (!btn) return;
+
+      if (hasRec) {
+        btn.classList.add('has-rec');
+        btn.title = `Запись №${btn.dataset.num} есть. Клик — удалить.`;
+      } else {
+        btn.classList.remove('has-rec');
+        btn.title = `Записать перевод для карточки №${btn.dataset.num}`;
+      }
+    }
+
+    function updateCardIndicator(card) {
+      const key = card.dataset.key;
+      const indicator = card.querySelector('[data-indicator]');
+      if (!indicator) return;
+      const hasRec = !!recordedAudios[key];
+      if (hasRec) {
+        indicator.classList.add('show');
+        card.classList.add('has-rec');
+      } else {
+        indicator.classList.remove('show');
+        card.classList.remove('has-rec');
+      }
+    }
+
+    function getBestMimeType() {
+      const candidates = ['audio/mp4', 'audio/mp4;codecs=mp4a.40.2', 'audio/webm;codecs=opus', 'audio/webm'];
+      if (typeof MediaRecorder === 'undefined') return '';
+      for (const t of candidates) {
+        try { if (MediaRecorder.isTypeSupported(t)) return t; } catch (e) {}
+      }
+      return '';
+    }
+
+    let mediaRecorder = null;
+    let recordedChunks = [];
+    let recordingKey = null;
+    let currentStream = null;
+
+    async function handleNumberClick(card, btn) {
+      unlockAudio();
+      const key = card.dataset.key;
+
+      if (recordingKey === key) {
+        if (mediaRecorder && mediaRecorder.state !== 'inactive') mediaRecorder.stop();
+        return;
+      }
+
+      if (mediaRecorder && mediaRecorder.state !== 'inactive') {
+        mediaRecorder.stop();
+        await new Promise(r => setTimeout(r, 250));
+      }
+
+      if (recordedAudios[key]) {
+        if (confirm(`Удалить запись №${btn.dataset.num}?`)) {
+          delete recordedAudios[key];
+          try { localStorage.removeItem(STORAGE_PREFIX + key); } catch (e) {}
+          updateNumberButton(card, btn);
+          updateCardIndicator(card);
+        }
+        return;
+      }
+
+      try {
+        currentStream = await navigator.mediaDevices.getUserMedia({
+          audio: { echoCancellation: true, noiseSuppression: true, autoGainControl: true }
+        });
+
+        const mimeType = getBestMimeType();
+        const options = mimeType ? { mimeType } : {};
+        mediaRecorder = new MediaRecorder(currentStream, options);
+        recordedChunks = [];
+        recordingKey = key;
+
+        btn.classList.add('recording');
+        btn.textContent = '⏹';
+
+        const indicator = card.querySelector('[data-indicator]');
+        if (indicator) {
+          indicator.classList.add('show', 'recording');
+          indicator.textContent = '●';
+        }
+
+        mediaRecorder.ondataavailable = (e) => {
+          if (e.data && e.data.size > 0) recordedChunks.push(e.data);
+        };
+
+        mediaRecorder.onstop = async () => {
+          if (currentStream) {
+            currentStream.getTracks().forEach(t => t.stop());
+            currentStream = null;
+          }
+          btn.classList.remove('recording');
+          btn.textContent = btn.dataset.num;
+
+          const ind = card.querySelector('[data-indicator]');
+          if (ind) {
+            ind.classList.remove('recording');
+            ind.textContent = '✓';
+          }
+
+          if (recordedChunks.length === 0) { recordingKey = null; return; }
+
+          const blobMime = mediaRecorder.mimeType || mimeType || 'audio/mp4';
+          const blob = new Blob(recordedChunks, { type: blobMime });
+
+          let finalBlob = blob;
+          try { finalBlob = await normalizeAudio(blob); } catch (e) {}
+
+          let url;
+          try { url = await blobToDataURL(finalBlob); } catch (e) { recordingKey = null; return; }
+
+          recordedAudios[key] = url;
+          try { localStorage.setItem(STORAGE_PREFIX + key, url); }
+          catch (e) { alert('Не хватает места. Удалите старые записи.'); }
+
+          updateNumberButton(card, btn);
+          updateCardIndicator(card);
+          recordingKey = null;
+        };
+
+        mediaRecorder.onerror = () => {
+          if (currentStream) {
+            currentStream.getTracks().forEach(t => t.stop());
+            currentStream = null;
+          }
+          btn.classList.remove('recording');
+          btn.textContent = btn.dataset.num;
+          recordingKey = null;
+        };
+
+        mediaRecorder.start();
+      } catch (err) {
+        alert('Не удалось получить доступ к микрофону.');
+        recordingKey = null;
+      }
+    }
+
+    async function normalizeAudio(blob) {
+      const arrayBuffer = await blob.arrayBuffer();
+      const Ctx = window.AudioContext || window.webkitAudioContext;
+      if (!Ctx) return blob;
+      let audioCtx;
+      try { audioCtx = sharedAudioCtx || new Ctx(); } catch (e) { return blob; }
+      if (audioCtx.state === 'suspended') { try { await audioCtx.resume(); } catch (e) {} }
+      let audioBuffer;
+      try { audioBuffer = await audioCtx.decodeAudioData(arrayBuffer.slice(0)); } catch (e) { return blob; }
+      let peak = 0;
+      for (let ch = 0; ch < audioBuffer.numberOfChannels; ch++) {
+        const data = audioBuffer.getChannelData(ch);
+        for (let i = 0; i < data.length; i++) {
+          const abs = Math.abs(data[i]);
+          if (abs > peak) peak = abs;
+        }
+      }
+      const targetPeak = 0.95;
+      const gain = peak > 0 ? targetPeak / peak : 1;
+      const cappedGain = Math.min(gain, 8);
+      for (let ch = 0; ch < audioBuffer.numberOfChannels; ch++) {
+        const data = audioBuffer.getChannelData(ch);
+        for (let i = 0; i < data.length; i++) {
+          data[i] = Math.max(-1, Math.min(1, data[i] * cappedGain));
+        }
+      }
+      return audioBufferToWav(audioBuffer);
+    }
+
+    function audioBufferToWav(buffer) {
+      const numCh = buffer.numberOfChannels;
+      const sampleRate = buffer.sampleRate;
+      const length = buffer.length * numCh * 2 + 44;
+      const arrayBuffer = new ArrayBuffer(length);
+      const view = new DataView(arrayBuffer);
+      const writeString = (offset, str) => {
+        for (let i = 0; i < str.length; i++) view.setUint8(offset + i, str.charCodeAt(i));
+      };
+      writeString(0, 'RIFF');
+      view.setUint32(4, length - 8, true);
+      writeString(8, 'WAVE');
+      writeString(12, 'fmt ');
+      view.setUint32(16, 16, true);
+      view.setUint16(20, 1, true);
+      view.setUint16(22, numCh, true);
+      view.setUint32(24, sampleRate, true);
+      view.setUint32(28, sampleRate * numCh * 2, true);
+      view.setUint16(32, numCh * 2, true);
+      view.setUint16(34, 16, true);
+      writeString(36, 'data');
+      view.setUint32(40, length - 44, true);
+      let offset = 44;
+      const channels = [];
+      for (let i = 0; i < numCh; i++) channels.push(buffer.getChannelData(i));
+      for (let i = 0; i < buffer.length; i++) {
+        for (let ch = 0; ch < numCh; ch++) {
+          let sample = Math.max(-1, Math.min(1, channels[ch][i]));
+          sample = sample < 0 ? sample * 0x8000 : sample * 0x7FFF;
+          view.setInt16(offset, sample, true);
+          offset += 2;
+        }
+      }
+      return new Blob([arrayBuffer], { type: 'audio/wav' });
+    }
+
+    function blobToDataURL(blob) {
+      return new Promise((resolve, reject) => {
+        const reader = new FileReader();
+        reader.onload = () => resolve(reader.result);
+        reader.onerror = reject;
+        reader.readAsDataURL(blob);
+      });
+    }
+
+    function cleanText(text) {
+      return text
+        .replace(/\s*\([^)]*\)\s*/g, ' ')
+        .replace(/\s*（[^）]*）\s*/g, ' ')
+        .replace(/[\u{1F000}-\u{1FAFF}\u{2600}-\u{27BF}\u{FE0F}\u{200D}]/gu, ' ')
+        .replace(/\s+/g, ' ')
+        .trim();
+    }
+
+    function speakParts(text, lang, rate, voiceGetter, onComplete) {
+      const clean = cleanText(text);
+      const parts = clean.split(/\s*\/\s*/).filter(p => p.length > 0);
+      if (parts.length === 0) { if (onComplete) setTimeout(onComplete, 200); return; }
+
+      let index = 0;
+      function next() {
+        if (index >= parts.length) { if (onComplete) setTimeout(onComplete, 200); return; }
+        const part = parts[index];
+        index++;
+        const utter = new SpeechSynthesisUtterance(part);
+        utter.lang = lang;
+        utter.rate = rate;
+        utter.pitch = 1.0;
+        utter.volume = 1.0;
+        const voice = voiceGetter();
+        if (voice) utter.voice = voice;
+
+        let finished = false;
+        const finish = () => {
+          if (finished) return;
+          finished = true;
+          if (index < parts.length) setTimeout(next, lang.startsWith('zh') ? 600 : 500);
+          else if (onComplete) setTimeout(onComplete, 200);
+        };
+
+        utter.onend = finish;
+        utter.onerror = finish;
+        const safety = setTimeout(finish, 8000);
+
+        try {
+          window.speechSynthesis.speak(utter);
+        } catch (e) {
+          clearTimeout(safety);
+          finish();
+        }
+      }
+      next();
+    }
+
+    function speakRussian(text, onComplete) {
+      speakParts(text, 'ru-RU', 0.85, getRussianVoice, onComplete);
+    }
+    function speakChinese(text, onComplete) {
+      speakParts(text, 'zh-CN', 0.7, getChineseVoice, onComplete);
+    }
+
+    function playRecorded(key, onEnd) {
+      const url = recordedAudios[key];
+      if (!url) { if (onEnd) onEnd(); return; }
+      if (sharedAudioCtx && sharedAudioCtx.state === 'suspended') sharedAudioCtx.resume().catch(() => {});
+      
+      if (currentAudio) {
+        currentAudio.pause();
+        currentAudio.currentTime = 0;
+      }
+
+      currentAudio = new Audio(url);
+      currentAudio.volume = 1.0;
+      currentAudio.setAttribute('playsinline', 'true');
+      currentAudio.setAttribute('webkit-playsinline', 'true');
+      currentAudio.onended = () => { 
+        currentAudio = null;
+        if (onEnd) onEnd(); 
+      };
+      currentAudio.onerror = () => { 
+        currentAudio = null;
+        if (onEnd) onEnd(); 
+      };
+      const p = currentAudio.play();
+      if (p && p.catch) p.catch(() => { 
+        currentAudio = null;
+        if (onEnd) onEnd(); 
+      });
+    }
+
+    function speakRussianThenChinese(card) {
+      window.speechSynthesis.cancel();
+      if (currentAudio) {
+        currentAudio.pause();
+        currentAudio.currentTime = 0;
+        currentAudio = null;
+      }
+
+      const hanziText = card.dataset.hanziAudio;
+      const key = card.dataset.key;
+      const russianText = card.dataset.russianAudio;
+
+      const afterRussian = function() {
+        setTimeout(() => {
+          speakChinese(hanziText, null);
+        }, 1000); 
+      };
+
+      if (recordedAudios[key]) {
+        playRecorded(key, afterRussian);
+      } else {
+        speakRussian(russianText, afterRussian);
+      }
+    }
+
+    function clearActive() { cards.forEach(c => c.classList.remove('active')); }
+
+    loadSavedRecordings();
+    createNumberButtons();
+    cards.forEach(card => updateCardIndicator(card));
+
+    cards.forEach(card => {
+      card.addEventListener('click', function(e) {
+        if (e.target.closest('.rec-num')) return;
+        e.stopPropagation();
+        
+        window.speechSynthesis.cancel();
+        if (currentAudio) {
+          currentAudio.pause();
+          currentAudio.currentTime = 0;
+          currentAudio = null;
+        }
+        
+        clearActive();
+        this.classList.add('active');
+        
+        setTimeout(() => speakRussianThenChinese(this), 50);
+      });
+    });
+
+    document.addEventListener('click', function(e) {
+      if (!e.target.closest('.card') && !e.target.closest('.rec-panel')) {
+        window.speechSynthesis.cancel();
+        if (currentAudio) {
+          currentAudio.pause();
+          currentAudio.currentTime = 0;
+          currentAudio = null;
+        }
+        clearActive();
+      }
+    });
+
+    let lastTouch = 0;
+    document.addEventListener('touchend', (e) => {
+      const now = Date.now();
+      if (now - lastTouch <= 300) e.preventDefault();
+      lastTouch = now;
+    }, { passive: false });
+
+    window.speechSynthesis.getVoices();
+    window.speechSynthesis.onvoiceschanged = () => window.speechSynthesis.getVoices();
+  })();
+</script>
+
+</body>
+</html>

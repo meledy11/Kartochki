@@ -12,7 +12,7 @@
 
   <title>Омографы · 同形异音词 · Комплект 2</title>
 
-  <!-- Подключаем рукописные шрифты -->
+  <!-- Оставляем шрифт для заголовка, но убираем из пиньиня -->
   <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@700&family=Noto+Serif+SC:wght@700;900&display=swap" rel="stylesheet">
 
   <style>
@@ -121,26 +121,27 @@
     }
     .russian-word .stress { color: #e53935; font-weight: 900; }
 
-    /* Пиньинь */
+    /* Пиньинь (теперь печатный) */
     .pinyin {
-      font-family: 'Caveat', cursive;
-      font-size: 0.85rem; font-weight: 700; color: #f06292; margin-bottom: 4px;
+      font-family: inherit; /* Убран рукописный шрифт */
+      font-size: 0.75rem; font-weight: 800; color: #f06292; margin-bottom: 4px;
+      letter-spacing: 0.5px;
     }
-    .card[data-color="n1"] .pinyin { color: #64b5f6; }
-    .card[data-color="n2"] .pinyin { color: #f48fb1; }
-    .card[data-color="n3"] .pinyin { color: #81c784; }
-    .card[data-color="n4"] .pinyin { color: #ffb74d; }
-    .card[data-color="n5"] .pinyin { color: #ba68c8; }
-    .card[data-color="n6"] .pinyin { color: #4dd0e1; }
-    .card[data-color="n7"] .pinyin { color: #ffd54f; }
-    .card[data-color="n8"] .pinyin { color: #ff8a65; }
-    .card[data-color="n9"] .pinyin { color: #4fc3f7; }
-    .card[data-color="n10"] .pinyin { color: #aed581; }
-    .card[data-color="n11"] .pinyin { color: #9575cd; }
-    .card[data-color="n12"] .pinyin { color: #f06292; }
-    .card[data-color="n13"] .pinyin { color: #7986cb; }
-    .card[data-color="n14"] .pinyin { color: #ffd54f; }
-    .card[data-color="n15"] .pinyin { color: #26c6da; }
+    .card[data-color="n1"] .pinyin { color: #1976d2; }
+    .card[data-color="n2"] .pinyin { color: #d81b60; }
+    .card[data-color="n3"] .pinyin { color: #2e7d32; }
+    .card[data-color="n4"] .pinyin { color: #f57c00; }
+    .card[data-color="n5"] .pinyin { color: #7b1fa2; }
+    .card[data-color="n6"] .pinyin { color: #00796b; }
+    .card[data-color="n7"] .pinyin { color: #f9a825; }
+    .card[data-color="n8"] .pinyin { color: #e64a19; }
+    .card[data-color="n9"] .pinyin { color: #0288d1; }
+    .card[data-color="n10"] .pinyin { color: #689f38; }
+    .card[data-color="n11"] .pinyin { color: #512da8; }
+    .card[data-color="n12"] .pinyin { color: #c2185b; }
+    .card[data-color="n13"] .pinyin { color: #303f9f; }
+    .card[data-color="n14"] .pinyin { color: #ffa000; }
+    .card[data-color="n15"] .pinyin { color: #0097a7; }
 
     /* Примеры */
     .example {
@@ -173,7 +174,7 @@
       .card { padding: 8px 4px 6px; border-radius: 12px; }
       .hanzi { font-size: 1rem; }
       .russian-word { font-size: 0.75rem; }
-      .pinyin { font-size: 0.75rem; }
+      .pinyin { font-size: 0.65rem; }
       .example { font-size: 0.5rem; }
       .emoji-corner { font-size: 1.2rem; top: 4px; left: 6px; }
       .header h1 { font-size: 1.1rem; }
@@ -218,16 +219,17 @@
       <div class="example">📌 чайные <b>кру́жки</b> / школьные <b>кружки́</b></div>
     </div>
 
-    <!-- 3. проволо́чка / проволочка́ -->
+    <!-- 3. ИСПРАВЛЕНО: проволо́чка / про́волочка -->
     <div class="card" data-color="n3" data-key="p3" data-russian-audio="проволочка / проволочка" data-hanzi-audio="铁丝 / 拖延">
       <div class="emoji-corner">🔧</div>
       <div class="rec-indicator" data-indicator>✓</div>
       <div class="word-group">
         <div class="hanzi">铁丝 / 拖延</div>
-        <div class="russian-word">провол<span class="stress">о</span>чка / проволочк<span class="stress">а</span></div>
+        <!-- Теперь ударение правильное: проволОчка и прОволочка -->
+        <div class="russian-word">провол<span class="stress">о</span>чка / пр<span class="stress">о</span>волочка</div>
         <div class="pinyin">tiěsī / tuōyán</div>
       </div>
-      <div class="example">📌 медная <b>проволо́чка</b> / бюрократическая <b>проволочка́</b></div>
+      <div class="example">📌 медная <b>проволо́чка</b> / бюрократическая <b>про́волочка</b></div>
     </div>
 
     <!-- 4. жа́ркое / жарко́е -->

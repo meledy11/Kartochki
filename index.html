@@ -6,11 +6,11 @@
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
-  <meta name="apple-mobile-web-app-title" content="离合词 · состояния" />
+  <meta name="apple-mobile-web-app-title" content="被字句 · пассив" />
   <meta name="format-detection" content="telephone=no" />
   <meta name="theme-color" content="#f7f3e9" />
 
-  <title>离合词 · Состояния и эмоции</title>
+  <title>被字句 · Пассивный залог</title>
 
   <style>
     * { box-sizing: border-box; margin: 0; padding: 0; -webkit-tap-highlight-color: transparent; }
@@ -149,9 +149,11 @@
       word-break: break-word; max-width: 100%;
       white-space: normal; overflow-wrap: break-word;
     }
-    .v { color: #2b6cb0; text-decoration: underline; text-decoration-color: #2b6cb0; text-decoration-thickness: 2px; text-underline-offset: 3px; }
-    .ins { color: #c53030; text-decoration: underline; text-decoration-color: #c53030; text-decoration-thickness: 2px; text-underline-offset: 3px; }
-    .subj { color: #1f1a15; }
+    /* ЦВЕТОВАЯ РАЗМЕТКА ДЛЯ 被 */
+    .v { color: #2b6cb0; text-decoration: underline; text-decoration-color: #2b6cb0; text-decoration-thickness: 2px; text-underline-offset: 3px; } /* Глагол */
+    .ins { color: #c53030; text-decoration: underline; text-decoration-color: #c53030; text-decoration-thickness: 2px; text-underline-offset: 3px; } /* 被 + агент + 了 */
+    .subj { color: #1f1a15; } /* Подлежащее (пациенс) */
+    .agent { color: #2b6cb0; text-decoration: underline; text-decoration-color: #2b6cb0; text-decoration-thickness: 2px; text-underline-offset: 3px; } /* Агент (как объект в离合词) */
 
     .pinyin {
       font-size: 0.7rem; font-weight: 600; color: #2d1f12;
@@ -167,15 +169,15 @@
     }
 
     /* ——— ЦВЕТА КАРТОЧЕК ——— */
-    .card[data-color="fa"]    { --card-color: #d97a8c; background: #fadce2; }
-    .card[data-color="sheng"] { --card-color: #7a8ab8; background: #d9e0f2; }
-    .card[data-color="diu"]   { --card-color: #e8a83d; background: #fdebc4; }
-    .card[data-color="shou"]  { --card-color: #7ab8d9; background: #d0e8f5; }
-    .card[data-color="zhao"]  { --card-color: #9bb88c; background: #d9e8cf; }
-    .card[data-color="chi"]   { --card-color: #b8a88c; background: #ede4d4; }
-    .card[data-color="shang"] { --card-color: #c48b5c; background: #f2dfcd; }
-    .card[data-color="cao"]   { --card-color: #b88a9e; background: #f0d9e2; }
-    .card[data-color="bi"]    { --card-color: #7a6a5a; background: #e8dccc; }
+    .card[data-color="pian"]   { --card-color: #d97a8c; background: #fadce2; }
+    .card[data-color="zhua"]   { --card-color: #7a8ab8; background: #d9e0f2; }
+    .card[data-color="ma"]     { --card-color: #e8a83d; background: #fdebc4; }
+    .card[data-color="chi"]    { --card-color: #7ab8d9; background: #d0e8f5; }
+    .card[data-color="tou"]    { --card-color: #9bb88c; background: #d9e8cf; }
+    .card[data-color="po"]     { --card-color: #b8a88c; background: #ede4d4; }
+    .card[data-color="shan"]   { --card-color: #c48b5c; background: #f2dfcd; }
+    .card[data-color="biao"]   { --card-color: #b88a9e; background: #f0d9e2; }
+    .card[data-color="lin"]    { --card-color: #7a6a5a; background: #e8dccc; }
 
     .rec-panel {
       margin-top: 4px; padding: 3px 6px;
@@ -297,8 +299,8 @@
 
 <div class="container">
   <h1>
-    <span class="title-hanzi">离合词</span>
-    <span class="title-rus">состояния и эмоции</span>
+    <span class="title-hanzi">被字句</span>
+    <span class="title-rus">пассивный залог</span>
   </h1>
   <div style="text-align: center; flex-shrink: 0;">
     <span class="subhead">
@@ -307,102 +309,102 @@
   </div>
 
   <div class="grid" id="cardGrid">
-    <!-- 1. 发火 -->
-    <div class="card" data-color="fa" data-key="c1" data-hanzi-audio="他发了火" data-russian-audio="он вспылил">
+    <!-- 1. 我被他骗了 -->
+    <div class="card" data-color="pian" data-key="c1" data-hanzi-audio="我被他骗了" data-russian-audio="меня обманул он">
       <div class="rec-indicator" data-indicator>✓</div>
       <div class="card-inner">
-        <div class="emoji-big">🔥</div>
-        <div class="hanzi"><span class="subj">他</span><span class="v">发</span><span class="ins">了</span><span class="v">火</span></div>
-        <div class="pinyin">tā fā le huǒ</div>
-        <div class="russian">он вспылил</div>
+        <div class="emoji-big">🎭</div>
+        <div class="hanzi"><span class="subj">我</span><span class="ins">被</span><span class="agent">他</span><span class="v">骗</span><span class="ins">了</span></div>
+        <div class="pinyin">wǒ bèi tā piàn le</div>
+        <div class="russian">меня обманул он</div>
       </div>
     </div>
 
-    <!-- 2. 生病 -->
-    <div class="card" data-color="sheng" data-key="c2" data-hanzi-audio="我生了病" data-russian-audio="я заболел">
+    <!-- 2. 他被警察抓了 -->
+    <div class="card" data-color="zhua" data-key="c2" data-hanzi-audio="他被警察抓了" data-russian-audio="его поймала полиция">
       <div class="rec-indicator" data-indicator>✓</div>
       <div class="card-inner">
-        <div class="emoji-big">🤒</div>
-        <div class="hanzi"><span class="subj">我</span><span class="v">生</span><span class="ins">了</span><span class="v">病</span></div>
-        <div class="pinyin">wǒ shēng le bìng</div>
-        <div class="russian">я заболел</div>
+        <div class="emoji-big">👮</div>
+        <div class="hanzi"><span class="subj">他</span><span class="ins">被</span><span class="agent">警察</span><span class="v">抓</span><span class="ins">了</span></div>
+        <div class="pinyin">tā bèi jǐngchá zhuā le</div>
+        <div class="russian">его поймала полиция</div>
       </div>
     </div>
 
-    <!-- 3. 丢人 -->
-    <div class="card" data-color="diu" data-key="c3" data-hanzi-audio="他丢了人" data-russian-audio="он опозорился">
+    <!-- 3. 他被父母骂了 -->
+    <div class="card" data-color="ma" data-key="c3" data-hanzi-audio="他被父母骂了" data-russian-audio="его отругали родители">
       <div class="rec-indicator" data-indicator>✓</div>
       <div class="card-inner">
-        <div class="emoji-big">😳</div>
-        <div class="hanzi"><span class="subj">他</span><span class="v">丢</span><span class="ins">了</span><span class="v">人</span></div>
-        <div class="pinyin">tā diū le rén</div>
-        <div class="russian">он опозорился</div>
+        <div class="emoji-big">😠</div>
+        <div class="hanzi"><span class="subj">他</span><span class="ins">被</span><span class="agent">父母</span><span class="v">骂</span><span class="ins">了</span></div>
+        <div class="pinyin">tā bèi fùmǔ mà le</div>
+        <div class="russian">его отругали родители</div>
       </div>
     </div>
 
-    <!-- 4. 受伤 -->
-    <div class="card" data-color="shou" data-key="c4" data-hanzi-audio="我受了伤" data-russian-audio="я получил травму">
+    <!-- 4. 蛋糕被弟弟吃了 -->
+    <div class="card" data-color="chi" data-key="c4" data-hanzi-audio="蛋糕被弟弟吃了" data-russian-audio="торт съел младший брат">
       <div class="rec-indicator" data-indicator>✓</div>
       <div class="card-inner">
-        <div class="emoji-big">🩹</div>
-        <div class="hanzi"><span class="subj">我</span><span class="v">受</span><span class="ins">了</span><span class="v">伤</span></div>
-        <div class="pinyin">wǒ shòu le shāng</div>
-        <div class="russian">я получил травму</div>
+        <div class="emoji-big">🍰</div>
+        <div class="hanzi"><span class="subj">蛋糕</span><span class="ins">被</span><span class="agent">弟弟</span><span class="v">吃</span><span class="ins">了</span></div>
+        <div class="pinyin">dàngāo bèi dìdi chī le</div>
+        <div class="russian">торт съел младший брат</div>
       </div>
     </div>
 
-    <!-- 5. 着凉 -->
-    <div class="card" data-color="zhao" data-key="c5" data-hanzi-audio="我着了凉" data-russian-audio="я простудился">
+    <!-- 5. 手机被偷了 -->
+    <div class="card" data-color="tou" data-key="c5" data-hanzi-audio="手机被偷了" data-russian-audio="телефон украли">
       <div class="rec-indicator" data-indicator>✓</div>
       <div class="card-inner">
-        <div class="emoji-big">🤧</div>
-        <div class="hanzi"><span class="subj">我</span><span class="v">着</span><span class="ins">了</span><span class="v">凉</span></div>
-        <div class="pinyin">wǒ zháo le liáng</div>
-        <div class="russian">я простудился</div>
+        <div class="emoji-big">📱</div>
+        <div class="hanzi"><span class="subj">手机</span><span class="ins">被</span><span class="v">偷</span><span class="ins">了</span></div>
+        <div class="pinyin">shǒujī bèi tōu le</div>
+        <div class="russian">телефон украли</div>
       </div>
     </div>
 
-    <!-- 6. 吃苦 -->
-    <div class="card" data-color="chi" data-key="c6" data-hanzi-audio="他吃了苦" data-russian-audio="он натерпелся">
+    <!-- 6. 窗户被打破了 -->
+    <div class="card" data-color="po" data-key="c6" data-hanzi-audio="窗户被打破了" data-russian-audio="окно разбили">
       <div class="rec-indicator" data-indicator>✓</div>
       <div class="card-inner">
-        <div class="emoji-big">😣</div>
-        <div class="hanzi"><span class="subj">他</span><span class="v">吃</span><span class="ins">了</span><span class="v">苦</span></div>
-        <div class="pinyin">tā chī le kǔ</div>
-        <div class="russian">он натерпелся</div>
+        <div class="emoji-big">🪟</div>
+        <div class="hanzi"><span class="subj">窗户</span><span class="ins">被</span><span class="v">打</span><span class="ins">破了</span></div>
+        <div class="pinyin">chuānghu bèi dǎpò le</div>
+        <div class="russian">окно разбили</div>
       </div>
     </div>
 
-    <!-- 7. 上当 -->
-    <div class="card" data-color="shang" data-key="c7" data-hanzi-audio="我上了当" data-russian-audio="я обманулся">
+    <!-- 7. 文件被删了 -->
+    <div class="card" data-color="shan" data-key="c7" data-hanzi-audio="文件被删了" data-russian-audio="файл удалили">
       <div class="rec-indicator" data-indicator>✓</div>
       <div class="card-inner">
-        <div class="emoji-big">🎣</div>
-        <div class="hanzi"><span class="subj">我</span><span class="v">上</span><span class="ins">了</span><span class="v">当</span></div>
-        <div class="pinyin">wǒ shàng le dàng</div>
-        <div class="russian">я обманулся</div>
+        <div class="emoji-big">🗑️</div>
+        <div class="hanzi"><span class="subj">文件</span><span class="ins">被</span><span class="v">删</span><span class="ins">了</span></div>
+        <div class="pinyin">wénjiàn bèi shān le</div>
+        <div class="russian">файл удалили</div>
       </div>
     </div>
 
-    <!-- 8. 操心 -->
-    <div class="card" data-color="cao" data-key="c8" data-hanzi-audio="妈妈操了心" data-russian-audio="мама беспокоилась">
+    <!-- 8. 我被老师表扬了 -->
+    <div class="card" data-color="biao" data-key="c8" data-hanzi-audio="我被老师表扬了" data-russian-audio="меня похвалил учитель">
       <div class="rec-indicator" data-indicator>✓</div>
       <div class="card-inner">
-        <div class="emoji-big">😟</div>
-        <div class="hanzi"><span class="subj">妈妈</span><span class="v">操</span><span class="ins">了</span><span class="v">心</span></div>
-        <div class="pinyin">māma cāo le xīn</div>
-        <div class="russian">мама беспокоилась</div>
+        <div class="emoji-big">🌟</div>
+        <div class="hanzi"><span class="subj">我</span><span class="ins">被</span><span class="agent">老师</span><span class="v">表扬</span><span class="ins">了</span></div>
+        <div class="pinyin">wǒ bèi lǎoshī biǎoyáng le</div>
+        <div class="russian">меня похвалил учитель</div>
       </div>
     </div>
 
-    <!-- 9. 毕业 -->
-    <div class="card" data-color="bi" data-key="c9" data-hanzi-audio="我毕了业" data-russian-audio="я выпустился">
+    <!-- 9. 钱包被偷了 -->
+    <div class="card" data-color="lin" data-key="c9" data-hanzi-audio="钱包被偷了" data-russian-audio="кошелёк украли">
       <div class="rec-indicator" data-indicator>✓</div>
       <div class="card-inner">
-        <div class="emoji-big">🎓</div>
-        <div class="hanzi"><span class="subj">我</span><span class="v">毕</span><span class="ins">了</span><span class="v">业</span></div>
-        <div class="pinyin">wǒ bì le yè</div>
-        <div class="russian">я выпустился</div>
+        <div class="emoji-big">👛</div>
+        <div class="hanzi"><span class="subj">钱包</span><span class="ins">被</span><span class="v">偷</span><span class="ins">了</span></div>
+        <div class="pinyin">qiánbāo bèi tōu le</div>
+        <div class="russian">кошелёк украли</div>
       </div>
     </div>
   </div>
@@ -412,8 +414,8 @@
   </div>
 
   <div class="legend">
-    <div class="legend-item"><div class="legend-dot blue"></div> 离合词 (глагол + объект)</div>
-    <div class="legend-item"><div class="legend-dot red"></div> Вставка (了/过/大/一次...)</div>
+    <div class="legend-item"><div class="legend-dot blue"></div> Глагол / агент</div>
+    <div class="legend-item"><div class="legend-dot red"></div> 被 + результат / 了</div>
   </div>
 
   <div style="display: flex; justify-content: center; flex-shrink: 0;">
@@ -473,7 +475,7 @@
       return voice || null;
     }
 
-    const STORAGE_PREFIX = 'custom_rec_heci_states_';
+    const STORAGE_PREFIX = 'custom_rec_beiziju_';
     const recordedAudios = {};
 
     function loadSavedRecordings() {

@@ -2,15 +2,15 @@
 <html lang="ru">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.5, user-scalable=yes, viewport-fit=cover" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
-  <meta name="apple-mobile-web-app-title" content="离合词 · быт" />
+  <meta name="apple-mobile-web-app-title" content="离合词 · состояния" />
   <meta name="format-detection" content="telephone=no" />
   <meta name="theme-color" content="#f7f3e9" />
 
-  <title>离合词 · Бытовые глаголы</title>
+  <title>离合词 · Состояния и эмоции</title>
 
   <style>
     * { box-sizing: border-box; margin: 0; padding: 0; -webkit-tap-highlight-color: transparent; }
@@ -28,7 +28,7 @@
     }
 
     .container {
-      max-width: 780px; width: 100%; height: 100%; max-height: 700px;
+      max-width: 780px; width: 100%; height: 100%; max-height: 780px;
       background: rgba(255, 247, 235, 0.55);
       -webkit-backdrop-filter: blur(6px) saturate(1.15);
       backdrop-filter: blur(6px) saturate(1.15);
@@ -40,40 +40,38 @@
       display: flex; flex-direction: column; position: relative; overflow: hidden;
     }
 
-    /* ——— ШАПКА ——— */
     h1 {
-      text-align: center; font-weight: 900; font-size: 1.1rem; color: #3e2e1f;
+      text-align: center; font-weight: 900; font-size: 1.15rem; color: #3e2e1f;
       margin-bottom: 2px; display: flex; align-items: center; justify-content: center;
       gap: 6px; flex-shrink: 0; flex-wrap: nowrap;
       text-shadow: 0 1px 0 rgba(255,255,255,0.95); overflow: hidden;
     }
     h1 .title-hanzi {
-      font-size: 0.9rem; font-weight: 900; color: #5a3e2a;
+      font-size: 0.95rem; font-weight: 900; color: #5a3e2a;
       background: linear-gradient(145deg, #ede3d6, #d8c8b4);
-      padding: 2px 10px; border-radius: 10px;
+      padding: 2px 12px; border-radius: 12px;
       box-shadow: inset 0 1px 2px rgba(255,255,255,0.95),
                   inset 0 -1px 2px rgba(120,90,60,0.20),
                   0 1px 0 rgba(80,60,40,0.20);
-      text-shadow: 0 1px 0 rgba(255,255,255,0.9); line-height: 1.1; white-space: nowrap;
+      text-shadow: 0 1px 0 rgba(255,255,255,0.9); line-height: 1.15; white-space: nowrap;
     }
     h1 .title-rus {
-      font-size: 0.55rem; font-weight: 900; color: #3e2e1f;
+      font-size: 0.58rem; font-weight: 900; color: #3e2e1f;
       background: linear-gradient(145deg, #f0e8dc, #e0d4c4);
-      padding: 2px 8px; border-radius: 30px;
+      padding: 2px 10px; border-radius: 30px;
       box-shadow: inset 0 1px 2px rgba(255,255,255,0.95); white-space: nowrap;
     }
 
     .subhead {
-      text-align: center; font-size: 0.55rem; color: #5a3e2a;
+      text-align: center; font-size: 0.58rem; color: #5a3e2a;
       background: linear-gradient(145deg, #ede3d6, #dcccb8);
-      display: block; padding: 1px 12px; border-radius: 30px;
+      display: block; padding: 1px 14px; border-radius: 30px;
       margin: 0 auto 4px; flex-shrink: 0; font-weight: 700; line-height: 1.3;
       width: fit-content; max-width: 96%;
       box-shadow: inset 0 1px 2px rgba(255,255,255,0.9);
     }
     .subhead b { color: #c53030; font-weight: 900; }
 
-    /* ——— СЕТКА ——— */
     .grid {
       display: grid; grid-template-columns: repeat(3, 1fr); grid-auto-rows: 1fr;
       gap: 5px; flex: 1; min-height: 0; overflow-y: auto; overflow-x: hidden;
@@ -82,7 +80,7 @@
     .grid::-webkit-scrollbar { display: none; }
 
     .card {
-      border-radius: 16px; padding: 2px 3px 4px;
+      border-radius: 20px; padding: 2px 4px 4px;
       border-bottom: 5px solid transparent;
       box-shadow: 0 0px 0 rgba(0,0,0,0.05), 0 4px 10px rgba(0,0,0,0.10),
                   inset 0 1px 1px rgba(255,255,255,0.95),
@@ -109,7 +107,7 @@
     }
 
     .emoji-big {
-      font-size: 2.0rem; line-height: 1.1; display: inline-block;
+      font-size: 2.2rem; line-height: 1.1; display: inline-block;
       animation: floatEmoji 2.8s infinite alternate ease-in-out;
       filter: drop-shadow(0 4px 6px rgba(0,0,0,0.08));
       margin-top: 2px;
@@ -137,7 +135,6 @@
       50% { box-shadow: 0 0 0 8px rgba(255,80,80,0); }
     }
 
-    /* ——— КОНТЕНТ КАРТОЧКИ ——— */
     .card-inner {
       display: flex; flex-direction: column; align-items: center;
       justify-content: flex-start; width: 100%; height: 100%;
@@ -145,44 +142,45 @@
     }
 
     .hanzi {
-      font-size: 1.7rem; font-weight: 800; line-height: 1.15;
+      font-size: 2.0rem; font-weight: 800; line-height: 1.2;
       margin: 0; letter-spacing: 1px; color: #1f1a15;
       text-shadow: 0 2px 4px rgba(0,0,0,0.06);
       position: relative; z-index: 2; text-align: center;
       word-break: break-word; max-width: 100%;
+      white-space: normal; overflow-wrap: break-word;
     }
     .v { color: #2b6cb0; text-decoration: underline; text-decoration-color: #2b6cb0; text-decoration-thickness: 2px; text-underline-offset: 3px; }
     .ins { color: #c53030; text-decoration: underline; text-decoration-color: #c53030; text-decoration-thickness: 2px; text-underline-offset: 3px; }
     .subj { color: #1f1a15; }
 
     .pinyin {
-      font-size: 0.65rem; font-weight: 600; color: #2d1f12;
-      background: rgba(255,245,225,0.7); padding: 1px 10px;
+      font-size: 0.7rem; font-weight: 600; color: #2d1f12;
+      background: rgba(255,245,225,0.7); padding: 1px 12px;
       border-radius: 30px; margin: 0; line-height: 1.2;
+      white-space: normal; word-break: break-word; max-width: 100%;
     }
     .russian {
-      font-size: 0.7rem; font-weight: 600; color: #3d2c1b;
-      background: rgba(240,220,195,0.5); padding: 2px 10px;
+      font-size: 0.75rem; font-weight: 600; color: #3d2c1b;
+      background: rgba(240,220,195,0.5); padding: 2px 12px;
       border-radius: 30px; margin-top: 1px; line-height: 1.2;
-      max-width: 100%; word-break: break-word;
+      max-width: 100%; word-break: break-word; white-space: normal;
     }
 
     /* ——— ЦВЕТА КАРТОЧЕК ——— */
-    .card[data-color="li"]    { --card-color: #d97a8c; background: #fadce2; }
-    .card[data-color="san"]   { --card-color: #7a8ab8; background: #d9e0f2; }
-    .card[data-color="pao"]   { --card-color: #e8a83d; background: #fdebc4; }
-    .card[data-color="zhu"]   { --card-color: #7ab8d9; background: #d0e8f5; }
-    .card[data-color="bao"]   { --card-color: #9bb88c; background: #d9e8cf; }
-    .card[data-color="you"]   { --card-color: #b8a88c; background: #ede4d4; }
-    .card[data-color="hua"]   { --card-color: #c48b5c; background: #f2dfcd; }
-    .card[data-color="fu"]    { --card-color: #b88a9e; background: #f0d9e2; }
-    .card[data-color="jie"]   { --card-color: #7a6a5a; background: #e8dccc; }
+    .card[data-color="fa"]    { --card-color: #d97a8c; background: #fadce2; }
+    .card[data-color="sheng"] { --card-color: #7a8ab8; background: #d9e0f2; }
+    .card[data-color="diu"]   { --card-color: #e8a83d; background: #fdebc4; }
+    .card[data-color="shou"]  { --card-color: #7ab8d9; background: #d0e8f5; }
+    .card[data-color="zhao"]  { --card-color: #9bb88c; background: #d9e8cf; }
+    .card[data-color="chi"]   { --card-color: #b8a88c; background: #ede4d4; }
+    .card[data-color="shang"] { --card-color: #c48b5c; background: #f2dfcd; }
+    .card[data-color="cao"]   { --card-color: #b88a9e; background: #f0d9e2; }
+    .card[data-color="bi"]    { --card-color: #7a6a5a; background: #e8dccc; }
 
-    /* ——— ПАНЕЛЬ КНОПОК-ЦИФР ——— */
     .rec-panel {
-      margin-top: 4px; padding: 3px 5px;
+      margin-top: 4px; padding: 3px 6px;
       background: linear-gradient(145deg, #ede3d6, #d8c8b4);
-      border-radius: 14px; display: flex; flex-wrap: wrap;
+      border-radius: 16px; display: flex; flex-wrap: wrap;
       justify-content: center; align-items: center; gap: 3px;
       flex-shrink: 0;
       box-shadow: inset 0 1px 2px rgba(255,255,255,0.95),
@@ -190,16 +188,16 @@
                   0 2px 5px rgba(120,90,60,0.15);
     }
     .rec-panel-title {
-      font-size: 0.5rem; font-weight: 800; color: #3e2e1f;
+      font-size: 0.55rem; font-weight: 800; color: #3e2e1f;
       margin-right: 2px; text-shadow: 0 1px 0 rgba(255,255,255,0.85);
     }
     .rec-num {
-      width: 20px; height: 20px; border-radius: 7px;
+      width: 22px; height: 22px; border-radius: 8px;
       border: 1px solid rgba(255,255,255,0.85);
       background: linear-gradient(145deg, #ffffff, #f0e8dc);
       box-shadow: inset 0 1px 1px rgba(255,255,255,0.95), 0 1px 2px rgba(80,60,40,0.20);
       display: flex; align-items: center; justify-content: center;
-      font-size: 0.55rem; font-weight: 900; color: #3e2e1f;
+      font-size: 0.6rem; font-weight: 900; color: #3e2e1f;
       cursor: pointer; padding: 0; transition: transform 0.12s ease, background 0.2s ease;
       position: relative; line-height: 1; -webkit-user-select: none; user-select: none;
       -webkit-appearance: none; appearance: none;
@@ -219,78 +217,78 @@
     }
 
     .legend {
-      display: flex; justify-content: center; gap: 14px; margin-top: 3px;
-      flex-shrink: 0; font-size: 0.5rem; color: #5a3e2a;
+      display: flex; justify-content: center; gap: 16px; margin-top: 3px;
+      flex-shrink: 0; font-size: 0.55rem; color: #5a3e2a;
     }
     .legend-item { display: flex; align-items: center; gap: 3px; }
-    .legend-dot { width: 10px; height: 10px; border-radius: 3px; }
+    .legend-dot { width: 11px; height: 11px; border-radius: 3px; }
     .legend-dot.blue { background: #2b6cb0; }
     .legend-dot.red { background: #c53030; }
 
     .footer-note {
-      margin-top: 3px; text-align: center; font-size: 0.45rem; font-weight: 700;
+      margin-top: 3px; text-align: center; font-size: 0.5rem; font-weight: 700;
       color: #3e2e1f; background: linear-gradient(145deg, #ede3d6, #d8c8b4);
-      padding: 2px 10px; border-radius: 60px; display: inline-block;
+      padding: 2px 12px; border-radius: 60px; display: inline-block;
       width: auto; flex-shrink: 0; align-self: center;
       box-shadow: inset 0 1px 2px rgba(255,255,255,0.9);
       text-shadow: 0 1px 0 rgba(255,255,255,0.75); line-height: 1.3;
     }
     .footer-note b { font-weight: 900; color: #c53030; }
 
-    /* ——— АДАПТАЦИЯ ——— */
     @media (max-width: 600px) {
-      .container { padding: 6px 5px 6px; max-height: 650px; border-radius: 24px; }
+      .container { padding: 6px 5px 6px; max-height: 700px; border-radius: 26px; }
       .grid { gap: 4px; }
+      .hanzi { font-size: 1.7rem; }
+      .emoji-big { font-size: 1.9rem; }
+      .pinyin { font-size: 0.62rem; padding: 0px 9px; }
+      .russian { font-size: 0.66rem; padding: 1px 9px; }
+      h1 { font-size: 1.0rem; }
+      h1 .title-hanzi { font-size: 0.85rem; padding: 2px 10px; }
+      .subhead { font-size: 0.52rem; padding: 1px 12px; margin-bottom: 3px; }
+      .rec-num { width: 20px; height: 20px; font-size: 0.55rem; border-radius: 7px; }
+      .rec-panel { padding: 2px 5px; gap: 3px; border-radius: 14px; }
+      .rec-panel-title { font-size: 0.5rem; }
+      .footer-note { font-size: 0.46rem; padding: 2px 10px; }
+      .legend { font-size: 0.5rem; gap: 12px; }
+      .rec-indicator { width: 11px; height: 11px; font-size: 0.42rem; }
+    }
+    @media (max-width: 420px) {
+      .container { padding: 4px 4px 4px; border-radius: 22px; }
+      .grid { gap: 3px; }
       .hanzi { font-size: 1.4rem; }
-      .emoji-big { font-size: 1.7rem; }
-      .pinyin { font-size: 0.58rem; padding: 0px 8px; }
-      .russian { font-size: 0.62rem; padding: 1px 8px; }
-      h1 { font-size: 0.95rem; }
-      h1 .title-hanzi { font-size: 0.8rem; padding: 2px 8px; }
-      .subhead { font-size: 0.48rem; padding: 1px 10px; margin-bottom: 3px; }
+      .emoji-big { font-size: 1.6rem; }
+      .pinyin { font-size: 0.56rem; padding: 0px 7px; }
+      .russian { font-size: 0.6rem; padding: 1px 7px; }
+      .card { padding: 2px 3px 3px; border-radius: 16px; }
       .rec-num { width: 18px; height: 18px; font-size: 0.5rem; border-radius: 6px; }
       .rec-panel { padding: 2px 4px; gap: 2px; border-radius: 12px; }
       .rec-panel-title { font-size: 0.45rem; }
-      .footer-note { font-size: 0.42rem; padding: 2px 8px; }
+      .footer-note { font-size: 0.42rem; padding: 1px 8px; }
+      h1 { font-size: 0.9rem; gap: 4px; }
+      h1 .title-hanzi { font-size: 0.76rem; padding: 2px 8px; }
+      h1 .title-rus { font-size: 0.5rem; padding: 2px 6px; }
+      .subhead { font-size: 0.48rem; padding: 1px 10px; }
       .legend { font-size: 0.45rem; gap: 10px; }
       .rec-indicator { width: 10px; height: 10px; font-size: 0.4rem; }
     }
-    @media (max-width: 420px) {
-      .container { padding: 4px 4px 4px; border-radius: 20px; }
-      .grid { gap: 3px; }
-      .hanzi { font-size: 1.2rem; }
-      .emoji-big { font-size: 1.5rem; }
-      .pinyin { font-size: 0.52rem; padding: 0px 6px; }
-      .russian { font-size: 0.55rem; padding: 1px 6px; }
-      .card { padding: 2px 2px 3px; border-radius: 12px; }
-      .rec-num { width: 16px; height: 16px; font-size: 0.45rem; border-radius: 5px; }
-      .rec-panel { padding: 2px 3px; gap: 2px; border-radius: 10px; }
-      .rec-panel-title { font-size: 0.4rem; }
-      .footer-note { font-size: 0.38rem; padding: 1px 6px; }
-      h1 { font-size: 0.85rem; gap: 4px; }
-      h1 .title-hanzi { font-size: 0.72rem; padding: 2px 6px; }
-      h1 .title-rus { font-size: 0.48rem; padding: 2px 5px; }
-      .subhead { font-size: 0.44rem; padding: 1px 8px; }
-      .legend { font-size: 0.4rem; gap: 8px; }
-      .rec-indicator { width: 9px; height: 9px; font-size: 0.36rem; }
-    }
-    @media (max-height: 650px) {
+    @media (max-height: 700px) {
       .container { max-height: 96vh; padding: 5px 5px 5px; }
-      .hanzi { font-size: 1.3rem; }
-      .emoji-big { font-size: 1.6rem; }
-      h1 { font-size: 0.9rem; }
-      .subhead { font-size: 0.45rem; margin-bottom: 2px; padding: 1px 8px; }
+      .hanzi { font-size: 1.5rem; }
+      .emoji-big { font-size: 1.7rem; }
+      h1 { font-size: 0.95rem; }
+      .subhead { font-size: 0.5rem; margin-bottom: 2px; padding: 1px 10px; }
       .grid { gap: 3px; }
-      .card { padding: 2px 2px 3px; }
-      .footer-note { padding: 1px 8px; margin-top: 2px; font-size: 0.42rem; }
+      .card { padding: 2px 3px 3px; }
+      .footer-note { padding: 1px 9px; margin-top: 2px; font-size: 0.46rem; }
+      .legend { font-size: 0.5rem; }
     }
     @media (orientation: landscape) and (max-height: 500px) {
-      .container { max-height: 100%; border-radius: 14px; }
+      .container { max-height: 100%; border-radius: 16px; }
       .grid { grid-template-columns: repeat(5, 1fr); }
-      h1 { font-size: 0.8rem; }
-      h1 .title-hanzi { font-size: 0.9rem; padding: 2px 6px; }
+      h1 { font-size: 0.85rem; }
+      h1 .title-hanzi { font-size: 0.95rem; padding: 2px 8px; }
       .subhead { display: none; }
-      .rec-num { width: 20px; height: 20px; font-size: 0.55rem; }
+      .rec-num { width: 22px; height: 22px; font-size: 0.6rem; }
       .legend { display: none; }
     }
   </style>
@@ -300,7 +298,7 @@
 <div class="container">
   <h1>
     <span class="title-hanzi">离合词</span>
-    <span class="title-rus">бытовые глаголы</span>
+    <span class="title-rus">состояния и эмоции</span>
   </h1>
   <div style="text-align: center; flex-shrink: 0;">
     <span class="subhead">
@@ -309,102 +307,102 @@
   </div>
 
   <div class="grid" id="cardGrid">
-    <!-- 1. 理发 -->
-    <div class="card" data-color="li" data-key="c1" data-hanzi-audio="我理了发" data-russian-audio="я подстригся">
+    <!-- 1. 发火 -->
+    <div class="card" data-color="fa" data-key="c1" data-hanzi-audio="他发了火" data-russian-audio="он вспылил">
       <div class="rec-indicator" data-indicator>✓</div>
       <div class="card-inner">
-        <div class="emoji-big">💇</div>
-        <div class="hanzi"><span class="subj">我</span><span class="v">理</span><span class="ins">了</span><span class="v">发</span></div>
-        <div class="pinyin">wǒ lǐ le fà</div>
-        <div class="russian">я подстригся</div>
+        <div class="emoji-big">🔥</div>
+        <div class="hanzi"><span class="subj">他</span><span class="v">发</span><span class="ins">了</span><span class="v">火</span></div>
+        <div class="pinyin">tā fā le huǒ</div>
+        <div class="russian">он вспылил</div>
       </div>
     </div>
 
-    <!-- 2. 散步 -->
-    <div class="card" data-color="san" data-key="c2" data-hanzi-audio="我们散了步" data-russian-audio="мы прогулялись">
+    <!-- 2. 生病 -->
+    <div class="card" data-color="sheng" data-key="c2" data-hanzi-audio="我生了病" data-russian-audio="я заболел">
       <div class="rec-indicator" data-indicator>✓</div>
       <div class="card-inner">
-        <div class="emoji-big">🚶</div>
-        <div class="hanzi"><span class="subj">我们</span><span class="v">散</span><span class="ins">了</span><span class="v">步</span></div>
-        <div class="pinyin">wǒmen sàn le bù</div>
-        <div class="russian">мы прогулялись</div>
+        <div class="emoji-big">🤒</div>
+        <div class="hanzi"><span class="subj">我</span><span class="v">生</span><span class="ins">了</span><span class="v">病</span></div>
+        <div class="pinyin">wǒ shēng le bìng</div>
+        <div class="russian">я заболел</div>
       </div>
     </div>
 
-    <!-- 3. 跑步 -->
-    <div class="card" data-color="pao" data-key="c3" data-hanzi-audio="他跑了步" data-russian-audio="он побегал">
+    <!-- 3. 丢人 -->
+    <div class="card" data-color="diu" data-key="c3" data-hanzi-audio="他丢了人" data-russian-audio="он опозорился">
       <div class="rec-indicator" data-indicator>✓</div>
       <div class="card-inner">
-        <div class="emoji-big">🏃</div>
-        <div class="hanzi"><span class="subj">他</span><span class="v">跑</span><span class="ins">了</span><span class="v">步</span></div>
-        <div class="pinyin">tā pǎo le bù</div>
-        <div class="russian">он побегал</div>
+        <div class="emoji-big">😳</div>
+        <div class="hanzi"><span class="subj">他</span><span class="v">丢</span><span class="ins">了</span><span class="v">人</span></div>
+        <div class="pinyin">tā diū le rén</div>
+        <div class="russian">он опозорился</div>
       </div>
     </div>
 
-    <!-- 4. 住院 -->
-    <div class="card" data-color="zhu" data-key="c4" data-hanzi-audio="他住了院" data-russian-audio="он лёг в больницу">
+    <!-- 4. 受伤 -->
+    <div class="card" data-color="shou" data-key="c4" data-hanzi-audio="我受了伤" data-russian-audio="я получил травму">
       <div class="rec-indicator" data-indicator>✓</div>
       <div class="card-inner">
-        <div class="emoji-big">🏥</div>
-        <div class="hanzi"><span class="subj">他</span><span class="v">住</span><span class="ins">了</span><span class="v">院</span></div>
-        <div class="pinyin">tā zhù le yuàn</div>
-        <div class="russian">он лёг в больницу</div>
+        <div class="emoji-big">🩹</div>
+        <div class="hanzi"><span class="subj">我</span><span class="v">受</span><span class="ins">了</span><span class="v">伤</span></div>
+        <div class="pinyin">wǒ shòu le shāng</div>
+        <div class="russian">я получил травму</div>
       </div>
     </div>
 
-    <!-- 5. 保密 -->
-    <div class="card" data-color="bao" data-key="c5" data-hanzi-audio="我保了密" data-russian-audio="я сохранил секрет">
+    <!-- 5. 着凉 -->
+    <div class="card" data-color="zhao" data-key="c5" data-hanzi-audio="我着了凉" data-russian-audio="я простудился">
       <div class="rec-indicator" data-indicator>✓</div>
       <div class="card-inner">
-        <div class="emoji-big">🤫</div>
-        <div class="hanzi"><span class="subj">我</span><span class="v">保</span><span class="ins">了</span><span class="v">密</span></div>
-        <div class="pinyin">wǒ bǎo le mì</div>
-        <div class="russian">я сохранил секрет</div>
+        <div class="emoji-big">🤧</div>
+        <div class="hanzi"><span class="subj">我</span><span class="v">着</span><span class="ins">了</span><span class="v">凉</span></div>
+        <div class="pinyin">wǒ zháo le liáng</div>
+        <div class="russian">я простудился</div>
       </div>
     </div>
 
-    <!-- 6. 游泳 -->
-    <div class="card" data-color="you" data-key="c6" data-hanzi-audio="我游了泳" data-russian-audio="я поплавал">
+    <!-- 6. 吃苦 -->
+    <div class="card" data-color="chi" data-key="c6" data-hanzi-audio="他吃了苦" data-russian-audio="он натерпелся">
       <div class="rec-indicator" data-indicator>✓</div>
       <div class="card-inner">
-        <div class="emoji-big">🏊</div>
-        <div class="hanzi"><span class="subj">我</span><span class="v">游</span><span class="ins">了</span><span class="v">泳</span></div>
-        <div class="pinyin">wǒ yóu le yǒng</div>
-        <div class="russian">я поплавал</div>
+        <div class="emoji-big">😣</div>
+        <div class="hanzi"><span class="subj">他</span><span class="v">吃</span><span class="ins">了</span><span class="v">苦</span></div>
+        <div class="pinyin">tā chī le kǔ</div>
+        <div class="russian">он натерпелся</div>
       </div>
     </div>
 
-    <!-- 7. 化妆 -->
-    <div class="card" data-color="hua" data-key="c7" data-hanzi-audio="她化了妆" data-russian-audio="она накрасилась">
+    <!-- 7. 上当 -->
+    <div class="card" data-color="shang" data-key="c7" data-hanzi-audio="我上了当" data-russian-audio="я обманулся">
       <div class="rec-indicator" data-indicator>✓</div>
       <div class="card-inner">
-        <div class="emoji-big">💄</div>
-        <div class="hanzi"><span class="subj">她</span><span class="v">化</span><span class="ins">了</span><span class="v">妆</span></div>
-        <div class="pinyin">tā huà le zhuāng</div>
-        <div class="russian">она накрасилась</div>
+        <div class="emoji-big">🎣</div>
+        <div class="hanzi"><span class="subj">我</span><span class="v">上</span><span class="ins">了</span><span class="v">当</span></div>
+        <div class="pinyin">wǒ shàng le dàng</div>
+        <div class="russian">я обманулся</div>
       </div>
     </div>
 
-    <!-- 8. 付款 -->
-    <div class="card" data-color="fu" data-key="c8" data-hanzi-audio="我付了款" data-russian-audio="я оплатил">
+    <!-- 8. 操心 -->
+    <div class="card" data-color="cao" data-key="c8" data-hanzi-audio="妈妈操了心" data-russian-audio="мама беспокоилась">
       <div class="rec-indicator" data-indicator>✓</div>
       <div class="card-inner">
-        <div class="emoji-big">💳</div>
-        <div class="hanzi"><span class="subj">我</span><span class="v">付</span><span class="ins">了</span><span class="v">款</span></div>
-        <div class="pinyin">wǒ fù le kuǎn</div>
-        <div class="russian">я оплатил</div>
+        <div class="emoji-big">😟</div>
+        <div class="hanzi"><span class="subj">妈妈</span><span class="v">操</span><span class="ins">了</span><span class="v">心</span></div>
+        <div class="pinyin">māma cāo le xīn</div>
+        <div class="russian">мама беспокоилась</div>
       </div>
     </div>
 
-    <!-- 9. 结账 -->
-    <div class="card" data-color="jie" data-key="c9" data-hanzi-audio="我结了账" data-russian-audio="я рассчитался">
+    <!-- 9. 毕业 -->
+    <div class="card" data-color="bi" data-key="c9" data-hanzi-audio="我毕了业" data-russian-audio="я выпустился">
       <div class="rec-indicator" data-indicator>✓</div>
       <div class="card-inner">
-        <div class="emoji-big">🧾</div>
-        <div class="hanzi"><span class="subj">我</span><span class="v">结</span><span class="ins">了</span><span class="v">账</span></div>
-        <div class="pinyin">wǒ jié le zhàng</div>
-        <div class="russian">я рассчитался</div>
+        <div class="emoji-big">🎓</div>
+        <div class="hanzi"><span class="subj">我</span><span class="v">毕</span><span class="ins">了</span><span class="v">业</span></div>
+        <div class="pinyin">wǒ bì le yè</div>
+        <div class="russian">я выпустился</div>
       </div>
     </div>
   </div>
@@ -475,7 +473,7 @@
       return voice || null;
     }
 
-    const STORAGE_PREFIX = 'custom_rec_heci_';
+    const STORAGE_PREFIX = 'custom_rec_heci_states_';
     const recordedAudios = {};
 
     function loadSavedRecordings() {
@@ -815,3 +813,4 @@
 
 </body>
 </html>
+

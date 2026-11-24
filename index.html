@@ -2,413 +2,813 @@
 <html lang="ru">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.5, user-scalable=yes" />
-  <title>Китайский · 我 + глаголы</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.5, user-scalable=yes, viewport-fit=cover" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <meta name="apple-mobile-web-app-title" content="离合词 6 · новые слова" />
+  <meta name="format-detection" content="telephone=no" />
+  <meta name="theme-color" content="#f7f3e9" />
+
+  <title>离合词 · Разделяемые глаголы (комплект 6)</title>
+
   <style>
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-
+    * { box-sizing: border-box; margin: 0; padding: 0; -webkit-tap-highlight-color: transparent; }
     html, body {
-      height: 100%;
-      overflow: hidden;
+      height: 100%; overflow: hidden; overscroll-behavior: none;
+      -webkit-user-select: none; user-select: none; position: fixed; width: 100%;
+      -webkit-text-size-adjust: 100%;
     }
-
     body {
       font-family: system-ui, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
-      background: linear-gradient(145deg, #f0f0ea 0%, #e0ddd5 100%);
-      height: 100vh;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      padding: 12px;
+      background: linear-gradient(145deg, #f7f3e9 0%, #e8e0d5 100%);
+      height: 100vh; height: 100dvh;
+      display: flex; justify-content: center; align-items: center;
+      padding: calc(4px + env(safe-area-inset-top)) calc(4px + env(safe-area-inset-right)) calc(4px + env(safe-area-inset-bottom)) calc(4px + env(safe-area-inset-left));
     }
 
     .container {
-      max-width: 780px;
-      width: 100%;
-      height: 98vh;
-      max-height: 730px;
-      background: rgba(245, 242, 235, 0.5);
-      backdrop-filter: blur(4px);
-      border-radius: 48px;
-      padding: 16px 14px 16px;
-      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.12), 0 8px 20px rgba(0, 0, 0, 0.06);
-      border: 1px solid rgba(190, 185, 175, 0.3);
-      display: flex;
-      flex-direction: column;
+      max-width: 780px; width: 100%; height: 100%; max-height: 780px;
+      background: rgba(255, 247, 235, 0.55);
+      -webkit-backdrop-filter: blur(6px) saturate(1.15);
+      backdrop-filter: blur(6px) saturate(1.15);
+      border-radius: 32px; padding: 8px 6px 8px;
+      box-shadow: 0 20px 40px rgba(0,0,0,0.2), 0 8px 20px rgba(0,0,0,0.1),
+                  inset 0 1px 2px rgba(255,255,255,0.95),
+                  inset 0 -1px 2px rgba(180,160,140,0.20);
+      border: 1px solid rgba(255,215,175,0.5);
+      display: flex; flex-direction: column; position: relative; overflow: hidden;
     }
 
     h1 {
-      text-align: center;
-      font-weight: 700;
-      font-size: 1.5rem;
-      color: #2a1a0a;
-      margin-bottom: 0px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 10px;
-      flex-shrink: 0;
+      text-align: center; font-weight: 900; font-size: 1.15rem; color: #3e2e1f;
+      margin-bottom: 2px; display: flex; align-items: center; justify-content: center;
+      gap: 6px; flex-shrink: 0; flex-wrap: nowrap;
+      text-shadow: 0 1px 0 rgba(255,255,255,0.95); overflow: hidden;
+    }
+    h1 .title-hanzi {
+      font-size: 0.95rem; font-weight: 900; color: #5a3e2a;
+      background: linear-gradient(145deg, #ede3d6, #d8c8b4);
+      padding: 2px 12px; border-radius: 12px;
+      box-shadow: inset 0 1px 2px rgba(255,255,255,0.95),
+                  inset 0 -1px 2px rgba(120,90,60,0.20),
+                  0 1px 0 rgba(80,60,40,0.20);
+      text-shadow: 0 1px 0 rgba(255,255,255,0.9); line-height: 1.15; white-space: nowrap;
+    }
+    h1 .title-rus {
+      font-size: 0.58rem; font-weight: 900; color: #3e2e1f;
+      background: linear-gradient(145deg, #f0e8dc, #e0d4c4);
+      padding: 2px 10px; border-radius: 30px;
+      box-shadow: inset 0 1px 2px rgba(255,255,255,0.95); white-space: nowrap;
     }
 
     .subhead {
-      text-align: center;
-      font-size: 0.8rem;
-      color: #3a2a1a;
-      background: #d5cdc0;
-      display: inline-block;
-      padding: 3px 18px;
-      border-radius: 40px;
-      margin: 0 auto 8px;
-      flex-shrink: 0;
+      text-align: center; font-size: 0.58rem; color: #5a3e2a;
+      background: linear-gradient(145deg, #ede3d6, #dcccb8);
+      display: block; padding: 1px 14px; border-radius: 30px;
+      margin: 0 auto 4px; flex-shrink: 0; font-weight: 700; line-height: 1.3;
+      width: fit-content; max-width: 96%;
+      box-shadow: inset 0 1px 2px rgba(255,255,255,0.9);
     }
+    .subhead b { color: #c53030; font-weight: 900; }
 
     .grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      grid-template-rows: repeat(2, 1fr);
-      gap: 10px;
-      flex: 1;
-      align-content: stretch;
-      min-height: 0;
+      display: grid; grid-template-columns: repeat(3, 1fr); grid-auto-rows: 1fr;
+      gap: 5px; flex: 1; min-height: 0; overflow-y: auto; overflow-x: hidden;
+      -webkit-overflow-scrolling: touch; padding: 1px; scrollbar-width: none;
     }
+    .grid::-webkit-scrollbar { display: none; }
 
     .card {
-      border-radius: 24px;
-      padding: 8px 4px 10px;
-      box-shadow: 0 4px 0 rgba(0, 0, 0, 0.07), 0 6px 16px rgba(0, 0, 0, 0.07);
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      transition: transform 0.12s ease, box-shadow 0.2s;
-      cursor: pointer;
-      border: 2px solid rgba(255, 255, 255, 0.5);
-      position: relative;
-      min-height: 0;
-      user-select: none;
+      border-radius: 20px; padding: 2px 4px 4px;
+      border-bottom: 5px solid transparent;
+      box-shadow: 0 0px 0 rgba(0,0,0,0.05), 0 4px 10px rgba(0,0,0,0.10),
+                  inset 0 1px 1px rgba(255,255,255,0.95),
+                  inset 0 -2px 4px rgba(120,90,60,0.12);
+      display: flex; flex-direction: column; align-items: center; justify-content: flex-start;
+      text-align: center; transition: transform 0.12s ease, box-shadow 0.2s, border-bottom-color 0.2s;
+      cursor: pointer; position: relative; min-height: 0; user-select: none;
+      border-top: 2px solid rgba(255,255,255,0.5);
+      border-left: 2px solid rgba(255,255,255,0.5);
+      border-right: 2px solid rgba(255,255,255,0.5);
+      overflow: hidden;
     }
-
-    .card:active {
-      transform: scale(0.95);
-    }
-
+    .card:active { transform: scale(0.95); }
     .card.active {
-      border: 3px solid var(--card-color, #b09870);
-      border-bottom: 6px solid var(--card-color, #b09870);
-      box-shadow: 0 8px 0 rgba(0, 0, 0, 0.04), 0 8px 24px rgba(0, 0, 0, 0.18);
-      transform: translateY(-2px);
+      border-bottom-color: var(--card-color, #d4a373);
+      box-shadow: 0 0px 0 rgba(0,0,0,0.05), 0 8px 20px rgba(0,0,0,0.18),
+                  inset 0 1px 1px rgba(255,255,255,0.95);
+    }
+    .card.has-rec {
+      box-shadow: 0 0px 0 rgba(0,0,0,0.05), 0 4px 10px rgba(0,0,0,0.10),
+                  inset 0 1px 1px rgba(255,255,255,0.95),
+                  inset 0 -2px 4px rgba(120,90,60,0.12),
+                  0 0 0 2px rgba(200,150,100,0.3);
     }
 
     .emoji-big {
-      font-size: 2.2rem;
-      line-height: 1.1;
-      display: inline-block;
+      font-size: 2.2rem; line-height: 1.1; display: inline-block;
       animation: floatEmoji 2.8s infinite alternate ease-in-out;
-      filter: drop-shadow(0 4px 6px rgba(0, 0, 0, 0.05));
+      filter: drop-shadow(0 4px 6px rgba(0,0,0,0.08));
+      margin-top: 2px;
     }
-
     @keyframes floatEmoji {
       0% { transform: translateY(-3px) rotate(-2deg); }
       100% { transform: translateY(6px) rotate(3deg); }
     }
 
-    .hanzi {
-      font-size: 2.4rem;
-      font-weight: 700;
-      line-height: 1.1;
-      margin: 2px 0 0px;
-      letter-spacing: 2px;
-      color: #1a0e00;
-      text-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
+    .rec-indicator {
+      position: absolute; top: 4px; right: 4px; width: 12px; height: 12px;
+      border-radius: 50%; display: none; align-items: center; justify-content: center;
+      font-size: 0.46rem; font-weight: 900;
+      background: linear-gradient(145deg, #7ae8a8, #3ac878);
+      color: #fff; box-shadow: inset 0 1px 1px rgba(255,255,255,0.9), 0 1px 3px rgba(30,90,50,0.3);
+      z-index: 5; line-height: 1;
     }
+    .rec-indicator.show { display: flex; }
+    .rec-indicator.recording {
+      background: linear-gradient(145deg, #ff6060, #d83030);
+      animation: pulse 1s infinite;
+    }
+    @keyframes pulse {
+      0%, 100% { box-shadow: 0 0 0 0 rgba(255,80,80,0.7); }
+      50% { box-shadow: 0 0 0 8px rgba(255,80,80,0); }
+    }
+
+    .card-inner {
+      display: flex; flex-direction: column; align-items: center;
+      justify-content: flex-start; width: 100%; height: 100%;
+      padding-top: 2px; gap: 1px;
+    }
+
+    .hanzi {
+      font-size: 2.0rem; font-weight: 800; line-height: 1.2;
+      margin: 0; letter-spacing: 1px; color: #1f1a15;
+      text-shadow: 0 2px 4px rgba(0,0,0,0.06);
+      position: relative; z-index: 2; text-align: center;
+      word-break: break-word; max-width: 100%;
+      white-space: normal; overflow-wrap: break-word;
+    }
+    /* ЦВЕТОВАЯ РАЗМЕТКА ДЛЯ 离合词 */
+    .v { color: #2b6cb0; text-decoration: underline; text-decoration-color: #2b6cb0; text-decoration-thickness: 2px; text-underline-offset: 3px; }
+    .ins { color: #c53030; text-decoration: underline; text-decoration-color: #c53030; text-decoration-thickness: 2px; text-underline-offset: 3px; }
+    .subj { color: #1f1a15; }
 
     .pinyin {
-      font-size: 0.85rem;
-      font-weight: 600;
-      color: #3a2a1a;
-      background: rgba(235, 225, 210, 0.7);
-      padding: 0px 10px;
-      border-radius: 30px;
-      margin: 1px 0 1px;
+      font-size: 0.7rem; font-weight: 600; color: #2d1f12;
+      background: rgba(255,245,225,0.7); padding: 1px 12px;
+      border-radius: 30px; margin: 0; line-height: 1.2;
+      white-space: normal; word-break: break-word; max-width: 100%;
     }
-
     .russian {
-      font-size: 0.78rem;
-      font-weight: 500;
-      color: #2a1a0a;
-      background: rgba(215, 205, 190, 0.5);
-      padding: 1px 8px;
-      border-radius: 30px;
-      margin-top: 1px;
-      line-height: 1.2;
+      font-size: 0.75rem; font-weight: 600; color: #3d2c1b;
+      background: rgba(240,220,195,0.5); padding: 2px 12px;
+      border-radius: 30px; margin-top: 1px; line-height: 1.2;
+      max-width: 100%; word-break: break-word; white-space: normal;
     }
 
-    .antonym {
-      font-size: 0.55rem;
-      color: #5a3a2a;
-      background: rgba(215, 180, 160, 0.25);
-      padding: 1px 8px;
-      border-radius: 20px;
-      margin-top: 1px;
-    }
+    /* ——— ЦВЕТА КАРТОЧЕК ——— */
+    .card[data-color="chu"]    { --card-color: #7a8ab8; background: #d9e0f2; }
+    .card[data-color="xishou"] { --card-color: #7ab8d9; background: #d0e8f5; }
+    .card[data-color="shua"]   { --card-color: #9bb88c; background: #d9e8cf; }
+    .card[data-color="chuguo"] { --card-color: #c48b5c; background: #f2dfcd; }
+    .card[data-color="zuoche"] { --card-color: #e8a83d; background: #fdebc4; }
+    .card[data-color="tanai"]  { --card-color: #d97a8c; background: #fadce2; }
+    .card[data-color="tansh"]  { --card-color: #b8a88c; background: #ede4d4; }
+    .card[data-color="lou"]    { --card-color: #b88a9e; background: #f0d9e2; }
+    .card[data-color="jinmen"] { --card-color: #7a6a5a; background: #e8dccc; }
 
-    .example {
-      font-size: 0.55rem;
-      color: #4a3a2a;
-      background: rgba(215, 205, 190, 0.3);
-      padding: 1px 6px;
-      border-radius: 20px;
-      margin-top: 1px;
-      max-width: 95%;
-      line-height: 1.3;
-    }
-
-    /* ===== ЦВЕТНЫЕ КАРТОЧКИ ===== */
-    .card[data-color="hui"]   { --card-color: #6a7aaa; background: #d0d8f0; }
-    .card[data-color="yao"]   { --card-color: #c45a3a; background: #f5d8c8; }
-    .card[data-color="xiang"] { --card-color: #a45a8a; background: #f0d0e0; }
-    .card[data-color="zuo"]   { --card-color: #8a7a4a; background: #e8dec0; }
-    .card[data-color="you"]   { --card-color: #4a8a5a; background: #c8e0c8; }
-    .card[data-color="shuo"]  { --card-color: #b08a4a; background: #f0e0c8; }
-
-    /* ===== НИЖНЯЯ ПАНЕЛЬ С ПОДСКАЗКОЙ ===== */
-    .russian-display {
-      margin-top: 10px;
-      text-align: center;
-      font-weight: 700;
-      color: #2a1a0a;
-      background: #d5cdc0;
-      padding: 14px 22px;
-      border-radius: 32px;
+    .rec-panel {
+      margin-top: 4px; padding: 3px 6px;
+      background: linear-gradient(145deg, #ede3d6, #d8c8b4);
+      border-radius: 16px; display: flex; flex-wrap: wrap;
+      justify-content: center; align-items: center; gap: 3px;
       flex-shrink: 0;
-      align-self: center;
-      min-height: 64px;
-      width: 92%;
-      max-width: 540px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 14px;
-      box-shadow: 0 4px 0 rgba(0, 0, 0, 0.06), 0 6px 16px rgba(0, 0, 0, 0.08);
-      transition: background 0.25s ease, color 0.25s ease, transform 0.18s ease, box-shadow 0.25s ease;
+      box-shadow: inset 0 1px 2px rgba(255,255,255,0.95),
+                  inset 0 -1px 2px rgba(120,90,60,0.20),
+                  0 2px 5px rgba(120,90,60,0.15);
+    }
+    .rec-panel-title {
+      font-size: 0.55rem; font-weight: 800; color: #3e2e1f;
+      margin-right: 2px; text-shadow: 0 1px 0 rgba(255,255,255,0.85);
+    }
+    .rec-num {
+      width: 22px; height: 22px; border-radius: 8px;
+      border: 1px solid rgba(255,255,255,0.85);
+      background: linear-gradient(145deg, #ffffff, #f0e8dc);
+      box-shadow: inset 0 1px 1px rgba(255,255,255,0.95), 0 1px 2px rgba(80,60,40,0.20);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 0.6rem; font-weight: 900; color: #3e2e1f;
+      cursor: pointer; padding: 0; transition: transform 0.12s ease, background 0.2s ease;
+      position: relative; line-height: 1; -webkit-user-select: none; user-select: none;
+      -webkit-appearance: none; appearance: none;
+    }
+    .rec-num:active { transform: scale(0.9); }
+    .rec-num.recording {
+      background: linear-gradient(145deg, #ff7070, #d83030);
+      color: #fff; animation: pulse2 1s infinite;
+    }
+    .rec-num.has-rec {
+      background: linear-gradient(145deg, #7ae8a8, #3ac878);
+      color: #fff;
+    }
+    @keyframes pulse2 {
+      0%, 100% { box-shadow: 0 0 0 0 rgba(255,80,80,0.7); }
+      50% { box-shadow: 0 0 0 5px rgba(255,80,80,0); }
     }
 
-    .russian-display.empty {
-      font-size: 0.95rem;
-      font-weight: 500;
-      color: #5a4a3a;
+    .legend {
+      display: flex; justify-content: center; gap: 16px; margin-top: 3px;
+      flex-shrink: 0; font-size: 0.55rem; color: #5a3e2a;
     }
+    .legend-item { display: flex; align-items: center; gap: 3px; }
+    .legend-dot { width: 11px; height: 11px; border-radius: 3px; }
+    .legend-dot.blue { background: #2b6cb0; }
+    .legend-dot.red { background: #c53030; }
 
-    .russian-display.active {
-      transform: translateY(-1px);
-      box-shadow: 0 6px 0 rgba(0, 0, 0, 0.04), 0 10px 24px rgba(0, 0, 0, 0.18);
+    .footer-note {
+      margin-top: 3px; text-align: center; font-size: 0.5rem; font-weight: 700;
+      color: #3e2e1f; background: linear-gradient(145deg, #ede3d6, #d8c8b4);
+      padding: 2px 12px; border-radius: 60px; display: inline-block;
+      width: auto; flex-shrink: 0; align-self: center;
+      box-shadow: inset 0 1px 2px rgba(255,255,255,0.9);
+      text-shadow: 0 1px 0 rgba(255,255,255,0.75); line-height: 1.3;
     }
-
-    .russian-display .disp-hanzi {
-      font-size: 1.8rem;
-      font-weight: 700;
-      color: #1a0e00;
-      letter-spacing: 2px;
-      white-space: nowrap;
-    }
-
-    .russian-display .disp-russian {
-      font-size: 1.45rem;
-      font-weight: 700;
-      color: #2a1a0a;
-      line-height: 1.15;
-    }
-
-    .russian-display .disp-arrow {
-      font-size: 1.1rem;
-      color: #6a5a4a;
-    }
+    .footer-note b { font-weight: 900; color: #c53030; }
 
     @media (max-width: 600px) {
-      .container { padding: 10px 8px 12px; max-height: 680px; }
-      .grid { gap: 8px; }
-      .hanzi { font-size: 2.0rem; }
-      .emoji-big { font-size: 2.0rem; }
-      .pinyin { font-size: 0.75rem; padding: 0px 8px; }
-      .russian { font-size: 0.7rem; padding: 0px 6px; }
-      .antonym { font-size: 0.5rem; }
-      .example { font-size: 0.5rem; }
-      h1 { font-size: 1.2rem; }
-      .subhead { font-size: 0.7rem; padding: 2px 14px; margin-bottom: 4px; }
-      .russian-display { padding: 10px 16px; min-height: 54px; }
-      .russian-display .disp-hanzi { font-size: 1.5rem; }
-      .russian-display .disp-russian { font-size: 1.15rem; }
-      .russian-display.empty { font-size: 0.85rem; }
-    }
-
-    @media (max-width: 420px) {
-      .grid { gap: 5px; }
+      .container { padding: 6px 5px 6px; max-height: 700px; border-radius: 26px; }
+      .grid { gap: 4px; }
       .hanzi { font-size: 1.7rem; }
-      .emoji-big { font-size: 1.6rem; }
-      .card { padding: 4px 2px 6px; border-radius: 18px; }
-      .pinyin { font-size: 0.6rem; padding: 0px 4px; }
-      .russian { font-size: 0.6rem; padding: 0px 4px; }
-      .antonym { font-size: 0.45rem; padding: 0px 4px; }
-      .example { font-size: 0.45rem; padding: 0px 4px; }
-      .russian-display { padding: 8px 12px; min-height: 48px; gap: 8px; }
-      .russian-display .disp-hanzi { font-size: 1.25rem; }
-      .russian-display .disp-russian { font-size: 1.0rem; }
-      .russian-display.empty { font-size: 0.75rem; }
-      .russian-display .disp-arrow { font-size: 0.9rem; }
+      .emoji-big { font-size: 1.9rem; }
+      .pinyin { font-size: 0.62rem; padding: 0px 9px; }
+      .russian { font-size: 0.66rem; padding: 1px 9px; }
+      h1 { font-size: 1.0rem; }
+      h1 .title-hanzi { font-size: 0.85rem; padding: 2px 10px; }
+      .subhead { font-size: 0.52rem; padding: 1px 12px; margin-bottom: 3px; }
+      .rec-num { width: 20px; height: 20px; font-size: 0.55rem; border-radius: 7px; }
+      .rec-panel { padding: 2px 5px; gap: 3px; border-radius: 14px; }
+      .rec-panel-title { font-size: 0.5rem; }
+      .footer-note { font-size: 0.46rem; padding: 2px 10px; }
+      .legend { font-size: 0.5rem; gap: 12px; }
+      .rec-indicator { width: 11px; height: 11px; font-size: 0.42rem; }
     }
-
-    @media (max-height: 680px) {
-      .container { max-height: 96vh; padding: 8px 10px 10px; }
-      .hanzi { font-size: 1.9rem; }
-      .emoji-big { font-size: 1.8rem; }
-      h1 { font-size: 1.1rem; }
-      .subhead { font-size: 0.65rem; margin-bottom: 3px; padding: 2px 12px; }
-      .grid { gap: 6px; }
-      .card { padding: 4px 2px 6px; }
-      .pinyin { font-size: 0.65rem; }
-      .russian { font-size: 0.6rem; }
-      .antonym { font-size: 0.45rem; }
-      .example { font-size: 0.45rem; }
-      .russian-display { padding: 8px 14px; min-height: 48px; margin-top: 6px; }
-      .russian-display .disp-hanzi { font-size: 1.3rem; }
-      .russian-display .disp-russian { font-size: 1.05rem; }
-      .russian-display.empty { font-size: 0.78rem; }
+    @media (max-width: 420px) {
+      .container { padding: 4px 4px 4px; border-radius: 22px; }
+      .grid { gap: 3px; }
+      .hanzi { font-size: 1.4rem; }
+      .emoji-big { font-size: 1.6rem; }
+      .pinyin { font-size: 0.56rem; padding: 0px 7px; }
+      .russian { font-size: 0.6rem; padding: 1px 7px; }
+      .card { padding: 2px 3px 3px; border-radius: 16px; }
+      .rec-num { width: 18px; height: 18px; font-size: 0.5rem; border-radius: 6px; }
+      .rec-panel { padding: 2px 4px; gap: 2px; border-radius: 12px; }
+      .rec-panel-title { font-size: 0.45rem; }
+      .footer-note { font-size: 0.42rem; padding: 1px 8px; }
+      h1 { font-size: 0.9rem; gap: 4px; }
+      h1 .title-hanzi { font-size: 0.76rem; padding: 2px 8px; }
+      h1 .title-rus { font-size: 0.5rem; padding: 2px 6px; }
+      .subhead { font-size: 0.48rem; padding: 1px 10px; }
+      .legend { font-size: 0.45rem; gap: 10px; }
+      .rec-indicator { width: 10px; height: 10px; font-size: 0.4rem; }
+    }
+    @media (max-height: 700px) {
+      .container { max-height: 96vh; padding: 5px 5px 5px; }
+      .hanzi { font-size: 1.5rem; }
+      .emoji-big { font-size: 1.7rem; }
+      h1 { font-size: 0.95rem; }
+      .subhead { font-size: 0.5rem; margin-bottom: 2px; padding: 1px 10px; }
+      .grid { gap: 3px; }
+      .card { padding: 2px 3px 3px; }
+      .footer-note { padding: 1px 9px; margin-top: 2px; font-size: 0.46rem; }
+      .legend { font-size: 0.5rem; }
+    }
+    @media (orientation: landscape) and (max-height: 500px) {
+      .container { max-height: 100%; border-radius: 16px; }
+      .grid { grid-template-columns: repeat(5, 1fr); }
+      h1 { font-size: 0.85rem; }
+      h1 .title-hanzi { font-size: 0.95rem; padding: 2px 8px; }
+      .subhead { display: none; }
+      .rec-num { width: 22px; height: 22px; font-size: 0.6rem; }
+      .legend { display: none; }
     }
   </style>
 </head>
 <body>
 
 <div class="container">
-  <h1><span>📝</span> 我 + глаголы <span>✨</span></h1>
+  <h1>
+    <span class="title-hanzi">离合词</span>
+    <span class="title-rus">разделяемые глаголы · комплект 6</span>
+  </h1>
   <div style="text-align: center; flex-shrink: 0;">
-    <span class="subhead">конструкции с 我 · 6 слов</span>
+    <span class="subhead">
+      <b>趣味单词天天更</b> · 动1 + 了/过/次/完 + 动2
+    </span>
   </div>
 
   <div class="grid" id="cardGrid">
-
-    <!-- 1. 我会 — я могу -->
-    <div class="card" data-color="hui" data-hanzi="我会" data-russian="я могу">
-      <div class="emoji-big">🎓</div>
-      <div class="hanzi">我会</div>
-      <div class="pinyin">wǒ huì</div>
-      <div class="russian">я могу / умею</div>
-      <div class="antonym">✗ 不会 (bù huì) — не умею</div>
-      <div class="example">我会说汉语 — я умею говорить по-китайски</div>
+    <!-- 1. 我出了门 — вставка 了 -->
+    <div class="card" data-color="chu" data-key="c1" data-hanzi-audio="我出了门" data-russian-audio="я вышел из дома">
+      <div class="rec-indicator" data-indicator>✓</div>
+      <div class="card-inner">
+        <div class="emoji-big">🚪</div>
+        <div class="hanzi"><span class="subj">我</span><span class="v">出</span><span class="ins">了</span><span class="v">门</span></div>
+        <div class="pinyin">wǒ chū le mén</div>
+        <div class="russian">я вышел из дома</div>
+      </div>
     </div>
 
-    <!-- 2. 我要 — я хочУ -->
-    <div class="card" data-color="yao" data-hanzi="我要" data-russian="я хочу">
-      <div class="emoji-big">🙏</div>
-      <div class="hanzi">我要</div>
-      <div class="pinyin">wǒ yào</div>
-      <div class="russian">я хочу / мне нужно</div>
-      <div class="antonym">✗ 不要 (bú yào) — не хочу</div>
-      <div class="example">我要水 — мне нужна вода</div>
+    <!-- 2. 她洗了两次手 — вставка 了两次 (частотность) -->
+    <div class="card" data-color="xishou" data-key="c2" data-hanzi-audio="她洗了两次手" data-russian-audio="она помыла руки дважды">
+      <div class="rec-indicator" data-indicator>✓</div>
+      <div class="card-inner">
+        <div class="emoji-big">🧼</div>
+        <div class="hanzi"><span class="subj">她</span><span class="v">洗</span><span class="ins">了两次</span><span class="v">手</span></div>
+        <div class="pinyin">tā xǐ le liǎng cì shǒu</div>
+        <div class="russian">она помыла руки дважды</div>
+      </div>
     </div>
 
-    <!-- 3. 我想 — я думаю -->
-    <div class="card" data-color="xiang" data-hanzi="我想" data-russian="я думаю">
-      <div class="emoji-big">💭</div>
-      <div class="hanzi">我想</div>
-      <div class="pinyin">wǒ xiǎng</div>
-      <div class="russian">я думаю / я хочу</div>
-      <div class="antonym">✗ 不想 (bù xiǎng) — не хочу</div>
-      <div class="example">我想喝茶 — я хочу пить чай</div>
+    <!-- 3. 孩子刷了牙 — вставка 了 -->
+    <div class="card" data-color="shua" data-key="c3" data-hanzi-audio="孩子刷了牙" data-russian-audio="ребёнок почистил зубы">
+      <div class="rec-indicator" data-indicator>✓</div>
+      <div class="card-inner">
+        <div class="emoji-big">🪥</div>
+        <div class="hanzi"><span class="subj">孩子</span><span class="v">刷</span><span class="ins">了</span><span class="v">牙</span></div>
+        <div class="pinyin">háizi shuā le yá</div>
+        <div class="russian">ребёнок почистил зубы</div>
+      </div>
     </div>
 
-    <!-- 4. 我做 — я делаю -->
-    <div class="card" data-color="zuo" data-hanzi="我做" data-russian="я делаю">
-      <div class="emoji-big">🛠️</div>
-      <div class="hanzi">我做</div>
-      <div class="pinyin">wǒ zuò</div>
-      <div class="russian">я делаю</div>
-      <div class="antonym">✗ 不做 (bù zuò) — не делаю</div>
-      <div class="example">我做功课 — я делаю домашнее задание</div>
+    <!-- 4. 他出过国 — вставка 过 (опыт) -->
+    <div class="card" data-color="chuguo" data-key="c4" data-hanzi-audio="他出过国" data-russian-audio="он бывал за границей">
+      <div class="rec-indicator" data-indicator>✓</div>
+      <div class="card-inner">
+        <div class="emoji-big">✈️</div>
+        <div class="hanzi"><span class="subj">他</span><span class="v">出</span><span class="ins">过</span><span class="v">国</span></div>
+        <div class="pinyin">tā chū guò guó</div>
+        <div class="russian">он бывал за границей</div>
+      </div>
     </div>
 
-    <!-- 5. 我有 — я имею -->
-    <div class="card" data-color="you" data-hanzi="我有" data-russian="я имею">
-      <div class="emoji-big">🤲</div>
-      <div class="hanzi">我有</div>
-      <div class="pinyin">wǒ yǒu</div>
-      <div class="russian">я имею / у меня есть</div>
-      <div class="antonym">✗ 没有 (méi yǒu) — нет</div>
-      <div class="example">我有书 — у меня есть книга</div>
+    <!-- 5. 他坐过车 — вставка 过 (опыт) -->
+    <div class="card" data-color="zuoche" data-key="c5" data-hanzi-audio="他坐过车" data-russian-audio="он ездил на транспорте">
+      <div class="rec-indicator" data-indicator>✓</div>
+      <div class="card-inner">
+        <div class="emoji-big">🚌</div>
+        <div class="hanzi"><span class="subj">他</span><span class="v">坐</span><span class="ins">过</span><span class="v">车</span></div>
+        <div class="pinyin">tā zuò guò chē</div>
+        <div class="russian">он ездил на транспорте</div>
+      </div>
     </div>
 
-    <!-- 6. 我说 — я сказал -->
-    <div class="card" data-color="shuo" data-hanzi="我说" data-russian="я сказал">
-      <div class="emoji-big">🗣️</div>
-      <div class="hanzi">我说</div>
-      <div class="pinyin">wǒ shuō</div>
-      <div class="russian">я сказал / я говорю</div>
-      <div class="antonym">↔ 听 (tīng) — слушать</div>
-      <div class="example">我说中文 — я говорю по-китайски</div>
+    <!-- 6. 他们谈过恋爱 — вставка 过 (опыт) -->
+    <div class="card" data-color="tanai" data-key="c6" data-hanzi-audio="他们谈过恋爱" data-russian-audio="они встречались">
+      <div class="rec-indicator" data-indicator>✓</div>
+      <div class="card-inner">
+        <div class="emoji-big">💕</div>
+        <div class="hanzi"><span class="subj">他们</span><span class="v">谈</span><span class="ins">过</span><span class="v">恋爱</span></div>
+        <div class="pinyin">tāmen tán guò liàn'ài</div>
+        <div class="russian">они встречались</div>
+      </div>
     </div>
 
+    <!-- 7. 我们谈完了生意 — вставка 完了 (результат) -->
+    <div class="card" data-color="tansh" data-key="c7" data-hanzi-audio="我们谈完了生意" data-russian-audio="мы закончили обсуждение сделки">
+      <div class="rec-indicator" data-indicator>✓</div>
+      <div class="card-inner">
+        <div class="emoji-big">💼</div>
+        <div class="hanzi"><span class="subj">我们</span><span class="v">谈</span><span class="ins">完了</span><span class="v">生意</span></div>
+        <div class="pinyin">wǒmen tán wán le shēngyi</div>
+        <div class="russian">мы закончили сделку</div>
+      </div>
+    </div>
+
+    <!-- 8. 我上了楼 — вставка 了 -->
+    <div class="card" data-color="lou" data-key="c8" data-hanzi-audio="我上了楼" data-russian-audio="я поднялся наверх">
+      <div class="rec-indicator" data-indicator>✓</div>
+      <div class="card-inner">
+        <div class="emoji-big">🪜</div>
+        <div class="hanzi"><span class="subj">我</span><span class="v">上</span><span class="ins">了</span><span class="v">楼</span></div>
+        <div class="pinyin">wǒ shàng le lóu</div>
+        <div class="russian">я поднялся наверх</div>
+      </div>
+    </div>
+
+    <!-- 9. 他进了门 — вставка 了 -->
+    <div class="card" data-color="jinmen" data-key="c9" data-hanzi-audio="他进了门" data-russian-audio="он вошёл в дверь">
+      <div class="rec-indicator" data-indicator>✓</div>
+      <div class="card-inner">
+        <div class="emoji-big">🏠</div>
+        <div class="hanzi"><span class="subj">他</span><span class="v">进</span><span class="ins">了</span><span class="v">门</span></div>
+        <div class="pinyin">tā jìn le mén</div>
+        <div class="russian">он вошёл в дверь</div>
+      </div>
+    </div>
   </div>
 
-  <div class="russian-display empty" id="russianDisplay">
-    👆 нажми на карточку
+  <div class="rec-panel" id="recPanel">
+    <span class="rec-panel-title">🎙️ запись:</span>
+  </div>
+
+  <div class="legend">
+    <div class="legend-item"><div class="legend-dot blue"></div> части глагола (动1 / 动2)</div>
+    <div class="legend-item"><div class="legend-dot red"></div> вставка (了 / 过 / 次 / 完)</div>
+  </div>
+
+  <div style="display: flex; justify-content: center; flex-shrink: 0;">
+    <div class="footer-note">
+      <b>клик</b> по карточке — озвучка · <b>клик</b> по цифре — запись · повтор — удалить
+    </div>
   </div>
 </div>
 
 <script>
   (function() {
     const cards = document.querySelectorAll('.card');
-    const display = document.getElementById('russianDisplay');
+    const recPanel = document.getElementById('recPanel');
 
-    function clearActive() {
-      cards.forEach(c => c.classList.remove('active'));
-      display.classList.remove('active');
+    let audioUnlocked = false;
+    let sharedAudioCtx = null;
+
+    function unlockAudio() {
+      if (audioUnlocked) return;
+      audioUnlocked = true;
+
+      try {
+        const Ctx = window.AudioContext || window.webkitAudioContext;
+        if (Ctx) {
+          if (!sharedAudioCtx) sharedAudioCtx = new Ctx();
+          if (sharedAudioCtx.state === 'suspended') sharedAudioCtx.resume();
+        }
+      } catch (e) {}
+
+      try {
+        const warmup = new SpeechSynthesisUtterance(' ');
+        warmup.volume = 0;
+        warmup.lang = 'zh-CN';
+        window.speechSynthesis.speak(warmup);
+      } catch (e) {}
+
+      try {
+        const silent = new Audio('data:audio/wav;base64,UklGRiQAAABXQVZFZm10IBAAAAABAAEARKwAAIhYAQACABAAZGF0YQAAAAA=');
+        silent.volume = 0;
+        silent.play().catch(() => {});
+      } catch (e) {}
     }
+
+    document.addEventListener('touchstart', unlockAudio, { once: true, passive: true });
+    document.addEventListener('click', unlockAudio, { once: true });
+
+    function getChineseVoice() {
+      const voices = window.speechSynthesis.getVoices();
+      let voice = voices.find(v => v.lang === 'zh-CN');
+      if (!voice) voice = voices.find(v => v.lang.startsWith('zh'));
+      return voice || null;
+    }
+    function getRussianVoice() {
+      const voices = window.speechSynthesis.getVoices();
+      let voice = voices.find(v => v.lang === 'ru-RU');
+      if (!voice) voice = voices.find(v => v.lang.startsWith('ru'));
+      return voice || null;
+    }
+
+    const STORAGE_PREFIX = 'custom_rec_liheci_set6_';
+    const recordedAudios = {};
+
+    function loadSavedRecordings() {
+      cards.forEach(card => {
+        const key = card.dataset.key;
+        if (!key) return;
+        const stored = localStorage.getItem(STORAGE_PREFIX + key);
+        if (stored) recordedAudios[key] = stored;
+      });
+    }
+
+    function createNumberButtons() {
+      cards.forEach((card, idx) => {
+        const key = card.dataset.key;
+        const num = idx + 1;
+
+        const btn = document.createElement('button');
+        btn.type = 'button';
+        btn.className = 'rec-num';
+        btn.dataset.key = key;
+        btn.dataset.num = num;
+        btn.textContent = num;
+        btn.title = `Запись для карточки №${num}`;
+        recPanel.appendChild(btn);
+
+        btn.addEventListener('click', (e) => {
+          e.stopPropagation();
+          handleNumberClick(card, btn);
+        });
+
+        updateNumberButton(card, btn);
+      });
+    }
+
+    function updateNumberButton(card, btn) {
+      const key = card.dataset.key;
+      const hasRec = !!recordedAudios[key];
+      if (!btn) btn = recPanel.querySelector(`.rec-num[data-key="${key}"]`);
+      if (!btn) return;
+
+      if (hasRec) {
+        btn.classList.add('has-rec');
+        btn.title = `Запись №${btn.dataset.num} есть. Клик — удалить.`;
+      } else {
+        btn.classList.remove('has-rec');
+        btn.title = `Записать перевод для карточки №${btn.dataset.num}`;
+      }
+    }
+
+    function updateCardIndicator(card) {
+      const key = card.dataset.key;
+      const indicator = card.querySelector('[data-indicator]');
+      if (!indicator) return;
+      const hasRec = !!recordedAudios[key];
+      if (hasRec) {
+        indicator.classList.add('show');
+        card.classList.add('has-rec');
+      } else {
+        indicator.classList.remove('show');
+        card.classList.remove('has-rec');
+      }
+    }
+
+    function getBestMimeType() {
+      const candidates = ['audio/mp4', 'audio/mp4;codecs=mp4a.40.2', 'audio/webm;codecs=opus', 'audio/webm'];
+      if (typeof MediaRecorder === 'undefined') return '';
+      for (const t of candidates) {
+        try { if (MediaRecorder.isTypeSupported(t)) return t; } catch (e) {}
+      }
+      return '';
+    }
+
+    let mediaRecorder = null;
+    let recordedChunks = [];
+    let recordingKey = null;
+    let currentStream = null;
+
+    async function handleNumberClick(card, btn) {
+      unlockAudio();
+      const key = card.dataset.key;
+
+      if (recordingKey === key) {
+        if (mediaRecorder && mediaRecorder.state !== 'inactive') mediaRecorder.stop();
+        return;
+      }
+
+      if (mediaRecorder && mediaRecorder.state !== 'inactive') {
+        mediaRecorder.stop();
+        await new Promise(r => setTimeout(r, 250));
+      }
+
+      if (recordedAudios[key]) {
+        if (confirm(`Удалить запись №${btn.dataset.num}?`)) {
+          delete recordedAudios[key];
+          try { localStorage.removeItem(STORAGE_PREFIX + key); } catch (e) {}
+          updateNumberButton(card, btn);
+          updateCardIndicator(card);
+        }
+        return;
+      }
+
+      try {
+        currentStream = await navigator.mediaDevices.getUserMedia({
+          audio: { echoCancellation: true, noiseSuppression: true, autoGainControl: true }
+        });
+
+        const mimeType = getBestMimeType();
+        const options = mimeType ? { mimeType } : {};
+        mediaRecorder = new MediaRecorder(currentStream, options);
+        recordedChunks = [];
+        recordingKey = key;
+
+        btn.classList.add('recording');
+        btn.textContent = '⏹';
+
+        const indicator = card.querySelector('[data-indicator]');
+        if (indicator) {
+          indicator.classList.add('show', 'recording');
+          indicator.textContent = '●';
+        }
+
+        mediaRecorder.ondataavailable = (e) => {
+          if (e.data && e.data.size > 0) recordedChunks.push(e.data);
+        };
+
+        mediaRecorder.onstop = async () => {
+          if (currentStream) {
+            currentStream.getTracks().forEach(t => t.stop());
+            currentStream = null;
+          }
+          btn.classList.remove('recording');
+          btn.textContent = btn.dataset.num;
+
+          const ind = card.querySelector('[data-indicator]');
+          if (ind) {
+            ind.classList.remove('recording');
+            ind.textContent = '✓';
+          }
+
+          if (recordedChunks.length === 0) { recordingKey = null; return; }
+
+          const blobMime = mediaRecorder.mimeType || mimeType || 'audio/mp4';
+          const blob = new Blob(recordedChunks, { type: blobMime });
+
+          let finalBlob = blob;
+          try { finalBlob = await normalizeAudio(blob); } catch (e) {}
+
+          let url;
+          try { url = await blobToDataURL(finalBlob); } catch (e) { recordingKey = null; return; }
+
+          recordedAudios[key] = url;
+          try { localStorage.setItem(STORAGE_PREFIX + key, url); }
+          catch (e) { alert('Не хватает места. Удалите старые записи.'); }
+
+          updateNumberButton(card, btn);
+          updateCardIndicator(card);
+          recordingKey = null;
+        };
+
+        mediaRecorder.onerror = () => {
+          if (currentStream) {
+            currentStream.getTracks().forEach(t => t.stop());
+            currentStream = null;
+          }
+          btn.classList.remove('recording');
+          btn.textContent = btn.dataset.num;
+          recordingKey = null;
+        };
+
+        mediaRecorder.start();
+      } catch (err) {
+        alert('Не удалось получить доступ к микрофону.');
+        recordingKey = null;
+      }
+    }
+
+    async function normalizeAudio(blob) {
+      const arrayBuffer = await blob.arrayBuffer();
+      const Ctx = window.AudioContext || window.webkitAudioContext;
+      if (!Ctx) return blob;
+      let audioCtx;
+      try { audioCtx = sharedAudioCtx || new Ctx(); } catch (e) { return blob; }
+      if (audioCtx.state === 'suspended') { try { await audioCtx.resume(); } catch (e) {} }
+      let audioBuffer;
+      try { audioBuffer = await audioCtx.decodeAudioData(arrayBuffer.slice(0)); } catch (e) { return blob; }
+      let peak = 0;
+      for (let ch = 0; ch < audioBuffer.numberOfChannels; ch++) {
+        const data = audioBuffer.getChannelData(ch);
+        for (let i = 0; i < data.length; i++) {
+          const abs = Math.abs(data[i]);
+          if (abs > peak) peak = abs;
+        }
+      }
+      const targetPeak = 0.95;
+      const gain = peak > 0 ? targetPeak / peak : 1;
+      const cappedGain = Math.min(gain, 8);
+      for (let ch = 0; ch < audioBuffer.numberOfChannels; ch++) {
+        const data = audioBuffer.getChannelData(ch);
+        for (let i = 0; i < data.length; i++) {
+          data[i] = Math.max(-1, Math.min(1, data[i] * cappedGain));
+        }
+      }
+      return audioBufferToWav(audioBuffer);
+    }
+
+    function audioBufferToWav(buffer) {
+      const numCh = buffer.numberOfChannels;
+      const sampleRate = buffer.sampleRate;
+      const length = buffer.length * numCh * 2 + 44;
+      const arrayBuffer = new ArrayBuffer(length);
+      const view = new DataView(arrayBuffer);
+      const writeString = (offset, str) => {
+        for (let i = 0; i < str.length; i++) view.setUint8(offset + i, str.charCodeAt(i));
+      };
+      writeString(0, 'RIFF');
+      view.setUint32(4, length - 8, true);
+      writeString(8, 'WAVE');
+      writeString(12, 'fmt ');
+      view.setUint32(16, 16, true);
+      view.setUint16(20, 1, true);
+      view.setUint16(22, numCh, true);
+      view.setUint32(24, sampleRate, true);
+      view.setUint32(28, sampleRate * numCh * 2, true);
+      view.setUint16(32, numCh * 2, true);
+      view.setUint16(34, 16, true);
+      writeString(36, 'data');
+      view.setUint32(40, length - 44, true);
+      let offset = 44;
+      const channels = [];
+      for (let i = 0; i < numCh; i++) channels.push(buffer.getChannelData(i));
+      for (let i = 0; i < buffer.length; i++) {
+        for (let ch = 0; ch < numCh; ch++) {
+          let sample = Math.max(-1, Math.min(1, channels[ch][i]));
+          sample = sample < 0 ? sample * 0x8000 : sample * 0x7FFF;
+          view.setInt16(offset, sample, true);
+          offset += 2;
+        }
+      }
+      return new Blob([arrayBuffer], { type: 'audio/wav' });
+    }
+
+    function blobToDataURL(blob) {
+      return new Promise((resolve, reject) => {
+        const reader = new FileReader();
+        reader.onload = () => resolve(reader.result);
+        reader.onerror = reject;
+        reader.readAsDataURL(blob);
+      });
+    }
+
+    function speakRussian(text) {
+      const cleanText = text.trim();
+      if (!cleanText) return;
+      const utterance = new SpeechSynthesisUtterance(cleanText);
+      utterance.lang = 'ru-RU';
+      utterance.rate = 0.85;
+      utterance.pitch = 1.0;
+      utterance.volume = 1.0;
+      const voice = getRussianVoice();
+      if (voice) utterance.voice = voice;
+      window.speechSynthesis.speak(utterance);
+    }
+
+    function playRecorded(key, onEnd) {
+      const url = recordedAudios[key];
+      if (!url) { if (onEnd) onEnd(); return; }
+      if (sharedAudioCtx && sharedAudioCtx.state === 'suspended') sharedAudioCtx.resume().catch(() => {});
+      const audio = new Audio(url);
+      audio.volume = 1.0;
+      audio.setAttribute('playsinline', 'true');
+      audio.setAttribute('webkit-playsinline', 'true');
+      audio.onended = () => { if (onEnd) onEnd(); };
+      audio.onerror = () => { if (onEnd) onEnd(); };
+      const p = audio.play();
+      if (p && p.catch) p.catch(() => { if (onEnd) onEnd(); });
+    }
+
+    function speakChineseAndRussian(card) {
+      window.speechSynthesis.cancel();
+      const hanziText = card.dataset.hanziAudio;
+      const key = card.dataset.key;
+      const russianEl = card.querySelector('.russian');
+      const russianText = russianEl ? russianEl.textContent : card.dataset.russianAudio;
+
+      const utter1 = new SpeechSynthesisUtterance(hanziText);
+      utter1.lang = 'zh-CN';
+      utter1.rate = 0.7;
+      utter1.pitch = 1.0;
+      utter1.volume = 1.0;
+      const chVoice = getChineseVoice();
+      if (chVoice) utter1.voice = chVoice;
+
+      let spoken = false;
+      function speakTranslationOnce() {
+        if (spoken) return;
+        spoken = true;
+        if (recordedAudios[key]) {
+          playRecorded(key, null);
+        } else {
+          speakRussian(russianText);
+        }
+      }
+
+      utter1.onend = () => setTimeout(speakTranslationOnce, 1000);
+      utter1.onerror = () => setTimeout(speakTranslationOnce, 1000);
+      window.speechSynthesis.speak(utter1);
+    }
+
+    function clearActive() { cards.forEach(c => c.classList.remove('active')); }
+
+    loadSavedRecordings();
+    createNumberButtons();
+    cards.forEach(card => updateCardIndicator(card));
 
     cards.forEach(card => {
       card.addEventListener('click', function(e) {
+        if (e.target.closest('.rec-num')) return;
         e.stopPropagation();
-        const wasActive = this.classList.contains('active');
+        window.speechSynthesis.cancel();
         clearActive();
-        if (wasActive) {
-          display.classList.add('empty');
-          display.innerHTML = '👆 нажми на карточку';
-          return;
-        }
         this.classList.add('active');
-
-        const hanzi = this.dataset.hanzi || '';
-        const russian = this.dataset.russian || '';
-        const cardColor = getComputedStyle(this).getPropertyValue('--card-color').trim();
-
-        display.classList.remove('empty');
-        display.classList.add('active');
-        if (cardColor) {
-          display.style.background = cardColor;
-          display.style.color = '#ffffff';
-        } else {
-          display.style.background = '';
-          display.style.color = '';
-        }
-        display.innerHTML =
-          '<span class="disp-hanzi">' + hanzi + '</span>' +
-          '<span class="disp-arrow">→</span>' +
-          '<span class="disp-russian">' + russian + '</span>';
+        setTimeout(() => speakChineseAndRussian(this), 60);
       });
     });
 
     document.addEventListener('click', function(e) {
-      if (!e.target.closest('.card') && !e.target.closest('#russianDisplay')) {
+      if (!e.target.closest('.card') && !e.target.closest('.rec-panel')) {
+        window.speechSynthesis.cancel();
         clearActive();
-        display.classList.add('empty');
-        display.style.background = '';
-        display.style.color = '';
-        display.innerHTML = '👆 нажми на карточку';
       }
     });
+
+    window.speechSynthesis.getVoices();
+    window.speechSynthesis.onvoiceschanged = () => window.speechSynthesis.getVoices();
   })();
 </script>
 
